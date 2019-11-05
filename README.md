@@ -63,6 +63,8 @@ Dienstleister verwaltet.
 - Gäste sollen auch Einkaufswagen haben.
 - Uhren bestehen aus mehreren Teilen: Armband, Gehäuse und Ziffernblatt, die als eigene Klassen modelliert werden sollen. Vererbung sinnvoll?
 - Klassendiagramme sind schwer von ER-Modellen abzugrenzen
+- Daten nur auf Datenbank-Ebene oder auch direkt in Java?
+- Java Klassen würden Daten aus Datenbank holen und diese dann nur verarbeiten?!
 
 
 
