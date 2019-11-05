@@ -65,7 +65,7 @@ Dienstleister verwaltet.
 - Klassendiagramme sind schwer von ER-Modellen abzugrenzen
 - Daten nur auf Datenbank-Ebene oder auch direkt in Java?
 - Java Klassen würden Daten aus Datenbank holen und diese dann nur verarbeiten?!
-- Keine Smartwatches/Digitaluhren
+- Preisklasse 100-50.000€
 
 
 
