@@ -2,7 +2,6 @@
 ## Über uns
 ### Teammitglieder
 Anton Bespalov, Michael Hopp, Tom Käppler
-...
 ## HowTo
 
 # Requirements Engineering: Online Shop "WatchMyWatch"
