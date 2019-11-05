@@ -58,15 +58,13 @@ Dienstleister verwaltet.
 ## Protokoll
 
 ### 05.11.
-- Login: Passwort soll mit Hashwerten kodiert werden.
+- Login: Passwort soll mit Hashwerten kodiert werden. [Link dazu](https://howtodoinjava.com/security/aes-256-encryption-decryption/)
 - Gäste sollen auch Einkaufswagen haben.
 - Uhren bestehen aus mehreren Teilen: Armband, Gehäuse und Ziffernblatt, die als eigene Klassen modelliert werden sollen. Vererbung sinnvoll?
 - Klassendiagramme sind schwer von ER-Modellen abzugrenzen
 - Daten nur auf Datenbank-Ebene oder auch direkt in Java?
 - Java Klassen würden Daten aus Datenbank holen und diese dann nur verarbeiten?!
 - Preisklasse 100-50.000€
-
-
 
 
 
