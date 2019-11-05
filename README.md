@@ -20,7 +20,6 @@ Login, Registrierung, "Kauf", Warenkorb füllen, Produkte filtern, ...
 ### Klassen
 Product, Order, User, Vendor, Preis, Warenkorb, ...
 
-
 ## Anforderungsbeschreibung(Grob)
 Es soll ein Online Shop entwickelt werden, über den Armbanduhren verschiedener Preisklassen von Herstellern 
 auf einer Website dargestellt und vertrieben werden. Käufer müssen sich zum Bestellen einen Account in unserer 
@@ -55,3 +54,18 @@ weiterleitet.
 
 4. Arbeitszeiterfassungsystem: Informationen in Bezug auf Arbeits- und Urlaubszeiten des Personals werden von einem externen
 Dienstleister verwaltet.
+
+
+## Protokoll
+
+### 05.11.
+- Login: Passwort soll mit Hashwerten kodiert werden.
+- Gäste sollen auch Einkaufswagen haben.
+- Uhren bestehen aus mehreren Teilen: Armband, Gehäuse und Ziffernblatt, die als eigene Klassen modelliert werden sollen. Vererbung sinnvoll?
+- Klassendiagramme sind schwer von ER-Modellen abzugrenzen
+
+
+
+
+
+
