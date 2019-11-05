@@ -5,6 +5,10 @@
 
 # Requirements Engineering: Online Shop "WatchMyWatch"
 
+## Teammitglieder
+Anton Bespalov, Michael Hopp, Tom Käppler
+## [UML Klassendiagramm](https://www.lucidchart.com/invitations/accept/8876c528-b94f-460d-b4bf-f28249aa68e6) #1
+[Beispieldiagramm](https://www.uml-diagrams.org/examples/online-shopping-domain-uml-diagram-example.html "Vorlage")
 ### Produkte
 Armbanduhren verschiedener Preisklassen
 
