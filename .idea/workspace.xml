@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b80cb035-c911-47b2-9312-ae1bcdad6d93" name="Default Changelist" comment="" />
+    <list default="true" id="b80cb035-c911-47b2-9312-ae1bcdad6d93" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/OrderItems.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Payment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Shoppingcart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/AccountTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/CustomerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/LoginTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/OrderItemsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/OrderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/Payment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/ShoppingcartTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/domain/watch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Watch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/watchmywatch/domain/watchtest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/WatchTest.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +37,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1SpYiKzdscXXzwAKlIOjjqNeJ7N" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -51,6 +72,8 @@
       <option name="presentableId" value="Default" />
       <updated>1572262129776</updated>
       <workItem from="1572262132038" duration="1340000" />
+      <workItem from="1573144932990" duration="539000" />
+      <workItem from="1573145516651" duration="1090000" />
     </task>
     <servers />
   </component>
@@ -62,7 +85,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
