@@ -36,9 +36,7 @@ Personals sollen in der Personalverwaltung beschrieben werden(Wer arbeitet wo?).
 
 2. Accountverwaltung: Käuferdaten, Registrierung, Login.
 
-3. Lagerverwaltung: Inventar+"Einkaufsliste", Herstellerdaten, Versand: Was, Wann, an Wen? 
-
-4. Personalverwaltung Stammdaten von Admins, Contentmanager, Lagerarbeiter, Analysten und Support(Hotline).
+3. Lagerverwaltung: Inventar, Herstellerdaten, Versand: Was, Wann, an Wen? 
 
 ## Abgrenzung(Das System soll nicht:)
 1. Rechnungswesen: Das System soll keine Lohnzahlungen an Person, sowie Rechnungen und deren Abwicklung von Kunden- oder
@@ -51,8 +49,7 @@ Paypal o.Ä. weiter und erhält eine Status-Rückmeldung.
 3. Lieferung: Über externe Lieferdienste denen das System die benötigten Informationen
 weiterleitet.
 
-4. Arbeitszeiterfassungsystem: Informationen in Bezug auf Arbeits- und Urlaubszeiten des Personals werden von einem externen
-Dienstleister verwaltet.
+4. Personalverwaltung Stammdaten von Admins, Contentmanager, Lagerarbeiter, Analysten und Support(Hotline, Arbeitszeiterfassungsystem: Informationen in Bezug auf Arbeits- und Urlaubszeiten des Personals werden von einem externen Dienstleister verwaltet.
 
 
 ## Protokoll
