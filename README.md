@@ -63,6 +63,15 @@ weiterleitet.
 - Java Klassen würden Daten aus Datenbank holen und diese dann nur verarbeiten?!
 - Preisklasse 100-50.000€
 
-
+### 12.11
+ - Manufacurer hinzugefügt
+ - Watchpart hinzugefügt 
+ - ManufacturerPartID hinzugefüggt, damit man mit ihr und dem Namen Einzelteile nachbestellen kann
+ - Uhrenwerk und Gehäuse vielleicht nur zusammen verkaufen?
+ - Uhren zusammenbauen kostet Geld, bei einem Preis von unter 2000 Euro kostet das Zusammenbauen 10% vom Uhrenpreis, über 2000 Euro  
+ - kostet das Zusammenbauen 200 Euro
+ - Adresse kriegt eigene Klasse
+ - Phone wird einfach ein String sein und keine Klasse mehr
+ - UML-Klassendiagramm verändert
 
 
