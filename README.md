@@ -73,5 +73,6 @@ weiterleitet.
  - Adresse kriegt eigene Klasse
  - Phone wird einfach ein String sein und keine Klasse mehr
  - UML-Klassendiagramm verändert
-
+ - http://www.appsdeveloperblog.com/encrypt-user-password-example-java/ für Login zum verschlüsseln des Passworts
+ - 
 
