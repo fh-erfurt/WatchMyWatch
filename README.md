@@ -63,7 +63,7 @@ weiterleitet.
 - Java Klassen würden Daten aus Datenbank holen und diese dann nur verarbeiten?!
 - Preisklasse 100-50.000€
 
-### 12.11
+### 12.11.
  - Manufacurer hinzugefügt
  - Watchpart hinzugefügt 
  - ManufacturerPartID hinzugefüggt, damit man mit ihr und dem Namen Einzelteile nachbestellen kann
@@ -74,5 +74,20 @@ weiterleitet.
  - Phone wird einfach ein String sein und keine Klasse mehr
  - UML-Klassendiagramm verändert
  - http://www.appsdeveloperblog.com/encrypt-user-password-example-java/ für Login zum verschlüsseln des Passworts
- - 
-
+ ### 19.11.
+ - Für Konfigurator sollen noch extra Uhrenkomponenten aufgenommen werden: Ziffernblatt, Zeiger, ... Erweiterbares Modell.
+ - Rahmenklasse Shop, der Produkte(Watches und Watchparts), Adressen, Bestellungen und Accounts beinhält.
+ - Welchen Container für Watchparts in Shop? Multimap? Brauchen Typunterscheidungen der Teile. [Arraylist Multimap?](https://github.com/google/guava/wiki/NewCollectionTypesExplained)
+ - Orders in Account als List zu speichern.
+ - Methoden deklarieren: Bei keiner Klasse darf es ID-Setter-Methoden geben -> Werden im Konstruktor gesetzt.
+ - Enums OrderStatus und ShippingStatus zu ergänzen?
+ - Lieferung abgrenzen: Höchstens Lieferstatus abfragen(Post API) oder selber Fälle erfinden (Random Wartezeit in Sekunden zur         Andeutung).
+ - Shopdaten(Bestellungen, Accounts, usw) per JSON in Textdateien speichern? Anschlaulichkeit, Robustheit, ... Notwendig?
+ - Wo sind Infos über den Shop wie zB Inhaberinfo, Name des Shops, usw zu speichern?
+ 
+ 
+ 
+ 
+ 
+ 
+ 
