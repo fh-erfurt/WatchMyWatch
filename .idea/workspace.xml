@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b80cb035-c911-47b2-9312-ae1bcdad6d93" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/OrderItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Shoppingcart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Shoppingcart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Watch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Watch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Watchpart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Watchpart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/AccountTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/CustomerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/LoginTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/OrderItemsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/OrderTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/Payment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/ShoppingcartTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/WatchTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/watchmywatch/shop/WatchpartTest.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +81,8 @@
       <workItem from="1574075974917" duration="873000" />
       <workItem from="1574087547857" duration="35000" />
       <workItem from="1574165285648" duration="947000" />
+      <workItem from="1574166732007" duration="4000" />
+      <workItem from="1574181216403" duration="2282000" />
     </task>
     <servers />
   </component>
