@@ -84,6 +84,7 @@ weiterleitet.
  - Lieferung abgrenzen: Höchstens Lieferstatus abfragen(Post API) oder selber Fälle erfinden (Random Wartezeit in Sekunden zur         Andeutung).
  - Shopdaten(Bestellungen, Accounts, usw) per JSON in Textdateien speichern? Anschlaulichkeit, Robustheit, ... Notwendig?
  - Wo sind Infos über den Shop wie zB Inhaberinfo, Name des Shops, usw zu speichern?
+ - Wir nutzen Github Desktop als Brücke zwischen Versionskontrolle und IntelliJ.
  
  
  
