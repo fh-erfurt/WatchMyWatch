@@ -55,29 +55,26 @@ weiterleitet.
 ## Protokoll
 
 ### 05.11.
-- Login: Passwort soll mit Hashwerten kodiert werden. [Link dazu](https://howtodoinjava.com/security/aes-256-encryption-decryption/)
 - Gäste sollen auch Einkaufswagen haben.
-- Uhren bestehen aus mehreren Teilen: Armband, Gehäuse und Ziffernblatt, die als eigene Klassen modelliert werden sollen. Vererbung sinnvoll?
+- Uhren bestehen aus mehreren Teilen: Armband, Gehäuse und Ziffernblatt, die als eigene Klassen modelliert werden sollen. Vererbung sinnvoll? !Ja, ist Sinnvoll
 - Klassendiagramme sind schwer von ER-Modellen abzugrenzen
-- Daten nur auf Datenbank-Ebene oder auch direkt in Java?
-- Java Klassen würden Daten aus Datenbank holen und diese dann nur verarbeiten?!
-- Preisklasse 100-50.000€
+- Daten nur auf Datenbank-Ebene oder auch direkt in Java? !In Java
+- Java Klassen würden Daten aus Datenbank holen und diese dann nur verarbeiten? !Java-Programm alleine
+- Preisklasse der Uhren: 100€ bis 50.000€
 
 ### 12.11.
- - Manufacurer hinzugefügt
- - Watchpart hinzugefügt 
- - ManufacturerPartID hinzugefüggt, damit man mit ihr und dem Namen Einzelteile nachbestellen kann
+ - Klasse Manufacturer, Watchpart, Address hinzugefügt
+ - WatchPart Attribut ManufacturerPartID hinzugefüggt, damit man mit ihr und dem Namen Einzelteile nachbestellen kann
  - Uhrenwerk und Gehäuse vielleicht nur zusammen verkaufen?
- - Uhren zusammenbauen kostet Geld, bei einem Preis von unter 2000 Euro kostet das Zusammenbauen 10% vom Uhrenpreis, über 2000 Euro  
- - kostet das Zusammenbauen 200 Euro
- - Adresse kriegt eigene Klasse
+ - Uhren zusammenbauen kostet Geld, bei einem Preis von unter 2000 Euro kostet das Zusammenbauen 10% vom Uhrenpreis, über 2000 Euro kostet das Zusammenbauen pauschal 200 Euro
  - Phone wird einfach ein String sein und keine Klasse mehr
  - UML-Klassendiagramm verändert
  - http://www.appsdeveloperblog.com/encrypt-user-password-example-java/ für Login zum verschlüsseln des Passworts
+ 
  ### 19.11.
- - Für den Konfigurator sollen noch extra Uhrenkomponenten aufgenommen werden: Ziffernblatt, Zeiger, ... Erweiterbares Modell.
+ - Für Konfigurator sollen noch extra Uhrenkomponenten aufgenommen werden: Ziffernblatt, Zeiger, ... Erweiterbares Modell.
  - Rahmenklasse Shop, der Produkte(Watches und Watchparts), Adressen, Bestellungen und Accounts beinhält.
- - Welchen Container für Watchparts in dem Shop? Multimap? Brauchen Typunterscheidungen der Teile. [Arraylist Multimap?](https://github.com/google/guava/wiki/NewCollectionTypesExplained)
+ - Welchen Container für Watchparts in Shop? Multimap? Brauchen Typunterscheidungen der Teile. [Arraylist Multimap?](https://github.com/google/guava/wiki/NewCollectionTypesExplained)
  - Orders in Account als List zu speichern.
  - Methoden deklarieren: Bei keiner Klasse darf es ID-Setter-Methoden geben -> Werden im Konstruktor gesetzt.
  - Enums OrderStatus und ShippingStatus zu ergänzen?
