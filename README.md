@@ -88,6 +88,7 @@ weiterleitet.
  - Customer erbt von Person
  - Idee: Gäste ohne Account kriegen keine ShoppingCard
  - ShoppingCardID bei ShoppingCrad wird rausgenommen
+ 
  -Zwischenpräsentation:
 
      - Zeigen wir Code bei der Zwischenpräsentation?
