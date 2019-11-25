@@ -83,8 +83,18 @@ weiterleitet.
  - Wo sind Infos über den Shop wie zB Inhaberinfo, Name des Shops, usw zu speichern?
  - Wir nutzen Github Desktop als Brücke zwischen Versionskontrolle und IntelliJ.
  
- 
- 
+ ### 25.11.
+ - Gäste sollen eine ShoppingCard kriegen, jedoch besteht das Problem, dass nicht angemeldete Gäste keine ShoppingCard kriegen können. 
+ - Customer erbt von Person
+ - Idee: Gäste ohne Account kriegen keine ShoppingCard
+ - ShoppingCardID bei ShoppingCrad wird rausgenommen
+  -Zwischenpräsentation:
+   - Zeigen wir Code bei der Zwischenpräsentation?
+   - Geschäftsregeln präsentieren die beschlossen wurden.
+   - Was geschieht als nächstes?
+   - Jeder kriegt Klassen zu denen er sich Methoden ausdenkt.
+   - Methoden in Code schreiben, danach UML-Klassendiagramm selbst erstellen lassen.
+   
  
  
  
