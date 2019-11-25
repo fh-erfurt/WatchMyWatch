@@ -89,7 +89,7 @@ weiterleitet.
  - Idee: Gäste ohne Account kriegen keine ShoppingCard
  - ShoppingCardID bei ShoppingCrad wird rausgenommen
  
-   -Zwischenpräsentation:
+ -Zwischenpräsentation:
     - Zeigen wir Code bei der Zwischenpräsentation?
     - Geschäftsregeln präsentieren die beschlossen wurden.
     - Was geschieht als nächstes?
