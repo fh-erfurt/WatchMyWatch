@@ -75,9 +75,9 @@ weiterleitet.
  - UML-Klassendiagramm verändert
  - http://www.appsdeveloperblog.com/encrypt-user-password-example-java/ für Login zum verschlüsseln des Passworts
  ### 19.11.
- - Für Konfigurator sollen noch extra Uhrenkomponenten aufgenommen werden: Ziffernblatt, Zeiger, ... Erweiterbares Modell.
+ - Für den Konfigurator sollen noch extra Uhrenkomponenten aufgenommen werden: Ziffernblatt, Zeiger, ... Erweiterbares Modell.
  - Rahmenklasse Shop, der Produkte(Watches und Watchparts), Adressen, Bestellungen und Accounts beinhält.
- - Welchen Container für Watchparts in Shop? Multimap? Brauchen Typunterscheidungen der Teile. [Arraylist Multimap?](https://github.com/google/guava/wiki/NewCollectionTypesExplained)
+ - Welchen Container für Watchparts in dem Shop? Multimap? Brauchen Typunterscheidungen der Teile. [Arraylist Multimap?](https://github.com/google/guava/wiki/NewCollectionTypesExplained)
  - Orders in Account als List zu speichern.
  - Methoden deklarieren: Bei keiner Klasse darf es ID-Setter-Methoden geben -> Werden im Konstruktor gesetzt.
  - Enums OrderStatus und ShippingStatus zu ergänzen?
