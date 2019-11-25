@@ -1,9 +1,10 @@
 package de.watchmywatch.shop;
 
+import java.math.BigDecimal;
+
 public class OrderItem
 {
     private int quantity;
-    private Decimal price;
-    //TODO no reference?
-    private Watch watch;
+    private BigDecimal price;
+    private String watchId;
 }

@@ -1,12 +1,14 @@
 package de.watchmywatch.shop;
 
+import java.math.BigDecimal;
+
 public class Watch
 {
     private String id;
     private String name;
-    private Decimal price;
+    private BigDecimal price;
     private String particularity;
-    private Decimal maxFee;
+    private BigDecimal maxFee;
     private int surchargePercentage;
     private Watchpart parts[];
 }

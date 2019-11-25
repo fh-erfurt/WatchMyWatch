@@ -1,13 +1,14 @@
 package de.watchmywatch.shop;
 
+import java.math.BigDecimal;
+
 public class Watchpart
 {
     private String id;
-    //TODO should be string? name of manufactuerer?
     private Manufacturer manufacturer;
-    private String manufactuererPartId;
+    private String manufacturerPartId;
     private Enum material;
     private int amountAvailable;
     private Enum partType;
-    private Decimal price;
+    private BigDecimal price;
 }

@@ -1,16 +1,17 @@
 package de.watchmywatch.shop;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Order
 {
     private String id;
-    private Date ordereed;
+    private Date ordered;
     private Date shipped;
-    private String addressId;
-    private Enum OrderStaus;
+    private String addressID;
+    private Enum OrderStatus;
     private Enum ShippingStatus;
-    private Decimal total;
+    private BigDecimal total;
     private Shoppingcart shoppingcart;
     private Payment payment;
 }
