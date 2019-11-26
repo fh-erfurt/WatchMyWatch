@@ -1,4 +1,4 @@
-package de.watchmywatch.shop;
+package de.watchmywatch.classes;
 
 import java.util.List;
 import java.util.Map;

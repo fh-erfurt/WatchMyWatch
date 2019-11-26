@@ -1,4 +1,4 @@
-package de.watchmywatch.shop;
+package de.watchmywatch.classes;
 
 public class Bracelet extends Watchpart
 {

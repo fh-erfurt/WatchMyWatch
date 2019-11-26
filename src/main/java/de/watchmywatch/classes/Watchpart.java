@@ -1,8 +1,4 @@
-package de.watchmywatch.shop;
-
-import de.watchmywatch.shop.ConnectionType;
-import de.watchmywatch.shop.PartType;
-import de.watchmywatch.shop.Material;
+package de.watchmywatch.classes;
 
 import java.math.BigDecimal;
 
