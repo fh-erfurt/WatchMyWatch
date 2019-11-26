@@ -2,12 +2,22 @@ package de.watchmywatch.shop;
 
 public class Manufacturer
 {
-    private String id;
+    private int id;
     private String name;
     private Person contactPerson;
-    private String addressID;
+    private int addressID;
+    private static int idCounter = 0;
 
-    public String getID()
+    public Manufacturer(String name, Person contactPerson, int addressID)
+    {
+        id = idCounter;
+        ++idCounter;
+        this.name = name;
+        this.contactPerson = contactPerson;
+        this.addressID = addressID;
+    }
+
+    public int getID()
     {
         return id;
     }
@@ -22,15 +32,9 @@ public class Manufacturer
         return contactPerson;
     }
 
-    public String getAddressID()
+    public int getAddressID()
     {
         return addressID;
-    }
-
-    //TODO should ID be autocreated -> autoincrement
-    public void setID(String id)
-    {
-        this.id = id;
     }
 
     public void setName(String name)
@@ -43,7 +47,7 @@ public class Manufacturer
         this.contactPerson = contactPerson;
     }
 
-    public void setAddressID(String addressID)
+    public void setAddressID(int addressID)
     {
         this.addressID = addressID;
     }

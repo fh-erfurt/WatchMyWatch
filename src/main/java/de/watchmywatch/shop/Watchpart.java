@@ -1,29 +1,37 @@
 package de.watchmywatch.shop;
 
 import de.watchmywatch.shop.ConnectionType;
+import de.watchmywatch.shop.PartType;
+import de.watchmywatch.shop.Material;
+
 import java.math.BigDecimal;
 
-//TODO create Enums for material and partType
-
-//TODO shouldnt this class be abstract as it always hast to be a casing/clockwork/bracelet -> yes it should be
-public class Watchpart
+public abstract class Watchpart
 {
-    private String id;
-    private Manufacturer manufacturer;
+    private int id;
+    private int manufacturerID;
     private String manufacturerPartId;
-    private Enum material;
+    private Material material;
     private int amountAvailable;
-    private Enum partType;
+    private PartType partType;
     private BigDecimal price;
+    private static int idCounter = 0;
 
-    public String getId()
+    public Watchpart()
+    {
+        id = idCounter;
+        ++idCounter;
+
+    }
+
+    public int getId()
     {
         return id;
     }
 
-    public Manufacturer getManufacturer()
+    public int getManufacturerID()
     {
-        return manufacturer;
+        return manufacturerID;
     }
 
     public String getManufacturerPartId()
@@ -31,7 +39,7 @@ public class Watchpart
         return manufacturerPartId;
     }
 
-    public Enum getMaterial()
+    public Material getMaterial()
     {
         return material;
     }
@@ -41,7 +49,7 @@ public class Watchpart
         return amountAvailable;
     }
 
-    public Enum getPartType()
+    public PartType getPartType()
     {
         return partType;
     }
@@ -51,14 +59,14 @@ public class Watchpart
         return price;
     }
 
-    public void setId(String id)
+    public void setId(int id)
     {
         this.id = id;
     }
 
-    public void setManufacturer(Manufacturer manufacturer)
+    public void setManufacturer(int manufacturerID)
     {
-        this.manufacturer = manufacturer;
+        this.manufacturerID = manufacturerID;
     }
 
     public void setManufacturerPartId(String manufacturerPartId)
@@ -66,7 +74,7 @@ public class Watchpart
         this.manufacturerPartId = manufacturerPartId;
     }
 
-    public void setMaterial(Enum material)
+    public void setMaterial(Material material)
     {
         this.material = material;
     }
@@ -76,7 +84,7 @@ public class Watchpart
         this.amountAvailable = amountAvailable;
     }
 
-    public void setPartType(Enum partType)
+    public void setPartType(PartType partType)
     {
         this.partType = partType;
     }

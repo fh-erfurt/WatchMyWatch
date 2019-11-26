@@ -2,11 +2,10 @@ package de.watchmywatch.shop;
 
 public class Bracelet extends Watchpart
 {
-    //TODO rename in UML
-    private String scope;
+    private double scope;
     private ConnectionType connection;
 
-    public String getScope()
+    public double getScope()
     {
         return scope;
     }
@@ -16,7 +15,7 @@ public class Bracelet extends Watchpart
         return connection;
     }
 
-    public void setScope(String scope)
+    public void setScope(double scope)
     {
         this.scope = scope;
     }
