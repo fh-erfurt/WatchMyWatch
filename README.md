@@ -102,7 +102,7 @@ weiterleitet.
 - Enum braceletconnection/casingconnection
 - ID Autoincrement, mit ausnahmen(Account)
 - Watchpart wird zu einer Abstraktenklasse
-
+- Shop-Klasse aufteilen? KLasse wird sonst zu groß -> unübersichtlich
  
  
  
