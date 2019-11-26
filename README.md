@@ -96,7 +96,13 @@ weiterleitet.
  - Jeder kriegt Klassen zu denen er sich Methoden ausdenkt.
  - Methoden in Code schreiben, danach UML-Klassendiagramm selbst erstellen lassen.
 
- 
+### 26.11.
+- Die Adressen speichern wir als Map
+- UML paar Namenänderungen
+- Enum braceletconnection/casingconnection
+- ID Autoincrement, mit ausnahmen(Account)
+- Watchpart wird zu einer Abstraktenklasse
+
  
  
  
