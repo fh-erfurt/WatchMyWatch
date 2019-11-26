@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b80cb035-c911-47b2-9312-ae1bcdad6d93" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Manufacturer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Bracelet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Casing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Clockwork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/ConnectionType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Manufacturer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Manufacturer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/OrderItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Shoppingcart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Shoppingcart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Watch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Watch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Watchpart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/watchmywatch/shop/Watchpart.java" afterDir="false" />
     </list>
@@ -22,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -33,13 +36,14 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../JavaFH" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -74,7 +78,8 @@
       <workItem from="1574166732007" duration="4000" />
       <workItem from="1574181216403" duration="2282000" />
       <workItem from="1574680763912" duration="34000" />
-      <workItem from="1574681165097" duration="1250000" />
+      <workItem from="1574681165097" duration="6497000" />
+      <workItem from="1574758634624" duration="984000" />
     </task>
     <servers />
   </component>
