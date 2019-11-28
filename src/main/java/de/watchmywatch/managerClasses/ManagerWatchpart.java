@@ -13,5 +13,6 @@ public class ManagerWatchpart
     {
         BigDecimal pri = new BigDecimal(4);
         Bracelet bracelet = new Bracelet(1, "Test", Material.ALUMINIUM, 1, PartType.BRACELET, pri, 1, ConnectionType.W31);
+        System.out.print(bracelet.getManufacturerPartId());
     }
 }
