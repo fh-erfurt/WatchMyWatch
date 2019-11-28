@@ -11,14 +11,7 @@ public abstract class Watchpart
     private int amountAvailable;
     private PartType partType;
     private BigDecimal price;
-    private static int idCounter = 0;
-
-    public Watchpart()
-    {
-        id = idCounter;
-        ++idCounter;
-
-    }
+    protected static int idCounter = 0;
 
     public int getId()
     {
@@ -60,7 +53,7 @@ public abstract class Watchpart
         this.id = id;
     }
 
-    public void setManufacturer(int manufacturerID)
+    public void setManufacturerID(int manufacturerID)
     {
         this.manufacturerID = manufacturerID;
     }
