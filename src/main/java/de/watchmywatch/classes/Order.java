@@ -2,6 +2,7 @@ package de.watchmywatch.classes;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import de.watchmywatch.classes.OrderStatus;
 
 public class Order
 {
@@ -9,68 +10,66 @@ public class Order
     private Date ordered;
     private Date shipped;
     private String addressID;
-    private Enum OrderStatus;
-    private Enum ShippingStatus;
+    private OrderStatus orderStatus;
+    private ShippingStatus shippingStatus;
     private BigDecimal total;
     private Shoppingcart shoppingcart;
     private Payment payment;
 
     Date getOrderDate(){
-    return this->ordered;
+    return this.ordered;
     }
-    // TODO
+    // TODO: additional logic needed here?
     void setOrderDate(Date date){
-    // additional logic needed here?
-    this->ordered = date;
+    this.ordered = date;
     }
 
     Date getShipDate(){
-    return this->shipped;
+    return this.shipped;
     }
     void setShipDate(Date date){
-    this->shipped =date;
+    this.shipped =date;
     }
 
     String getID(){
-    return this->id;
+    return this.id;
     }
     // No SetID -> ID is set only in constructor
 
     String getAddressID(){
-    return this->addressID;
+    return this.addressID;
     }
-    bool setAddressID(int newAddressID){
-    this->addressID = newAddressID;
-    }
-
-    // Todo: Create Enum Class OrderStatus
-    Enum getOrderStatus(){
-    return this->OrderStatus;
-    }
-    void setOrderStatus(Enum newOrderStatus){
-    this->OrderStatus = newOrderStatus;
+    void setAddressID(String newAddressID){
+    this.addressID = newAddressID;
     }
 
-    Enum getShippingStatus(){
-    return this->ShippingStatus;
+    OrderStatus getOrderStatus(){
+    return this.orderStatus;
     }
-    void setShippingStatus(Enum newShippingStatus){
-    this->ShippingStatus =newShippingStatus;
+    void setOrderStatus(OrderStatus newOrderStatus){
+    this.orderStatus = newOrderStatus;
+    }
+
+    ShippingStatus getShippingStatus(){
+    return this.shippingStatus;
+    }
+    void setshippingStatus(Enum newshippingStatus){
+    this.shippingStatus =newshippingStatus;
     }
 
     BigDecimal getTotal(){
-    return this->total;
+    return this.total;
     }
     // TODO: Create Method for calculating the sum of Prices of Orderitems to Total price of Order
 
     Shoppingcart getShoppingcart(){
     // Referenz?
-    return this->shoppingcart;
+    return this.shoppingcart;
     }
     // TODO: Method for setting a reasonable Shoppingcart to Order
 
     Payment getPayment(){
-    return this->payment;
+    return this.payment;
     }
     // TODO: Method for setting Payment
 }
