@@ -15,4 +15,9 @@ public class Account
     private Enum accountStatus;
     private Shoppingcart shoppingCart;
     private List<String> orders;
+
+    public String getId()
+    {
+        return id;
+    }
 }

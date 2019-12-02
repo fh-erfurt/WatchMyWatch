@@ -19,4 +19,9 @@ public abstract class Shop {
         temp = accounts.add(account);
         return temp;
     }
+    public boolean addWatch(Watch watch) {
+        boolean temp = false;
+        temp = watches.add(watch);
+        return temp;
+    }
 }
