@@ -1,8 +1,7 @@
-package de.watchmywatch.classes;
+package de.watchmywatch.Bestellungsverwaltung;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import de.watchmywatch.classes.OrderStatus;
 
 public class Order
 {
@@ -54,7 +53,7 @@ public class Order
     return this.shippingStatus;
     }
     void setshippingStatus(Enum newshippingStatus){
-    this.shippingStatus =newshippingStatus;
+    this.shippingStatus = newshippingStatus;
     }
 
     BigDecimal getTotal(){

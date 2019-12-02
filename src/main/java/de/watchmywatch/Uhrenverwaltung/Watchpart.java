@@ -1,4 +1,7 @@
-package de.watchmywatch.classes;
+package de.watchmywatch.Uhrenverwaltung;
+
+import de.watchmywatch.Uhrenverwaltung.Material;
+import de.watchmywatch.Uhrenverwaltung.PartType;
 
 import java.math.BigDecimal;
 

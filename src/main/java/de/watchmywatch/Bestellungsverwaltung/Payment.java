@@ -1,4 +1,4 @@
-package de.watchmywatch.classes;
+package de.watchmywatch.Bestellungsverwaltung;
 
 import java.math.BigDecimal;
 import java.util.Date;

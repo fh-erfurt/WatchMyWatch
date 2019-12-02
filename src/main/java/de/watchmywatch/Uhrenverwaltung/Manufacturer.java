@@ -1,4 +1,6 @@
-package de.watchmywatch.classes;
+package de.watchmywatch.Uhrenverwaltung;
+
+import de.watchmywatch.Accounterwaltung.Person;
 
 public class Manufacturer
 {

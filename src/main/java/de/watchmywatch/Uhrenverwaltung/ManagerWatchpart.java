@@ -1,9 +1,9 @@
-package de.watchmywatch.managerClasses;
+package de.watchmywatch.Uhrenverwaltung;
 
-import de.watchmywatch.classes.Bracelet;
-import de.watchmywatch.classes.ConnectionType;
-import de.watchmywatch.classes.Material;
-import de.watchmywatch.classes.PartType;
+import de.watchmywatch.Uhrenverwaltung.Bracelet;
+import de.watchmywatch.Uhrenverwaltung.ConnectionType;
+import de.watchmywatch.Uhrenverwaltung.Material;
+import de.watchmywatch.Uhrenverwaltung.PartType;
 
 import java.math.BigDecimal;
 

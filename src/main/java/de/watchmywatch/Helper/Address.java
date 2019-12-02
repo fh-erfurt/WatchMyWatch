@@ -1,4 +1,4 @@
-package de.watchmywatch.classes;
+package de.watchmywatch.Helper;
 
 public class Address
 {

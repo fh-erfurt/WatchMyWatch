@@ -1,4 +1,6 @@
-package de.watchmywatch.classes;
+package de.watchmywatch.Accounterwaltung;
+
+import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 
 import java.util.Date;
 import java.util.List;
