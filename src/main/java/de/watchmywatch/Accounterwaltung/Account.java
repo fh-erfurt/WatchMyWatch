@@ -1,5 +1,6 @@
 package de.watchmywatch.Accounterwaltung;
 
+import de.watchmywatch.Bestellungsverwaltung.OrderItem;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 
 import java.util.Date;
@@ -17,6 +18,30 @@ public class Account
     private Enum accountStatus;
     private Shoppingcart shoppingCart;
     private List<String> orders;
+
+    public void updateSecurePasswordById(String id, String newPassword)
+    {
+    }
+
+    public void updateBillingAddressById(String id, String newAddress)
+    {
+    }
+
+    public void updateDefaultPaymentMethodById(String id, Enum newPaymentMethod)
+    {
+    }
+
+    public void updateAccountStatusById(String id, Enum newAccountStatus)
+    {
+    }
+
+    public void updateShoppingCartById(String id, OrderItem item)
+    {
+    }
+
+    public void updateOrdersById(String id, String newOrder)
+    {
+    }
 
     public String getId()
     {
