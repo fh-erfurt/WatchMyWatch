@@ -7,10 +7,10 @@ public class Clockwork extends Watchpart
     private double diameter;
 
     public Clockwork(int manufacturerID, String manufacturerPartID,
-                     Material material, int amountAvailable, PartType partType,
+                     Material material, int amountAvailable,
                      BigDecimal price, double diameter)
     {
-        super(manufacturerID, manufacturerPartID, material, amountAvailable, partType, price);
+        super(manufacturerID, manufacturerPartID, material, amountAvailable, PartType.CLOCKWORK, price);
         this.diameter = diameter;
     }
 

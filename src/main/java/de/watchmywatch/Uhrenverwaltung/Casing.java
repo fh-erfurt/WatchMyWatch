@@ -9,10 +9,10 @@ public class Casing extends Watchpart
     private ConnectionType connection;
 
     public Casing(int manufacturerID, String manufacturerPartID,
-                  Material material, int amountAvailable, PartType partType,
-                  BigDecimal price, double outerDiameter, double innerDiameter, ConnectionType connection)
+                  Material material, int amountAvailable, BigDecimal price,
+                  double outerDiameter, double innerDiameter, ConnectionType connection)
     {
-        super(manufacturerID, manufacturerPartID, material, amountAvailable, partType, price);
+        super(manufacturerID, manufacturerPartID, material, amountAvailable, PartType.CASING, price);
         this.outerDiameter = outerDiameter;
         this.innerDiameter = innerDiameter;
         this.connection = connection;
