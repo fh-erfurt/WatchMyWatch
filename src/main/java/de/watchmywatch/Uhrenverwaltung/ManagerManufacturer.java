@@ -8,13 +8,13 @@ import java.util.Map;
 
 public class ManagerManufacturer
 {
-    private static Map<Integer, Manufacturer> manufacturers = new HashMap<Integer, Manufacturer>();
+    private static Map<Integer, Manufacturer> manufacturerMap = new HashMap<Integer, Manufacturer>();
     private static int idCounter = 1;
 
     public int howManyManufacturers()
     {
         int i = 0;
-        for (Map.Entry<Integer, Manufacturer> entry : manufacturers.entrySet())
+        for (Map.Entry<Integer, Manufacturer> entry : manufacturerMap.entrySet())
         {
             ++i;
         }
@@ -26,7 +26,7 @@ public class ManagerManufacturer
     {
         try
         {
-            manufacturers.put(idCounter, manufacturer);
+            manufacturerMap.put(idCounter, manufacturer);
             ++idCounter;
         }
         catch (Exception e)
@@ -41,7 +41,7 @@ public class ManagerManufacturer
     {
         try
         {
-            manufacturers.put(idCounter, new Manufacturer(name, contactPerson, addressID));
+            manufacturerMap.put(idCounter, new Manufacturer(name, contactPerson, addressID));
             ++idCounter;
         }
         catch (Exception e)
@@ -55,7 +55,7 @@ public class ManagerManufacturer
     {
         try
         {
-            manufacturers.remove(id);
+            manufacturerMap.remove(id);
         }
         catch (Exception e)
         {
@@ -69,11 +69,11 @@ public class ManagerManufacturer
     {
         try
         {
-            for (Map.Entry<Integer, Manufacturer> entry : manufacturers.entrySet())
+            for (Map.Entry<Integer, Manufacturer> entry : manufacturerMap.entrySet())
             {
                 if (entry.getValue().getName().equals(name))
                 {
-                    manufacturers.remove(entry.getKey());
+                    manufacturerMap.remove(entry.getKey());
                 }
             }
         }
@@ -89,7 +89,7 @@ public class ManagerManufacturer
     {
         try
         {
-            return manufacturers.get(id);
+            return manufacturerMap.get(id);
         }
         catch (Exception e)
         {
@@ -103,7 +103,7 @@ public class ManagerManufacturer
     {
         try
         {
-            for (Map.Entry<Integer, Manufacturer> entry : manufacturers.entrySet())
+            for (Map.Entry<Integer, Manufacturer> entry : manufacturerMap.entrySet())
             {
                 if (entry.getValue().getName().equals(name))
                 {
@@ -122,7 +122,7 @@ public class ManagerManufacturer
     {
         try
         {
-            manufacturers.get(id).setContactPerson(contactPerson);
+            manufacturerMap.get(id).setContactPerson(contactPerson);
         }
         catch (Exception e)
         {
@@ -135,7 +135,7 @@ public class ManagerManufacturer
     {
         try
         {
-            manufacturers.get(id).setAddressID(addressID);
+            manufacturerMap.get(id).setAddressID(addressID);
         }
         catch (Exception e)
         {

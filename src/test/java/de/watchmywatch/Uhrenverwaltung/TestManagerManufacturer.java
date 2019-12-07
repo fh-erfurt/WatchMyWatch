@@ -1,9 +1,7 @@
 package de.watchmywatch.Uhrenverwaltung;
 
 import de.watchmywatch.Accounterwaltung.Person;
-import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
-import org.junit.runners.MethodSorters;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
