@@ -4,25 +4,22 @@ import java.math.BigDecimal;
 
 public class Watch
 {
-    private int id;
+//    private int id;
     private String name;
     private BigDecimal price;
     private String particularity;
     private BigDecimal maxFee;
     private int surchargePercentage;
-    private Watchpart[] parts = new Watchpart[3];
-    private static int idCounter = 0;
+    //array of watchpartIDs
+    private int[] parts = new int[3];
+    //private static int idCounter = 0;
 
-    public Watch()
-    {
-        id = idCounter;
-        ++idCounter;
-    }
 
-    public int getId()
-    {
-        return id;
-    }
+
+//    public int getId()
+//    {
+//        return id;
+//    }
 
     public String getName()
     {
@@ -49,15 +46,15 @@ public class Watch
         return surchargePercentage;
     }
 
-    public Watchpart[] getParts()
+    public int[] getParts()
     {
         return parts;
     }
 
-    public void setId(int id)
-    {
-        this.id = id;
-    }
+//    public void setId(int id)
+//    {
+//        this.id = id;
+//    }
 
     public void setName(String name)
     {
@@ -84,7 +81,7 @@ public class Watch
         this.surchargePercentage = surchargePercentage;
     }
 
-    public void setParts(Watchpart[] parts)
+    public void setParts(int[] parts)
     {
         this.parts = parts;
     }

@@ -4,25 +4,27 @@ import de.watchmywatch.Accounterwaltung.Person;
 
 public class Manufacturer
 {
-    private int id;
+    //move to manager class in hashmap
+    //private int id;
     private String name;
     private Person contactPerson;
     private int addressID;
-    private static int idCounter = 0;
+    //private static int idCounter = 0;
 
     public Manufacturer(String name, Person contactPerson, int addressID)
     {
-        id = idCounter;
-        ++idCounter;
+        //move to manager class in hashmap
+        //id = idCounter;
+        //++idCounter;
         this.name = name;
         this.contactPerson = contactPerson;
         this.addressID = addressID;
     }
 
-    public int getID()
-    {
-        return id;
-    }
+//    public int getID()
+//    {
+//        return id;
+//    }
 
     public String getName()
     {

@@ -7,19 +7,21 @@ import java.math.BigDecimal;
 
 public abstract class Watchpart
 {
-    private int id;
+    //TODO remove id as it will be managed by the map in the ManagerClass
+    //private int id;
     private int manufacturerID;
+    //contains the ID which was given by the original manufacturer so we could order it directly when we are out of stock
     private String manufacturerPartId;
+    //contains the main material of which the part consists
     private Material material;
+    //contains the stock we currently have
     private int amountAvailable;
     private PartType partType;
+    //contains price which the part alone costs
     private BigDecimal price;
-    protected static int idCounter = 0;
 
-    public int getId()
-    {
-        return id;
-    }
+    //remove idCounter because same reason as for id
+    //protected static int idCounter = 0;
 
     public int getManufacturerID()
     {
@@ -49,11 +51,6 @@ public abstract class Watchpart
     public BigDecimal getPrice()
     {
         return price;
-    }
-
-    public void setId(int id)
-    {
-        this.id = id;
     }
 
     public void setManufacturerID(int manufacturerID)
