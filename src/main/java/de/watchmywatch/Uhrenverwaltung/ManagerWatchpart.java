@@ -1,27 +1,19 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-import de.watchmywatch.Uhrenverwaltung.Watchpart;
-import de.watchmywatch.Uhrenverwaltung.ConnectionType;
-import de.watchmywatch.Uhrenverwaltung.Material;
-import de.watchmywatch.Uhrenverwaltung.PartType;
-
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ManagerWatchpart
 {
-    //TODO is HashMap the right MultiMap
-    private static Map<Integer, Watchpart> watchparts = new HashMap<Integer, Watchpart>();
+    private static Map<Integer, Watchpart> watchpartMap = new HashMap<Integer, Watchpart>();
     private static int idCounter = 1;
 
     public boolean addWatchpart(Watchpart watchpart)
     {
-        //TODO What should happen if the exact same Watchpart is already there
-        //Should we even check if the exactly same Watchpart is already instanciated?
         try
         {
-            watchparts.put(idCounter, watchpart);
+            watchpartMap.put(idCounter, watchpart);
             ++idCounter;
         }
         catch (Exception e)
@@ -31,11 +23,24 @@ public class ManagerWatchpart
         return true;
     }
 
+    //returns null if no Watchpart is found
+    public Watchpart getWatchpartByID(int id)
+    {
+        try
+        {
+            return watchpartMap.get(id);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
     public boolean removeWatchpartByID(Integer id)
     {
         try
         {
-            watchparts.remove(id);
+            watchpartMap.remove(id);
         }
         catch (Exception e)
         {
@@ -60,7 +65,7 @@ public class ManagerWatchpart
     {
         try
         {
-            watchparts.get(id).setPrice(newPrice);
+            watchpartMap.get(id).setPrice(newPrice);
         }
         catch (Exception e)
         {
@@ -73,7 +78,7 @@ public class ManagerWatchpart
     {
         try
         {
-            watchparts.get(id).setManufacturerID(manufacturerID);
+            watchpartMap.get(id).setManufacturerID(manufacturerID);
         }
         catch (Exception e)
         {
@@ -86,7 +91,7 @@ public class ManagerWatchpart
     {
         try
         {
-            watchparts.get(id).setManufacturerPartId(manufacturerPartID);
+            watchpartMap.get(id).setManufacturerPartId(manufacturerPartID);
         }
         catch (Exception e)
         {
@@ -99,12 +104,24 @@ public class ManagerWatchpart
     {
         try
         {
-            watchparts.get(id).setAmountAvailable(amountAvailable);
+            watchpartMap.get(id).setAmountAvailable(amountAvailable);
         }
         catch (Exception e)
         {
             return false;
         }
         return true;
+    }
+
+    public int amountOfWatchpartsInMap()
+    {
+        return watchpartMap.size();
+    }
+
+    protected void resetClass()
+    {
+        System.out.println("Cleared class ");
+        watchpartMap.clear();
+        idCounter = 1;
     }
 }

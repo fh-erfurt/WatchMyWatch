@@ -1,14 +1,10 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-import de.watchmywatch.Uhrenverwaltung.Material;
-import de.watchmywatch.Uhrenverwaltung.PartType;
-
 import java.math.BigDecimal;
 
 public abstract class Watchpart
 {
-
-    private int id;
+    //private int id;
     private int manufacturerID;
     //contains the ID which was given by the original manufacturer so we could order it directly when we are out of stock
     private String manufacturerPartID;
@@ -19,14 +15,14 @@ public abstract class Watchpart
     private PartType partType;
     //contains price which the part alone costs
     private BigDecimal price;
-    protected static int idCounter = 0;
+    //protected static int idCounter = 0;
 
     protected Watchpart(int manufacturerID, String manufacturerPartID,
                         Material material, int amountAvailable, PartType partType,
                         BigDecimal price)
     {
-        this.id = idCounter;
-        ++idCounter;
+//        this.id = idCounter;
+//        ++idCounter;
 
         this.manufacturerID = manufacturerID;
         this.manufacturerPartID = manufacturerPartID;
@@ -36,15 +32,15 @@ public abstract class Watchpart
         this.price = price;
     }
 
-    public int getID()
-    {
-        return id;
-    }
-
-    public void setID(int id)
-    {
-        this.id = id;
-    }
+//    public int getID()
+//    {
+//        return id;
+//    }
+//
+//    public void setID(int id)
+//    {
+//        this.id = id;
+//    }
 
     public int getManufacturerID()
     {

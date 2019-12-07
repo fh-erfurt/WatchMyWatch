@@ -4,26 +4,34 @@ import java.math.BigDecimal;
 
 public class Watch
 {
-//    private int id;
     private String name;
     private BigDecimal price;
     private String particularity;
     private BigDecimal maxFee;
     private int surchargePercentage;
-    //array of watchpartIDs
-    private int[] parts = new int[3];
-    //private static int idCounter = 0;
+    //partIDs in the following order: Bracelet, Casing, Clockwork
+    private int[] partIDs = new int[3];
 
-
-
-//    public int getId()
-//    {
-//        return id;
-//    }
+    //partIDs in the following order: Bracelet, Casing, Clockwork
+    public Watch(String name, BigDecimal price, String particularity, BigDecimal maxFee,
+                 int surchargePercentage, int[] partIDs)
+    {
+        this.name = name;
+        this.price = price;
+        this.particularity = particularity;
+        this.maxFee = maxFee;
+        this.surchargePercentage = surchargePercentage;
+        this.partIDs = partIDs;
+    }
 
     public String getName()
     {
         return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
     }
 
     public BigDecimal getPrice()
@@ -31,39 +39,14 @@ public class Watch
         return price;
     }
 
-    public String getParticularity()
-    {
-        return particularity;
-    }
-
-    public BigDecimal getMaxFee()
-    {
-        return maxFee;
-    }
-
-    public int getSurchargePercentage()
-    {
-        return surchargePercentage;
-    }
-
-    public int[] getParts()
-    {
-        return parts;
-    }
-
-//    public void setId(int id)
-//    {
-//        this.id = id;
-//    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
     public void setPrice(BigDecimal price)
     {
         this.price = price;
+    }
+
+    public String getParticularity()
+    {
+        return particularity;
     }
 
     public void setParticularity(String particularity)
@@ -71,9 +54,19 @@ public class Watch
         this.particularity = particularity;
     }
 
+    public BigDecimal getMaxFee()
+    {
+        return maxFee;
+    }
+
     public void setMaxFee(BigDecimal maxFee)
     {
         this.maxFee = maxFee;
+    }
+
+    public int getSurchargePercentage()
+    {
+        return surchargePercentage;
     }
 
     public void setSurchargePercentage(int surchargePercentage)
@@ -81,8 +74,8 @@ public class Watch
         this.surchargePercentage = surchargePercentage;
     }
 
-    public void setParts(int[] parts)
+    public int[] getPartIDs()
     {
-        this.parts = parts;
+        return partIDs;
     }
 }
