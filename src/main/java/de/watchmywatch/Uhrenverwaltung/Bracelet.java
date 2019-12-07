@@ -11,13 +11,7 @@ public class Bracelet extends Watchpart
                     Material material, int amountAvailable, PartType partType,
                     BigDecimal price, double size, ConnectionType connection)
     {
-        setManufacturerID(manufacturerID);
-        setManufacturerPartId(manufacturerPartID);
-        setMaterial(material);
-        setAmountAvailable(amountAvailable);
-        setPartType(partType);
-        setPrice(price);
-
+        super(manufacturerID, manufacturerPartID, material, amountAvailable, partType, price);
         this.size = size;
         this.connection = connection;
     }
