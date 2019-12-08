@@ -3,9 +3,13 @@ package de.watchmywatch.Uhrenverwaltung;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class ManagerWatchpart
 {
+    private final static Logger log = Logger.getLogger(ManagerWatchpart.class.getName());
     private static Map<Integer, Watchpart> watchpartMap = new HashMap<Integer, Watchpart>();
     private static int idCounter = 1;
 
@@ -15,9 +19,11 @@ public class ManagerWatchpart
         {
             watchpartMap.put(idCounter, watchpart);
             ++idCounter;
+            log.info("Added Watchpart");
         }
         catch (Exception e)
         {
+            log.log(Level.SEVERE, "Failed to add watchpart", e);
             return false;
         }
         return true;
@@ -41,9 +47,11 @@ public class ManagerWatchpart
         try
         {
             watchpartMap.remove(id);
+            log.info("Removed watchpart");
         }
         catch (Exception e)
         {
+            log.log(Level.SEVERE, "Failed to remove watchpart", e);
             return false;
         }
         return true;
@@ -53,9 +61,11 @@ public class ManagerWatchpart
     {
         try
         {
+            log.info("Removed watchpart");
         }
         catch (Exception e)
         {
+            log.log(Level.SEVERE, "Failed to add watchpart", e);
             return false;
         }
         return true;
@@ -120,7 +130,7 @@ public class ManagerWatchpart
 
     protected void resetClass()
     {
-        System.out.println("Cleared class ");
+        log.info("Cleared the class");
         watchpartMap.clear();
         idCounter = 1;
     }
