@@ -49,7 +49,7 @@ Paypal o.Ä. weiter und erhält eine Status-Rückmeldung.
 3. Lieferung: Über externe Lieferdienste denen das System die benötigten Informationen
 weiterleitet.
 
-4. Personalverwaltung Stammdaten von Admins, Contentmanager, Lagerarbeiter, Analysten und Support(Hotline, Arbeitszeiterfassungsystem: Informationen in Bezug auf Arbeits- und Urlaubszeiten des Personals werden von einem externen Dienstleister verwaltet.
+4. Personalverwaltung: Stammdaten von Admins, Contentmanager, Lagerarbeiter, Analysten und Support(Hotline), Arbeitszeiterfassungsystem: Informationen in Bezug auf Arbeits- und Urlaubszeiten des Personals werden von einem externen Dienstleister verwaltet.
 
 
 ## Protokoll
@@ -95,6 +95,13 @@ weiterleitet.
  - Was geschieht als nächstes?
  - Jeder kriegt Klassen zu denen er sich Methoden ausdenkt.
  - Methoden in Code schreiben, danach UML-Klassendiagramm selbst erstellen lassen.
+ ## Lessons Learned
+ - Umstellungen auf neue Systeme (Git) bringen Unischerheit und Verzögerungen.
+ - Wöchentliche Verständigung dringend aufrechthalten, sonst langsamerer Gesamt-Fortschritt und höherer Aufwand, um aktuellen Stand zu formulieren. -> Dranbleiben, solange man motiviert ist!
+ - Aufgabenteilung ist gut aber wie soll mit Versäumnissen umgegangen werden?
+ - Zwischenziele erreicht aber wir hätten mehr schaffen können -> Zumindest hatten wir die Ressourcen dafür... Heiße Phase kommt erst noch, da käme gelegen, wenn Last durch Vorarbeit abgenommen würde.
+ - Wir haben Test-Driven Design vernachlässigt -> Eher Sequentielles Verfahren genutzt: Aktuell in Implementierungsphase mit gelegentlicher Rückkopplung zu bisher unbeachteteten Anforderungen und unsauberen Entwurf.
+ 
 
 ### 26.11.
 - Die Adressen speichern wir als Map
