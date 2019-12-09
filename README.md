@@ -101,6 +101,7 @@ weiterleitet.
  - Aufgabenteilung ist gut aber wie soll mit Versäumnissen umgegangen werden?
  - Zwischenziele erreicht aber wir hätten mehr schaffen können -> Zumindest hatten wir die Ressourcen dafür... Heiße Phase kommt erst noch, da käme gelegen, wenn Last durch Vorarbeit abgenommen würde.
  - Wir haben Test-Driven Design vernachlässigt -> Eher Sequentielles Verfahren genutzt: Aktuell in Implementierungsphase mit gelegentlicher Rückkopplung zu bisher unbeachteteten Anforderungen und unsauberen Entwurf.
+ - Abgrenzung zu Datenbanken schwieriger als Gedacht: Mangelnde Erfahrung außerhalb des DB-Kontexts. (Klassendiagramm sah anfangs wie ER-Modell aus) -> Sich der eigentlichen Aufgabe "Serverseitige Anwendung" besinnen: Zur Laufzeit, also keine DB.
  
 
 ### 26.11.
