@@ -7,11 +7,11 @@ public class Bracelet extends Watchpart
     private double size;
     private ConnectionType connection;
 
-    public Bracelet(int manufacturerID, String manufacturerPartID,
+    public Bracelet(Manufacturer manufacturer, String manufacturerPartID,
                     Material material, int amountAvailable, BigDecimal price,
                     double size, ConnectionType connection)
     {
-        super(manufacturerID, manufacturerPartID, material, amountAvailable, PartType.BRACELET, price);
+        super(manufacturer, manufacturerPartID, material, amountAvailable, PartType.BRACELET, price);
         this.size = size;
         this.connection = connection;
     }
