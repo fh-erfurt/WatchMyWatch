@@ -10,18 +10,18 @@ public class Watch
     private BigDecimal maxFee;
     private int surchargePercentage;
     //partIDs in the following order: Bracelet, Casing, Clockwork
-    private int[] partIDs = new int[3];
+    private Watchpart[] parts = new Watchpart[3];
 
     //partIDs in the following order: Bracelet, Casing, Clockwork
     public Watch(String name, BigDecimal price, String particularity, BigDecimal maxFee,
-                 int surchargePercentage, int[] partIDs)
+                 int surchargePercentage, Watchpart[] parts)
     {
         this.name = name;
         this.price = price;
         this.particularity = particularity;
         this.maxFee = maxFee;
         this.surchargePercentage = surchargePercentage;
-        this.partIDs = partIDs;
+        this.parts = parts;
     }
 
     public String getName()
@@ -74,8 +74,8 @@ public class Watch
         this.surchargePercentage = surchargePercentage;
     }
 
-    public int[] getPartIDs()
+    public Watchpart[] getParts()
     {
-        return partIDs;
+        return parts;
     }
 }

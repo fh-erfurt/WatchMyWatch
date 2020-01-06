@@ -8,11 +8,11 @@ public class Casing extends Watchpart
     private double innerDiameter;
     private ConnectionType connection;
 
-    public Casing(int manufacturerID, String manufacturerPartID,
+    public Casing(Manufacturer manufacturer, String manufacturerPartID,
                   Material material, int amountAvailable, BigDecimal price,
                   double outerDiameter, double innerDiameter, ConnectionType connection)
     {
-        super(manufacturerID, manufacturerPartID, material, amountAvailable, PartType.CASING, price);
+        super(manufacturer, manufacturerPartID, material, amountAvailable, PartType.CASING, price);
         this.outerDiameter = outerDiameter;
         this.innerDiameter = innerDiameter;
         this.connection = connection;

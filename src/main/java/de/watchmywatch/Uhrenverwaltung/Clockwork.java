@@ -6,11 +6,11 @@ public class Clockwork extends Watchpart
 {
     private double diameter;
 
-    public Clockwork(int manufacturerID, String manufacturerPartID,
+    public Clockwork(Manufacturer manufacturer, String manufacturerPartID,
                      Material material, int amountAvailable,
                      BigDecimal price, double diameter)
     {
-        super(manufacturerID, manufacturerPartID, material, amountAvailable, PartType.CLOCKWORK, price);
+        super(manufacturer, manufacturerPartID, material, amountAvailable, PartType.CLOCKWORK, price);
         this.diameter = diameter;
     }
 
