@@ -8,7 +8,19 @@ import de.watchmywatch.Bestellungsverwaltung.ShippingStatus;
 
 public class Order
 {
-    private String id;
+public Order(String addressID, Shoppingcart shoppingcart)
+    {
+    this.ordered = ordered;
+    this.shipped = null;
+    this.addressID = addressID;
+    this.orderStatus = OrderStatus.PENDING;
+    this.shippingStatus = ShippingStatus.PENDING;
+    // TODO: Total per shoppingcart berechnen -> (shoppingcart.calcTotal()).add(VERSANDKOSTEN o.Ä.);
+    this.shoppingcart = shoppingcart;
+    this.payment = new Payment();
+    }
+
+private String id;
     private Date ordered;
     private Date shipped;
     private String addressID;
@@ -55,23 +67,37 @@ public class Order
     ShippingStatus getShippingStatus(){
     return this.shippingStatus;
     }
-    void setShippingStatus(Enum newShippingStatus){
+    void setShippingStatus(ShippingStatus newShippingStatus){
     this.shippingStatus = newShippingStatus;
     }
 
+// TODO: Versandkosten, Rabatte o.Ä. mit einbeziehen. Ansonsten redundant, weil total bereits in Shoppincart steht...
+/*
     BigDecimal getTotal(){
     return this.total;
     }
-    // TODO: Create Method for calculating the sum of Prices of Orderitems to Total price of Order
+    public void setTotal(BigDecimal total)
+    {
+    this.total = total;
+    }
+*/
 
-    Shoppingcart getShoppingcart(){
+Shoppingcart getShoppingcart(){
     // Referenz?
     return this.shoppingcart;
     }
-    // TODO: Method for setting a reasonable Shoppingcart to Order
+
+    public void setShoppingcart(Shoppingcart shoppingcart)
+    {
+    this.shoppingcart = shoppingcart;
+    }
 
     Payment getPayment(){
     return this.payment;
     }
-    // TODO: Method for setting Payment
+
+    public void setPayment(Payment payment)
+    {
+    this.payment = payment;
+    }
 }

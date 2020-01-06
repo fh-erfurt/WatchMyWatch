@@ -7,8 +7,9 @@ public class Payment
 {
     private String id;
     private Date paid;
+    // TODO: total hier entfernen, und aus Order nutzen
     private BigDecimal total;
-    private Enum paymentMethod;
+    private PaymentMethod paymentMethod;
     private String details;
 
     public String getId()
@@ -26,7 +27,7 @@ public class Payment
         return paid;
     }
 
-    public Enum getPaymentMethod()
+    public PaymentMethod getPaymentMethod()
     {
         return paymentMethod;
     }
@@ -51,7 +52,7 @@ public class Payment
         this.paid = paid;
     }
 
-    public void setPaymentMethod(Enum paymentMethod)
+    public void setPaymentMethod(PaymentMethod paymentMethod)
     {
         this.paymentMethod = paymentMethod;
     }

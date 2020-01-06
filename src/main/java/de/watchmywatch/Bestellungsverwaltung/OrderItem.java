@@ -1,14 +1,21 @@
 package de.watchmywatch.Bestellungsverwaltung;
 
+import de.watchmywatch.Uhrenverwaltung.Watch;
+
 import java.math.BigDecimal;
 
 public class OrderItem
 {
-    private int quantity;
-    private BigDecimal price;
-    private String watchID;
+public OrderItem(Watch watch, int quantity)
+    {
 
-    public int getQuantity()
+    }
+
+    private int quantity;
+    private Watch watch;
+
+
+public int getQuantity()
     {
         return quantity;
     }
