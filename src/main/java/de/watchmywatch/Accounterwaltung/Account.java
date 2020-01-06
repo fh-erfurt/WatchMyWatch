@@ -3,12 +3,12 @@ package de.watchmywatch.Accounterwaltung;
 import de.watchmywatch.Bestellungsverwaltung.OrderItem;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Account
 {
-    private String id;
     private Customer customer;
     private String securePassword;
     private String salt;
@@ -19,33 +19,18 @@ public class Account
     private Shoppingcart shoppingCart;
     private List<String> orders;
 
-    public void updateSecurePasswordById(String id, String newPassword)
+    public Account(Customer customer, String securePassword, String salt, String billingAddress, Date opened,
+                   Enum defaultPaymentMethod, Enum accountStatus, Shoppingcart shoppingCart)
     {
-    }
-
-    public void updateBillingAddressById(String id, String newAddress)
-    {
-    }
-
-    public void updateDefaultPaymentMethodById(String id, Enum newPaymentMethod)
-    {
-    }
-
-    public void updateAccountStatusById(String id, Enum newAccountStatus)
-    {
-    }
-
-    public void updateShoppingCartById(String id, OrderItem item)
-    {
-    }
-
-    public void updateOrdersById(String id, String newOrder)
-    {
-    }
-
-    public String getId()
-    {
-        return id;
+        this.customer = customer;
+        this.securePassword = securePassword;
+        this.salt = salt;
+        this.billingAddress = billingAddress;
+        this.opened = opened;
+        this.defaultPaymentMethod = defaultPaymentMethod;
+        this.accountStatus = accountStatus;
+        this.shoppingCart = shoppingCart;
+        this.orders = new ArrayList<String>();
     }
 
     public Customer getCustomer()
@@ -91,11 +76,6 @@ public class Account
     public List<String> getOrders()
     {
         return orders;
-    }
-
-    public void setId(String id)
-    {
-        this.id = id;
     }
 
     public void setCustomer(Customer customer)

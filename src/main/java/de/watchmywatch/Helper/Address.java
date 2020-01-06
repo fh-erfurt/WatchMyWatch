@@ -2,20 +2,17 @@ package de.watchmywatch.Helper;
 
 public class Address
 {
-    private int id;
     private String street;
     private String city;
     private String state;
     private String zip;
 
-    public int getId()
+    public Address(String street, String city, String state, String zip)
     {
-        return id;
-    }
-
-    public void setId(int id)
-    {
-        this.id = id;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
     }
 
     public String getStreet()
