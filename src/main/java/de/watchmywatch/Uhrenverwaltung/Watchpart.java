@@ -32,17 +32,17 @@ public abstract class Watchpart
         return manufacturer;
     }
 
-    public void setManufacturerID(Manufacturer manufacturer)
+    public void setManufacturer(Manufacturer manufacturer)
     {
         this.manufacturer = manufacturer;
     }
 
-    public String getManufacturerPartId()
+    public String getManufacturerPartID()
     {
         return manufacturerPartID;
     }
 
-    public void setManufacturerPartId(String manufacturerPartId)
+    public void setManufacturerPartID(String manufacturerPartId)
     {
         this.manufacturerPartID = manufacturerPartId;
     }

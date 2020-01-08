@@ -1,8 +1,7 @@
 package de.watchmywatch.Uhrenverwaltung;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -10,15 +9,13 @@ import java.util.logging.Logger;
 public class ManagerWatchpart
 {
     private final static Logger log = Logger.getLogger(ManagerWatchpart.class.getName());
-    private static Map<Integer, Watchpart> watchpartMap = new HashMap<Integer, Watchpart>();
-    private static int idCounter = 1;
+    private static ArrayList<Watchpart> watchpartList;
 
     public boolean addWatchpart(Watchpart watchpart)
     {
         try
         {
-            watchpartMap.put(idCounter, watchpart);
-            ++idCounter;
+            watchpartList.add(watchpart);
             log.info("Added Watchpart");
         }
         catch (Exception e)
@@ -29,38 +26,11 @@ public class ManagerWatchpart
         return true;
     }
 
-    //returns null if no Watchpart is found
-    public Watchpart getWatchpartByID(int id)
+    public boolean removeWatchpart(Watchpart watchpart)
     {
         try
         {
-            return watchpartMap.get(id);
-        }
-        catch (Exception e)
-        {
-            return null;
-        }
-    }
-
-    public boolean removeWatchpartByID(Integer id)
-    {
-        try
-        {
-            watchpartMap.remove(id);
-            log.info("Removed watchpart");
-        }
-        catch (Exception e)
-        {
-            log.log(Level.SEVERE, "Failed to remove watchpart", e);
-            return false;
-        }
-        return true;
-    }
-
-    public boolean removeWatchpartByObject(Watchpart part)
-    {
-        try
-        {
+            watchpartList.remove(watchpart);
             log.info("Removed watchpart");
         }
         catch (Exception e)
@@ -71,11 +41,13 @@ public class ManagerWatchpart
         return true;
     }
 
-    public boolean setNewPrice(Integer id, BigDecimal newPrice)
+    public boolean setPrice(Watchpart watchpart, BigDecimal newPrice)
     {
         try
         {
-            watchpartMap.get(id).setPrice(newPrice);
+            watchpartList.remove(watchpart);
+            watchpart.setPrice(newPrice);
+            watchpartList.add(watchpart);
         }
         catch (Exception e)
         {
@@ -84,11 +56,13 @@ public class ManagerWatchpart
         return true;
     }
 
-    public boolean changeManufacturerID(Integer id, int manufacturerID)
+    public boolean setManufacturerID(Watchpart watchpart, Manufacturer manufacturer)
     {
         try
         {
-            watchpartMap.get(id).setManufacturerID(manufacturerID);
+            watchpartList.remove(watchpart);
+            watchpart.setManufacturer(manufacturer);
+            watchpartList.add(watchpart);
         }
         catch (Exception e)
         {
@@ -97,11 +71,13 @@ public class ManagerWatchpart
         return true;
     }
 
-    public boolean changeManufacturerPartID(Integer id, String manufacturerPartID)
+    public boolean setManufacturerPartID(Watchpart watchpart, String manufacturerPartID)
     {
         try
         {
-            watchpartMap.get(id).setManufacturerPartId(manufacturerPartID);
+            watchpartList.remove(watchpart);
+            watchpart.setManufacturerPartID(manufacturerPartID);
+            watchpartList.add(watchpart);
         }
         catch (Exception e)
         {
@@ -110,11 +86,13 @@ public class ManagerWatchpart
         return true;
     }
 
-    public boolean changeAmountAvailable(Integer id, int amountAvailable)
+    public boolean setAmountAvailable(Watchpart watchpart, int amountAvailable)
     {
         try
         {
-            watchpartMap.get(id).setAmountAvailable(amountAvailable);
+            watchpartList.remove(watchpart);
+            watchpart.setAmountAvailable(amountAvailable);
+            watchpartList.add(watchpart);
         }
         catch (Exception e)
         {
@@ -123,15 +101,14 @@ public class ManagerWatchpart
         return true;
     }
 
-    public int amountOfWatchpartsInMap()
+    public int amountOfWatchparts()
     {
-        return watchpartMap.size();
+        return watchpartList.size();
     }
 
-    protected void resetClass()
+    protected void reset()
     {
         log.info("Cleared the class");
-        watchpartMap.clear();
-        idCounter = 1;
+        watchpartList.clear();
     }
 }

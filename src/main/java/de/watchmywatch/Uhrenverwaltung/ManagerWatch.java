@@ -1,12 +1,10 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-
-import java.math.BigDecimal;
-import java.util.List;
+import java.util.ArrayList;
 
 public class ManagerWatch
 {
-    private static List<Watch> watchList;
+    private static ArrayList<Watch> watchList = new ArrayList<>();
 
     //adds a watch to the list but doesnt if the exact same watch is already present
     public void addWatch(Watch watch)
@@ -21,6 +19,20 @@ public class ManagerWatch
         }
     }
 
+    //returns null if watch doesnt get found
+    public Watch getWatch(int i)
+    {
+        //if watch IS NOT in the list
+        if (watchList.get(i) != null)
+        {
+            return watchList.get(i);
+        } else
+        {
+            //TODO LOG output watch is not in list
+            return null;
+        }
+    }
+
     public void removeWatch(Watch watch)
     {
         if (watchList.contains(watch))
@@ -30,15 +42,5 @@ public class ManagerWatch
         {
             //TODO LOG output couldnt remove watch as it was not in the list
         }
-    }
-
-    public BigDecimal getPriceWithExtraCost()
-    {
-        return new BigDecimal(1);
-    }
-
-    public BigDecimal getPriceWithoutExtraCost()
-    {
-        return new BigDecimal(1);
     }
 }

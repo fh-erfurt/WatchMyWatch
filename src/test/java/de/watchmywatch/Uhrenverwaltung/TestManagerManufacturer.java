@@ -13,7 +13,7 @@ public class TestManagerManufacturer
         //Given
         ManagerManufacturer manufacturerManager = new ManagerManufacturer();
         //When
-        manufacturerManager.addManufacturer("Test", new Person(), 1);
+        //manufacturerManager.addManufacturer("Test", new Person(), 1);
         //Then
         assertEquals(1, manufacturerManager.howManyManufacturers());
         manufacturerManager.removeManufacturerByName("Test");
@@ -24,8 +24,8 @@ public class TestManagerManufacturer
     {
         //Given
         ManagerManufacturer manufacturerManager = new ManagerManufacturer();
-        manufacturerManager.addManufacturer("Test", new Person(), 1);
-        manufacturerManager.addManufacturer("Test2", new Person(), 2);
+        //manufacturerManager.addManufacturer("Test", new Person(), 1);
+        //manufacturerManager.addManufacturer("Test2", new Person(), 2);
         //When
         manufacturerManager.removeManufacturerByName("Test");
         //Then
@@ -38,7 +38,7 @@ public class TestManagerManufacturer
     {
         //Given
         ManagerManufacturer manufacturerManager = new ManagerManufacturer();
-        manufacturerManager.addManufacturer("Test", new Person(), 1);
+        //manufacturerManager.addManufacturer("Test", new Person(), 1);
         //When
         manufacturerManager.updateAddressByID(1, 2);
         //Then
