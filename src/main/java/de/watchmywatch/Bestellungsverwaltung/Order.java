@@ -1,6 +1,5 @@
 package de.watchmywatch.Bestellungsverwaltung;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import de.watchmywatch.Bestellungsverwaltung.OrderStatus;
 import de.watchmywatch.Bestellungsverwaltung.ShippingStatus;
@@ -10,7 +9,7 @@ public class Order
 {
 public Order(String addressID, Shoppingcart shoppingcart)
     {
-    this.ordered = ordered;
+    this.ordered = new Date();
     this.shipped = null;
     this.addressID = addressID;
     this.orderStatus = OrderStatus.PENDING;
