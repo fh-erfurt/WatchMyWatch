@@ -19,14 +19,27 @@ public double getTotal()
 public void calcTotal()
     {
     double result = 0.0;
-    /*if(!items.isEmpty())
+    if(!items.isEmpty())
     {
         for (Watch temp: items)
         {
-        // TODO: Uhrenpreis aus Watch inklusive fee ermitteln
-        // result.add((temp.getPrice()).multiply(temp.getQuantity()));
+        result += temp.getPriceWithFee();
         }
-    }*/
+    }
     this.total = result;
+    }
+public void addWatch(Watch watch)
+    {
+    // TODO: Include function which validates a Watch object
+    if (watch != null)
+        {
+        items.add(watch);
+        calcTotal();
+        }
+
+    }
+public void removeWatch(Watch watch)
+    {
+    // TODO:
     }
 }
