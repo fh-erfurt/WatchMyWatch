@@ -20,13 +20,13 @@ public Order(String addressID, Shoppingcart shoppingcart)
     this.payment = new Payment();
     }
 
-private String id;
+    private String id;
     private Date ordered;
     private Date shipped;
     private String addressID;
     private OrderStatus orderStatus;
     private ShippingStatus shippingStatus;
-    private BigDecimal total;
+    private double total;
     private Shoppingcart shoppingcart;
     private Payment payment;
 
@@ -73,10 +73,10 @@ private String id;
 
 // TODO: Versandkosten, Rabatte o.Ä. mit einbeziehen. Ansonsten redundant, weil total bereits in Shoppincart steht...
 /*
-    BigDecimal getTotal(){
+    double getTotal(){
     return this.total;
     }
-    public void setTotal(BigDecimal total)
+    public void setTotal(double total)
     {
     this.total = total;
     }

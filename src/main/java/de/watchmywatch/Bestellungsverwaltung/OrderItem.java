@@ -20,7 +20,7 @@ public int getQuantity()
         return quantity;
     }
 
-    public BigDecimal getPrice()
+    public double getPrice()
     {
         return price;
     }
@@ -35,7 +35,7 @@ public int getQuantity()
         this.quantity = quantity;
     }
 
-    public void setPrice(BigDecimal price)
+    public void setPrice(double price)
     {
         this.price = price;
     }

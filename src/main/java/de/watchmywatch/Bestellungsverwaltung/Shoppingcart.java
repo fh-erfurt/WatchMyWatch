@@ -7,11 +7,11 @@ import java.util.List;
 
 public class Shoppingcart
 {
-    private BigDecimal total;
+    private double total;
     // TODO: OrderItem direkt durch Watch ersetzen.
     private List<OrderItem> items;
 
-public BigDecimal getTotal()
+public double getTotal()
     {
     return total;
     }
@@ -19,7 +19,7 @@ public BigDecimal getTotal()
 // Calculates the sum of (prices+fee)*quantity in items and sets it as total. Default 0.0
 public void calcTotal()
     {
-    BigDecimal result = new BigDecimal(0.0);
+    double result = 0.0;
     if(!items.isEmpty())
     {
         for (OrderItem temp: items)

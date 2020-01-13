@@ -1,6 +1,5 @@
 package de.watchmywatch.Bestellungsverwaltung;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class Payment
@@ -8,7 +7,7 @@ public class Payment
     private String id;
     private Date paid;
     // TODO: total hier entfernen, und aus Order nutzen
-    private BigDecimal total;
+    private double total;
     private PaymentMethod paymentMethod;
     private String details;
 
@@ -17,7 +16,7 @@ public class Payment
         return id;
     }
 
-    public BigDecimal getTotal()
+    public double getTotal()
     {
         return total;
     }
@@ -57,7 +56,7 @@ public class Payment
         this.paymentMethod = paymentMethod;
     }
 
-    public void setTotal(BigDecimal total)
+    public void setTotal(double total)
     {
         this.total = total;
     }
