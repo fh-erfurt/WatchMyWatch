@@ -1,6 +1,5 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-import de.watchmywatch.Accounterwaltung.Person;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

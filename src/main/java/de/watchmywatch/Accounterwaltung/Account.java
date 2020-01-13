@@ -1,6 +1,5 @@
 package de.watchmywatch.Accounterwaltung;
 
-import de.watchmywatch.Bestellungsverwaltung.OrderItem;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 
 import java.util.ArrayList;
