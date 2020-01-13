@@ -1,6 +1,5 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-import java.math.BigDecimal;
 
 public abstract class Watchpart
 {
@@ -13,11 +12,11 @@ public abstract class Watchpart
     private int amountAvailable;
     private PartType partType;
     //contains price which the part alone costs
-    private BigDecimal price;
+    private double price;
 
     protected Watchpart(Manufacturer manufacturer, String manufacturerPartID,
                         Material material, int amountAvailable, PartType partType,
-                        BigDecimal price)
+                        double price)
     {
         this.manufacturer = manufacturer;
         this.manufacturerPartID = manufacturerPartID;
@@ -77,12 +76,12 @@ public abstract class Watchpart
         this.partType = partType;
     }
 
-    public BigDecimal getPrice()
+    public double getPrice()
     {
         return price;
     }
 
-    public void setPrice(BigDecimal price)
+    public void setPrice(double price)
     {
         this.price = price;
     }

@@ -1,7 +1,5 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-import java.math.BigDecimal;
-
 public class Casing extends Watchpart
 {
     private double outerDiameter;
@@ -9,7 +7,7 @@ public class Casing extends Watchpart
     private ConnectionType connection;
 
     public Casing(Manufacturer manufacturer, String manufacturerPartID,
-                  Material material, int amountAvailable, BigDecimal price,
+                  Material material, int amountAvailable, double price,
                   double outerDiameter, double innerDiameter, ConnectionType connection)
     {
         super(manufacturer, manufacturerPartID, material, amountAvailable, PartType.CASING, price);

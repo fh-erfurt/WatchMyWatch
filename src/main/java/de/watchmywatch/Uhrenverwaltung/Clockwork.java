@@ -1,14 +1,12 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-import java.math.BigDecimal;
-
 public class Clockwork extends Watchpart
 {
     private double diameter;
 
     public Clockwork(Manufacturer manufacturer, String manufacturerPartID,
                      Material material, int amountAvailable,
-                     BigDecimal price, double diameter)
+                     double price, double diameter)
     {
         super(manufacturer, manufacturerPartID, material, amountAvailable, PartType.CLOCKWORK, price);
         this.diameter = diameter;

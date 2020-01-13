@@ -1,6 +1,5 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,7 +40,7 @@ public class ManagerWatchpart
         return true;
     }
 
-    public boolean setPrice(Watchpart watchpart, BigDecimal newPrice)
+    public boolean setPrice(Watchpart watchpart, double newPrice)
     {
         try
         {
