@@ -1,12 +1,16 @@
 package de.watchmywatch.Uhrenverwaltung;
 
+import java.time.Clock;
+
 public class Watch
 {
     private String name;
     private double price;
     private String particularity;
     //parts in the following order: Bracelet, Casing, Clockwork (if adding manually)
-    private Watchpart[] parts = new Watchpart[3];
+    private Bracelet bracelet;
+    private Casing casing;
+    private Clockwork clockwork;
 
     //contains the maximum Fee we would charge
     private static double maxFee = 200.00;
@@ -19,9 +23,9 @@ public class Watch
         this.name = name;
         this.price = price;
         this.particularity = particularity;
-        this.parts[0] = null;
-        this.parts[1] = null;
-        this.parts[2] = null;
+        this.bracelet = null;
+        this.casing = null;
+        this.clockwork = null;
     }
 
     public Watch(String name, double price, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork)
@@ -29,9 +33,9 @@ public class Watch
         this.name = name;
         this.price = price;
         this.particularity = particularity;
-        this.parts[0] = bracelet;
-        this.parts[1] = casing;
-        this.parts[2] = clockwork;
+        this.bracelet = bracelet;
+        this.casing = casing;
+        this.clockwork = clockwork;
     }
 
     public String getName()
@@ -75,46 +79,95 @@ public class Watch
         this.particularity = particularity;
     }
 
-    public Watchpart[] getParts()
+    public Bracelet getBracelet()
     {
-        return parts;
+        return bracelet;
     }
 
-    //TODO decide if we really need add and changePart, is changePart not enough
-
-    //will add watchparts into the right positin but WONT change the value if its already present
-    public void addPart(Watchpart part)
+    public Casing getCasing()
     {
-        //return if all Parts are already set
-        if (parts[0] != null && parts[1] != null && parts[2] != null)
-        {
-            // TODO throw Exception and log
-            return;
-        }
-
-        if (part.getClass() == Bracelet.class && parts[0] == null)
-        {
-            this.parts[0] = part;
-        } else if (part.getClass() == Casing.class && parts[1] == null)
-        {
-            this.parts[1] = part;
-        } else if (part.getClass() == Clockwork.class && parts[2] == null)
-        {
-            this.parts[2] = part;
-        }
+        return casing;
     }
 
-    public void changePart(Watchpart part)
+    public Clockwork getClockwork()
     {
-        if (part.getClass() == Bracelet.class)
+        return clockwork;
+    }
+
+    public void setBracelet(Bracelet bracelet)
+    {
+        this.bracelet = bracelet;
+    }
+
+    public void setCasing(Casing casing)
+    {
+        this.casing = casing;
+    }
+
+    public void setClockwork(Clockwork clockwork)
+    {
+        this.clockwork = clockwork;
+    }
+
+    //validates a watch, returns true if valid and false if not valid
+    //TODO should i use get methods?
+    public boolean validate()
+    {
+        if (this.price <= 0)
         {
-            this.parts[0] = part;
-        } else if (part.getClass() == Casing.class)
-        {
-            this.parts[1] = part;
-        } else if (part.getClass() == Clockwork.class)
-        {
-            this.parts[2] = part;
+            //TODO give info to logger
+            return false;
         }
+        if (this.name == null)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.bracelet == null)
+        {
+            //TODO give info to logger
+            return false;
+        } else
+        {
+            if (!this.bracelet.validate())
+            {
+                return false;
+            }
+        }
+        if (this.casing == null)
+        {
+            //TODO give info to logger
+            return false;
+        } else
+        {
+            if (!this.casing.validate())
+            {
+                return false;
+            }
+        }
+        if (this.clockwork == null)
+        {
+            //TODO give info to logger
+            return false;
+        } else
+        {
+            if (!this.clockwork.validate())
+            {
+                return false;
+            }
+        }
+        //connections dont match each other
+        if (this.bracelet.getConnection() != this.casing.getConnection())
+        {
+            //TODO give info to logger
+            return false;
+        }
+        //diameters dont match each other
+        if (this.casing.getInnerDiameter() != this.clockwork.getDiameter())
+        {
+            //TODO give info to logger
+            return false;
+        }
+        return true;
     }
 }

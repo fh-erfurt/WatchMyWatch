@@ -85,4 +85,34 @@ public abstract class Watchpart
     {
         this.price = price;
     }
+
+    public boolean validate()
+    {
+        if (this.manufacturerPartID == null)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.material == null)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.amountAvailable < 0)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.partType == null)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.price <= 0)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        return true;
+    }
 }
