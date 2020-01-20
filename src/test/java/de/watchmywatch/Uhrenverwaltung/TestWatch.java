@@ -1,6 +1,7 @@
 package de.watchmywatch.Uhrenverwaltung;
 
 import de.watchmywatch.Accounterwaltung.Person;
+import de.watchmywatch.Helper.Address;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,7 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestWatch
 {
     //create some reusable objects
-    Manufacturer manufacturer = new Manufacturer("Apple", new Person(), 1);
+    Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
+            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), 1);
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 2, 2, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 2, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2, 2);

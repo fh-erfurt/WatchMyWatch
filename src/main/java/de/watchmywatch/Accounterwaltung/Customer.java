@@ -1,14 +1,16 @@
 package de.watchmywatch.Accounterwaltung;
 
+import de.watchmywatch.Helper.Address;
+
 import java.util.Date;
 
 public class Customer extends Person
 {
     private Date dob;
 
-    public Customer(String email, String addressID, String phone, String firstname, String lastname, Date dob)
+    public Customer(String email, Address address, String phone, String firstname, String lastname, Date dob)
     {
-        super(email, addressID, phone, firstname, lastname);
+        super(email, address, phone, firstname, lastname);
         this.dob = dob;
     }
 
