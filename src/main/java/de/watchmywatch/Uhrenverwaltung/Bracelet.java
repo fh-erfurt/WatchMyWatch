@@ -14,7 +14,7 @@ public class Bracelet extends Watchpart
         this.connection = connection;
     }
 
-    public double getScope()
+    public double getSize()
     {
         return size;
     }
@@ -24,13 +24,33 @@ public class Bracelet extends Watchpart
         return connection;
     }
 
-    public void setScope(double scope)
+    public void setSize(double size)
     {
-        this.size = scope;
+        this.size = size;
     }
 
     public void setConnection(ConnectionType connection)
     {
         this.connection = connection;
+    }
+
+    public boolean validate()
+    {
+        if (!super.validate())
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.size <= 0)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.connection == null)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        return true;
     }
 }

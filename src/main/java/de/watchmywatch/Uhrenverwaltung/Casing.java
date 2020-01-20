@@ -36,13 +36,43 @@ public class Casing extends Watchpart
         this.innerDiameter = innerDiameter;
     }
 
-    public ConnectionType getCasingConnection()
+    public ConnectionType getConnection()
     {
         return connection;
     }
 
-    public void setCasingConnection(String casingConnection)
+    public void setConnection(String casingConnection)
     {
         this.connection = connection;
+    }
+
+    public boolean validate()
+    {
+        if (!super.validate())
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.outerDiameter <= 0)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.innerDiameter <= 0)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.innerDiameter > this.outerDiameter)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.connection == null)
+        {
+            //TODO give info to logger
+            return false;
+        }
+        return true;
     }
 }

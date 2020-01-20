@@ -17,6 +17,11 @@ public class Person
         this.lastname = lastname;
     }
 
+    public Person()
+    {
+
+    }
+
     public String getEmail()
     {
         return this.email;

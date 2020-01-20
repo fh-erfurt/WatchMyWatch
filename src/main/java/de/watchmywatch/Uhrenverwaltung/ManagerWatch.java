@@ -9,13 +9,19 @@ public class ManagerWatch
     //adds a watch to the list but doesnt if the exact same watch is already present
     public void addWatch(Watch watch)
     {
-        //if watch IS NOT in the list
-        if (!watchList.contains(watch))
+        if (watch.validate())
         {
-            watchList.add(watch);
+            //if watch IS NOT in the list
+            if (!watchList.contains(watch))
+            {
+                watchList.add(watch);
+            } else
+            {
+                //TODO LOG output watch is already existing in the watchList
+            }
         } else
         {
-            //TODO LOG output watch is already existing in the watchList
+            //TODO LOG that watch wasnt valid and maybe throw an exception
         }
     }
 

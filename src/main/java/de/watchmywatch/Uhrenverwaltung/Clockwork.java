@@ -21,4 +21,19 @@ public class Clockwork extends Watchpart
     {
         this.diameter = diameter;
     }
+
+    public boolean valiate(){
+        if (!super.validate())
+        {
+            //TODO give info to logger
+            return false;
+        }
+        if (this.diameter <= 0)
+        {
+            //TODO give info to logger
+            return false;
+        }
+
+        return true;
+    }
 }

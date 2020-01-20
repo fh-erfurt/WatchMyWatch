@@ -1,5 +1,6 @@
 # JavaProject
 
+[![Build Status](https://github.com/fh-erfurt/WatchMyWatch/workflows/WatchMyWatch/badge.svg)](https://github.com/fh-erfurt/WatchMyWatch/actions)
 
 
 ## Über uns

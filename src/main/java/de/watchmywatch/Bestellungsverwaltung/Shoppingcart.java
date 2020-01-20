@@ -1,15 +1,15 @@
 package de.watchmywatch.Bestellungsverwaltung;
 
 
+import de.watchmywatch.Uhrenverwaltung.Watch;
+
 import java.math.BigDecimal;
 import java.util.List;
 
 public class Shoppingcart
 {
     private double total;
-    // TODO: OrderItem direkt durch Watch ersetzen.
-    //private List<OrderItem> items;
-
+    private List<Watch> items;
 public double getTotal()
     {
     return total;
@@ -19,14 +19,27 @@ public double getTotal()
 public void calcTotal()
     {
     double result = 0.0;
-    /*if(!items.isEmpty())
+    if(!items.isEmpty())
     {
-        for (OrderItem temp: items)
+        for (Watch temp: items)
         {
-        // TODO: Uhrenpreis aus Orderitem über Watch inklusive fee ermitteln
-        // result.add((temp.getPrice()).multiply(temp.getQuantity()));
+        result += temp.getPriceWithFee();
         }
-    }*/
+    }
     this.total = result;
+    }
+public void addWatch(Watch watch)
+    {
+    // TODO: Include function which validates a Watch object
+    if (watch != null)
+        {
+        items.add(watch);
+        calcTotal();
+        }
+
+    }
+public void removeWatch(Watch watch)
+    {
+    // TODO:
     }
 }
