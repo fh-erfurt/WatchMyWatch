@@ -4,5 +4,5 @@ public enum PaymentMethod
     {
     PAYPAL,
     CREDITCARD,
-    // TODO: Weitere Arten bestimmen. Überweisung auf englisch?
+    // TODO: Weitere Arten bestimmen. Überweisung auf englisch? -> Transfer
     }
