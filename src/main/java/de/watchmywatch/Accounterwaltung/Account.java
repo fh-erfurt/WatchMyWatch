@@ -5,12 +5,15 @@ import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 public class Account
 {
     private Customer customer;
     private String securePassword;
-    private String salt;
+    private byte[] salt;
     private String billingAddress;
     private Date opened;
     private Enum defaultPaymentMethod;
@@ -18,11 +21,11 @@ public class Account
     private Shoppingcart shoppingCart;
     private List<String> orders;
 
-    public Account(Customer customer, String securePassword, String salt, String billingAddress, Date opened,
+    public Account(Customer customer, String passwordToHash, byte[] salt, String billingAddress, Date opened,
                    Enum defaultPaymentMethod, Enum accountStatus, Shoppingcart shoppingCart)
     {
         this.customer = customer;
-        this.securePassword = securePassword;
+        this.securePassword = get_SHA_1_SecurePassword(passwordToHash, salt);
         this.salt = salt;
         this.billingAddress = billingAddress;
         this.opened = opened;
@@ -31,7 +34,26 @@ public class Account
         this.shoppingCart = shoppingCart;
         this.orders = new ArrayList<String>();
     }
-
+    private static String get_SHA_1_SecurePassword(String passwordToHash, byte[] salt)
+    {
+        String generatedPassword = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            md.update(salt);
+            byte[] bytes = md.digest(passwordToHash.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            generatedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return generatedPassword;
+    }
     public Customer getCustomer()
     {
         return customer;
@@ -42,7 +64,7 @@ public class Account
         return securePassword;
     }
 
-    public String getSalt()
+    public byte[] getSalt()
     {
         return salt;
     }
@@ -92,7 +114,7 @@ public class Account
         this.billingAddress = billingAddress;
     }
 
-    public void setSalt(String salt)
+    public void setSalt(byte[] salt)
     {
         this.salt = salt;
     }

@@ -1,13 +1,15 @@
 package de.watchmywatch.Uhrenverwaltung;
 
 import de.watchmywatch.Accounterwaltung.Person;
+import de.watchmywatch.Helper.Address;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestWatchpart
 {
     //create some reusable objects
-    Manufacturer manufacturer = new Manufacturer("Apple", new Person(), 1);
+    Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
+            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), 1);
 
     @Test
     public void should_create_a_valid_casing()
