@@ -1,6 +1,11 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-public class Clockwork extends Watchpart
+import de.watchmywatch.Uhrenverwaltung.Validator.ClockworkValidator;
+import de.watchmywatch.Uhrenverwaltung.Validator.Validatable;
+import de.watchmywatch.Uhrenverwaltung.Validator.Validator;
+import de.watchmywatch.Uhrenverwaltung.Validator.WatchpartValidator;
+
+public class Clockwork extends Watchpart implements Validatable
 {
     private double diameter;
 
@@ -22,18 +27,23 @@ public class Clockwork extends Watchpart
         this.diameter = diameter;
     }
 
-    public boolean valiate(){
-        if (!super.validate())
-        {
-            //TODO give info to logger
-            return false;
-        }
-        if (this.diameter <= 0)
-        {
-            //TODO give info to logger
-            return false;
-        }
+    public boolean validate()
+    {
+        //validator for clockwork
+        Validator clockworkValidator = new ClockworkValidator();
+        //validate for watchpart
+        Validator watchpartValidator = new WatchpartValidator();
 
-        return true;
+        //check if either the casing or the watchpart are valid
+        if (clockworkValidator.validate(this) && watchpartValidator.validate(this))
+        {
+            //log validation
+            return true;
+        }
+        else
+        {
+            //log failure
+            return false;
+        }
     }
 }

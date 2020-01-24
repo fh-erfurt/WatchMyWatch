@@ -1,5 +1,7 @@
 package de.watchmywatch.Uhrenverwaltung;
 
+import de.watchmywatch.Uhrenverwaltung.Validator.Validator;
+
 import java.util.ArrayList;
 
 public class ManagerWatch

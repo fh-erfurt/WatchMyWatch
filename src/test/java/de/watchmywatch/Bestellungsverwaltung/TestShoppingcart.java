@@ -1,5 +1,6 @@
 package de.watchmywatch.Bestellungsverwaltung;
 import de.watchmywatch.Accounterwaltung.Person;
+import de.watchmywatch.Helper.Address;
 import de.watchmywatch.Uhrenverwaltung.*;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +12,8 @@ public class TestShoppingcart
 {
     // create some reusable objects
     Shoppingcart shoppingcart = new Shoppingcart();
-    Manufacturer manufacturer = new Manufacturer("Apple", new Person(), 1);
+    Address address = new Address("s","s","s", "2");
+    Manufacturer manufacturer = new Manufacturer("Apple", new Person("mail", address, "2", "fist","last"), 1);
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 2, 2, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 2, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2, 2);

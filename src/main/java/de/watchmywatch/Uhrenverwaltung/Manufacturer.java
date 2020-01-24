@@ -1,30 +1,20 @@
 package de.watchmywatch.Uhrenverwaltung;
 
 import de.watchmywatch.Accounterwaltung.Person;
+import de.watchmywatch.Helper.Address;
 
 public class Manufacturer
 {
-    //move to manager class in hashmap
-    //private int id;
     private String name;
     private Person contactPerson;
-    private int addressID;
-    //private static int idCounter = 0;
+    private Address address;
 
-    public Manufacturer(String name, Person contactPerson, int addressID)
+    public Manufacturer(String name, Person contactPerson, Address address)
     {
-        //move to manager class in hashmap
-        //id = idCounter;
-        //++idCounter;
         this.name = name;
         this.contactPerson = contactPerson;
-        this.addressID = addressID;
+        this.address = address;
     }
-
-//    public int getID()
-//    {
-//        return id;
-//    }
 
     public String getName()
     {
@@ -36,9 +26,9 @@ public class Manufacturer
         return contactPerson;
     }
 
-    public int getAddressID()
+    public Address getAddress()
     {
-        return addressID;
+        return address;
     }
 
     public void setName(String name)
@@ -51,8 +41,8 @@ public class Manufacturer
         this.contactPerson = contactPerson;
     }
 
-    public void setAddressID(int addressID)
+    public void setAddressID(Address address)
     {
-        this.addressID = addressID;
+        this.address = address;
     }
 }

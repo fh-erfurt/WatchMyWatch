@@ -1,8 +1,10 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-import java.time.Clock;
+import de.watchmywatch.Uhrenverwaltung.Validator.Validatable;
+import de.watchmywatch.Uhrenverwaltung.Validator.Validator;
+import de.watchmywatch.Uhrenverwaltung.Validator.WatchValidator;
 
-public class Watch
+public class Watch implements Validatable
 {
     private String name;
     private double price;
@@ -53,7 +55,8 @@ public class Watch
         if (this.price < 2000.00)
         {
             return this.price + this.price * 0.1;
-        } else
+        }
+        else
         {
             return this.price + 200.00;
         }
@@ -110,64 +113,21 @@ public class Watch
     }
 
     //validates a watch, returns true if valid and false if not valid
-    //TODO should i use get methods?
     public boolean validate()
     {
-        if (this.price <= 0)
+        Validator watchValidator = new WatchValidator();
+        if (watchValidator.validate(this)
+                && this.getCasing().validate()
+                && this.getClockwork().validate()
+                && this.getBracelet().validate())
         {
-            //TODO give info to logger
+            //log validation
+            return true;
+        }
+        else
+        {
+            //log failure
             return false;
         }
-        if (this.name == null)
-        {
-            //TODO give info to logger
-            return false;
-        }
-        if (this.bracelet == null)
-        {
-            //TODO give info to logger
-            return false;
-        } else
-        {
-            if (!this.bracelet.validate())
-            {
-                return false;
-            }
-        }
-        if (this.casing == null)
-        {
-            //TODO give info to logger
-            return false;
-        } else
-        {
-            if (!this.casing.validate())
-            {
-                return false;
-            }
-        }
-        if (this.clockwork == null)
-        {
-            //TODO give info to logger
-            return false;
-        } else
-        {
-            if (!this.clockwork.validate())
-            {
-                return false;
-            }
-        }
-        //connections dont match each other
-        if (this.bracelet.getConnection() != this.casing.getConnection())
-        {
-            //TODO give info to logger
-            return false;
-        }
-        //diameters dont match each other
-        if (this.casing.getInnerDiameter() != this.clockwork.getDiameter())
-        {
-            //TODO give info to logger
-            return false;
-        }
-        return true;
     }
 }
