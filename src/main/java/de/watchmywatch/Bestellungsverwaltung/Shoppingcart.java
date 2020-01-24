@@ -11,7 +11,7 @@ public class Shoppingcart
 {
     private double total;
 
-    private static ArrayList<Watch> items = new ArrayList<>();
+    private ArrayList<Watch> items = new ArrayList<>();
 
 
     public Shoppingcart()
@@ -33,9 +33,9 @@ public class Shoppingcart
     public void calcTotal()
     {
         double result = 0.0;
-        if (!items.isEmpty())
+        if (!this.items.isEmpty())
         {
-            for (Watch temp : items)
+            for (Watch temp : this.items)
             {
                 result += temp.getPriceWithFee();
             }
@@ -50,7 +50,6 @@ public class Shoppingcart
             items.add(watch);
             calcTotal();
         }
-        System.out.println("wwww");
     }
 
     // Removes given Watch from ShoppingCart-List items and returns true if successful, false if watch not found
