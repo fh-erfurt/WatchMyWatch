@@ -9,8 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestWatch
 {
     //create some reusable objects
+    Address address = new Address("street", "city", "state", "zip");
     Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
-            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), 1);
+            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 2, 2, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 2, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2, 2);

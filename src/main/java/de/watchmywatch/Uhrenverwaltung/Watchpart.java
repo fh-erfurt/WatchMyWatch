@@ -1,7 +1,8 @@
 package de.watchmywatch.Uhrenverwaltung;
 
+import de.watchmywatch.Uhrenverwaltung.Validator.Validatable;
 
-public abstract class Watchpart
+public abstract class Watchpart implements Validatable
 {
     private Manufacturer manufacturer;
     //contains the ID which was given by the original manufacturer so we could order it directly when we are out of stock
@@ -84,35 +85,5 @@ public abstract class Watchpart
     public void setPrice(double price)
     {
         this.price = price;
-    }
-
-    public boolean validate()
-    {
-        if (this.manufacturerPartID == null)
-        {
-            //TODO give info to logger
-            return false;
-        }
-        if (this.material == null)
-        {
-            //TODO give info to logger
-            return false;
-        }
-        if (this.amountAvailable < 0)
-        {
-            //TODO give info to logger
-            return false;
-        }
-        if (this.partType == null)
-        {
-            //TODO give info to logger
-            return false;
-        }
-        if (this.price <= 0)
-        {
-            //TODO give info to logger
-            return false;
-        }
-        return true;
     }
 }
