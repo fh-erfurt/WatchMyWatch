@@ -1,6 +1,6 @@
 package de.watchmywatch.Bestellungsverwaltung;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import de.watchmywatch.Bestellungsverwaltung.OrderStatus;
 import de.watchmywatch.Bestellungsverwaltung.ShippingStatus;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
@@ -11,8 +11,8 @@ public class Order
 {
 
     private static final double SHIPPINGFEE = 5.90;     // Konstante für Versandkosten, die immer anzurechnen sind
-    private Date ordered;
-    private Date shipped;
+    private LocalDateTime ordered;
+    private LocalDateTime shipped;
     private Address address;
     private OrderStatus orderStatus;
     private ShippingStatus shippingStatus;
@@ -22,7 +22,7 @@ public class Order
 
     public Order(Address address, Shoppingcart shoppingcart)
     {
-        this.ordered = new Date();
+        this.ordered = LocalDateTime.now();
         this.shipped = null;
         this.address = address;
         this.orderStatus = OrderStatus.PENDING;
@@ -32,23 +32,22 @@ public class Order
         this.payment = new Payment();
     }
 
-    Date getOrderDate()
+    LocalDateTime getOrderDate()
     {
         return this.ordered;
     }
 
-    // TODO: additional logic needed here?
-    void setOrderDate(Date date)
+    void setOrderDate(LocalDateTime date)
     {
         this.ordered = date;
     }
 
-    Date getShipDate()
+    LocalDateTime getShipDate()
     {
         return this.shipped;
     }
 
-    void setShipDate(Date date)
+    void setShipDate(LocalDateTime date)
     {
         this.shipped =date;
     }
@@ -76,17 +75,24 @@ public class Order
     {
         return this.shippingStatus;
     }
+
+    // If newShippingStatus is SENT, sets shipping date to current time
     void setShippingStatus(ShippingStatus newShippingStatus)
     {
         this.shippingStatus = newShippingStatus;
+        if(newShippingStatus == ShippingStatus.SENT)
+        {
+            this.shipped = LocalDateTime.now();
+        }
     }
 
     double getTotal()
     {
+        calcTotal();
         return this.total;
     }
 
-    public void setTotal()
+    public void calcTotal()
     {
         this.total = this.shoppingcart.getTotal() + SHIPPINGFEE;
     }
@@ -99,8 +105,7 @@ public class Order
     public void setShoppingcart(Shoppingcart shoppingcart)
     {
     this.shoppingcart = shoppingcart;
-    // Neue Gesamtkosten berechnen
-    this.setTotal();
+    this.calcTotal();    // Neue Gesamtkosten berechnen
     }
 
     Payment getPayment(){
@@ -110,5 +115,10 @@ public class Order
     public void setPayment(Payment payment)
     {
     this.payment = payment;
+    }
+
+    public boolean isPaid()
+    {
+        return this.payment.getDatePaid() != null;
     }
 }

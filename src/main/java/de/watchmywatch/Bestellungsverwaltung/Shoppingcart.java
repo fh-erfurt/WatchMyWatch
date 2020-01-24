@@ -46,7 +46,7 @@ public class Shoppingcart
         if (watch != null)
         {
             items.add(watch);
-            calcTotal();
+            this.total+=watch.getPriceWithFee();
         }
     }
 
