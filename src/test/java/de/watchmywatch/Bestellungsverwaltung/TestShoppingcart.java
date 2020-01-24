@@ -11,7 +11,6 @@ public class TestShoppingcart
 {
     // create some reusable objects
     Shoppingcart shoppingcart = new Shoppingcart();
-    // TODO: Person mit gültigem Konstruktor versehen...
     Manufacturer manufacturer = new Manufacturer("Apple", new Person(), 1);
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 2, 2, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 2, 2, 2, ConnectionType.BAND);
