@@ -1,6 +1,11 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-public class Casing extends Watchpart
+import de.watchmywatch.Uhrenverwaltung.Validator.CasingValidator;
+import de.watchmywatch.Uhrenverwaltung.Validator.Validatable;
+import de.watchmywatch.Uhrenverwaltung.Validator.Validator;
+import de.watchmywatch.Uhrenverwaltung.Validator.WatchpartValidator;
+
+public class Casing extends Watchpart implements Validatable
 {
     private double outerDiameter;
     private double innerDiameter;
@@ -48,31 +53,20 @@ public class Casing extends Watchpart
 
     public boolean validate()
     {
-        if (!super.validate())
+        //validator for casing
+        Validator casingValidator = new CasingValidator();
+        //validate for watchpart
+        Validator watchpartValidator = new WatchpartValidator();
+
+        //check if either the casing or the watchpart are valid
+        if (casingValidator.validate(this) && watchpartValidator.validate(this))
         {
-            //TODO give info to logger
+            //log validation
+            return true;
+        }
+        else
+        {
             return false;
         }
-        if (this.outerDiameter <= 0)
-        {
-            //TODO give info to logger
-            return false;
-        }
-        if (this.innerDiameter <= 0)
-        {
-            //TODO give info to logger
-            return false;
-        }
-        if (this.innerDiameter > this.outerDiameter)
-        {
-            //TODO give info to logger
-            return false;
-        }
-        if (this.connection == null)
-        {
-            //TODO give info to logger
-            return false;
-        }
-        return true;
     }
 }

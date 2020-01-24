@@ -8,8 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestWatchpart
 {
     //create some reusable objects
+    Address address = new Address("street", "city", "state", "zip");
     Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
-            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), 1);
+            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
 
     @Test
     public void should_create_a_valid_casing()
