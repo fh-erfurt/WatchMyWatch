@@ -56,9 +56,8 @@ public class TestOrder
         Order order = new Order(address, shoppingcart);
         // When
         order.setShippingStatus(ShippingStatus.SENT);
-        LocalDateTime date = LocalDateTime.now();
         //Then
-        assertEquals(date, order.getShipDate());
+        assertTrue(order.getShipDate() != null);
     }
 
     @Test
