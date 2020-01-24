@@ -4,6 +4,7 @@ import de.watchmywatch.Helper.Address;
 import de.watchmywatch.Uhrenverwaltung.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -38,7 +39,7 @@ public class TestShoppingcart
     // When
         shoppingcart.addWatch(watch);
     //Then
-        List<Watch> list = shoppingcart.getItems();
+        ArrayList<Watch> list = shoppingcart.getItems();
         boolean foundWatch = list.contains(watch);
         assertEquals( true , foundWatch);
     }
@@ -53,7 +54,7 @@ public class TestShoppingcart
     // When
         shoppingcart.removeWatch(watch);
     //Then
-        List<Watch> list = shoppingcart.getItems();
+        ArrayList<Watch> list = shoppingcart.getItems();
         boolean foundWatch = false;
         if(!list.isEmpty())
         {
@@ -62,4 +63,158 @@ public class TestShoppingcart
         assertEquals( false , foundWatch);
     }
 
+    @Test
+    public void should_remove_only_one_of_multiple_identical_watches_from_shoppingcart()
+    {
+        //Given
+        Shoppingcart shoppingcart = new Shoppingcart();
+        shoppingcart.addWatch(watch);
+        shoppingcart.addWatch(watch);
+        // When
+        shoppingcart.removeWatch(watch);
+        //Then
+        ArrayList<Watch> list = shoppingcart.getItems();
+        boolean foundWatch = false;
+        if(!list.isEmpty())
+        {
+            foundWatch = list.contains(watch);
+        }
+        assertEquals( true , foundWatch);
+    }
+
+    @Test
+    public void should_remove_all_occurances_of_given_watch_from_shoppingcart()
+    {
+        //Given
+        Shoppingcart shoppingcart = new Shoppingcart();
+        shoppingcart.addWatch(watch);
+        shoppingcart.addWatch(watch);
+        // When
+        shoppingcart.removeAllOccurancesOfWatch(watch);
+        //Then
+        ArrayList<Watch> list = shoppingcart.getItems();
+        boolean foundWatch = false;
+        if(!list.isEmpty())
+        {
+            foundWatch = list.contains(watch);
+        }
+        assertEquals( false , foundWatch);
+    }
+
+    @Test
+    public void should_remove_the_two_occurances_of_given_watch_from_shoppingcart()
+    {
+        //Given
+        Shoppingcart shoppingcart = new Shoppingcart();
+        shoppingcart.addWatch(watch);
+        shoppingcart.addWatch(watch);
+        // When
+        int occurances = shoppingcart.removeAllOccurancesOfWatch(watch);
+        //Then
+        assertEquals( 2 , occurances);
+    }
+
+    @Test
+    public void should_return_110_as_new_total_for_shoppingcart()
+    {
+        //Given
+        Shoppingcart shoppingcart = new Shoppingcart();
+        Watch watch1 = new Watch("Swatch", 100.00, "Test", bracelet, casing, clockwork);
+        shoppingcart.addWatch(watch1);
+        shoppingcart.addWatch(watch1);
+        // When
+        shoppingcart.removeWatch(watch1);
+        //Then
+        assertEquals( 110 , shoppingcart.getTotal());
+    }
+
+    @Test
+    public void should_return_zero_as_new_total_for_shoppingcart()
+    {
+        //Given
+        Shoppingcart shoppingcart = new Shoppingcart();
+        Watch watch1 = new Watch("Swatch", 100.00, "Test", bracelet, casing, clockwork);
+        shoppingcart.addWatch(watch1);
+        shoppingcart.addWatch(watch1);
+        // When
+        shoppingcart.removeAllOccurancesOfWatch(watch1);
+        //Then
+        assertEquals( 0.0 , shoppingcart.getTotal());
+    }
+
+    @Test
+    public void should_return_220_as_new_total_for_shoppingcart()
+    {
+        //Given
+        Shoppingcart shoppingcart = new Shoppingcart();
+        Watch watch1 = new Watch("Swatch", 100.00, "Test", bracelet, casing, clockwork);
+        Watch watch2 = new Watch("Swatch", 100.00, "Test", bracelet, casing, clockwork);
+        shoppingcart.addWatch(watch1);
+        shoppingcart.addWatch(watch1);
+        shoppingcart.addWatch(watch2);
+        // When
+        shoppingcart.removeWatch(watch2);
+        //Then
+        assertEquals( 220 , shoppingcart.getTotal());
+    }
+
+    @Test
+    public void should_return_330_as_new_total_for_shoppingcart()
+    {
+        //Given
+        Shoppingcart shoppingcart = new Shoppingcart();
+        Watch watch1 = new Watch("Swatch", 100.00, "Test", bracelet, casing, clockwork);
+        Watch watch2 = new Watch("Swatch", 300.00, "Test", bracelet, casing, clockwork);
+        shoppingcart.addWatch(watch1);
+        shoppingcart.addWatch(watch1);
+        shoppingcart.addWatch(watch2);
+        // When
+        shoppingcart.removeAllOccurancesOfWatch(watch1);
+        //Then
+        assertEquals( 330 , shoppingcart.getTotal());
+    }
+
+    @Test
+    public void should_return_440_as_new_total_for_shoppingcart()
+    {
+        //Given
+        Shoppingcart shoppingcart = new Shoppingcart();
+        Watch watch1 = new Watch("Swatch", 100.00, "Test", bracelet, casing, clockwork);
+        Watch watch2 = new Watch("Swatch", 300.00, "Test", bracelet, casing, clockwork);
+        shoppingcart.addWatch(watch1);
+        shoppingcart.addWatch(watch1);
+        shoppingcart.addWatch(watch2);
+        // When
+        shoppingcart.removeWatch(watch1);
+        //Then
+        assertEquals( 440 , shoppingcart.getTotal());
+    }
+
+    @Test
+    public void should_empty_shoppingcart_completely()
+    {
+        //Given
+        Shoppingcart shoppingcart = new Shoppingcart();
+        shoppingcart.addWatch(watch);
+        shoppingcart.addWatch(watch);
+        shoppingcart.addWatch(watch);
+        // When
+        shoppingcart.clear();
+        //Then
+        assertEquals( true , shoppingcart.getItems().isEmpty());
+    }
+
+    @Test
+    public void should_return_zero_as_total_after_clearing_shoppingcart()
+    {
+        //Given
+        Shoppingcart shoppingcart = new Shoppingcart();
+        shoppingcart.addWatch(watch);
+        shoppingcart.addWatch(watch);
+        shoppingcart.addWatch(watch);
+        // When
+        shoppingcart.clear();
+        //Then
+        assertEquals( 0.0 , shoppingcart.getTotal());
+    }
 }

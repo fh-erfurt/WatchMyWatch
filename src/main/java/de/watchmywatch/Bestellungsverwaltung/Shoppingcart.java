@@ -10,9 +10,7 @@ import java.util.List;
 public class Shoppingcart
 {
     private double total;
-
     private ArrayList<Watch> items = new ArrayList<>();
-
 
     public Shoppingcart()
     {
@@ -53,15 +51,39 @@ public class Shoppingcart
     }
 
     // Removes given Watch from ShoppingCart-List items and returns true if successful, false if watch not found
-    // TODO: Was passiert, wenn mehrmals die gleiche Uhr enthalten ist?
     public boolean removeWatch(Watch watch)
     {
         boolean result = false;
         if (watch != null)
         {
             items.remove(watch);
+            this.total -= watch.getPriceWithFee();
             result = true;
         }
         return result;
+    }
+
+    // Removes all posts of given Watch from ShoppingCart-List items and returns amount of removed Watches as int.
+    // Zero if none were found.
+    public int removeAllOccurancesOfWatch(Watch watch)
+    {
+        int result = 0;
+        if (watch != null)
+        {
+            while(items.contains(watch))
+            {
+                items.remove(watch);
+                this.total -= watch.getPriceWithFee();
+                result +=1;
+            }
+        }
+        return result;
+    }
+
+    // Removes all Watches from Shoppingcart-List and sets total as 0.0
+    public void clear()
+    {
+        items.clear();
+        this.total = 0.0;
     }
 }
