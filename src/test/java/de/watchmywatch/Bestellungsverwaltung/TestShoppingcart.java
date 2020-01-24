@@ -13,7 +13,7 @@ public class TestShoppingcart
     // create some reusable objects
     Shoppingcart shoppingcart = new Shoppingcart();
     Address address = new Address("s","s","s", "2");
-    Manufacturer manufacturer = new Manufacturer("Apple", new Person("mail", address, "2", "fist","last"), 1);
+    Manufacturer manufacturer = new Manufacturer("Apple", new Person("mail", address, "2", "fist","last"), address);
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 2, 2, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 2, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2, 2);
