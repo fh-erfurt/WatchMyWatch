@@ -40,6 +40,20 @@ public class TestWatch
     }
 
     @Test
+    void should_throw_nameException_with_empty_name() throws NameException {
+        assertThrows(NameException.class, () -> {
+            Watch watch = new Watch("", 100.00, "Test", bracelet, casing, clockwork);
+        });
+    }
+
+    @Test
+    void should_throw_nameException_with_name_longer_140() throws NameException {
+        assertThrows(NameException.class, () -> {
+            Watch watch = new Watch("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 100.00, "Test", bracelet, casing, clockwork);
+        });
+    }
+
+    @Test
     public void should_create_a_non_valid_watch_with_no_parts() throws NameException
     {
         //Given

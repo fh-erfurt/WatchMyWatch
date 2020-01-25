@@ -26,7 +26,19 @@ public class Watch implements Validatable
     //the percentage which is added as surcharge
     private static double surchargePercentage = 0.1;
 
-    //Watchparts will be null->must be set by addWatchpart Method
+
+    /**
+     * Bei Erzeugung des Objekts mit dieser Methode muss per setMethoden die Parts
+     * im Nachhinein gesetzt werden
+     *
+     * @author Tom Käppler
+     *
+     * @param name Name der Uhr
+     * @param price Preis der Uhr
+     * @param particularity Einzigartigkeit der Uhr falls vorhanden
+     *
+     * @return gibt ein Uhren Objekt zurück
+     */
     public Watch(String name, double price, String particularity) throws NameException
     {
         checkName(name);
@@ -51,7 +63,7 @@ public class Watch implements Validatable
 
     public void checkName(String name) throws NameException
     {
-        Pattern pattern = Pattern.compile("^[a-zA-ZäÄöÖüÜß]*$");
+        Pattern pattern = Pattern.compile("^[0-9a-zA-ZäÄöÖüÜß]*$");
         Matcher matcher = pattern.matcher(name);
 
         if (!matcher.find())
