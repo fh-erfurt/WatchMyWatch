@@ -1,6 +1,7 @@
 package de.watchmywatch.Bestellungsverwaltung;
 
 import de.watchmywatch.Accounterwaltung.Person;
+import de.watchmywatch.Exceptions.NameException;
 import de.watchmywatch.Helper.Address;
 import de.watchmywatch.Uhrenverwaltung.*;
 import org.junit.jupiter.api.Test;
@@ -15,16 +16,22 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestOrder
 {
     // create some reusable objects
-    Address address = new Address("Lilo-Herrmann-Straße","Erfurt", "Thüringen", "99086");
-    Manufacturer manufacturer = new Manufacturer("Apple",  new Person("anton.bespalov@fh-erfurt.de", address,
+    Address address = new Address("Lilo-Herrmann-Straße", "Erfurt", "Thüringen", "99086");
+    Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", address,
             "01716181447", "Anton", "Bespalov"), address);
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 2, 2, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 2, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2, 2);
     Watch watch = new Watch("Swatch", 100.00, "Test", bracelet, casing, clockwork);
+
     Shoppingcart shoppingcart = new Shoppingcart();
 
     Order testOrder = new Order(address, shoppingcart);
+
+    public TestOrder() throws NameException
+    {
+    }
+
     @Test
     public void should_create_new_order_with_orderstatus_pending()
     {
@@ -38,7 +45,7 @@ public class TestOrder
     }
 
     @Test
-    public void should_calculate_total_with_shippingfee()
+    public void should_calculate_total_with_shippingfee() throws NameException
     {
         //Given
         Order order = new Order(address, shoppingcart);
@@ -64,7 +71,7 @@ public class TestOrder
     public void should_have_paymentMethod_paypal()
     {
         //Given
-        testOrder.setPayment(new Payment(PaymentMethod.PAYPAL,"tests"));
+        testOrder.setPayment(new Payment(PaymentMethod.PAYPAL, "tests"));
         // When
 
         //Then

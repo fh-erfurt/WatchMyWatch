@@ -1,8 +1,10 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-import de.watchmywatch.Uhrenverwaltung.Validator.Validatable;
-import de.watchmywatch.Uhrenverwaltung.Validator.Validator;
-import de.watchmywatch.Uhrenverwaltung.Validator.WatchValidator;
+import de.watchmywatch.Exceptions.NameException;
+import de.watchmywatch.Uhrenverwaltung.Validator.*;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Watch implements Validatable
 {
@@ -20,8 +22,9 @@ public class Watch implements Validatable
     private static double surchargePercentage = 0.1;
 
     //Watchparts will be null->must be set by addWatchpart Method
-    public Watch(String name, double price, String particularity)
+    public Watch(String name, double price, String particularity) throws NameException
     {
+        checkName(name);
         this.name = name;
         this.price = price;
         this.particularity = particularity;
@@ -30,8 +33,9 @@ public class Watch implements Validatable
         this.clockwork = null;
     }
 
-    public Watch(String name, double price, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork)
+    public Watch(String name, double price, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork) throws NameException
     {
+        checkName(name);
         this.name = name;
         this.price = price;
         this.particularity = particularity;
@@ -40,13 +44,33 @@ public class Watch implements Validatable
         this.clockwork = clockwork;
     }
 
+    public static void checkName(String name) throws NameException
+    {
+        Pattern pattern = Pattern.compile("^[a-zA-ZäÄöÖüÜß]*$");
+        Matcher matcher = pattern.matcher(name);
+
+        if (!matcher.find())
+        {
+            throw new NameException("Name contains invalid characters");
+        }
+        else if (name.trim().isEmpty())
+        {
+            throw new NameException("Name should not be empty");
+        }
+        else if (name.length() > 140)
+        {
+            throw new NameException("Name should not be longer than 140 characters");
+        }
+    }
+
     public String getName()
     {
         return name;
     }
 
-    public void setName(String name)
+    public void setName(String name) throws NameException
     {
+        checkName(name);
         this.name = name;
     }
 
@@ -69,6 +93,10 @@ public class Watch implements Validatable
 
     public void setPrice(double price)
     {
+        if (price <= 0)
+        {
+            //log
+        }
         this.price = price;
     }
 
@@ -99,17 +127,42 @@ public class Watch implements Validatable
 
     public void setBracelet(Bracelet bracelet)
     {
-        this.bracelet = bracelet;
+        Validator braceletValidator = new BraceletValidator();
+        if (braceletValidator.validate(bracelet))
+        {
+            this.bracelet = bracelet;
+        }
+        else
+        {
+            //Log failure
+        }
     }
 
     public void setCasing(Casing casing)
     {
-        this.casing = casing;
+        Validator casingValidator = new CasingValidator();
+        if (casingValidator.validate(casing))
+        {
+            this.casing = casing;
+        }
+        else
+        {
+            //Log failure
+        }
     }
 
     public void setClockwork(Clockwork clockwork)
     {
-        this.clockwork = clockwork;
+        Validator clockworkValidator = new ClockworkValidator();
+        if (clockworkValidator.validate(clockwork))
+        {
+            this.clockwork = clockwork;
+        }
+        else
+        {
+            //Log failure
+        }
+
     }
 
     //validates a watch, returns true if valid and false if not valid
