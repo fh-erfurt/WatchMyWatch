@@ -2,12 +2,17 @@ package de.watchmywatch.Uhrenverwaltung.Validator;
 
 import de.watchmywatch.Uhrenverwaltung.Bracelet;
 
+import java.util.logging.Logger;
+
 public class BraceletValidator implements Validator
 {
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     @Override
+
     public boolean validate(Validatable validatable)
     {
         if(validatable == null){
+            logger.warning("object was null");
             return false;
         }
         if (validatable instanceof Bracelet)
@@ -15,15 +20,19 @@ public class BraceletValidator implements Validator
             Bracelet bracelet = (Bracelet) validatable;
             if (bracelet.getSize() <= 0)
             {
-                //TODO give info to logger
+                logger.warning("bracelet size cant be smaller/equal 0");
                 return false;
             }
             if (bracelet.getConnection() == null)
             {
-                //TODO give info to logger
+                logger.warning("bracelet connection cant be null");
                 return false;
             }
+        }else {
+            logger.warning("object is not a bracelet");
+            return false;
         }
+        logger.info("bracelet was valid");
         return true;
     }
 }

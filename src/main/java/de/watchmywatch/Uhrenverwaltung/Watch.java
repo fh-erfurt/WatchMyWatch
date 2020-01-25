@@ -3,11 +3,16 @@ package de.watchmywatch.Uhrenverwaltung;
 import de.watchmywatch.Exceptions.NameException;
 import de.watchmywatch.Uhrenverwaltung.Validator.*;
 
+import java.util.logging.Logger;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Watch implements Validatable
 {
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+
     private String name;
     private double price;
     private String particularity;
@@ -44,21 +49,24 @@ public class Watch implements Validatable
         this.clockwork = clockwork;
     }
 
-    public static void checkName(String name) throws NameException
+    public void checkName(String name) throws NameException
     {
         Pattern pattern = Pattern.compile("^[a-zA-ZäÄöÖüÜß]*$");
         Matcher matcher = pattern.matcher(name);
 
         if (!matcher.find())
         {
+            logger.warning("watch name contains invalid characters");
             throw new NameException("Name contains invalid characters");
         }
         else if (name.trim().isEmpty())
         {
+            logger.warning("watch name should not be empty");
             throw new NameException("Name should not be empty");
         }
         else if (name.length() > 140)
         {
+            logger.warning("watch name should not be longer than 140 characters");
             throw new NameException("Name should not be longer than 140 characters");
         }
     }
@@ -95,7 +103,7 @@ public class Watch implements Validatable
     {
         if (price <= 0)
         {
-            //log
+            logger.warning("price should not be lower/equal zero");
         }
         this.price = price;
     }
@@ -134,7 +142,7 @@ public class Watch implements Validatable
         }
         else
         {
-            //Log failure
+            logger.warning("bracelet is not valid -> was not set");
         }
     }
 
@@ -147,7 +155,7 @@ public class Watch implements Validatable
         }
         else
         {
-            //Log failure
+            logger.warning("casing is not valid -> was not set");
         }
     }
 
@@ -160,7 +168,7 @@ public class Watch implements Validatable
         }
         else
         {
-            //Log failure
+            logger.warning("clockwork is not valid -> was not set");
         }
 
     }
@@ -174,12 +182,12 @@ public class Watch implements Validatable
                 && this.getClockwork().validate()
                 && this.getBracelet().validate())
         {
-            //log validation
+            logger.info("watch validation was successful");
             return true;
         }
         else
         {
-            //log failure
+            logger.info("watch validation was not successful");
             return false;
         }
     }

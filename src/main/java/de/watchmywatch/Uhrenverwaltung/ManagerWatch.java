@@ -3,9 +3,12 @@ package de.watchmywatch.Uhrenverwaltung;
 import de.watchmywatch.Uhrenverwaltung.Validator.Validator;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class ManagerWatch
 {
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     private static ArrayList<Watch> watchList = new ArrayList<>();
 
     //adds a watch to the list but doesnt if the exact same watch is already present
@@ -13,17 +16,12 @@ public class ManagerWatch
     {
         if (watch.validate())
         {
-            //if watch IS NOT in the list
-            if (!watchList.contains(watch))
-            {
-                watchList.add(watch);
-            } else
-            {
-                //TODO LOG output watch is already existing in the watchList
-            }
-        } else
+            watchList.add(watch);
+            logger.info("watch was added");
+        }
+        else
         {
-            //TODO LOG that watch wasnt valid and maybe throw an exception
+            logger.warning("watch was not valid -> was not added");
         }
     }
 
@@ -34,9 +32,10 @@ public class ManagerWatch
         if (watchList.get(i) != null)
         {
             return watchList.get(i);
-        } else
+        }
+        else
         {
-            //TODO LOG output watch is not in list
+            logger.warning("watch was not found");
             return null;
         }
     }
@@ -46,9 +45,11 @@ public class ManagerWatch
         if (watchList.contains(watch))
         {
             watchList.remove(watch);
-        } else
+            logger.info("watch was removed");
+        }
+        else
         {
-            //TODO LOG output couldnt remove watch as it was not in the list
+            logger.warning("watch was not found -> not removed");
         }
     }
 }
