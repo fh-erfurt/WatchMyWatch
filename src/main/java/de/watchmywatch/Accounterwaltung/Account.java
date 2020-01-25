@@ -1,5 +1,6 @@
 package de.watchmywatch.Accounterwaltung;
 
+import de.watchmywatch.Bestellungsverwaltung.Order;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 
 import java.util.ArrayList;
@@ -19,27 +20,27 @@ public class Account
     private Enum defaultPaymentMethod;
     private Enum accountStatus;
     private Shoppingcart shoppingCart;
-    private List<String> orders;
+    private List<Order> orders;
 
     public Account(Customer customer, String passwordToHash, byte[] salt, String billingAddress, Date opened,
                    Enum defaultPaymentMethod, Enum accountStatus, Shoppingcart shoppingCart)
     {
         this.customer = customer;
-        this.securePassword = get_SHA_1_SecurePassword(passwordToHash, salt);
+        this.securePassword = get_SHA_256_SecurePassword(passwordToHash, salt);
         this.salt = salt;
         this.billingAddress = billingAddress;
         this.opened = opened;
         this.defaultPaymentMethod = defaultPaymentMethod;
         this.accountStatus = accountStatus;
         this.shoppingCart = shoppingCart;
-        this.orders = new ArrayList<String>();
+        this.orders = new ArrayList<Order>();
     }
-    private static String get_SHA_1_SecurePassword(String passwordToHash, byte[] salt)
+    public static String get_SHA_256_SecurePassword(String passwordToHash, byte[] salt)
     {
         String generatedPassword = null;
         try {
-            MessageDigest md = MessageDigest.getInstance("SHA-1");
-            md.update(salt);
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            // md.update(salt);
             byte[] bytes = md.digest(passwordToHash.getBytes());
             StringBuilder sb = new StringBuilder();
             for(int i=0; i< bytes.length ;i++)
@@ -54,6 +55,12 @@ public class Account
         }
         return generatedPassword;
     }
+
+    public void changePassword(String newPasswordToHash)
+    {
+        this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash, this.salt);
+    }
+
     public Customer getCustomer()
     {
         return customer;
@@ -94,7 +101,7 @@ public class Account
         return shoppingCart;
     }
 
-    public List<String> getOrders()
+    public List<Order> getOrders()
     {
         return orders;
     }
@@ -134,7 +141,7 @@ public class Account
         this.opened = opened;
     }
 
-    public void setOrders(List<String> orders)
+    public void setOrders(List<Order> orders)
     {
         this.orders = orders;
     }
