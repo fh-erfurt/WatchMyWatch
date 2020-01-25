@@ -1,10 +1,14 @@
 package de.watchmywatch.Uhrenverwaltung;
 
 import de.watchmywatch.Accounterwaltung.Person;
+import de.watchmywatch.Exceptions.NameException;
 import de.watchmywatch.Helper.Address;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestWatch
 {
@@ -17,7 +21,7 @@ public class TestWatch
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2, 2);
 
     @Test
-    public void should_create_a_valid_watch()
+    public void should_create_a_valid_watch() throws NameException
     {
         //Given
 
@@ -27,8 +31,16 @@ public class TestWatch
         assertEquals(true, watch.validate());
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {" ", "!", "\"", "§", "$", "%", "&", "/", "(", ")", "=", "?", "´", "`", "*", "+", "'", "#", ";", ",", "_", "~", "@", "€", "[", "]", "{", "}"})
+    void should_throw_nameException_with_not_allowed_chars(String testString) throws NameException {
+        assertThrows(NameException.class, () -> {
+            Watch watch = new Watch(testString, 100.00, "Test", bracelet, casing, clockwork);
+        });
+    }
+
     @Test
-    public void should_create_a_non_valid_watch_with_no_parts()
+    public void should_create_a_non_valid_watch_with_no_parts() throws NameException
     {
         //Given
         //When
@@ -38,7 +50,7 @@ public class TestWatch
     }
 
     @Test
-    public void should_create_a_non_valid_watch_price_smaller_zero_without_fee()
+    public void should_create_a_non_valid_watch_price_smaller_zero_without_fee() throws NameException
     {
         //Given
         //When
@@ -48,7 +60,7 @@ public class TestWatch
     }
 
     @Test
-    public void should_create_a_non_valid_watch_price_equal_zero_without_fee()
+    public void should_create_a_non_valid_watch_price_equal_zero_without_fee() throws NameException
     {
         //Given
         //When
@@ -58,7 +70,7 @@ public class TestWatch
     }
 
     @Test
-    public void should_check_fee_calculation_for_under_2000euro()
+    public void should_check_fee_calculation_for_under_2000euro() throws NameException
     {
         //Given
         //When
@@ -68,12 +80,11 @@ public class TestWatch
     }
 
     @Test
-    public void should_check_fee_calculation_for_over_2000euro()
+    public void should_check_fee_calculation_for_over_2000euro() throws NameException
     {
         //Given
         //When
         Watch watch = new Watch("Swatch", 2500.00, "Test");
-
         //Then
         assertEquals(2700.00, watch.getPriceWithFee());
     }

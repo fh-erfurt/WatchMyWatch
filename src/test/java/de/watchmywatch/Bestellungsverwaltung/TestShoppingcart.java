@@ -1,5 +1,6 @@
 package de.watchmywatch.Bestellungsverwaltung;
 import de.watchmywatch.Accounterwaltung.Person;
+import de.watchmywatch.Exceptions.NameException;
 import de.watchmywatch.Helper.Address;
 import de.watchmywatch.Uhrenverwaltung.*;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,10 @@ public class TestShoppingcart
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 2, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2, 2);
     Watch watch = new Watch("Swatch", 100.00, "Test", bracelet, casing, clockwork);
+
+    public TestShoppingcart() throws NameException
+    {
+    }
 
     @Test
     public void should_return_zero_as_total_for_new_shoppingcart()
@@ -115,7 +120,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_110_as_new_total_for_shoppingcart()
+    public void should_return_110_as_new_total_for_shoppingcart() throws NameException
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
@@ -129,7 +134,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_zero_as_new_total_for_shoppingcart()
+    public void should_return_zero_as_new_total_for_shoppingcart() throws NameException
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
@@ -143,7 +148,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_220_as_new_total_for_shoppingcart()
+    public void should_return_220_as_new_total_for_shoppingcart() throws NameException
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
@@ -159,7 +164,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_330_as_new_total_for_shoppingcart()
+    public void should_return_330_as_new_total_for_shoppingcart() throws NameException
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
@@ -175,7 +180,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_440_as_new_total_for_shoppingcart()
+    public void should_return_440_as_new_total_for_shoppingcart() throws NameException
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
