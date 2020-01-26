@@ -14,6 +14,8 @@ public class Customer extends Person
         this.dob = dob;
     }
 
+
+
     public Date getDob()
     {
         return dob;

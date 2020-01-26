@@ -2,6 +2,7 @@ package de.watchmywatch.Accounterwaltung;
 
 import de.watchmywatch.Bestellungsverwaltung.Order;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
+import de.watchmywatch.Helper.Address;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,28 +15,28 @@ public class Account
 {
     private Customer customer;
     private String securePassword;
-    private byte[] salt;
-    private String billingAddress;
+   // private byte[] salt;
+    private Address billingAddress;
     private Date opened;
-    private Enum defaultPaymentMethod;
+    private Enum PaymentMethod;
     private Enum accountStatus;
     private Shoppingcart shoppingCart;
     private List<Order> orders;
 
-    public Account(Customer customer, String passwordToHash, byte[] salt, String billingAddress, Date opened,
-                   Enum defaultPaymentMethod, Enum accountStatus, Shoppingcart shoppingCart)
+    public Account(Customer customer, String passwordToHash, /*byte[] salt,*/ Address billingAddress, Date opened,
+                   Enum PaymentMethod, Enum accountStatus, Shoppingcart shoppingCart)
     {
         this.customer = customer;
-        this.securePassword = get_SHA_256_SecurePassword(passwordToHash, salt);
-        this.salt = salt;
+        this.securePassword = get_SHA_256_SecurePassword(passwordToHash/*, salt*/);
+       // this.salt = salt;
         this.billingAddress = billingAddress;
         this.opened = opened;
-        this.defaultPaymentMethod = defaultPaymentMethod;
+        this.PaymentMethod = PaymentMethod;
         this.accountStatus = accountStatus;
         this.shoppingCart = shoppingCart;
         this.orders = new ArrayList<Order>();
     }
-    public static String get_SHA_256_SecurePassword(String passwordToHash, byte[] salt)
+    public static String get_SHA_256_SecurePassword(String passwordToHash/*, byte[] salt*/)
     {
         String generatedPassword = null;
         try {
@@ -58,7 +59,26 @@ public class Account
 
     public void changePassword(String newPasswordToHash)
     {
-        this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash, this.salt);
+        this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash/*, this.salt*/);
+    }
+
+    public boolean addOrder(Order order)
+    {
+        orders.add(order);
+        return true;
+    }
+
+    public boolean removeOrder(Order order)
+    {
+        if(orders.contains(order))
+        {
+            orders.remove(order);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public Customer getCustomer()
@@ -71,12 +91,12 @@ public class Account
         return securePassword;
     }
 
-    public byte[] getSalt()
+  /*  public byte[] getSalt()
     {
         return salt;
-    }
+    }*/
 
-    public String getBillingAddress()
+    public Address getBillingAddress()
     {
         return billingAddress;
     }
@@ -86,9 +106,9 @@ public class Account
         return opened;
     }
 
-    public Enum getDefaultPaymentMethod()
+    public Enum getPaymentMethod()
     {
-        return defaultPaymentMethod;
+        return PaymentMethod;
     }
 
     public Enum getAccountStatus()
@@ -116,24 +136,24 @@ public class Account
         this.accountStatus = accountStatus;
     }
 
-    public void setBillingAddress(String billingAddress)
+    public void setBillingAddress(Address billingAddress)
     {
         this.billingAddress = billingAddress;
     }
 
-    public void setSalt(byte[] salt)
+   /* public void setSalt(byte[] salt)
     {
         this.salt = salt;
-    }
+    }*/
 
     public void setSecurePassword(String securePassword)
     {
         this.securePassword = securePassword;
     }
 
-    public void setDefaultPaymentMethod(Enum defaultPaymentMethod)
+    public void setPaymentMethod(Enum PaymentMethod)
     {
-        this.defaultPaymentMethod = defaultPaymentMethod;
+        this.PaymentMethod = PaymentMethod;
     }
 
     public void setOpened(Date opened)

@@ -6,7 +6,7 @@ public class ManagerAccount {
 
     private static List<Account> accountList;
 
-    public void addAccount(Account account)
+    public static void addAccount(Account account)
     {
         if(!accountList.contains(account))
         {
@@ -14,10 +14,10 @@ public class ManagerAccount {
         }
         else
         {
-            //TODO output: account already exists
+
         }
     }
-    public void removeAccount(Account account)
+    public static void removeAccount(Account account)
     {
         if(accountList.contains(account))
         {
