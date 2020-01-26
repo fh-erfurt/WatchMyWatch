@@ -28,16 +28,13 @@ public class Watch implements Validatable
 
 
     /**
-     * Bei Erzeugung des Objekts mit dieser Methode muss per setMethoden die Parts
+     * Bei Erzeugung des Objekts mit dieser Methode müssen per setMethoden die Parts
      * im Nachhinein gesetzt werden
      *
-     * @author Tom Käppler
-     *
-     * @param name Name der Uhr
-     * @param price Preis der Uhr
+     * @param name          Name der Uhr
+     * @param price         Preis der Uhr
      * @param particularity Einzigartigkeit der Uhr falls vorhanden
-     *
-     * @return gibt ein Uhren Objekt zurück
+     * @author Tom Käppler
      */
     public Watch(String name, double price, String particularity) throws NameException
     {
@@ -50,6 +47,17 @@ public class Watch implements Validatable
         this.clockwork = null;
     }
 
+    /**
+     * Erzeugt ein Objekt welches bereits mit den Parts erstellt wird
+     *
+     * @param name          Name der Uhr
+     * @param price         Preis der Uhr
+     * @param particularity Einzigartigkeit der Uhr falls vorhanden
+     * @param bracelet      Armband der Uhr
+     * @param casing        Gehäuse der Uhr
+     * @param clockwork     Uhrenwerk der Uhr
+     * @author Tom Käppler
+     */
     public Watch(String name, double price, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork) throws NameException
     {
         checkName(name);
@@ -61,6 +69,12 @@ public class Watch implements Validatable
         this.clockwork = clockwork;
     }
 
+    /**
+     * Prüft Namen auf Sonderzeichen/Länge/Leere
+     *
+     * @param name Name welcher geprüft werden soll
+     * @author Tom Käppler
+     */
     public void checkName(String name) throws NameException
     {
         Pattern pattern = Pattern.compile("^[0-9a-zA-ZäÄöÖüÜß]*$");
@@ -94,6 +108,10 @@ public class Watch implements Validatable
         this.name = name;
     }
 
+    /**
+     * @author Tom Käppler
+     * @return Gibt den Preis mit der jeweilig berechnet Gebühr
+     */
     public double getPriceWithFee()
     {
         if (this.price < 2000.00)
@@ -106,9 +124,22 @@ public class Watch implements Validatable
         }
     }
 
+    /**
+     * @author Tom Käppler
+     * @return Gibt den preis ohne Gebühren zurück
+     */
     public double getPriceWithoutFee()
     {
         return this.price;
+    }
+
+    /**
+     * @author Tom Käppler
+     * @return Gibt den Preis der Teile zurück
+     */
+    public double getPartPrice()
+    {
+        return this.bracelet.getPrice() + this.casing.getPrice() + this.clockwork.getPrice();
     }
 
     public void setPrice(double price)
@@ -185,7 +216,9 @@ public class Watch implements Validatable
 
     }
 
-    //validates a watch, returns true if valid and false if not valid
+    /**
+     * @return Gibt zurück ob eine Uhr valide ist oder nicht
+     */
     public boolean validate()
     {
         Validator watchValidator = new WatchValidator();
