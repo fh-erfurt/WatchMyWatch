@@ -15,7 +15,7 @@ public class Casing extends Watchpart implements Validatable
                   Material material, int amountAvailable, double price,
                   double outerDiameter, double innerDiameter, ConnectionType connection)
     {
-        super(manufacturer, manufacturerPartID, material, amountAvailable, PartType.CASING, price);
+        super(manufacturer, manufacturerPartID, material, amountAvailable, price);
         this.outerDiameter = outerDiameter;
         this.innerDiameter = innerDiameter;
         this.connection = connection;

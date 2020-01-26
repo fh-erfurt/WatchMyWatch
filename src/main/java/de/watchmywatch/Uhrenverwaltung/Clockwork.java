@@ -13,7 +13,7 @@ public class Clockwork extends Watchpart implements Validatable
                      Material material, int amountAvailable,
                      double price, double diameter)
     {
-        super(manufacturer, manufacturerPartID, material, amountAvailable, PartType.CLOCKWORK, price);
+        super(manufacturer, manufacturerPartID, material, amountAvailable, price);
         this.diameter = diameter;
     }
 

@@ -14,7 +14,7 @@ public class Bracelet extends Watchpart implements Validatable
                     Material material, int amountAvailable, double price,
                     double size, ConnectionType connection)
     {
-        super(manufacturer, manufacturerPartID, material, amountAvailable, PartType.BRACELET, price);
+        super(manufacturer, manufacturerPartID, material, amountAvailable, price);
         this.size = size;
         this.connection = connection;
     }
