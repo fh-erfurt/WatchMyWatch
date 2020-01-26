@@ -217,6 +217,7 @@ public class Watch implements Validatable
     }
 
     /**
+     * @author  Tom Käppler
      * @return Gibt zurück ob eine Uhr valide ist oder nicht
      */
     public boolean validate()

@@ -9,6 +9,14 @@ public class Manufacturer
     private Person contactPerson;
     private Address address;
 
+    /**
+     * Erzeugt ein Objekt eines Herstellers
+     *
+     * @author Tom Käppler
+     * @param name Name des Herstellers
+     * @param contactPerson Objekt unserer KontatPerson
+     * @param address Hauptadresse des Herstellers
+     */
     public Manufacturer(String name, Person contactPerson, Address address)
     {
         this.name = name;

@@ -16,6 +16,8 @@ public abstract class Watchpart implements Validatable
 
     /**
      * Ist eine Abstrakte Klasse welche Grundlegende Eigenschaften von Uhrenteilen beinhaltet
+     *
+     * @author Tom Käppler
      * @param manufacturer Objekt eines Herstellers
      * @param manufacturerPartID ID welche von dem Hersteller selbst vergeben wurde
      * @param material Material aus welchen das Teil ist

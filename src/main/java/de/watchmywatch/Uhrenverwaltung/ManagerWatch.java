@@ -12,6 +12,11 @@ public class ManagerWatch
     private static ArrayList<Watch> watchList = new ArrayList<>();
 
     //adds a watch to the list but doesnt if the exact same watch is already present
+
+    /**
+     * Validiert die Uhr und fügt sie dem Array hinzu
+     * @param watch Uhr welche hinzugefügt werden soll
+     */
     public void addWatch(Watch watch)
     {
         if (watch.validate())
