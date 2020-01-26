@@ -11,19 +11,24 @@ public abstract class Watchpart implements Validatable
     private Material material;
     //contains the stock we currently have
     private int amountAvailable;
-    private PartType partType;
     //contains price which the part alone costs
     private double price;
 
-    protected Watchpart(Manufacturer manufacturer, String manufacturerPartID,
-                        Material material, int amountAvailable, PartType partType,
-                        double price)
+    /**
+     * Ist eine Abstrakte Klasse welche Grundlegende Eigenschaften von Uhrenteilen beinhaltet
+     * @param manufacturer Objekt eines Herstellers
+     * @param manufacturerPartID ID welche von dem Hersteller selbst vergeben wurde
+     * @param material Material aus welchen das Teil ist
+     * @param amountAvailable Anzahl der Teile im Lager
+     * @param price Preis des Teils
+     */
+    public Watchpart(Manufacturer manufacturer, String manufacturerPartID,
+                        Material material, int amountAvailable, double price)
     {
         this.manufacturer = manufacturer;
         this.manufacturerPartID = manufacturerPartID;
         this.material = material;
         this.amountAvailable = amountAvailable;
-        this.partType = partType;
         this.price = price;
     }
 
@@ -65,16 +70,6 @@ public abstract class Watchpart implements Validatable
     public void setAmountAvailable(int amountAvailable)
     {
         this.amountAvailable = amountAvailable;
-    }
-
-    public PartType getPartType()
-    {
-        return partType;
-    }
-
-    public void setPartType(PartType partType)
-    {
-        this.partType = partType;
     }
 
     public double getPrice()
