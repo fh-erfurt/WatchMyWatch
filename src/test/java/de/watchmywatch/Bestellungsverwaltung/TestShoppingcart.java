@@ -19,7 +19,7 @@ public class TestShoppingcart
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM,2, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM,2, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,2, 2);
-    Watch watch = new Watch("Swatch", "Test", bracelet, casing, clockwork);
+    Watch watch = new Watch("Swatch","Test", bracelet, casing, clockwork);
 
     // TODO: Preisberechnung über Einzelteile steuern.
     public TestShoppingcart() throws NameException
