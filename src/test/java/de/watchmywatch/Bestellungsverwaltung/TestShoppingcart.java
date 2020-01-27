@@ -19,7 +19,7 @@ public class TestShoppingcart
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM,2, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM,2, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,2, 2);
-    Watch watch = new Watch("Swatch", 100.00, "Test", bracelet, casing, clockwork);
+    Watch watch = new Watch("Swatch",  "Test", bracelet, casing, clockwork);
 
     public TestShoppingcart() throws NameException
     {
@@ -184,8 +184,8 @@ public class TestShoppingcart
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
-        Watch watch1 = new Watch("Swatch", 100.00, "Test", bracelet, casing, clockwork);
-        Watch watch2 = new Watch("Swatch", 300.00, "Test", bracelet, casing, clockwork);
+        Watch watch1 = new Watch("Swatch",  "Test", bracelet, casing, clockwork);
+        Watch watch2 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch2);

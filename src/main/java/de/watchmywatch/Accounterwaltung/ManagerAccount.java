@@ -1,20 +1,23 @@
 package de.watchmywatch.Accounterwaltung;
 
+import de.watchmywatch.Exceptions.AccountAlreadyExistsException;
+
 import java.util.List;
 
 public class ManagerAccount {
 
     private static List<Account> accountList;
 
-    public static void addAccount(Account account)
+
+    public static void addAccount(Account account) throws AccountAlreadyExistsException
     {
-        if(!accountList.contains(account))
+        if(!accountList.contains((account)))
         {
             accountList.add(account);
         }
-        else
+       else
         {
-
+            throw new AccountAlreadyExistsException("Account already Exists!");
         }
     }
     public static void removeAccount(Account account)

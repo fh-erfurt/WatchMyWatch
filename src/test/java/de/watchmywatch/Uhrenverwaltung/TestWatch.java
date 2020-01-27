@@ -26,7 +26,7 @@ public class TestWatch
         //Given
 
         // When
-        Watch watch = new Watch("Swatch", 100.00, "Test", bracelet, casing, clockwork);
+        Watch watch = new Watch("Swatch",  "Test", bracelet, casing, clockwork);
         //Then
         assertEquals(true, watch.validate());
     }
@@ -35,21 +35,21 @@ public class TestWatch
     @ValueSource(strings = {" ", "!", "\"", "§", "$", "%", "&", "/", "(", ")", "=", "?", "´", "`", "*", "+", "'", "#", ";", ",", "_", "~", "@", "€", "[", "]", "{", "}"})
     void should_throw_nameException_with_not_allowed_chars(String testString) throws NameException {
         assertThrows(NameException.class, () -> {
-            Watch watch = new Watch(testString, 100.00, "Test", bracelet, casing, clockwork);
+            Watch watch = new Watch(testString,  "Test", bracelet, casing, clockwork);
         });
     }
 
     @Test
     void should_throw_nameException_with_empty_name() throws NameException {
         assertThrows(NameException.class, () -> {
-            Watch watch = new Watch("", 100.00, "Test", bracelet, casing, clockwork);
+            Watch watch = new Watch("",  "Test", bracelet, casing, clockwork);
         });
     }
 
     @Test
     void should_throw_nameException_with_name_longer_140() throws NameException {
         assertThrows(NameException.class, () -> {
-            Watch watch = new Watch("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 100.00, "Test", bracelet, casing, clockwork);
+            Watch watch = new Watch("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "Test", bracelet, casing, clockwork);
         });
 
         //TODO create method for creating string
@@ -60,7 +60,7 @@ public class TestWatch
     {
         //Given
         //When
-        Watch watch = new Watch("Swatch", 100.00, "Test");
+        Watch watch = new Watch("Swatch",  "Test");
         //Then
         assertEquals(false, watch.validate());
     }
@@ -70,7 +70,7 @@ public class TestWatch
     {
         //Given
         //When
-        Watch watch = new Watch("Swatch", -100.00, "Test", bracelet, casing, clockwork);
+        Watch watch = new Watch("Swatch",  "Test", bracelet, casing, clockwork);
         //Then
         assertEquals(false, watch.validate());
     }
@@ -80,7 +80,7 @@ public class TestWatch
     {
         //Given
         //When
-        Watch watch = new Watch("Swatch", 0.00, "Test", bracelet, casing, clockwork);
+        Watch watch = new Watch("Swatch",  "Test", bracelet, casing, clockwork);
         //Then
         assertEquals(false, watch.validate());
     }
@@ -90,7 +90,7 @@ public class TestWatch
     {
         //Given
         //When
-        Watch watch = new Watch("Swatch", 100.00, "Test");
+        Watch watch = new Watch("Swatch",  "Test");
         //Then
         assertEquals(110.00, watch.getPriceWithFee());
     }
@@ -100,7 +100,7 @@ public class TestWatch
     {
         //Given
         //When
-        Watch watch = new Watch("Swatch", 2500.00, "Test");
+        Watch watch = new Watch("Swatch", "Test");
         //Then
         assertEquals(2700.00, watch.getPriceWithFee());
     }

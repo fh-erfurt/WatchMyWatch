@@ -7,15 +7,17 @@ public class ManagerCustomer
     private static List<Customer> customerList;
 
     //adds a customer to the list but doesnt if the exact same customer is already present
-    public void addCustomer(Customer customer)
+    public boolean addCustomer(Customer customer)
     {
-        if (!customerList.contains(customer))
+        try
         {
             customerList.add(customer);
-        } else
-        {
-            // TODO: output: Customer already exists
         }
+        catch (Exception e)
+        {
+            return false;
+        }
+        return true;
     }
 
     public void removeCustomer(Customer customer)

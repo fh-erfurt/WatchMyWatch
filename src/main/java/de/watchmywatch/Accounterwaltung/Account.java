@@ -1,6 +1,7 @@
 package de.watchmywatch.Accounterwaltung;
 
 import de.watchmywatch.Bestellungsverwaltung.Order;
+import de.watchmywatch.Bestellungsverwaltung.PaymentMethod;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 import de.watchmywatch.Helper.Address;
 
@@ -10,21 +11,24 @@ import java.util.List;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.logging.Logger;
 
 public class Account
 {
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     private Customer customer;
     private String securePassword;
    // private byte[] salt;
     private Address billingAddress;
     private Date opened;
-    private Enum PaymentMethod;
-    private Enum accountStatus;
+    private PaymentMethod PaymentMethod;
+    private AccountStatus accountStatus;
     private Shoppingcart shoppingCart;
-    private List<Order> orders;
+    private static ArrayList<Order> orders = new ArrayList<>();
 
     public Account(Customer customer, String passwordToHash, /*byte[] salt,*/ Address billingAddress, Date opened,
-                   Enum PaymentMethod, Enum accountStatus, Shoppingcart shoppingCart)
+                   PaymentMethod PaymentMethod, AccountStatus accountStatus, Shoppingcart shoppingCart)
     {
         this.customer = customer;
         this.securePassword = get_SHA_256_SecurePassword(passwordToHash/*, salt*/);
@@ -106,12 +110,12 @@ public class Account
         return opened;
     }
 
-    public Enum getPaymentMethod()
+    public PaymentMethod getPaymentMethod()
     {
         return PaymentMethod;
     }
 
-    public Enum getAccountStatus()
+    public AccountStatus getAccountStatus()
     {
         return accountStatus;
     }
@@ -121,7 +125,7 @@ public class Account
         return shoppingCart;
     }
 
-    public List<Order> getOrders()
+    public ArrayList<Order> getOrders()
     {
         return orders;
     }
@@ -131,7 +135,7 @@ public class Account
         this.customer = customer;
     }
 
-    public void setAccountStatus(Enum accountStatus)
+    public void setAccountStatus(AccountStatus accountStatus)
     {
         this.accountStatus = accountStatus;
     }
@@ -151,7 +155,7 @@ public class Account
         this.securePassword = securePassword;
     }
 
-    public void setPaymentMethod(Enum PaymentMethod)
+    public void setPaymentMethod(PaymentMethod PaymentMethod)
     {
         this.PaymentMethod = PaymentMethod;
     }
@@ -161,7 +165,7 @@ public class Account
         this.opened = opened;
     }
 
-    public void setOrders(List<Order> orders)
+    public void setOrders(ArrayList<Order> orders)
     {
         this.orders = orders;
     }
