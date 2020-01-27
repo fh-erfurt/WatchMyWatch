@@ -8,17 +8,17 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestShoppingcart
 {
     // create some reusable objects
-    Address address = new Address("Lilo-Herrmann-Straße","Erfurt", "Thüringen", "99086");
-    Manufacturer manufacturer = new Manufacturer("Apple",  new Person("anton.bespalov@fh-erfurt.de", address,
-            "01716181447", "Anton", "Bespalov"), address);
-    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM,2, 1, ConnectionType.BAND);
-    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM,2, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,2, 2);
+    Address address = new Address("street", "city", "state", "zip");
+    Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
+            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
+    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM,25, 1, ConnectionType.BAND);
+    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM,25, 2, 2, ConnectionType.BAND);
+    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,50, 2);
     Watch watch = new Watch("Swatch","Test", bracelet, casing, clockwork);
 
     // TODO: Preisberechnung über Einzelteile steuern.
@@ -47,7 +47,7 @@ public class TestShoppingcart
     //Then
         ArrayList<Watch> list = shoppingcart.getItems();
         boolean foundWatch = list.contains(watch);
-        assertEquals( true , foundWatch);
+        assertTrue(foundWatch);
     }
 
 
@@ -66,7 +66,7 @@ public class TestShoppingcart
         {
             foundWatch = list.contains(watch);
         }
-        assertEquals( false , foundWatch);
+        assertFalse(foundWatch);
     }
 
     @Test
@@ -85,7 +85,7 @@ public class TestShoppingcart
         {
             foundWatch = list.contains(watch);
         }
-        assertEquals( true , foundWatch);
+        assertTrue(foundWatch);
     }
 
     @Test
@@ -104,7 +104,7 @@ public class TestShoppingcart
         {
             foundWatch = list.contains(watch);
         }
-        assertEquals( false , foundWatch);
+        assertFalse(foundWatch);
     }
 
     @Test
@@ -170,7 +170,8 @@ public class TestShoppingcart
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         Watch watch1 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
-        Watch watch2 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
+        Clockwork clockwork1 = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,250, 2);
+        Watch watch2 = new Watch("Swatch", "Test", bracelet, casing, clockwork1);
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch2);
@@ -186,7 +187,8 @@ public class TestShoppingcart
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         Watch watch1 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
-        Watch watch2 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
+        Clockwork clockwork1 = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,250, 2);
+        Watch watch2 = new Watch("Swatch", "Test", bracelet, casing, clockwork1);
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch2);
@@ -207,7 +209,7 @@ public class TestShoppingcart
         // When
         shoppingcart.clear();
         //Then
-        assertEquals( true , shoppingcart.getItems().isEmpty());
+        assertTrue(shoppingcart.getItems().isEmpty());
     }
 
     @Test

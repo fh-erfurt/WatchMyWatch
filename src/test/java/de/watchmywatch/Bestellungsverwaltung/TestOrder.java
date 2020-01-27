@@ -15,13 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestOrder
 {
     // create some reusable objects
-    Address address = new Address("Lilo-Herrmann-Straße", "Erfurt", "Thüringen", "99086");
-    Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", address,
-            "01716181447", "Anton", "Bespalov"), address);
-    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 2, 1, ConnectionType.BAND);
-    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM,2, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,2, 2);
-    Watch watch = new Watch("Swatch", "Test", bracelet, casing, clockwork);
+    Address address = new Address("street", "city", "state", "zip");
+    Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
+            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
+    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM,25, 1, ConnectionType.BAND);
+    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM,25, 2, 2, ConnectionType.BAND);
+    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,50, 2);
+    Watch watch = new Watch("Swatch","Test", bracelet, casing, clockwork);
 
     Shoppingcart shoppingcart = new Shoppingcart();
 
