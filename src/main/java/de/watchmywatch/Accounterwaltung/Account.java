@@ -5,7 +5,9 @@ import de.watchmywatch.Bestellungsverwaltung.PaymentMethod;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 import de.watchmywatch.Helper.Address;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.security.MessageDigest;
@@ -173,5 +175,12 @@ public class Account
     public void setShoppingCart(Shoppingcart shoppingCart)
     {
         this.shoppingCart = shoppingCart;
+    }
+
+    public Order getOldestUnpaidOrder(){
+        return orders.stream()
+                .filter(order -> !order.isPaid())  // Filter for unpaid Orders
+                .min( Comparator.comparing(order -> order.getOrderDate()) ) // select oldest
+                .get();
     }
 }

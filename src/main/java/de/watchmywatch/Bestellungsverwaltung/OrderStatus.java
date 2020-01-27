@@ -3,7 +3,7 @@ package de.watchmywatch.Bestellungsverwaltung;
 public enum OrderStatus
 {
     PENDING,
-    PAID,
+    COMPLETE,
     CANCELLED,
     DELAYED
 }

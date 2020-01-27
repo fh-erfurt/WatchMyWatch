@@ -9,14 +9,13 @@ import org.junit.Test;
 
 import static de.watchmywatch.Accounterwaltung.AccountStatus.ACTIV;
 import static de.watchmywatch.Bestellungsverwaltung.PaymentMethod.PAYPAL;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
 import static de.watchmywatch.Accounterwaltung.Account.get_SHA_256_SecurePassword;
-
-
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class TestAccount
@@ -70,5 +69,39 @@ public class TestAccount
 
         //When
         assertTrue(result);
+    }
+
+    @Test
+    public void should_return_oldest_of_two_unpaid_orders_with_correct_OrderDate()
+    {
+    // Given
+        Order order2 = new Order(address, shoppingcart);
+        LocalDateTime date = LocalDateTime.of(2000,01,01,12,00);
+        order2.setOrderDate(date);
+        account.addOrder(order);
+        account.addOrder(order2);
+    // When
+
+    // Then
+        assertFalse(account.getOldestUnpaidOrder().isPaid());
+        assertEquals(date, account.getOldestUnpaidOrder().getOrderDate());
+    }
+
+    @Test
+    public void should_return_oldest_of_three_orders_where_two_are_unpaid_with_correct_OrderDate()
+    {
+        // Given
+        Order order2 = new Order(address, shoppingcart);
+        LocalDateTime date = LocalDateTime.of(2000,01,01,12,00);
+        order2.setOrderDate(date);
+        Order order3 = order;
+        order3.getPayment().setDatePaid(LocalDateTime.now());
+        account.addOrder(order);
+        account.addOrder(order2);
+        // When
+
+        // Then
+        assertFalse(account.getOldestUnpaidOrder().isPaid());
+        assertEquals(date, account.getOldestUnpaidOrder().getOrderDate());
     }
 }

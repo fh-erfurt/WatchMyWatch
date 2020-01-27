@@ -138,4 +138,16 @@ public class Order
     {
         return this.payment.getDatePaid() != null;
     }
+
+    // Pays given Order, sends it and thereby completes Order.
+    public boolean pay(){
+        boolean success = false;
+        if(!isPaid()) {
+            this.getPayment().setDatePaid(LocalDateTime.now());
+            this.setShippingStatus(ShippingStatus.SENT);
+            this.setOrderStatus(OrderStatus.COMPLETE);
+            success = true;
+        }
+        return success;
+    }
 }
