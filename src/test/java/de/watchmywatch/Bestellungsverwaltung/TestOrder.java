@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-// TODO: Lagerbestand nach Bestellung aktualisieren.
 public class TestOrder
 {
     // create some reusable objects
