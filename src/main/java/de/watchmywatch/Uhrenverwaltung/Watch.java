@@ -32,11 +32,10 @@ public class Watch implements Validatable
      * im Nachhinein gesetzt werden
      *
      * @param name          Name der Uhr
-     * @param price         Preis der Uhr
      * @param particularity Einzigartigkeit der Uhr falls vorhanden
      * @author Tom Käppler
      */
-    public Watch(String name, double price, String particularity) throws NameException
+    public Watch(String name, String particularity) throws NameException
     {
         checkName(name);
         this.name = name;
@@ -51,18 +50,17 @@ public class Watch implements Validatable
      * Erzeugt ein Objekt welches bereits mit den Parts erstellt wird
      *
      * @param name          Name der Uhr
-     * @param price         Preis der Uhr
      * @param particularity Einzigartigkeit der Uhr falls vorhanden
      * @param bracelet      Armband der Uhr
      * @param casing        Gehäuse der Uhr
      * @param clockwork     Uhrenwerk der Uhr
      * @author Tom Käppler
      */
-    public Watch(String name, double price, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork) throws NameException
+    public Watch(String name, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork) throws NameException
     {
         checkName(name);
         this.name = name;
-        this.price = price;
+        this.price = this.bracelet.getPrice() + this.casing.getPrice() + this.clockwork.getPrice();;
         this.particularity = particularity;
         this.bracelet = bracelet;
         this.casing = casing;
