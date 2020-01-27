@@ -60,11 +60,12 @@ public class Watch implements Validatable
     {
         checkName(name);
         this.name = name;
-        this.price = this.bracelet.getPrice() + this.casing.getPrice() + this.clockwork.getPrice();;
+
         this.particularity = particularity;
         this.bracelet = bracelet;
         this.casing = casing;
         this.clockwork = clockwork;
+        this.price = this.bracelet.getPrice() + this.casing.getPrice() + this.clockwork.getPrice();
     }
 
     /**
