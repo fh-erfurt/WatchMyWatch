@@ -6,9 +6,12 @@ import de.watchmywatch.Uhrenverwaltung.Watch;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Shoppingcart
 {
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     private double total;
     private ArrayList<Watch> items = new ArrayList<>();
 
@@ -43,7 +46,7 @@ public class Shoppingcart
 
     public void addWatch(Watch watch)
     {
-        if (watch != null)
+        if (watch != null && watch.validate())
         {
             items.add(watch);
             this.total+=watch.getPriceWithFee();

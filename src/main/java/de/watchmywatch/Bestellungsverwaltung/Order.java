@@ -1,6 +1,8 @@
 package de.watchmywatch.Bestellungsverwaltung;
 
 import java.time.LocalDateTime;
+import java.util.logging.Logger;
+
 import de.watchmywatch.Bestellungsverwaltung.OrderStatus;
 import de.watchmywatch.Bestellungsverwaltung.ShippingStatus;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
@@ -9,11 +11,12 @@ import de.watchmywatch.Helper.Address;
 
 public class Order
 {
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private static final double SHIPPINGFEE = 5.90;     // Konstante für Versandkosten, die immer anzurechnen sind
     private LocalDateTime ordered;
     private LocalDateTime shipped;
-    private Address address;
+    private Address shippingAddress;
     private OrderStatus orderStatus;
     private ShippingStatus shippingStatus;
     private double total;
@@ -24,7 +27,7 @@ public class Order
     {
         this.ordered = LocalDateTime.now();
         this.shipped = null;
-        this.address = address;
+        this.shippingAddress = address;
         this.orderStatus = OrderStatus.PENDING;
         this.shippingStatus = ShippingStatus.PENDING;
         this.shoppingcart = shoppingcart;
@@ -32,52 +35,67 @@ public class Order
         this.payment = new Payment();
     }
 
-    LocalDateTime getOrderDate()
+    public Order(Address address, Shoppingcart shoppingcart, PaymentMethod paymentMethod)
+    {
+        this.ordered = LocalDateTime.now();
+        this.shipped = null;
+        this.shippingAddress = address;
+        this.orderStatus = OrderStatus.PENDING;
+        this.shippingStatus = ShippingStatus.PENDING;
+        this.shoppingcart = shoppingcart;
+        this.total = shoppingcart.getTotal() + SHIPPINGFEE;
+        this.payment = new Payment(paymentMethod);
+    }
+
+    public LocalDateTime getOrderDate()
     {
         return this.ordered;
     }
 
-    void setOrderDate(LocalDateTime date)
+    public void setOrderDate(LocalDateTime date)
     {
         this.ordered = date;
     }
 
-    LocalDateTime getShipDate()
+    public LocalDateTime getShipDate()
     {
         return this.shipped;
     }
 
-    void setShipDate(LocalDateTime date)
+    public void setShipDate(LocalDateTime date)
     {
         this.shipped =date;
     }
 
-    Address getAddress()
+    public Address getAddress()
     {
-        return this.address;
+        return this.shippingAddress;
     }
 
-    void setAddress(Address newAddress)
+    public void setAddress(Address newAddress)
     {
-        this.address = newAddress;
+        this.shippingAddress = newAddress;
     }
 
-    OrderStatus getOrderStatus()
+    public OrderStatus getOrderStatus()
     {
         return this.orderStatus;
     }
-    void setOrderStatus(OrderStatus newOrderStatus)
+    public void setOrderStatus(OrderStatus newOrderStatus)
     {
         this.orderStatus = newOrderStatus;
     }
 
-    ShippingStatus getShippingStatus()
+    public ShippingStatus getShippingStatus()
     {
         return this.shippingStatus;
     }
 
-    // If newShippingStatus is SENT, sets shipping date to current time
-    void setShippingStatus(ShippingStatus newShippingStatus)
+    /**
+     * If newShippingStatus is SENT, sets shipping date to current time
+     * @param newShippingStatus
+     */
+    public void setShippingStatus(ShippingStatus newShippingStatus)
     {
         this.shippingStatus = newShippingStatus;
         if(newShippingStatus == ShippingStatus.SENT)
@@ -86,7 +104,7 @@ public class Order
         }
     }
 
-    double getTotal()
+    public double getTotal()
     {
         calcTotal();
         return this.total;
@@ -97,8 +115,7 @@ public class Order
         this.total = this.shoppingcart.getTotal() + SHIPPINGFEE;
     }
 
-    Shoppingcart getShoppingcart(){
-    // TODO: Als Referenz übergeben?
+    public Shoppingcart getShoppingcart(){
     return this.shoppingcart;
     }
 
@@ -108,7 +125,7 @@ public class Order
     this.calcTotal();    // Neue Gesamtkosten berechnen
     }
 
-    Payment getPayment(){
+    public Payment getPayment(){
     return this.payment;
     }
 

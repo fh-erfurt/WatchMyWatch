@@ -1,6 +1,7 @@
 package de.watchmywatch.Accounterwaltung;
 
 import de.watchmywatch.Bestellungsverwaltung.Order;
+import de.watchmywatch.Bestellungsverwaltung.PaymentMethod;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 import de.watchmywatch.Helper.Address;
 
@@ -9,7 +10,6 @@ import java.util.Date;
 import java.util.List;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 
 public class Account
 {
@@ -18,20 +18,20 @@ public class Account
    // private byte[] salt;
     private Address billingAddress;
     private Date opened;
-    private Enum PaymentMethod;
+    private PaymentMethod paymentMethod;
     private Enum accountStatus;
     private Shoppingcart shoppingCart;
     private List<Order> orders;
 
     public Account(Customer customer, String passwordToHash, /*byte[] salt,*/ Address billingAddress, Date opened,
-                   Enum PaymentMethod, Enum accountStatus, Shoppingcart shoppingCart)
+                   PaymentMethod PaymentMethod, Enum accountStatus, Shoppingcart shoppingCart)
     {
         this.customer = customer;
         this.securePassword = get_SHA_256_SecurePassword(passwordToHash/*, salt*/);
        // this.salt = salt;
         this.billingAddress = billingAddress;
         this.opened = opened;
-        this.PaymentMethod = PaymentMethod;
+        this.paymentMethod = PaymentMethod;
         this.accountStatus = accountStatus;
         this.shoppingCart = shoppingCart;
         this.orders = new ArrayList<Order>();
@@ -108,7 +108,7 @@ public class Account
 
     public Enum getPaymentMethod()
     {
-        return PaymentMethod;
+        return paymentMethod;
     }
 
     public Enum getAccountStatus()
@@ -153,7 +153,7 @@ public class Account
 
     public void setPaymentMethod(Enum PaymentMethod)
     {
-        this.PaymentMethod = PaymentMethod;
+        this.paymentMethod = PaymentMethod;
     }
 
     public void setOpened(Date opened)

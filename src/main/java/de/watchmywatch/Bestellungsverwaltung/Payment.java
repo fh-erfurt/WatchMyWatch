@@ -1,9 +1,12 @@
 package de.watchmywatch.Bestellungsverwaltung;
 
 import java.time.LocalDateTime;
+import java.util.logging.Logger;
 
 public class Payment
 {
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     private LocalDateTime datePaid;
     private PaymentMethod paymentMethod;
     private String details;     // Verwendungszweck, Buchungsgrund o.Ä.
@@ -12,6 +15,11 @@ public class Payment
     {
         this.datePaid = null;
         this.paymentMethod = null;
+        this.details = null;
+    }
+    public Payment(PaymentMethod paymentMethod) {
+        this.datePaid = null;
+        this.paymentMethod = paymentMethod;
         this.details = null;
     }
     public Payment(PaymentMethod paymentMethod, String details) {
