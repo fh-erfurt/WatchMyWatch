@@ -11,10 +11,10 @@ public class Bracelet extends Watchpart implements Validatable
     private ConnectionType connection;
 
     public Bracelet(Manufacturer manufacturer, String manufacturerPartID,
-                    Material material, int amountAvailable, double price,
+                    Material material, double price,
                     double size, ConnectionType connection)
     {
-        super(manufacturer, manufacturerPartID, material, amountAvailable, price);
+        super(manufacturer, manufacturerPartID, material, price);
         this.size = size;
         this.connection = connection;
     }

@@ -16,9 +16,9 @@ public class TestWatch
     Address address = new Address("street", "city", "state", "zip");
     Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
             "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
-    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 2, 2, 1, ConnectionType.BAND);
-    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 2, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2, 2);
+    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM,2, 1, ConnectionType.BAND);
+    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM,2, 2, 2, ConnectionType.BAND);
+    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,2, 2);
 
     @Test
     public void should_create_a_valid_watch() throws NameException
@@ -51,6 +51,8 @@ public class TestWatch
         assertThrows(NameException.class, () -> {
             Watch watch = new Watch("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 100.00, "Test", bracelet, casing, clockwork);
         });
+
+        //TODO create method for creating string
     }
 
     @Test

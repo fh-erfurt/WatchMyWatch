@@ -12,10 +12,10 @@ public class Casing extends Watchpart implements Validatable
     private ConnectionType connection;
 
     public Casing(Manufacturer manufacturer, String manufacturerPartID,
-                  Material material, int amountAvailable, double price,
+                  Material material, double price,
                   double outerDiameter, double innerDiameter, ConnectionType connection)
     {
-        super(manufacturer, manufacturerPartID, material, amountAvailable, price);
+        super(manufacturer, manufacturerPartID, material, price);
         this.outerDiameter = outerDiameter;
         this.innerDiameter = innerDiameter;
         this.connection = connection;

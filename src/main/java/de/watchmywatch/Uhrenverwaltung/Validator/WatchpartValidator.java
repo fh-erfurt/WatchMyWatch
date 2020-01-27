@@ -29,11 +29,6 @@ public class WatchpartValidator implements Validator
                 logger.warning("material cant be null");
                 return false;
             }
-            if (watchpart.getAmountAvailable() < 0)
-            {
-                logger.warning("amountAvailable cant be lower 0");
-                return false;
-            }
             if (watchpart.getPrice() <= 0)
             {
                 logger.warning("price cant be lower/equal 0");

@@ -17,7 +17,7 @@ public class TestWatchpart
     {
         //Given
         // When
-        Casing casing = new Casing(manufacturer,"id", Material.ALUMINIUM,1,2.00,2.00,2.00,ConnectionType.BAND);
+        Casing casing = new Casing(manufacturer,"id", Material.ALUMINIUM,1.00,2.00,2.00,ConnectionType.BAND);
         //Then
         assertEquals(true, casing.validate());
     }
@@ -27,7 +27,7 @@ public class TestWatchpart
     {
         //Given
         // When
-        Bracelet bracelet = new Bracelet(manufacturer,"ID",Material.ALUMINIUM,2,2.00,2.00,ConnectionType.BAND);
+        Bracelet bracelet = new Bracelet(manufacturer,"ID",Material.ALUMINIUM,2.00,2.00,ConnectionType.BAND);
         //Then
         assertEquals(true, bracelet.validate());
     }
@@ -37,7 +37,7 @@ public class TestWatchpart
     {
         //Given
         // When
-        Clockwork clockwork = new Clockwork(manufacturer,"ID",Material.ALUMINIUM,2,2.00,2.00);
+        Clockwork clockwork = new Clockwork(manufacturer,"ID",Material.ALUMINIUM,2.00,2.00);
         //Then
         assertEquals(true, clockwork.validate());
     }

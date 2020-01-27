@@ -10,10 +10,9 @@ public class Clockwork extends Watchpart implements Validatable
     private double diameter;
 
     public Clockwork(Manufacturer manufacturer, String manufacturerPartID,
-                     Material material, int amountAvailable,
-                     double price, double diameter)
+                     Material material, double price, double diameter)
     {
-        super(manufacturer, manufacturerPartID, material, amountAvailable, price);
+        super(manufacturer, manufacturerPartID, material, price);
         this.diameter = diameter;
     }
 

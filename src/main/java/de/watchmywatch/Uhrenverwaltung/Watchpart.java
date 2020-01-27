@@ -21,16 +21,14 @@ public abstract class Watchpart implements Validatable
      * @param manufacturer Objekt eines Herstellers
      * @param manufacturerPartID ID welche von dem Hersteller selbst vergeben wurde
      * @param material Material aus welchen das Teil ist
-     * @param amountAvailable Anzahl der Teile im Lager
      * @param price Preis des Teils
      */
     public Watchpart(Manufacturer manufacturer, String manufacturerPartID,
-                        Material material, int amountAvailable, double price)
+                        Material material, double price)
     {
         this.manufacturer = manufacturer;
         this.manufacturerPartID = manufacturerPartID;
         this.material = material;
-        this.amountAvailable = amountAvailable;
         this.price = price;
     }
 
@@ -62,16 +60,6 @@ public abstract class Watchpart implements Validatable
     public void setMaterial(Material material)
     {
         this.material = material;
-    }
-
-    public int getAmountAvailable()
-    {
-        return amountAvailable;
-    }
-
-    public void setAmountAvailable(int amountAvailable)
-    {
-        this.amountAvailable = amountAvailable;
     }
 
     public double getPrice()
