@@ -8,7 +8,9 @@ import de.watchmywatch.Bestellungsverwaltung.ShippingStatus;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 import de.watchmywatch.Helper.Address;
 
-
+/**
+ * @author Michael Hopp
+ */
 public class Order
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -93,7 +95,7 @@ public class Order
 
     /**
      * If newShippingStatus is SENT, sets shipping date to current time
-     * @param newShippingStatus
+     * @param newShippingStatus Desired new ShippingStatus
      */
     public void setShippingStatus(ShippingStatus newShippingStatus)
     {

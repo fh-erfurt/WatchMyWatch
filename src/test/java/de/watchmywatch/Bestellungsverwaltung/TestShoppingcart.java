@@ -10,6 +10,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author Michael Hopp
+ */
 public class TestShoppingcart
 {
     // create some reusable objects
@@ -21,8 +24,8 @@ public class TestShoppingcart
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,50, 2);
     Watch watch = new Watch("Swatch","Test", bracelet, casing, clockwork);
 
-    // TODO: Preisberechnung über Einzelteile steuern.
-    public TestShoppingcart() throws NameException
+
+    public TestShoppingcart() throws NameException  //TODO: nötig?
     {
     }
 
@@ -45,7 +48,7 @@ public class TestShoppingcart
     // When
         shoppingcart.addWatch(watch);
     //Then
-        ArrayList<Watch> list = shoppingcart.getItems();
+        ArrayList<Watch> list = shoppingcart.getItems();    // Extra steps for showing/testing used DataType
         boolean foundWatch = list.contains(watch);
         assertTrue(foundWatch);
     }
@@ -62,7 +65,7 @@ public class TestShoppingcart
     //Then
         ArrayList<Watch> list = shoppingcart.getItems();
         boolean foundWatch = false;
-        if(!list.isEmpty())
+        if(!list.isEmpty()) // Empty shoppingcart means no watches anyway
         {
             foundWatch = list.contains(watch);
         }
@@ -77,15 +80,9 @@ public class TestShoppingcart
         shoppingcart.addWatch(watch);
         shoppingcart.addWatch(watch);
         // When
-        shoppingcart.removeWatch(watch);
+        shoppingcart.removeWatch(watch);    // Remove only one occurance of given watch
         //Then
-        ArrayList<Watch> list = shoppingcart.getItems();
-        boolean foundWatch = false;
-        if(!list.isEmpty())
-        {
-            foundWatch = list.contains(watch);
-        }
-        assertTrue(foundWatch);
+        assertTrue(shoppingcart.getItems().contains(watch));    // Shoppingcart should still have one of those watches left
     }
 
     @Test
@@ -100,7 +97,7 @@ public class TestShoppingcart
         //Then
         ArrayList<Watch> list = shoppingcart.getItems();
         boolean foundWatch = false;
-        if(!list.isEmpty())
+        if(!list.isEmpty())     // Empty shoppingcart means no watches anyway
         {
             foundWatch = list.contains(watch);
         }
@@ -115,7 +112,7 @@ public class TestShoppingcart
         shoppingcart.addWatch(watch);
         shoppingcart.addWatch(watch);
         // When
-        int occurances = shoppingcart.removeAllOccurancesOfWatch(watch);
+        int occurances = shoppingcart.removeAllOccurancesOfWatch(watch);    // Count how many Occurances were removed
         //Then
         assertEquals( 2 , occurances);
     }
@@ -129,7 +126,7 @@ public class TestShoppingcart
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch1);
         // When
-        shoppingcart.removeWatch(watch1);
+        shoppingcart.removeWatch(watch1);   // One watch1 should be remaining
         //Then
         assertEquals( 110 , shoppingcart.getTotal());
     }
@@ -143,7 +140,7 @@ public class TestShoppingcart
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch1);
         // When
-        shoppingcart.removeAllOccurancesOfWatch(watch1);
+        shoppingcart.removeAllOccurancesOfWatch(watch1);    // Shoppingcart is empty afterwards
         //Then
         assertEquals( 0.0 , shoppingcart.getTotal());
     }
@@ -159,7 +156,7 @@ public class TestShoppingcart
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch2);
         // When
-        shoppingcart.removeWatch(watch2);
+        shoppingcart.removeWatch(watch2);   // Two Occurances of watch1 remaining
         //Then
         assertEquals( 220 , shoppingcart.getTotal());
     }
@@ -176,7 +173,7 @@ public class TestShoppingcart
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch2);
         // When
-        shoppingcart.removeAllOccurancesOfWatch(watch1);
+        shoppingcart.removeAllOccurancesOfWatch(watch1);    // Only Expensive watch2 should be remaining
         //Then
         assertEquals( 330 , shoppingcart.getTotal());
     }
@@ -191,9 +188,9 @@ public class TestShoppingcart
         Watch watch2 = new Watch("Swatch", "Test", bracelet, casing, clockwork1);
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch1);
-        shoppingcart.addWatch(watch2);
+        shoppingcart.addWatch(watch2);  // More expensive Watch
         // When
-        shoppingcart.removeWatch(watch1);
+        shoppingcart.removeWatch(watch1);   // watch2 and one watch1 should be remaining
         //Then
         assertEquals( 440 , shoppingcart.getTotal());
     }
@@ -217,11 +214,11 @@ public class TestShoppingcart
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
-        shoppingcart.addWatch(watch);
+        shoppingcart.addWatch(watch);   // Add a couple of watches
         shoppingcart.addWatch(watch);
         shoppingcart.addWatch(watch);
         // When
-        shoppingcart.clear();
+        shoppingcart.clear();   // Resetting Shoppingcart
         //Then
         assertEquals( 0.0 , shoppingcart.getTotal());
     }

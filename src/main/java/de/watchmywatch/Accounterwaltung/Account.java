@@ -177,6 +177,11 @@ public class Account
         this.shoppingCart = shoppingCart;
     }
 
+    /**
+     * First Come First Serve: Oldest unpaid Order should be paid first.
+     * @return Oldest unpaid Order of this account
+     * @author Michael Hopp
+     */
     public Order getOldestUnpaidOrder(){
         return orders.stream()
                 .filter(order -> !order.isPaid())  // Filter for unpaid Orders

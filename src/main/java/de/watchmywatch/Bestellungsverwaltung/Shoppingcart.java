@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * @author Michael Hopp
+ */
 public class Shoppingcart
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -30,7 +33,10 @@ public class Shoppingcart
         return items;
     }
 
-    // Calculates the sum of prices in items and sets it as total. Default 0.0
+    /**
+     * Calculates the sum of prices in items and sets it as total.
+     * Default = 0.0
+     */
     public void calcTotal()
     {
         double result = 0.0;
@@ -53,7 +59,11 @@ public class Shoppingcart
         }
     }
 
-    // Removes given Watch from ShoppingCart-List items and returns true if successful, false if watch not found
+
+    /**
+     * Removes given Watch from ShoppingCart-List items.
+     * @return true if successful, false if watch not found.
+     */
     public boolean removeWatch(Watch watch)
     {
         boolean result = false;
@@ -66,8 +76,10 @@ public class Shoppingcart
         return result;
     }
 
-    // Removes all posts of given Watch from ShoppingCart-List items and returns amount of removed Watches as int.
-    // Zero if none were found.
+    /**
+     * Removes all posts of given Watch from ShoppingCart-List items.
+     * @return amount of removed Watches as int. Zero if none were found.
+     */
     public int removeAllOccurancesOfWatch(Watch watch)
     {
         int result = 0;
@@ -83,7 +95,10 @@ public class Shoppingcart
         return result;
     }
 
-    // Removes all Watches from Shoppingcart-List and sets total as 0.0
+
+    /**
+     * Removes all Watches from Shoppingcart-List and sets total as 0.0
+     */
     public void clear()
     {
         items.clear();

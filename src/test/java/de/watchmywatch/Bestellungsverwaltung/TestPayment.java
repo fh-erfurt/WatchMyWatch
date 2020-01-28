@@ -7,6 +7,9 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author Michael Hopp
+ */
 public class TestPayment
 {
     // create some reusable objects
@@ -14,6 +17,7 @@ public class TestPayment
     PaymentMethod paypal = PaymentMethod.PAYPAL;
     String details = "TestDetails";
 
+    // Testing different Constructors...
     @Test
     public void should_create_payment_with_given_method()
     {
@@ -47,6 +51,7 @@ public class TestPayment
         assertEquals( paid, payment.getDatePaid());
     }
 
+    // Testing getters and setters...
     @Test
     public void should_set_payment_date()
     {
@@ -82,4 +87,6 @@ public class TestPayment
         //Then
         assertEquals( newDetails , payment.getDetails());
     }
+
+    // TODO: Any "useful" tests?
 }

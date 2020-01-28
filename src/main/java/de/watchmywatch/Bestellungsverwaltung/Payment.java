@@ -3,6 +3,9 @@ package de.watchmywatch.Bestellungsverwaltung;
 import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
+/**
+ * @author Michael Hopp
+ */
 public class Payment
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
