@@ -39,7 +39,7 @@ public class Watch implements Validatable
     {
         checkName(name);
         this.name = name;
-        this.price = price;
+        this.price = 0;
         this.particularity = particularity;
         this.bracelet = null;
         this.casing = null;
@@ -74,7 +74,7 @@ public class Watch implements Validatable
      * @param name Name welcher geprüft werden soll
      * @author Tom Käppler
      */
-    public void checkName(String name) throws NameException
+    private void checkName(String name) throws NameException
     {
         Pattern pattern = Pattern.compile("^[0-9a-zA-ZäÄöÖüÜß]*$");
         Matcher matcher = pattern.matcher(name);
@@ -108,8 +108,8 @@ public class Watch implements Validatable
     }
 
     /**
-     * @author Tom Käppler
      * @return Gibt den Preis mit der jeweilig berechnet Gebühr
+     * @author Tom Käppler
      */
     public double getPriceWithFee()
     {
@@ -124,8 +124,8 @@ public class Watch implements Validatable
     }
 
     /**
-     * @author Tom Käppler
      * @return Gibt den preis ohne Gebühren zurück
+     * @author Tom Käppler
      */
     public double getPriceWithoutFee()
     {
@@ -133,8 +133,8 @@ public class Watch implements Validatable
     }
 
     /**
-     * @author Tom Käppler
      * @return Gibt den Preis der Teile zurück
+     * @author Tom Käppler
      */
     public double getPartPrice()
     {
@@ -181,6 +181,7 @@ public class Watch implements Validatable
         if (braceletValidator.validate(bracelet))
         {
             this.bracelet = bracelet;
+            this.price += bracelet.getPrice();
         }
         else
         {
@@ -194,6 +195,7 @@ public class Watch implements Validatable
         if (casingValidator.validate(casing))
         {
             this.casing = casing;
+            this.price += casing.getPrice();
         }
         else
         {
@@ -207,6 +209,7 @@ public class Watch implements Validatable
         if (clockworkValidator.validate(clockwork))
         {
             this.clockwork = clockwork;
+            this.price += clockwork.getPrice();
         }
         else
         {
@@ -216,8 +219,8 @@ public class Watch implements Validatable
     }
 
     /**
-     * @author  Tom Käppler
      * @return Gibt zurück ob eine Uhr valide ist oder nicht
+     * @author Tom Käppler
      */
     public boolean validate()
     {
