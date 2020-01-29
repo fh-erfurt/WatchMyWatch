@@ -15,7 +15,7 @@ public class Order
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    private static final double SHIPPINGFEE = 5.90;     // Konstante für Versandkosten, die immer anzurechnen sind
+    private static final double SHIPPINGFEE = 5.90;     // Constant Shipping cost.
     private LocalDateTime ordered;
     private LocalDateTime shipped;
     private Address shippingAddress;
@@ -35,6 +35,7 @@ public class Order
         this.shoppingcart = shoppingcart;
         this.total = shoppingcart.getTotal() + SHIPPINGFEE;
         this.payment = new Payment();
+        logger.info("New Order was created.");
     }
 
     public Order(Address address, Shoppingcart shoppingcart, PaymentMethod paymentMethod)
@@ -47,6 +48,7 @@ public class Order
         this.shoppingcart = shoppingcart;
         this.total = shoppingcart.getTotal() + SHIPPINGFEE;
         this.payment = new Payment(paymentMethod);
+        logger.info("New Order was created.");
     }
 
     public LocalDateTime getOrderDate()
@@ -57,6 +59,7 @@ public class Order
     public void setOrderDate(LocalDateTime date)
     {
         this.ordered = date;
+        logger.info("OrderDate was set to " + date + ".");
     }
 
     public LocalDateTime getShipDate()
@@ -96,14 +99,17 @@ public class Order
     /**
      * If newShippingStatus is SENT, sets shipping date to current time
      * @param newShippingStatus Desired new ShippingStatus
+     * @author Michael Hopp
      */
     public void setShippingStatus(ShippingStatus newShippingStatus)
     {
         this.shippingStatus = newShippingStatus;
+        logger.info("ShippingStatus was set to " + newShippingStatus + ".");
         if(newShippingStatus == ShippingStatus.SENT)
         {
-            this.shipped = LocalDateTime.now();
+            setShipDate(LocalDateTime.now());
         }
+
     }
 
     public double getTotal()
@@ -112,6 +118,10 @@ public class Order
         return this.total;
     }
 
+    /**
+     * Calculates new total for Order including SHIPPINGFEE.
+     * @author Michael Hopp
+     */
     public void calcTotal()
     {
         this.total = this.shoppingcart.getTotal() + SHIPPINGFEE;
@@ -124,7 +134,7 @@ public class Order
     public void setShoppingcart(Shoppingcart shoppingcart)
     {
     this.shoppingcart = shoppingcart;
-    this.calcTotal();    // Neue Gesamtkosten berechnen
+    this.calcTotal();
     }
 
     public Payment getPayment(){
@@ -149,6 +159,11 @@ public class Order
             this.setShippingStatus(ShippingStatus.SENT);
             this.setOrderStatus(OrderStatus.COMPLETE);
             success = true;
+            logger.info("Order was paid.");
+        }
+        else
+        {
+            logger.info("Order is already paid...");
         }
         return success;
     }

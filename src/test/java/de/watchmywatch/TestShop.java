@@ -18,6 +18,10 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Integration Tests
+ * @author Michael Hopp, ...
+ */
 public class TestShop
 {
     // create some reusable objects
@@ -34,6 +38,11 @@ public class TestShop
     {
     }
 
+    /**
+     * Use Case:
+     * User signs up at our shop, puts a predefined watch into his*her shoppingcart, checks out and we receive the payment.
+     * @author Michael Hopp
+     */
     @Test
     public void happy_path() throws NameException
     {
