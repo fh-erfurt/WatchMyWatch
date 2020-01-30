@@ -26,10 +26,6 @@ WatchMyWatch ist ein Armbanduhren Online-Shop, der registrierten Kunden die Mög
 | Analysten                     | ...  |
 | Support(Hotline)              | ...  |
 
-
-- Im engeren Sinne: Kunden, Hersteller/Lieferanten, Konfigurations-Personal(Setzt Uhren zusammen), Lieferdienst, Zahlungsdienstleister(z.B. PayPal).
-- Im weiteren Sinne: Shop-Betreiber(Geschäftsführer), Admins/Webmaster, Contentmanager, Lagerarbeiter, Analysten und Support(Hotline).
-
 ### Anforderungsbeschreibung(Grob)
 Es soll ein Online Shop entwickelt werden, über den Armbanduhren verschiedener Preisklassen auf einer Website dargestellt und vertrieben werden. Die Uhren sollen aus einem Vorrat von Komponenten konfigurierbar sein, wobei das System die Kompatibilität der Einzelteile berücksichten und dem Kunden mit Vorschlägen und Hinweisen Hilfestellung leisten soll.
 Kunden müssen sich zum Bestellen einen Account in unserer Accountverwaltung anlegen, in dem ihre Stammdaten erfasst werden. Diesen Account können sie bearbeiten und ggfs. löschen. Für die Bezahlung werden sie zur Addresse des ausgewählten Zahlungsdienstleisters weitergeleitet.
@@ -72,22 +68,16 @@ weiterleitet. (Post API)
 - Wo sind Infos über den Shop wie zB Inhaberinfo, Name des Shops, usw zu speichern?
 
 ## Über uns
-#### Arbeitsteilung
-| Teammitglied  | Aufgabe       |
-| ------------- |:-------------:|
-| Anton Bespalov | ...|
-| Michael Hopp   | ... |
-| Tom Käppler   | ... |
-
----------------------------------
-Teammitglied       Aufgabe   
----------------- ---------------- 
-Anton Bespalov    ...                 
-
-Michael Hopp      ...          
-
-Tom Käppler       ...  
-----------------------------------
+#### Arbeits-/Aufgabenteilung
+- Anton Bespalov:
+  - Accountverwaltung
+  - ...
+- Michael Hopp: 
+  - Bestellungsverwaltung
+  - ...
+- Tom Käppler:
+  - Uhrenverwaltung
+  - ...
 
 ### Verwendete Technologie
 - Entwicklungsumgebung: IntelliJ Java 11
