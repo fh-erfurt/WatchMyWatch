@@ -12,14 +12,13 @@ WatchMyWatch ist ein Armbanduhren Online-Shop, der registrierten Kunden die Mög
 - Version 1.0: [UML Klassendiagramm WatchMyWatch](https://www.lucidchart.com/invitations/accept/8876c528-b94f-460d-b4bf-f28249aa68e6) inspiriert durch [Beispieldiagramm](https://www.uml-diagrams.org/examples/online-shopping-domain-uml-diagram-example.html "Vorlage")
 
 ### Stakeholder/Akteure:
-| Name/Bezeichnung        | Einfluss aufs System  |
-| -------------           |:-------------:        |
-| Kunden                  | -... |
-| Hersteller/Lieferanten  | ... |
-| Konfigurations-Personal | Setzt Uhren zusammen  |
-| Lieferdienst            | ...  |
-| Zahlungsdienstleister   | z.B. PayPal |
-
+| Name/Bezeichnung              | Einfluss aufs System  |
+| -------------                 |:-------------:        |
+| Kunden                        | - ... |
+| Hersteller/Lieferanten        | ... |
+| Konfigurations-Personal       | Setzt Uhren zusammen  |
+| Lieferdienst                  | ...  |
+| Zahlungsdienstleister         | z.B. PayPal |
 | Shop-Betreiber/Geschäftsführer| ...  |
 | Admins/Webmaster              | ...  |
 | Contentmanager                | ...  |
@@ -80,8 +79,7 @@ weiterleitet. (Post API)
 #### Arbeitsteilung
 | Teammitglied  | Aufgabe       |
 | ------------- |:-------------:|
-| Anton Bespalov | -...
-                  -...|
+| Anton Bespalov | - ... - ...|
 | Michael Hopp  | ... |
 | Tom Käppler   | ... |
 
