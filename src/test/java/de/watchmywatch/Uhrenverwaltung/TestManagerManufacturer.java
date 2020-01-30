@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestManagerManufacturer
 {
-    /* TODO fix tests
     Address address = new Address("street", "city", "state", "zip");
 
     @Test
@@ -20,7 +19,7 @@ public class TestManagerManufacturer
         manufacturerManager.addManufacturer("Test", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
                 "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
         //Then
-        assertEquals(1, manufacturerManager.howManyManufacturers());
+        assertEquals(1, manufacturerManager.amountOfManufacturers());
         manufacturerManager.removeManufacturerByName("Test");
     }
 
@@ -36,22 +35,7 @@ public class TestManagerManufacturer
         //When
         manufacturerManager.removeManufacturerByName("Test");
         //Then
-        assertEquals(1, manufacturerManager.howManyManufacturers());
+        assertEquals(1, manufacturerManager.amountOfManufacturers());
         manufacturerManager.removeManufacturerByName("Test2");
     }
-
-    @Test
-    public void should_create_one_Manufacturer_and_change_its_addressID()
-    {
-        //Given
-        ManagerManufacturer manufacturerManager = new ManagerManufacturer();
-        manufacturerManager.addManufacturer("Test", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
-                "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
-        //When
-        manufacturerManager.updateAddressByID(1, 2);
-        //Then
-        assertEquals(2, manufacturerManager.getManufacturerByID(1).getAddressID());
-        manufacturerManager.removeManufacturerByName("Test");
-    }
-     */
 }

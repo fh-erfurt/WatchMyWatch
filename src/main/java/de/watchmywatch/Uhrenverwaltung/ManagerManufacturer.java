@@ -8,15 +8,17 @@ import java.util.logging.Logger;
 
 /**
  * class which contains a list of manufacturers for further use
+ *
  * @author Tom Käppler
  */
 public class ManagerManufacturer
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    private static ArrayList<Manufacturer> manufacturerList = new ArrayList<>();
+    private ArrayList<Manufacturer> manufacturerList = new ArrayList<>();
 
     /**
      * use if you already have a manufacturer Object
+     *
      * @param manufacturer already created manufacturer
      * @return true - manufacturer was added / false - manufacturer was not added
      */
@@ -37,9 +39,10 @@ public class ManagerManufacturer
 
     /**
      * use if you just have the manufacturer infos but no object
-     * @param name name of the manufacturer
+     *
+     * @param name          name of the manufacturer
      * @param contactPerson Person object of the contact
-     * @param address Address object of the headquarter
+     * @param address       Address object of the headquarter
      * @return true - manufacturer was added / false - manufacturer was not added
      */
     public boolean addManufacturer(String name, Person contactPerson, Address address)
@@ -58,7 +61,24 @@ public class ManagerManufacturer
     }
 
     /**
+     * returns the manufacturers found with that name
+     * @param manufacturerName name of the manufacturer which is searched
+     * @return Manufacturer
+     */
+    public Manufacturer getManufacturerByName(String manufacturerName)
+    {
+        for (Manufacturer manufacturer : manufacturerList){
+            if(manufacturer.getName() == manufacturerName){
+                logger.info("watch found with that name");
+                return manufacturer;
+            }
+        }
+        return null;
+    }
+
+    /**
      * removes a manufacturer from the list
+     *
      * @param name name of the manufacturer which should be removed
      * @return true - manufacturer was removed / false - manufacturer was not removed
      */
@@ -67,8 +87,10 @@ public class ManagerManufacturer
         boolean success = false;
         try
         {
-            for (Manufacturer manufacturer : manufacturerList){
-                if(manufacturer.getName() == name){
+            for (Manufacturer manufacturer : manufacturerList)
+            {
+                if (manufacturer.getName() == name)
+                {
                     manufacturerList.remove(manufacturer);
                     success = true;
                     logger.info("manufacturer removed");
@@ -81,5 +103,10 @@ public class ManagerManufacturer
             return success;
         }
         return success;
+    }
+
+    public int amountOfManufacturers()
+    {
+        return manufacturerList.size();
     }
 }

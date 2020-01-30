@@ -20,6 +20,14 @@ public class TestWatch
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2);
 
+    private String create141characterString(){
+        String string = "";
+        for(int i = 0; i< 141; ++i){
+            string += "a";
+        }
+        return string;
+    }
+
     @Test
     public void should_create_a_valid_watch() throws WatchNameException
     {
@@ -55,10 +63,8 @@ public class TestWatch
     {
         assertThrows(WatchNameException.class, () ->
         {
-            Watch watch = new Watch("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "Test", bracelet, casing, clockwork);
+            Watch watch = new Watch(create141characterString(), "Test", bracelet, casing, clockwork);
         });
-
-        //TODO create method for creating string
     }
 
     @Test

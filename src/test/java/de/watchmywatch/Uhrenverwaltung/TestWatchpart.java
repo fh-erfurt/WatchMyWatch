@@ -23,6 +23,15 @@ public class TestWatchpart
     }
 
     @Test
+    public void should_create_a_non_valid_casing(){
+        //Given
+        //When
+        Casing casing = new Casing(manufacturer,"id", Material.ALUMINIUM,-1.00,2.00,2.00,ConnectionType.BAND);
+        //Then
+        assertEquals(false, casing.validate());
+    }
+
+    @Test
     public void should_create_a_valid_bracelet()
     {
         //Given
@@ -30,6 +39,15 @@ public class TestWatchpart
         Bracelet bracelet = new Bracelet(manufacturer,"ID",Material.ALUMINIUM,2.00,2.00,ConnectionType.BAND);
         //Then
         assertEquals(true, bracelet.validate());
+    }
+
+    @Test
+    public void should_create_a_non_valid_bracelet(){
+        //Given
+        //When
+        Bracelet bracelet = new Bracelet(manufacturer,"ID",Material.ALUMINIUM,-2.00,2.00,ConnectionType.BAND);
+        //Then
+        assertEquals(false, bracelet.validate());
     }
 
     @Test
@@ -42,5 +60,13 @@ public class TestWatchpart
         assertEquals(true, clockwork.validate());
     }
 
-    //TODO testx for nan valid watchparts
+    @Test
+    public void should_create_a_non_valid_clockwork(){
+        //Given
+        //When
+        Clockwork clockwork = new Clockwork(manufacturer,"ID",Material.ALUMINIUM,-1.00,2.00);
+        //Then
+        assertEquals(false, clockwork.validate());
+    }
+
 }
