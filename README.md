@@ -69,13 +69,13 @@ weiterleitet. (Post API)
 
 ## Über uns
 #### Arbeits-/Aufgabenteilung
-- Anton Bespalov:
+- **Anton Bespalov:**
   - Accountverwaltung
   - ...
-- Michael Hopp: 
+- **Michael Hopp:**
   - Bestellungsverwaltung
   - ...
-- Tom Käppler:
+- **Tom Käppler:**
   - Uhrenverwaltung
   - ...
 
