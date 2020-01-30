@@ -79,11 +79,23 @@ weiterleitet. (Post API)
 | Michael Hopp   | ... |
 | Tom Käppler   | ... |
 
+---------------------------------
+Teammitglied       Aufgabe   
+---------------- ---------------- 
+Anton Bespalov    ...                 
+
+Michael Hopp      ...          
+
+Tom Käppler       ...  
+
+----------------------------------
+
 ### Verwendete Technologie
 - Entwicklungsumgebung: IntelliJ Java 11
 - Versionskontrollsystem: Git
 - Build-Tool: Maven
 - Github Desktop als Brücke zwischen Versionskontrolle und Entwicklungsumgebung.
+- Kommunikation: WhatsApp und Discord
 ### Rechtliche Informationen
 - Lizenz: Lizenz*
 - Impressum?
