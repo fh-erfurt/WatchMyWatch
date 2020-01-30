@@ -1,5 +1,5 @@
 # JavaProject [![Build Status](https://github.com/fh-erfurt/WatchMyWatch/workflows/WatchMyWatch/badge.svg)](https://github.com/fh-erfurt/WatchMyWatch/actions)
-Authoren: Anton Bespalov, Michael Hopp, Tom Käppler
+Von Anton Bespalov, Michael Hopp, Tom Käppler
 
 ## HowTo
 ...
