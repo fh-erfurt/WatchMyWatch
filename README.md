@@ -12,6 +12,22 @@ WatchMyWatch ist ein Armbanduhren Online-Shop, der registrierten Kunden die Mög
 - Version 1.0: [UML Klassendiagramm WatchMyWatch](https://www.lucidchart.com/invitations/accept/8876c528-b94f-460d-b4bf-f28249aa68e6) inspiriert durch [Beispieldiagramm](https://www.uml-diagrams.org/examples/online-shopping-domain-uml-diagram-example.html "Vorlage")
 
 ### Stakeholder/Akteure:
+| Name/Bezeichnung        | Einfluss aufs System  |
+| -------------           |:-------------:        |
+| Kunden                  | -... |
+| Hersteller/Lieferanten  | ... |
+| Konfigurations-Personal | Setzt Uhren zusammen  |
+| Lieferdienst            | ...  |
+| Zahlungsdienstleister   | z.B. PayPal |
+
+| Shop-Betreiber/Geschäftsführer| ...  |
+| Admins/Webmaster              | ...  |
+| Contentmanager                | ...  |
+| Lagerarbeiter                 | ...  |
+| Analysten                     | ...  |
+| Support(Hotline)              | ...  |
+
+
 - Im engeren Sinne: Kunden, Hersteller/Lieferanten, Konfigurations-Personal(Setzt Uhren zusammen), Lieferdienst, Zahlungsdienstleister(z.B. PayPal).
 - Im weiteren Sinne: Shop-Betreiber(Geschäftsführer), Admins/Webmaster, Contentmanager, Lagerarbeiter, Analysten und Support(Hotline).
 
@@ -47,10 +63,11 @@ weiterleitet. (Post API)
 
 4. Personalverwaltung: Stammdaten von Admins, Contentmanager, Lagerarbeiter, Analysten und Support(Hotline), Arbeitszeiterfassung: Informationen in Bezug auf Arbeits- und Urlaubszeiten des Personals werden von einem externen Dienstleister verwaltet.
 
-### Geschäftsregeln/Festlegungen
+### Geschäftsregeln/Festlegungen/Besonderheiten
 - Richtwert für Preisklasse der Uhren: 100€ bis 50.000€
 - Uhren zusammenbauen kostet eine Gebühr: Bei einem Preis von unter 2000 Euro kostet das Zusammenbauen 10% vom Uhrenpreis, ab 2000 Euro dann pauschal 200 Euro.
 - Gäste bekommen vorerst keinen Einkaufswagen.
+- Ein Kunde kann seine Bestellungen vorerst nur nach dem "First Come First Serve" Prinzip bezahlen.
 
 ### Ausstehend
 - Wo sind Infos über den Shop wie zB Inhaberinfo, Name des Shops, usw zu speichern?
@@ -60,6 +77,14 @@ weiterleitet. (Post API)
 - Anton Bespalov: Rolle*
 - Michael Hopp: Rolle*
 - Tom Käppler: Rolle*
+#### Arbeitsteilung
+| Teammitglied  | Aufgabe       |
+| ------------- |:-------------:|
+| Anton Bespalov | -...
+                  -...|
+| Michael Hopp  | ... |
+| Tom Käppler   | ... |
+
 ### Verwendete Technologie
 - Entwicklungsumgebung: IntelliJ Java 11
 - Versionskontrollsystem: Git
