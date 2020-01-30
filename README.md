@@ -20,10 +20,10 @@ Es soll ein Online Shop entwickelt werden, über den Armbanduhren verschiedener 
 Kunden müssen sich zum Bestellen einen Account in unserer Accountverwaltung anlegen, in dem ihre Stammdaten erfasst werden. Diesen Account können sie bearbeiten und ggfs. löschen. Für die Bezahlung werden sie zur Addresse des ausgewählten Zahlungsdienstleisters weitergeleitet.
 
 #### Wunschkriterien
-- Beim Löschen des Käuferaccounts bleibt die Bestellhistorie erhalten und die 
+- Beim Löschen des Kundenaccounts bleibt die Bestellhistorie erhalten und die 
 personenbezogenen Käuferdaten werden verschleiert (Empfindliche Daten durch dafür vorgesehene Standardwerte 
 ersetzen).
-- Das System wertet die Bestellhistorie der Produkte und Kunden aus(z.B. Topseller, Käuferprofil, Umsatz).
+- Das System wertet die Bestellhistorie der Produkte und Kunden aus (z.B. Topseller, Käuferprofil, Umsatz).
 - Für Konfigurator sollen mehr Uhrenkomponenten aufgenommen werden, um Individualisierung noch weiter zu verfeinern: Ziffernblatt, Zeiger, Verschluss, ...
 
 ### Teilsysteme
@@ -31,7 +31,7 @@ ersetzen).
 2. Accountverwaltung: Account- und Kundendaten, Registrierung, Login, Bestellhistorie.
 3. Bestellungsverwaltung: Bestellungsdaten, Warenkörbe und Zahlungs-, Versandinformationen.
 
-Ab Version 2(Java 2 Projekt) zusätzlich:
+Ab Version 2 (Java 2 Projekt) zusätzlich:
 4. Shop: Darstellung als Website und Zusammenführung der Teilsysteme.
 
 ### Abgrenzung(Das System soll nicht beinhalten:)
