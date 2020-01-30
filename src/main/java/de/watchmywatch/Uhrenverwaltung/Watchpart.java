@@ -2,8 +2,12 @@ package de.watchmywatch.Uhrenverwaltung;
 
 import de.watchmywatch.Uhrenverwaltung.Validator.Validatable;
 
+import java.util.logging.Logger;
+
 public abstract class Watchpart implements Validatable
 {
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     private Manufacturer manufacturer;
     //contains the ID which was given by the original manufacturer so we could order it directly when we are out of stock
     private String manufacturerPartID;
@@ -15,13 +19,13 @@ public abstract class Watchpart implements Validatable
     private double price;
 
     /**
-     * Ist eine Abstrakte Klasse welche Grundlegende Eigenschaften von Uhrenteilen beinhaltet
+     * abstract class which is used for bracelet, casing, clockwork
      *
      * @author Tom Käppler
-     * @param manufacturer Objekt eines Herstellers
-     * @param manufacturerPartID ID welche von dem Hersteller selbst vergeben wurde
-     * @param material Material aus welchen das Teil ist
-     * @param price Preis des Teils
+     * @param manufacturer object of the manufacturer
+     * @param manufacturerPartID ID which was given by the manufacturer itself
+     * @param material material which the part consists of
+     * @param price price of the part itself
      */
     public Watchpart(Manufacturer manufacturer, String manufacturerPartID,
                         Material material, double price)
@@ -69,6 +73,9 @@ public abstract class Watchpart implements Validatable
 
     public void setPrice(double price)
     {
+        if(price < 0){
+            logger.warning("price should not be smaller 0");
+        }
         this.price = price;
     }
 }

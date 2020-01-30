@@ -4,14 +4,21 @@ import de.watchmywatch.Uhrenverwaltung.Bracelet;
 
 import java.util.logging.Logger;
 
+/**
+ * Validator class for bracelets
+ * implements the Validator interface
+ * @author Tom Käppler
+ */
 public class BraceletValidator implements Validator
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     @Override
 
     public boolean validate(Validatable validatable)
     {
-        if(validatable == null){
+        if (validatable == null)
+        {
             logger.warning("object was null");
             return false;
         }
@@ -28,7 +35,9 @@ public class BraceletValidator implements Validator
                 logger.warning("bracelet connection cant be null");
                 return false;
             }
-        }else {
+        }
+        else
+        {
             logger.warning("object is not a bracelet");
             return false;
         }

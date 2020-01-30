@@ -1,7 +1,7 @@
 package de.watchmywatch.Uhrenverwaltung;
 
 import de.watchmywatch.Accounterwaltung.Person;
-import de.watchmywatch.Exceptions.NameException;
+import de.watchmywatch.Exceptions.WatchNameException;
 import de.watchmywatch.Helper.Address;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,7 +21,7 @@ public class TestWatch
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2);
 
     @Test
-    public void should_create_a_valid_watch() throws NameException
+    public void should_create_a_valid_watch() throws WatchNameException
     {
         //Given
 
@@ -33,27 +33,27 @@ public class TestWatch
 
     @ParameterizedTest
     @ValueSource(strings = {" ", "!", "\"", "§", "$", "%", "&", "/", "(", ")", "=", "?", "´", "`", "*", "+", "'", "#", ";", ",", "_", "~", "@", "€", "[", "]", "{", "}"})
-    void should_throw_nameException_with_not_allowed_chars(String testString) throws NameException
+    void should_throw_nameException_with_not_allowed_chars(String testString) throws WatchNameException
     {
-        assertThrows(NameException.class, () ->
+        assertThrows(WatchNameException.class, () ->
         {
             Watch watch = new Watch(testString, "Test", bracelet, casing, clockwork);
         });
     }
 
     @Test
-    void should_throw_nameException_with_empty_name() throws NameException
+    void should_throw_nameException_with_empty_name() throws WatchNameException
     {
-        assertThrows(NameException.class, () ->
+        assertThrows(WatchNameException.class, () ->
         {
             Watch watch = new Watch("", "Test", bracelet, casing, clockwork);
         });
     }
 
     @Test
-    void should_throw_nameException_with_name_longer_140() throws NameException
+    void should_throw_nameException_with_name_longer_140() throws WatchNameException
     {
-        assertThrows(NameException.class, () ->
+        assertThrows(WatchNameException.class, () ->
         {
             Watch watch = new Watch("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "Test", bracelet, casing, clockwork);
         });
@@ -62,7 +62,7 @@ public class TestWatch
     }
 
     @Test
-    public void should_create_a_non_valid_watch_with_no_parts() throws NameException
+    public void should_create_a_non_valid_watch_with_no_parts() throws WatchNameException
     {
         //Given
         //When
@@ -72,7 +72,7 @@ public class TestWatch
     }
 
     @Test
-    public void should_create_a_non_valid_watch_price_smaller_zero_without_fee() throws NameException
+    public void should_create_a_non_valid_watch_price_smaller_zero_without_fee() throws WatchNameException
     {
         //Given
         //When
@@ -82,7 +82,7 @@ public class TestWatch
     }
 
     @Test
-    public void should_create_a_non_valid_watch_price_equal_zero_without_fee() throws NameException
+    public void should_create_a_non_valid_watch_price_equal_zero_without_fee() throws WatchNameException
     {
         //Given
         //When
@@ -92,7 +92,7 @@ public class TestWatch
     }
 
     @Test
-    public void should_check_fee_calculation_for_under_2000euro() throws NameException
+    public void should_check_fee_calculation_for_under_2000euro() throws WatchNameException
     {
         //Given
         //When
@@ -103,7 +103,7 @@ public class TestWatch
     }
 
     @Test
-    public void should_check_fee_calculation_for_over_2000euro() throws NameException
+    public void should_check_fee_calculation_for_over_2000euro() throws WatchNameException
     {
         //Given
         //When

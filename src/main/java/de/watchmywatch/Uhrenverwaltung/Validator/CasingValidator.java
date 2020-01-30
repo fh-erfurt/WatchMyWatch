@@ -4,6 +4,11 @@ import de.watchmywatch.Uhrenverwaltung.Casing;
 
 import java.util.logging.Logger;
 
+/**
+ * Validator class for casings
+ * implements the Validator interface
+ * @author Tom Käppler
+ */
 public class CasingValidator implements Validator
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -11,7 +16,8 @@ public class CasingValidator implements Validator
     @Override
     public boolean validate(Validatable validatable)
     {
-        if(validatable == null){
+        if (validatable == null)
+        {
             logger.warning("object was null");
             return false;
         }
@@ -21,7 +27,7 @@ public class CasingValidator implements Validator
 
             if (casing.getPrice() <= 0)
             {
-               logger.warning("casing price cant be smaller/equal 0");
+                logger.warning("casing price cant be smaller/equal 0");
                 return false;
             }
             if (casing.getInnerDiameter() <= 0)
@@ -39,7 +45,8 @@ public class CasingValidator implements Validator
                 logger.warning("casing connection cant be null");
                 return false;
             }
-        } else
+        }
+        else
         {
             logger.warning("casing is not a casing");
             return false;

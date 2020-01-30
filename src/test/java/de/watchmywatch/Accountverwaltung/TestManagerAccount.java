@@ -5,12 +5,9 @@ import de.watchmywatch.Accounterwaltung.Customer;
 import de.watchmywatch.Bestellungsverwaltung.Order;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 import de.watchmywatch.Exceptions.AccountAlreadyExistsException;
-import de.watchmywatch.Exceptions.NameException;
 import de.watchmywatch.Helper.Address;
 import de.watchmywatch.Accounterwaltung.ManagerAccount;
-import de.watchmywatch.Uhrenverwaltung.Watch;
 import org.junit.Test;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Date;
 
