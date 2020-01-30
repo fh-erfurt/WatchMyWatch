@@ -72,15 +72,11 @@ weiterleitet. (Post API)
 - Wo sind Infos über den Shop wie zB Inhaberinfo, Name des Shops, usw zu speichern?
 
 ## Über uns
-### Teammitglieder 
-- Anton Bespalov: Rolle*
-- Michael Hopp: Rolle*
-- Tom Käppler: Rolle*
 #### Arbeitsteilung
 | Teammitglied  | Aufgabe       |
 | ------------- |:-------------:|
-| Anton Bespalov | - ... - ...|
-| Michael Hopp  | ... |
+| Anton Bespalov | ...|
+| Michael Hopp   | ... |
 | Tom Käppler   | ... |
 
 ### Verwendete Technologie
