@@ -1,6 +1,5 @@
 package de.watchmywatch.Helper;
 
-import de.watchmywatch.Exceptions.AccountDoesNotExistsException;
 import de.watchmywatch.Exceptions.AddressAlreadyExistsException;
 import de.watchmywatch.Exceptions.AddressDoesNotExistsException;
 
@@ -13,7 +12,7 @@ public class ManagerAddress
     private static List<Address> addressList;
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    public ManagerAddress()
+    private ManagerAddress()
     {
         addressList = new ArrayList<Address>();
     }
