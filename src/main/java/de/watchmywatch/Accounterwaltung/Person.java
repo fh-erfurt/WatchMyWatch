@@ -19,8 +19,6 @@ public class Person
         this.lastname = lastname;
     }
 
-    public void deletePerson(){}
-
     public String getEmail()
     {
         return this.email;

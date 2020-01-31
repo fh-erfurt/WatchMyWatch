@@ -11,7 +11,8 @@ import static de.watchmywatch.Accounterwaltung.AccountStatus.ACTIV;
 import static de.watchmywatch.Bestellungsverwaltung.PaymentMethod.PAYPAL;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.time.Month;
+import java.util.Calendar;
 import java.util.Date;
 
 import static de.watchmywatch.Accounterwaltung.Account.get_SHA_256_SecurePassword;
@@ -20,17 +21,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestAccount
 {
-    Address address = new Address("Lilo-Herrmann-Straße", "Erfurt", "Thüringen", "99086");
-    Account account =  new Account(new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov",
-            new Date (1998, 9, 23)), "Salami", address, new Date(2020, 1, 26), PAYPAL, ACTIV,
+    private Address address = new Address("Lilo-Herrmann-Straße", "Erfurt", "Thüringen", "99086");
+    private Account account = new Account(new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov",
+            new Date(1998, Calendar.SEPTEMBER, 23)), "Salami", address, new Date(2020, Calendar.JANUARY, 26), PAYPAL, ACTIV,
             new Shoppingcart());
-    Shoppingcart shoppingcart = new Shoppingcart();
-    Order order = new Order(address, shoppingcart);
+    private Shoppingcart shoppingcart = new Shoppingcart();
+    private Order order = new Order(address, shoppingcart);
+
     @Test
     public void get_secure_password()
     {
         //Given
-       String securePassword =  get_SHA_256_SecurePassword("Salamination"/*, new byte[256]*/);
+        String securePassword = get_SHA_256_SecurePassword("Salamination"/*, new byte[256]*/);
         //When
 
         //Then
@@ -47,6 +49,7 @@ public class TestAccount
         //Then
         assertEquals("667558aa1d5b1f761a62cfabac2b6277d9be028dfe4ff296e966d4b39cd387cf", account.getSecurePassword());
     }
+
     @Test
     public void add_order_to_order_list()
     {
@@ -74,15 +77,15 @@ public class TestAccount
     @Test
     public void should_return_oldest_of_two_unpaid_orders_with_correct_OrderDate()
     {
-    // Given
+        // Given
         Order order2 = new Order(address, shoppingcart);
-        LocalDateTime date = LocalDateTime.of(2000,01,01,12,00);
+        LocalDateTime date = LocalDateTime.of(2000, Month.JANUARY, 1, 12, 0);
         order2.setOrderDate(date);
         account.addOrder(order);
         account.addOrder(order2);
-    // When
+        // When
 
-    // Then
+        // Then
         assertFalse(account.getOldestUnpaidOrder().isPaid());
         assertEquals(date, account.getOldestUnpaidOrder().getOrderDate());
     }
@@ -92,7 +95,7 @@ public class TestAccount
     {
         // Given
         Order order2 = new Order(address, shoppingcart);
-        LocalDateTime date = LocalDateTime.of(2000,01,01,12,00);
+        LocalDateTime date = LocalDateTime.of(2000, Month.JANUARY, 1, 12, 0);
         order2.setOrderDate(date);
         Order order3 = order;
         order3.getPayment().setDatePaid(LocalDateTime.now());

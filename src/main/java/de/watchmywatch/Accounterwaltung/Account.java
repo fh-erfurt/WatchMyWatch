@@ -5,36 +5,41 @@ import de.watchmywatch.Bestellungsverwaltung.PaymentMethod;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
 import de.watchmywatch.Helper.Address;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.util.logging.Logger;
 
 public class Account
 {
-    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private Customer customer;
     private String securePassword;
-   // private byte[] salt;
     private Address billingAddress;
     private Date opened;
     private PaymentMethod paymentMethod;
     private AccountStatus accountStatus;
     private Shoppingcart shoppingCart;
-    private static ArrayList<Order> orders = new ArrayList<>();
+    private ArrayList<Order> orders;
 
+    /**
+     *
+     * @param customer       the given customer
+     * @param passwordToHash not hashed password
+     * @param billingAddress Address for the bill
+     * @param opened         Date when the account was opened
+     * @param PaymentMethod  Enum of the paymentmethod
+     * @param accountStatus  Enum of the accountstatus
+     * @param shoppingCart   shoppingcart from the customer
+     */
     public Account(Customer customer, String passwordToHash, /*byte[] salt,*/ Address billingAddress, Date opened,
                    PaymentMethod PaymentMethod, AccountStatus accountStatus, Shoppingcart shoppingCart)
     {
         this.customer = customer;
-        this.securePassword = get_SHA_256_SecurePassword(passwordToHash/*, salt*/);
-       // this.salt = salt;
+        this.securePassword = get_SHA_256_SecurePassword(passwordToHash);
         this.billingAddress = billingAddress;
         this.opened = opened;
         this.paymentMethod = PaymentMethod;
@@ -42,21 +47,21 @@ public class Account
         this.shoppingCart = shoppingCart;
         this.orders = new ArrayList<Order>();
     }
-    public static String get_SHA_256_SecurePassword(String passwordToHash/*, byte[] salt*/)
+
+    public static String get_SHA_256_SecurePassword(String passwordToHash)
     {
         String generatedPassword = null;
-        try {
+        try
+        {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
-            // md.update(salt);
             byte[] bytes = md.digest(passwordToHash.getBytes());
             StringBuilder sb = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++)
+            for (int i = 0; i < bytes.length; i++)
             {
                 sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
             }
             generatedPassword = sb.toString();
-        }
-        catch (NoSuchAlgorithmException e)
+        } catch (NoSuchAlgorithmException e)
         {
             e.printStackTrace();
         }
@@ -65,24 +70,26 @@ public class Account
 
     public void changePassword(String newPasswordToHash)
     {
-        this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash/*, this.salt*/);
+        this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash);
     }
 
     public boolean addOrder(Order order)
     {
         orders.add(order);
+        logger.info("Order was added.");
         return true;
     }
 
     public boolean removeOrder(Order order)
     {
-        if(orders.contains(order))
+        if (orders.contains(order))
         {
             orders.remove(order);
+            logger.info("Order was succesfull removed");
             return true;
-        }
-        else
+        } else
         {
+            logger.info("Order was not found or does not exist.");
             return false;
         }
     }
@@ -96,11 +103,6 @@ public class Account
     {
         return securePassword;
     }
-
-  /*  public byte[] getSalt()
-    {
-        return salt;
-    }*/
 
     public Address getBillingAddress()
     {
@@ -179,13 +181,15 @@ public class Account
 
     /**
      * First Come First Serve: Oldest unpaid Order should be paid first.
+     *
      * @return Oldest unpaid Order of this account
-     * @author Michael Hopp
+     * @author Michael Hopp, noch verändert von Anton Bespalov
      */
-    public Order getOldestUnpaidOrder(){
+    public Order getOldestUnpaidOrder()
+    {
         return orders.stream()
                 .filter(order -> !order.isPaid())  // Filter for unpaid Orders
-                .min( Comparator.comparing(order -> order.getOrderDate()) ) // select oldest
+                .min(Comparator.comparing(Order::getOrderDate)) // select oldest
                 .get();
     }
 }
