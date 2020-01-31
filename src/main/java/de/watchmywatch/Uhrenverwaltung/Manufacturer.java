@@ -3,19 +3,25 @@ package de.watchmywatch.Uhrenverwaltung;
 import de.watchmywatch.Accounterwaltung.Person;
 import de.watchmywatch.Helper.Address;
 
+import java.util.logging.Logger;
+
+/**
+ * class which represents a manufacturer
+ * @author Tom Käppler
+ */
 public class Manufacturer
 {
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     private String name;
     private Person contactPerson;
     private Address address;
 
     /**
-     * Erzeugt ein Objekt eines Herstellers
-     *
-     * @author Tom Käppler
-     * @param name Name des Herstellers
+     * @param name          Name des Herstellers
      * @param contactPerson Objekt unserer KontatPerson
-     * @param address Hauptadresse des Herstellers
+     * @param address       Hauptadresse des Herstellers
+     * @author Tom Käppler
      */
     public Manufacturer(String name, Person contactPerson, Address address)
     {
@@ -42,15 +48,18 @@ public class Manufacturer
     public void setName(String name)
     {
         this.name = name;
+        logger.info("name was set");
     }
 
     public void setContactPerson(Person contactPerson)
     {
         this.contactPerson = contactPerson;
+        logger.info("contactPerson was set");
     }
 
-    public void setAddressID(Address address)
+    public void setAddress(Address address)
     {
         this.address = address;
+        logger.info("address was set");
     }
 }

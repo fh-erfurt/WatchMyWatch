@@ -4,6 +4,11 @@ import de.watchmywatch.Uhrenverwaltung.Watchpart;
 
 import java.util.logging.Logger;
 
+/**
+ * Validator class for watchparts
+ * implements the Validator interface
+ * @author Tom Käppler
+ */
 public class WatchpartValidator implements Validator
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

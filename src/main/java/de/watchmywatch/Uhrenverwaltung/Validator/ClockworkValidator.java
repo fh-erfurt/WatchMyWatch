@@ -4,6 +4,11 @@ import de.watchmywatch.Uhrenverwaltung.Clockwork;
 
 import java.util.logging.Logger;
 
+/**
+ * Validator class for clockworks
+ * implements the Validator interface
+ * @author Tom Käppler
+ */
 public class ClockworkValidator implements Validator
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

@@ -1,12 +1,11 @@
 package de.watchmywatch.Bestellungsverwaltung;
 
 import de.watchmywatch.Accounterwaltung.Person;
-import de.watchmywatch.Exceptions.NameException;
+import de.watchmywatch.Exceptions.WatchNameException;
 import de.watchmywatch.Helper.Address;
 import de.watchmywatch.Uhrenverwaltung.*;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,7 +29,7 @@ public class TestOrder
 
     Order testOrder = new Order(address, shoppingcart);
 
-    public TestOrder() throws NameException //TODO: Nötig?
+    public TestOrder() throws WatchNameException //TODO: Nötig?
     {
     }
 
@@ -47,7 +46,7 @@ public class TestOrder
     }
 
     @Test
-    public void should_calculate_total_with_shippingfee() throws NameException
+    public void should_calculate_total_with_shippingfee() throws WatchNameException
     {
         //Given
         Order order = new Order(address, shoppingcart);

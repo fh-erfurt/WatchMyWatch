@@ -1,6 +1,6 @@
 package de.watchmywatch.Uhrenverwaltung;
 
-import de.watchmywatch.Exceptions.NameException;
+import de.watchmywatch.Exceptions.WatchNameException;
 import de.watchmywatch.Uhrenverwaltung.Validator.*;
 
 import java.util.logging.Logger;
@@ -28,16 +28,16 @@ public class Watch implements Validatable
 
 
     /**
-     * Bei Erzeugung des Objekts mit dieser Methode müssen per setMethoden die Parts
-     * im Nachhinein gesetzt werden
+     * creates a watch object with the parts being null
+     * they have to be set later with the set-Methods
      *
-     * @param name          Name der Uhr
-     * @param particularity Einzigartigkeit der Uhr falls vorhanden
+     * @param name name of the watch
+     * @param particularity (Einzigartigkeit)
      * @author Tom Käppler
      */
-    public Watch(String name, String particularity) throws NameException
+    public Watch(String name, String particularity) throws WatchNameException
     {
-        checkName(name);
+        checkWatchName(name);
         this.name = name;
         this.price = 0;
         this.particularity = particularity;
@@ -47,18 +47,18 @@ public class Watch implements Validatable
     }
 
     /**
-     * Erzeugt ein Objekt welches bereits mit den Parts erstellt wird
+     * creates a watch object
      *
-     * @param name          Name der Uhr
-     * @param particularity Einzigartigkeit der Uhr falls vorhanden
-     * @param bracelet      Armband der Uhr
-     * @param casing        Gehäuse der Uhr
-     * @param clockwork     Uhrenwerk der Uhr
+     * @param name name of the watch
+     * @param particularity particularity of the watch
+     * @param bracelet bracelet attached to the watch
+     * @param casing casing of the watch
+     * @param clockwork clockwork of the watch
      * @author Tom Käppler
      */
-    public Watch(String name, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork) throws NameException
+    public Watch(String name, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork) throws WatchNameException
     {
-        checkName(name);
+        checkWatchName(name);
         this.name = name;
 
         this.particularity = particularity;
@@ -69,12 +69,12 @@ public class Watch implements Validatable
     }
 
     /**
-     * Prüft Namen auf Sonderzeichen/Länge/Leere
+     * checks the watchName for unacceptable characters/length/emptiness
      *
-     * @param name Name welcher geprüft werden soll
+     * @param name name which should be checked
      * @author Tom Käppler
      */
-    private void checkName(String name) throws NameException
+    private void checkWatchName(String name) throws WatchNameException
     {
         Pattern pattern = Pattern.compile("^[0-9a-zA-ZäÄöÖüÜß]*$");
         Matcher matcher = pattern.matcher(name);
@@ -82,17 +82,17 @@ public class Watch implements Validatable
         if (!matcher.find())
         {
             logger.warning("watch name contains invalid characters");
-            throw new NameException("Name contains invalid characters");
+            throw new WatchNameException("Name contains invalid characters");
         }
         else if (name.trim().isEmpty())
         {
             logger.warning("watch name should not be empty");
-            throw new NameException("Name should not be empty");
+            throw new WatchNameException("Name should not be empty");
         }
         else if (name.length() > 140)
         {
             logger.warning("watch name should not be longer than 140 characters");
-            throw new NameException("Name should not be longer than 140 characters");
+            throw new WatchNameException("Name should not be longer than 140 characters");
         }
     }
 
@@ -101,14 +101,14 @@ public class Watch implements Validatable
         return name;
     }
 
-    public void setName(String name) throws NameException
+    public void setName(String name) throws WatchNameException
     {
-        checkName(name);
+        checkWatchName(name);
         this.name = name;
     }
 
     /**
-     * @return Gibt den Preis mit der jeweilig berechnet Gebühr
+     * @return returns the calculated price with our fees
      * @author Tom Käppler
      */
     public double getPriceWithFee()
@@ -124,7 +124,7 @@ public class Watch implements Validatable
     }
 
     /**
-     * @return Gibt den preis ohne Gebühren zurück
+     * @return returns the price without fees
      * @author Tom Käppler
      */
     public double getPriceWithoutFee()
@@ -132,20 +132,11 @@ public class Watch implements Validatable
         return this.price;
     }
 
-    /**
-     * @return Gibt den Preis der Teile zurück
-     * @author Tom Käppler
-     */
-    public double getPartPrice()
-    {
-        return this.bracelet.getPrice() + this.casing.getPrice() + this.clockwork.getPrice();
-    }
-
     public void setPrice(double price)
     {
         if (price <= 0)
         {
-            logger.warning("price should not be lower/equal zero");
+            logger.warning("price should not be lower/equal 0");
         }
         this.price = price;
     }
@@ -219,7 +210,7 @@ public class Watch implements Validatable
     }
 
     /**
-     * @return Gibt zurück ob eine Uhr valide ist oder nicht
+     * @return true - if watch is valid / false - if watch is not valid
      * @author Tom Käppler
      */
     public boolean validate()

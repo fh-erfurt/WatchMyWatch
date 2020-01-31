@@ -8,7 +8,7 @@ import de.watchmywatch.Bestellungsverwaltung.Order;
 import de.watchmywatch.Bestellungsverwaltung.OrderStatus;
 import de.watchmywatch.Bestellungsverwaltung.PaymentMethod;
 import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
-import de.watchmywatch.Exceptions.NameException;
+import de.watchmywatch.Exceptions.WatchNameException;
 import de.watchmywatch.Helper.Address;
 import de.watchmywatch.Uhrenverwaltung.*;
 import org.junit.jupiter.api.Test;
@@ -18,6 +18,10 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Integration Tests
+ * @author Michael Hopp, ...
+ */
 public class TestShop
 {
     // create some reusable objects
@@ -30,12 +34,17 @@ public class TestShop
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,25000, 2);
     Watch watch = new Watch("Swatch","Test", bracelet, casing, clockwork);
 
-    public TestShop() throws NameException
+    public TestShop() throws WatchNameException
     {
     }
 
+    /**
+     * Use Case:
+     * User signs up at our shop, puts a predefined watch into his*her shoppingcart, checks out and we receive the payment.
+     * @author Michael Hopp
+     */
     @Test
-    public void happy_path() throws NameException
+    public void happy_path() throws WatchNameException
     {
     //Given
         // The desired watch

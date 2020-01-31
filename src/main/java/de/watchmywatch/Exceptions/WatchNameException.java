@@ -1,10 +1,10 @@
 package de.watchmywatch.Exceptions;
 
-public class NameException extends Exception
+public class WatchNameException extends Exception
 {
     private String message;
 
-    public NameException(String message) {
+    public WatchNameException(String message) {
         this.message = message;
     }
 
