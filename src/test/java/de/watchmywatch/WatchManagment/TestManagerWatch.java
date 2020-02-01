@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * class which tests the functionality of ManagerWatch
+ */
 public class TestManagerWatch
 {
     //create some reusable objects

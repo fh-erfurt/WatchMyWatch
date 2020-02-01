@@ -8,6 +8,9 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * class which represents a watch
+ */
 public class Watch implements Validatable
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

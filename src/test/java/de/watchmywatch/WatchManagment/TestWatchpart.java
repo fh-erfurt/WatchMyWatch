@@ -5,6 +5,9 @@ import de.watchmywatch.Helper.Address;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * class which tests the functionality of Watchparts: Bracelet, Casing and Clockwork
+ */
 public class TestWatchpart
 {
     //create some reusable objects

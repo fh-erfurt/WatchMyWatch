@@ -4,6 +4,9 @@ import de.watchmywatch.WatchManagment.Validator.Validatable;
 
 import java.util.logging.Logger;
 
+/**
+ * abstract class which represents a watchpart (used for bracelet,casing etc.)
+ */
 public abstract class Watchpart implements Validatable
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

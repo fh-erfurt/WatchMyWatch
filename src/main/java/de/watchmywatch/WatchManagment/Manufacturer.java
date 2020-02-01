@@ -18,6 +18,7 @@ public class Manufacturer
     private Address address;
 
     /**
+     * creates a manufacturer object
      * @param name          Name des Herstellers
      * @param contactPerson Objekt unserer KontatPerson
      * @param address       Hauptadresse des Herstellers

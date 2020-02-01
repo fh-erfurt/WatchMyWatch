@@ -10,6 +10,9 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+/**
+ * class which tests the functionality of Watch
+ */
 public class TestWatch
 {
     //create some reusable objects
