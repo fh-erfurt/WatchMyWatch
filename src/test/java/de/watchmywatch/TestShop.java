@@ -1,14 +1,8 @@
 package de.watchmywatch;
 
-import de.watchmywatch.AccountManagment.Account;
-import de.watchmywatch.AccountManagment.AccountStatus;
-import de.watchmywatch.AccountManagment.Customer;
-import de.watchmywatch.AccountManagment.Person;
+import de.watchmywatch.AccountManagment.*;
 import de.watchmywatch.Exceptions.ShoppingcartEmptyException;
-import de.watchmywatch.OrderManagment.Order;
-import de.watchmywatch.OrderManagment.OrderStatus;
-import de.watchmywatch.OrderManagment.PaymentMethod;
-import de.watchmywatch.OrderManagment.Shoppingcart;
+import de.watchmywatch.OrderManagment.*;
 import de.watchmywatch.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.Helper.Address;
 import de.watchmywatch.WatchManagment.*;
@@ -22,20 +16,21 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Integration Tests
+ *
  * @author Michael Hopp, ...
  */
 public class TestShop
 {
     // create some reusable objects
-    Address myAddress = new Address("Grolmannstraße 13","Erfurt", "Germany", "99085");
+    Address myAddress = new Address("Grolmannstraße 13", "Erfurt", "Germany", "99085");
     Shoppingcart myShoppingcart = new Shoppingcart();
     Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", myAddress,
             "01716181447", "Anton", "Bespalov"), myAddress);
-    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM,10000, 1, ConnectionType.BAND);
-    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM,15000, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,25000, 2);
-    Watch testWatch1 = new Watch("Swatch1","Test1", bracelet, casing, clockwork);
-    Watch testWatch2 = new Watch("Swatch2","Test2", bracelet, casing, clockwork);
+    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 1, ConnectionType.BAND);
+    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 2, 2, ConnectionType.BAND);
+    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 2);
+    Watch testWatch1 = new Watch("Swatch1", "Test1", bracelet, casing, clockwork);
+    Watch testWatch2 = new Watch("Swatch2", "Test2", bracelet, casing, clockwork);
 
     public TestShop() throws WatchNameNotValidException
     {
@@ -44,19 +39,21 @@ public class TestShop
     /**
      * Use Case:
      * User signs up at our shop, puts a predefined watch into his*her shoppingcart, checks out and we receive the payment.
+     *
      * @author Michael Hopp
      */
     @Test
-    public void happy_path() throws WatchNameNotValidException, ShoppingcartEmptyException {
-    //Given
+    public void happy_path() throws WatchNameNotValidException, ShoppingcartEmptyException
+    {
+        //Given
         // The desired watch
         Watch watch1 = new Watch("SweetRolex", "Attributes: +2 Handshaking, +3 Intimidation",
                 bracelet, casing, clockwork);
-    //When
+        //When
         // User creates new Account
         Account myAccount = new Account(
-                new Customer("michael.hopp@fh-erfurt.de", myAddress,"0123456789", "Michael" , "Hopp",
-                new Date(1996,9,24)),
+                new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
+                        new Date(1996, 9, 24)),
                 "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
         // User puts new Watch into his*her shoppingcart
         myAccount.getShoppingCart().addWatch(watch1);
@@ -68,16 +65,16 @@ public class TestShop
         Order oldestUnpaidOrder = myAccount.getOldestUnpaidOrder();
         boolean success = oldestUnpaidOrder.pay();
 
-    //Then
+        //Then
         assertTrue(success);
         assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
     }
 
 
-
     /**
      * Use Case:
      * User signs up at our shop, puts two predefined watches into his*her shoppingcart, deletes one, checks out and we receive the payment.
+     *
      * @author Michael Hopp
      */
     @Test
@@ -87,8 +84,8 @@ public class TestShop
         //When
         // User creates new Account
         Account myAccount = new Account(
-                new Customer("michael.hopp@fh-erfurt.de", myAddress,"0123456789", "Michael" , "Hopp",
-                        new Date(1996,9,24)),
+                new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
+                        new Date(1996, 9, 24)),
                 "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
         // User puts new Watch into his*her shoppingcart
         myAccount.getShoppingCart().addWatch(testWatch1);
@@ -111,6 +108,7 @@ public class TestShop
     /**
      * Use Case:
      * User signs up at our shop, puts one predefined watches into his*her shoppingcart, deletes one, checks out and we receive the payment.
+     *
      * @author Michael Hopp
      */
     @Test
@@ -120,8 +118,8 @@ public class TestShop
         //When
         // User creates new Account
         Account myAccount = new Account(
-                new Customer("michael.hopp@fh-erfurt.de", myAddress,"0123456789", "Michael" , "Hopp",
-                        new Date(1996,9,24)),
+                new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
+                        new Date(1996, 9, 24)),
                 "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
         // User puts new Watch into his*her shoppingcart
         myAccount.getShoppingCart().addWatch(testWatch1);

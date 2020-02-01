@@ -29,17 +29,20 @@ public class TestOrder
     private Shoppingcart shoppingcart = createNotEmptyShoppingcart(watch);
     private Order testOrder = new Order(address, shoppingcart);
 
-    public TestOrder() throws WatchNameNotValidException, ShoppingcartEmptyException {
+    public TestOrder() throws WatchNameNotValidException, ShoppingcartEmptyException
+    {
     }
 
-    private Shoppingcart createNotEmptyShoppingcart(Watch watch){
+    private Shoppingcart createNotEmptyShoppingcart(Watch watch)
+    {
         Shoppingcart shoppingcart = new Shoppingcart();
         shoppingcart.addWatch(watch);
         return shoppingcart;
     }
 
     @Test
-    public void should_create_new_order_with_orderstatus_pending() throws ShoppingcartEmptyException {
+    public void should_create_new_order_with_orderstatus_pending() throws ShoppingcartEmptyException
+    {
         //Given
         Order order = new Order(address, shoppingcart);
         OrderStatus pending = OrderStatus.PENDING;
@@ -50,7 +53,8 @@ public class TestOrder
     }
 
     @Test
-    public void should_calculate_total_with_shippingfee() throws ShoppingcartEmptyException {
+    public void should_calculate_total_with_shippingfee() throws ShoppingcartEmptyException
+    {
         //Given
         Order order = new Order(address, shoppingcart);
         // When
@@ -60,7 +64,8 @@ public class TestOrder
     }
 
     @Test
-    public void should_set_shippingDate_to_current_time_when_sent() throws ShoppingcartEmptyException {
+    public void should_set_shippingDate_to_current_time_when_sent() throws ShoppingcartEmptyException
+    {
         //Given
         Order order = new Order(address, shoppingcart);
         // When

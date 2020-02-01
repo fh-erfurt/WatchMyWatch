@@ -16,9 +16,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestManagerCustomer
 {
     private Address address = new Address("Lilo-Herrmann-Straße", "Erfurt", "Thüringen", "99086");
-    private Customer customer =  new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov",  new Date(1998, Calendar.SEPTEMBER, 23));
+    private Customer customer = new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23));
 
-    private ManagerCustomer managerCustomer= new ManagerCustomer();
+    private ManagerCustomer managerCustomer = new ManagerCustomer();
 
     @Test
     public void adding_a_customer_to_customerList_when_the_customer_does_not_exists()
@@ -41,7 +41,8 @@ public class TestManagerCustomer
         {
             managerCustomer.addCustomer(customer);
             assertTrue(managerCustomer.getCustomerList().contains(customer));
-        } catch (CustomerAlreadyExistsException e)
+        }
+        catch (CustomerAlreadyExistsException e)
         {
             e.printStackTrace();
         }
@@ -56,14 +57,16 @@ public class TestManagerCustomer
         try
         {
             managerCustomer.addCustomer(customer);
-        } catch (CustomerAlreadyExistsException e)
+        }
+        catch (CustomerAlreadyExistsException e)
         {
             e.printStackTrace();
         }
         try
         {
             managerCustomer.removeCustomer(customer);
-        } catch (CustomerDoesNotExistException ae)
+        }
+        catch (CustomerDoesNotExistException ae)
         {
             ae.printStackTrace();
         }
@@ -75,7 +78,8 @@ public class TestManagerCustomer
         try
         {
             managerCustomer.removeCustomer(customer);
-        } catch (CustomerDoesNotExistException ae)
+        }
+        catch (CustomerDoesNotExistException ae)
         {
             ae.printStackTrace();
         }

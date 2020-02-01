@@ -23,9 +23,11 @@ public class TestWatch
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2);
 
-    private String create141characterString(){
+    private String create141characterString()
+    {
         String string = "";
-        for(int i = 0; i< 141; ++i){
+        for (int i = 0; i < 141; ++i)
+        {
             string += "a";
         }
         return string;

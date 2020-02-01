@@ -30,7 +30,8 @@ public class TestManagerAccount
         try
         {
             managerAccount.addAccount(account);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             e.printStackTrace();
         }
@@ -44,7 +45,8 @@ public class TestManagerAccount
         {
             managerAccount.addAccount(account);
             assertTrue(managerAccount.getAccountList().contains(account));
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             e.printStackTrace();
         }
@@ -59,14 +61,16 @@ public class TestManagerAccount
         try
         {
             managerAccount.addAccount(account);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             e.printStackTrace();
         }
         try
         {
             managerAccount.removeAccount(account);
-        } catch (AccountDoesNotExistsException ae)
+        }
+        catch (AccountDoesNotExistsException ae)
         {
             ae.printStackTrace();
         }
@@ -78,7 +82,8 @@ public class TestManagerAccount
         try
         {
             managerAccount.removeAccount(account);
-        } catch (AccountDoesNotExistsException ae)
+        }
+        catch (AccountDoesNotExistsException ae)
         {
             ae.printStackTrace();
         }
@@ -92,7 +97,8 @@ public class TestManagerAccount
         try
         {
             managerAccount.addAccount(account);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             e.printStackTrace();
         }
@@ -116,7 +122,8 @@ public class TestManagerAccount
         try
         {
             managerAccount.addAccount(account);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             e.printStackTrace();
         }

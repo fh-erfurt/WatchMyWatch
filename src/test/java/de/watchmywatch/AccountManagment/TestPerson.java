@@ -15,6 +15,7 @@ public class TestPerson
 
         assertEquals("anton.bespalov@fh-erfurt.de", person1.getEmail());
     }
+
     @Test
     public void should_create_a_Person_with_phone()
     {
