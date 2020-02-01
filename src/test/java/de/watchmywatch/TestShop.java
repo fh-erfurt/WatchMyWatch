@@ -1,63 +1,60 @@
 package de.watchmywatch;
 
-import de.watchmywatch.Accounterwaltung.Account;
-import de.watchmywatch.Accounterwaltung.AccountStatus;
-import de.watchmywatch.Accounterwaltung.Customer;
-import de.watchmywatch.Accounterwaltung.Person;
-import de.watchmywatch.Bestellungsverwaltung.Order;
-import de.watchmywatch.Bestellungsverwaltung.OrderStatus;
-import de.watchmywatch.Bestellungsverwaltung.PaymentMethod;
-import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
-import de.watchmywatch.Exceptions.WatchNameException;
+import de.watchmywatch.AccountManagment.*;
+import de.watchmywatch.Exceptions.ShoppingcartEmptyException;
+import de.watchmywatch.OrderManagment.*;
+import de.watchmywatch.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.Helper.Address;
-import de.watchmywatch.Uhrenverwaltung.*;
+import de.watchmywatch.WatchManagment.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Integration Tests
+ *
  * @author Michael Hopp, ...
  */
 public class TestShop
 {
     // create some reusable objects
-    Address myAddress = new Address("Grolmannstraße 13","Erfurt", "Germany", "99085");
+    Address myAddress = new Address("Grolmannstraße 13", "Erfurt", "Germany", "99085");
     Shoppingcart myShoppingcart = new Shoppingcart();
     Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", myAddress,
             "01716181447", "Anton", "Bespalov"), myAddress);
-    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM,10000, 1, ConnectionType.BAND);
-    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM,15000, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,25000, 2);
-    Watch watch = new Watch("Swatch","Test", bracelet, casing, clockwork);
+    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 1, ConnectionType.BAND);
+    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 2, 2, ConnectionType.BAND);
+    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 2);
+    Watch testWatch1 = new Watch("Swatch1", "Test1", bracelet, casing, clockwork);
+    Watch testWatch2 = new Watch("Swatch2", "Test2", bracelet, casing, clockwork);
 
-    public TestShop() throws WatchNameException
+    public TestShop() throws WatchNameNotValidException
     {
     }
 
     /**
      * Use Case:
      * User signs up at our shop, puts a predefined watch into his*her shoppingcart, checks out and we receive the payment.
+     *
      * @author Michael Hopp
      */
     @Test
-    public void happy_path() throws WatchNameException
+    public void happy_path() throws WatchNameNotValidException, ShoppingcartEmptyException
     {
-    //Given
+        //Given
         // The desired watch
         Watch watch1 = new Watch("SweetRolex", "Attributes: +2 Handshaking, +3 Intimidation",
                 bracelet, casing, clockwork);
-    //When
+        //When
         // User creates new Account
         Account myAccount = new Account(
-                new Customer("michael.hopp@fh-erfurt.de", myAddress,"0123456789", "Michael" , "Hopp",
-                new Date(1996,9,24)),
+                new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
+                        new Date(1996, 9, 24)),
                 "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
-        // TODO: User Logs in?
-
         // User puts new Watch into his*her shoppingcart
         myAccount.getShoppingCart().addWatch(watch1);
         // User checks out
@@ -68,8 +65,70 @@ public class TestShop
         Order oldestUnpaidOrder = myAccount.getOldestUnpaidOrder();
         boolean success = oldestUnpaidOrder.pay();
 
-    //Then
+        //Then
         assertTrue(success);
         assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
+    }
+
+
+    /**
+     * Use Case:
+     * User signs up at our shop, puts two predefined watches into his*her shoppingcart, deletes one, checks out and we receive the payment.
+     *
+     * @author Michael Hopp
+     */
+    @Test
+    public void quite_happy_path_() throws ShoppingcartEmptyException
+    {
+        //Given
+        //When
+        // User creates new Account
+        Account myAccount = new Account(
+                new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
+                        new Date(1996, 9, 24)),
+                "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
+        // User puts new Watch into his*her shoppingcart
+        myAccount.getShoppingCart().addWatch(testWatch1);
+        myAccount.getShoppingCart().addWatch(testWatch2);
+        // User removes one watch
+        myAccount.getShoppingCart().removeWatch(testWatch1);
+        // User checks out
+        Order myOrder = new Order(myAccount.getCustomer().getAddress(), myAccount.getShoppingCart());
+        myOrder.getPayment().setPaymentMethod(PaymentMethod.PAYPAL);
+        myAccount.addOrder(myOrder);
+        // User Paid oldest unpaid Order
+        Order oldestUnpaidOrder = myAccount.getOldestUnpaidOrder();
+        boolean success = oldestUnpaidOrder.pay();
+
+        //Then
+        assertTrue(success);
+        assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
+    }
+
+    /**
+     * Use Case:
+     * User signs up at our shop, puts one predefined watches into his*her shoppingcart, deletes one, checks out and we receive the payment.
+     *
+     * @author Michael Hopp
+     */
+    @Test
+    public void not_happy_path_()
+    {
+        //Given
+        //When
+        // User creates new Account
+        Account myAccount = new Account(
+                new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
+                        new Date(1996, 9, 24)),
+                "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
+        // User puts new Watch into his*her shoppingcart
+        myAccount.getShoppingCart().addWatch(testWatch1);
+        // User removes one watch
+        myAccount.getShoppingCart().removeWatch(testWatch1);
+        // User checks out
+        assertThrows(ShoppingcartEmptyException.class, () ->
+        {
+            Order myOrder = new Order(myAccount.getCustomer().getAddress(), myAccount.getShoppingCart());
+        });
     }
 }

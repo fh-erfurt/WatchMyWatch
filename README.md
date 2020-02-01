@@ -2,29 +2,28 @@
 Von Anton Bespalov, Michael Hopp, Tom Käppler
 
 ## HowTo
-...
+Öffnen Sie die pom.xml in IntelliJ
 
 ## Projektbeschreibung
 WatchMyWatch ist ein Armbanduhren Online-Shop, der registrierten Kunden die Möglichkeit bietet eine vorgebaute Uhr zu erwerben oder selbst eine Konfiguration aus den angebotenen Uhrenteilen zusammenzustellen.
 
 ### Klassendiamgramm
-- Version 1.1 und folgend entnehmen Sie bitte der automatisierten Generierung des Quellcodes.
-- Version 1.0: [UML Klassendiagramm WatchMyWatch](https://www.lucidchart.com/invitations/accept/8876c528-b94f-460d-b4bf-f28249aa68e6) inspiriert durch [Beispieldiagramm](https://www.uml-diagrams.org/examples/online-shopping-domain-uml-diagram-example.html "Vorlage")
+- Aktuell: Version 2 ![UML](UML.png?raw=true)
+- Version 1: [UML Klassendiagramm WatchMyWatch](https://www.lucidchart.com/invitations/accept/8876c528-b94f-460d-b4bf-f28249aa68e6) inspiriert durch [Beispieldiagramm](https://www.uml-diagrams.org/examples/online-shopping-domain-uml-diagram-example.html "Vorlage")
 
 ### Stakeholder/Akteure:
-| Name/Bezeichnung              | Einfluss aufs System  |
+| Name/Bezeichnung              | Beschreibung  |
 | -------------                 |:-------------:        |
-| Kunden                        | - ... |
-| Hersteller/Lieferanten        | ... |
-| Konfigurations-Personal       | Setzt Uhren zusammen  |
-| Lieferdienst                  | ...  |
+| Kunden(Customer)              | Registriert sich im System und bestellt Uhren |
+| Hersteller(Manufacturer)                    | Produzent von Uhrenteilen |
+| Konfigurations-Personal       | Baut Uhren zusammen  |
+| Lieferdienst                  | Paketversand des Shops |
 | Zahlungsdienstleister         | z.B. PayPal |
-| Shop-Betreiber/Geschäftsführer| ...  |
-| Admins/Webmaster              | ...  |
-| Contentmanager                | ...  |
-| Lagerarbeiter                 | ...  |
-| Analysten                     | ...  |
-| Support(Hotline)              | ...  |
+| Geschäftsführer               | Rechtlicher Eigentümer von WatchMyWatch |
+| Admins/Webmaster              | Entwicklung und Wartung des Systems |
+| Contentmanager                | Pflegt neue Uhren und Einzelteile in das System ein |
+| Analysten                     | Wertet Verkaufsstatistiken und Nutzungsverhalten des Systems aus |
+| Support(Hotline)              | Erster Ansprechpartner bei technischen Problemen, Fragen oder Anregungen zum System  |
 
 ### Anforderungsbeschreibung(Grob)
 Es soll ein Online Shop entwickelt werden, über den Armbanduhren verschiedener Preisklassen auf einer Website dargestellt und vertrieben werden. Die Uhren sollen aus einem Vorrat von Komponenten konfigurierbar sein, wobei das System die Kompatibilität der Einzelteile berücksichten und dem Kunden mit Vorschlägen und Hinweisen Hilfestellung leisten soll.
@@ -42,8 +41,7 @@ ersetzen).
 2. Accountverwaltung: Account- und Kundendaten, Registrierung, Login, Bestellhistorie.
 3. Bestellungsverwaltung: Bestellungsdaten, Warenkörbe und Zahlungs-, Versandinformationen.
 
-Ab Version 2 (Java 2 Projekt) zusätzlich:
-4. Shop: Darstellung als Website und Zusammenführung der Teilsysteme.
+Ab Modul Java 2 zusätzlich Konfigurator.
 
 ### Abgrenzung(Das System soll nicht beinhalten:)
 1. Rechnungswesen: Das System soll keine Lohnzahlungen an Personal oder Rechnungen und deren Abwicklung von Kunden- oder
@@ -63,35 +61,35 @@ weiterleitet. (Post API)
 - Uhren zusammenbauen kostet eine Gebühr: Bei einem Preis von unter 2000 Euro kostet das Zusammenbauen 10% vom Uhrenpreis, ab 2000 Euro dann pauschal 200 Euro.
 - Gäste bekommen vorerst keinen Einkaufswagen.
 - Ein Kunde kann seine Bestellungen vorerst nur nach dem "First Come First Serve" Prinzip bezahlen.
-
-### Ausstehend
-- Wo sind Infos über den Shop wie zB Inhaberinfo, Name des Shops, usw zu speichern?
+- Login-Funktion wird erst implementiert, wenn nötig.
 
 ## Über uns
 #### Arbeits-/Aufgabenteilung
 - **Anton Bespalov:**
   - Accountverwaltung
-  - ...
+
 - **Michael Hopp:**
   - Bestellungsverwaltung
-  - ...
+  - TestShop
+  - ReadMe
+  
 - **Tom Käppler:**
   - Uhrenverwaltung
-  - ...
-
+  - Validator
+  - ReadMe
+  - Projektstruktur
+  
 ### Verwendete Technologie
-- Entwicklungsumgebung: IntelliJ Java 11
-- Versionskontrollsystem: Git
-- Build-Tool: Maven
-- Github Desktop als Brücke zwischen Versionskontrolle und Entwicklungsumgebung.
-- Kommunikation: WhatsApp und Discord
-### Rechtliche Informationen
-- Lizenz: Lizenz*
-- Impressum?
+    - IntelliJ Java 11
+    - JUnit5.4, Maven, JavaDoc
+    - Versionskontrollsystem: Git
+    - Github Desktop als Brücke zwischen Versionskontrolle und Entwicklungsumgebung.
+    - Kommunikation: WhatsApp und Discord
+
 ### Lessons Learned
 - Umstellungen auf neue Systeme (Git) bringen Unischerheit und Verzögerungen.
 - Wöchentliche Verständigung dringend aufrechthalten, sonst langsamerer Gesamt-Fortschritt und höherer Aufwand, um aktuellen Stand zu     formulieren. -> Dranbleiben, solange man motiviert ist!
 - Aufgabenteilung ist gut aber wie soll mit Versäumnissen umgegangen werden?
 - Zwischenziele erreicht aber wir hätten mehr schaffen können -> Zumindest hatten wir die Ressourcen dafür... Heiße Phase kommt erst       noch, da käme gelegen, wenn Last durch Vorarbeit abgenommen würde.
-- Wir haben Test-Driven Design vernachlässigt -> Eher Sequentielles Verfahren genutzt: Aktuell in Implementierungsphase mit               gelegentlicher Rückkopplung zu bisher unbeachteteten Anforderungen und unsauberen Entwurf.
+- Wir haben Test-Driven Design zu Beginn vernachlässigt aber ab Implementierung dann prominent Verwendet.
 - Abgrenzung zu Datenbanken schwieriger als Gedacht: Mangelnde Erfahrung außerhalb des DB-Kontexts. (Klassendiagramm sah anfangs wie ER-   Modell aus) -> Sich der eigentlichen Aufgabe "Serverseitige Anwendung" besinnen: Zur Laufzeit, also keine DB.

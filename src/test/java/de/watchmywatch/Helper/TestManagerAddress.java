@@ -19,7 +19,8 @@ public class TestManagerAddress
         try
         {
             managerAddress.addAddress(address);
-        } catch (AddressAlreadyExistsException e)
+        }
+        catch (AddressAlreadyExistsException e)
         {
             e.printStackTrace();
         }
@@ -33,7 +34,8 @@ public class TestManagerAddress
         {
             managerAddress.addAddress(address);
             assertTrue(managerAddress.getAddressList().contains(address));
-        } catch (AddressAlreadyExistsException e)
+        }
+        catch (AddressAlreadyExistsException e)
         {
             e.printStackTrace();
         }
@@ -48,14 +50,16 @@ public class TestManagerAddress
         try
         {
             managerAddress.addAddress(address);
-        } catch (AddressAlreadyExistsException e)
+        }
+        catch (AddressAlreadyExistsException e)
         {
             e.printStackTrace();
         }
         try
         {
             managerAddress.removeAddress(address);
-        } catch (AddressDoesNotExistsException ae)
+        }
+        catch (AddressDoesNotExistsException ae)
         {
             ae.printStackTrace();
         }
@@ -67,7 +71,8 @@ public class TestManagerAddress
         try
         {
             managerAddress.removeAddress(address);
-        } catch (AddressDoesNotExistsException ae)
+        }
+        catch (AddressDoesNotExistsException ae)
         {
             ae.printStackTrace();
         }
