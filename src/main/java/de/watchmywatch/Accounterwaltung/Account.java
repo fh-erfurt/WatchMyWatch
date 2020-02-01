@@ -35,19 +35,24 @@ public class Account
      * @param accountStatus  Enum of the accountstatus
      * @param shoppingCart   shoppingcart from the customer
      */
-    public Account(Customer customer, String passwordToHash, /*byte[] salt,*/ Address billingAddress, Date opened,
+    public Account(Customer customer, String passwordToHash, Address billingAddress, Date opened,
                    PaymentMethod PaymentMethod, AccountStatus accountStatus, Shoppingcart shoppingCart)
     {
-        this.customer = customer;
+        this.customer       = customer;
         this.securePassword = get_SHA_256_SecurePassword(passwordToHash);
         this.billingAddress = billingAddress;
-        this.opened = opened;
-        this.paymentMethod = PaymentMethod;
-        this.accountStatus = accountStatus;
-        this.shoppingCart = shoppingCart;
-        this.orders = new ArrayList<Order>();
+        this.opened         = opened;
+        this.paymentMethod  = PaymentMethod;
+        this.accountStatus  = accountStatus;
+        this.shoppingCart   = shoppingCart;
+        this.orders         = new ArrayList<>();
     }
 
+    /**
+     * Hash-Function
+     * @param passwordToHash    password that should be hashed
+     * @return                  hashed password
+     */
     public static String get_SHA_256_SecurePassword(String passwordToHash)
     {
         String generatedPassword = null;
@@ -56,9 +61,9 @@ public class Account
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] bytes = md.digest(passwordToHash.getBytes());
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < bytes.length; i++)
+            for (byte aByte : bytes)
             {
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+                sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
             }
             generatedPassword = sb.toString();
         } catch (NoSuchAlgorithmException e)
@@ -148,11 +153,6 @@ public class Account
     {
         this.billingAddress = billingAddress;
     }
-
-   /* public void setSalt(byte[] salt)
-    {
-        this.salt = salt;
-    }*/
 
     public void setSecurePassword(String securePassword)
     {

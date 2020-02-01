@@ -12,7 +12,7 @@ public class ManagerAddress
     private static List<Address> addressList;
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    private ManagerAddress()
+    public ManagerAddress()
     {
         addressList = new ArrayList<Address>();
     }
