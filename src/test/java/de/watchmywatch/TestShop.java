@@ -18,6 +18,7 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Integration Tests
@@ -33,7 +34,8 @@ public class TestShop
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM,10000, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM,15000, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,25000, 2);
-    Watch watch = new Watch("Swatch","Test", bracelet, casing, clockwork);
+    Watch testWatch1 = new Watch("Swatch1","Test1", bracelet, casing, clockwork);
+    Watch testWatch2 = new Watch("Swatch2","Test2", bracelet, casing, clockwork);
 
     public TestShop() throws WatchNameNotValidException
     {
@@ -69,5 +71,66 @@ public class TestShop
     //Then
         assertTrue(success);
         assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
+    }
+
+
+
+    /**
+     * Use Case:
+     * User signs up at our shop, puts two predefined watches into his*her shoppingcart, deletes one, checks out and we receive the payment.
+     * @author Michael Hopp
+     */
+    @Test
+    public void quite_happy_path_() throws ShoppingcartEmptyException
+    {
+        //Given
+        //When
+        // User creates new Account
+        Account myAccount = new Account(
+                new Customer("michael.hopp@fh-erfurt.de", myAddress,"0123456789", "Michael" , "Hopp",
+                        new Date(1996,9,24)),
+                "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
+        // User puts new Watch into his*her shoppingcart
+        myAccount.getShoppingCart().addWatch(testWatch1);
+        myAccount.getShoppingCart().addWatch(testWatch2);
+        // User removes one watch
+        myAccount.getShoppingCart().removeWatch(testWatch1);
+        // User checks out
+        Order myOrder = new Order(myAccount.getCustomer().getAddress(), myAccount.getShoppingCart());
+        myOrder.getPayment().setPaymentMethod(PaymentMethod.PAYPAL);
+        myAccount.addOrder(myOrder);
+        // User Paid oldest unpaid Order
+        Order oldestUnpaidOrder = myAccount.getOldestUnpaidOrder();
+        boolean success = oldestUnpaidOrder.pay();
+
+        //Then
+        assertTrue(success);
+        assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
+    }
+
+    /**
+     * Use Case:
+     * User signs up at our shop, puts one predefined watches into his*her shoppingcart, deletes one, checks out and we receive the payment.
+     * @author Michael Hopp
+     */
+    @Test
+    public void not_happy_path_() throws WatchNameNotValidException, ShoppingcartEmptyException
+    {
+        //Given
+        //When
+        // User creates new Account
+        Account myAccount = new Account(
+                new Customer("michael.hopp@fh-erfurt.de", myAddress,"0123456789", "Michael" , "Hopp",
+                        new Date(1996,9,24)),
+                "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
+        // User puts new Watch into his*her shoppingcart
+        myAccount.getShoppingCart().addWatch(testWatch1);
+        // User removes one watch
+        myAccount.getShoppingCart().removeWatch(testWatch1);
+        // User checks out
+        assertThrows(ShoppingcartEmptyException.class, () ->
+        {
+            Order myOrder = new Order(myAccount.getCustomer().getAddress(), myAccount.getShoppingCart());
+        });
     }
 }
