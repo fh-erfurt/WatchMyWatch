@@ -7,6 +7,8 @@ Von Anton Bespalov, Michael Hopp, Tom Käppler
 ## Projektbeschreibung
 WatchMyWatch ist ein Armbanduhren Online-Shop, der registrierten Kunden die Möglichkeit bietet eine vorgebaute Uhr zu erwerben oder selbst eine Konfiguration aus den angebotenen Uhrenteilen zusammenzustellen.
 
+Erläuterung am Use Case "New User wants to buy a Watch":
+![UML](EPK WatchMyWatch.png?raw=true)
 ### Klassendiamgramm
 - Aktuell: Version 2 ![UML](UML.png?raw=true)
 - Version 1: [UML Klassendiagramm WatchMyWatch](https://www.lucidchart.com/invitations/accept/8876c528-b94f-460d-b4bf-f28249aa68e6) inspiriert durch [Beispieldiagramm](https://www.uml-diagrams.org/examples/online-shopping-domain-uml-diagram-example.html "Vorlage")
