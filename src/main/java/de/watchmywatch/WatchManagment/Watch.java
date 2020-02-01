@@ -1,6 +1,6 @@
 package de.watchmywatch.WatchManagment;
 
-import de.watchmywatch.Exceptions.WatchNameException;
+import de.watchmywatch.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.WatchManagment.Validator.*;
 
 import java.util.logging.Logger;
@@ -38,7 +38,7 @@ public class Watch implements Validatable
      * @param particularity (Einzigartigkeit)
      * @author Tom Käppler
      */
-    public Watch(String name, String particularity) throws WatchNameException
+    public Watch(String name, String particularity) throws WatchNameNotValidException
     {
         checkWatchName(name);
         this.name = name;
@@ -59,11 +59,10 @@ public class Watch implements Validatable
      * @param clockwork clockwork of the watch
      * @author Tom Käppler
      */
-    public Watch(String name, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork) throws WatchNameException
+    public Watch(String name, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork) throws WatchNameNotValidException
     {
         checkWatchName(name);
         this.name = name;
-
         this.particularity = particularity;
         this.bracelet = bracelet;
         this.casing = casing;
@@ -77,7 +76,7 @@ public class Watch implements Validatable
      * @param name name which should be checked
      * @author Tom Käppler
      */
-    private void checkWatchName(String name) throws WatchNameException
+    private void checkWatchName(String name) throws WatchNameNotValidException
     {
         Pattern pattern = Pattern.compile("^[0-9a-zA-ZäÄöÖüÜß]*$");
         Matcher matcher = pattern.matcher(name);
@@ -85,17 +84,17 @@ public class Watch implements Validatable
         if (!matcher.find())
         {
             logger.warning("watch name contains invalid characters");
-            throw new WatchNameException("Name contains invalid characters");
+            throw new WatchNameNotValidException("Name contains invalid characters");
         }
         else if (name.trim().isEmpty())
         {
             logger.warning("watch name should not be empty");
-            throw new WatchNameException("Name should not be empty");
+            throw new WatchNameNotValidException("Name should not be empty");
         }
         else if (name.length() > 140)
         {
             logger.warning("watch name should not be longer than 140 characters");
-            throw new WatchNameException("Name should not be longer than 140 characters");
+            throw new WatchNameNotValidException("Name should not be longer than 140 characters");
         }
     }
 
@@ -104,7 +103,7 @@ public class Watch implements Validatable
         return name;
     }
 
-    public void setName(String name) throws WatchNameException
+    public void setName(String name) throws WatchNameNotValidException
     {
         checkWatchName(name);
         this.name = name;

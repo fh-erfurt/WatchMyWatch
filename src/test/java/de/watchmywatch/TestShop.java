@@ -8,7 +8,7 @@ import de.watchmywatch.OrderManagment.Order;
 import de.watchmywatch.OrderManagment.OrderStatus;
 import de.watchmywatch.OrderManagment.PaymentMethod;
 import de.watchmywatch.OrderManagment.Shoppingcart;
-import de.watchmywatch.Exceptions.WatchNameException;
+import de.watchmywatch.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.Helper.Address;
 import de.watchmywatch.WatchManagment.*;
 import org.junit.jupiter.api.Test;
@@ -34,7 +34,7 @@ public class TestShop
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM,25000, 2);
     Watch watch = new Watch("Swatch","Test", bracelet, casing, clockwork);
 
-    public TestShop() throws WatchNameException
+    public TestShop() throws WatchNameNotValidException
     {
     }
 
@@ -44,7 +44,7 @@ public class TestShop
      * @author Michael Hopp
      */
     @Test
-    public void happy_path() throws WatchNameException
+    public void happy_path() throws WatchNameNotValidException
     {
     //Given
         // The desired watch

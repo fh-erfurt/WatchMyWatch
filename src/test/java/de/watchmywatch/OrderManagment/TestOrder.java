@@ -1,7 +1,7 @@
 package de.watchmywatch.OrderManagment;
 
 import de.watchmywatch.AccountManagment.Person;
-import de.watchmywatch.Exceptions.WatchNameException;
+import de.watchmywatch.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.Helper.Address;
 import de.watchmywatch.WatchManagment.*;
 import org.junit.jupiter.api.Test;
@@ -29,7 +29,7 @@ public class TestOrder
 
     private Order testOrder = new Order(address, shoppingcart);
 
-    public TestOrder() throws WatchNameException
+    public TestOrder() throws WatchNameNotValidException
     {
     }
 
@@ -46,7 +46,7 @@ public class TestOrder
     }
 
     @Test
-    public void should_calculate_total_with_shippingfee() throws WatchNameException
+    public void should_calculate_total_with_shippingfee() throws WatchNameNotValidException
     {
         //Given
         Order order = new Order(address, shoppingcart);

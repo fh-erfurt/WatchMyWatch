@@ -1,7 +1,7 @@
 package de.watchmywatch.WatchManagment;
 
 import de.watchmywatch.AccountManagment.Person;
-import de.watchmywatch.Exceptions.WatchNameException;
+import de.watchmywatch.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.Helper.Address;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +22,7 @@ public class TestManagerWatch
     Watch watch = new Watch("test", "yes", bracelet, casing, clockwork);
     Watch watch2 = new Watch("test2", "yes", bracelet, casing, clockwork);
 
-    public TestManagerWatch() throws WatchNameException
+    public TestManagerWatch() throws WatchNameNotValidException
     {
     }
 

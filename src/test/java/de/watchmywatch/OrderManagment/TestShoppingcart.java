@@ -1,6 +1,6 @@
 package de.watchmywatch.OrderManagment;
 import de.watchmywatch.AccountManagment.Person;
-import de.watchmywatch.Exceptions.WatchNameException;
+import de.watchmywatch.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.Helper.Address;
 import de.watchmywatch.WatchManagment.*;
 import org.junit.jupiter.api.Test;
@@ -24,7 +24,7 @@ public class TestShoppingcart
     Watch watch = new Watch("Swatch","Test", bracelet, casing, clockwork);
 
 
-    public TestShoppingcart() throws WatchNameException
+    public TestShoppingcart() throws WatchNameNotValidException
     {
     }
 
@@ -117,7 +117,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_110_as_new_total_for_shoppingcart() throws WatchNameException
+    public void should_return_110_as_new_total_for_shoppingcart() throws WatchNameNotValidException
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
@@ -131,7 +131,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_zero_as_new_total_for_shoppingcart() throws WatchNameException
+    public void should_return_zero_as_new_total_for_shoppingcart() throws WatchNameNotValidException
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
@@ -145,7 +145,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_220_as_new_total_for_shoppingcart() throws WatchNameException
+    public void should_return_220_as_new_total_for_shoppingcart() throws WatchNameNotValidException
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
@@ -161,7 +161,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_330_as_new_total_for_shoppingcart() throws WatchNameException
+    public void should_return_330_as_new_total_for_shoppingcart() throws WatchNameNotValidException
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
@@ -178,7 +178,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_440_as_new_total_for_shoppingcart() throws WatchNameException
+    public void should_return_440_as_new_total_for_shoppingcart() throws WatchNameNotValidException
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
