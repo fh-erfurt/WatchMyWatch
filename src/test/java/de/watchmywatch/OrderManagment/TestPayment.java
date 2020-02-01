@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
+ * Class which tests the functionality of Payment and LocalDateTime in its context
  * @author Michael Hopp
  */
 public class TestPayment

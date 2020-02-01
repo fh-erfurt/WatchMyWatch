@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
+ * Class which tests the functionality of Shoppingcart
  * @author Michael Hopp
  */
 public class TestShoppingcart
@@ -86,14 +87,14 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_remove_all_occurances_of_given_watch_from_shoppingcart()
+    public void should_remove_all_occurrences_of_given_watch_from_shoppingcart()
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         shoppingcart.addWatch(watch);
         shoppingcart.addWatch(watch);
         // When
-        shoppingcart.removeAllOccurancesOfWatch(watch);
+        shoppingcart.removeAllOccurrencesOfWatch(watch);
         //Then
         ArrayList<Watch> list = shoppingcart.getItems();
         boolean foundWatch = false;
@@ -105,14 +106,14 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_remove_the_two_occurances_of_given_watch_from_shoppingcart()
+    public void should_remove_the_two_occurrences_of_given_watch_from_shoppingcart()
     {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         shoppingcart.addWatch(watch);
         shoppingcart.addWatch(watch);
         // When
-        int occurances = shoppingcart.removeAllOccurancesOfWatch(watch);    // Count how many Occurances were removed
+        int occurances = shoppingcart.removeAllOccurrencesOfWatch(watch);    // Count how many Occurances were removed
         //Then
         assertEquals(2, occurances);
     }
@@ -140,7 +141,7 @@ public class TestShoppingcart
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch1);
         // When
-        shoppingcart.removeAllOccurancesOfWatch(watch1);    // Shoppingcart is empty afterwards
+        shoppingcart.removeAllOccurrencesOfWatch(watch1);    // Shoppingcart is empty afterwards
         //Then
         assertEquals(0.0, shoppingcart.getTotal());
     }
@@ -173,7 +174,7 @@ public class TestShoppingcart
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch2);
         // When
-        shoppingcart.removeAllOccurancesOfWatch(watch1);    // Only Expensive watch2 should be remaining
+        shoppingcart.removeAllOccurrencesOfWatch(watch1);    // Only Expensive watch2 should be remaining
         //Then
         assertEquals(330, shoppingcart.getTotal());
     }

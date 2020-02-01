@@ -15,9 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Integration Tests
- *
- * @author Michael Hopp, ...
+ * class which tests the integration of subsystems AccountManagement, OrderManagement and WatchManagement
+ * @author Michael Hopp, Tom Käppler
  */
 public class TestShop
 {
@@ -37,19 +36,18 @@ public class TestShop
     }
 
     /**
-     * Use Case:
-     * User signs up at our shop, puts a predefined watch into his*her shoppingcart, checks out and we receive the payment.
-     *
+     * Use Case: New User wants to buy a predefined Watch.
+     * User signs up at our shop, puts a predefined watch into his*her shoppingcart, checks out and we receive the payment, whereby the Order is completed.
      * @author Michael Hopp
      */
     @Test
     public void happy_path() throws WatchNameNotValidException, ShoppingcartEmptyException
     {
-        //Given
+    //Given
         // The desired watch
         Watch watch1 = new Watch("SweetRolex", "Attributes: +2 Handshaking, +3 Intimidation",
                 bracelet, casing, clockwork);
-        //When
+    //When
         // User creates new Account
         Account myAccount = new Account(
                 new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
@@ -65,7 +63,7 @@ public class TestShop
         Order oldestUnpaidOrder = myAccount.getOldestUnpaidOrder();
         boolean success = oldestUnpaidOrder.pay();
 
-        //Then
+    //Then
         assertTrue(success);
         assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
     }
@@ -75,13 +73,13 @@ public class TestShop
      * Use Case:
      * User signs up at our shop, puts two predefined watches into his*her shoppingcart, deletes one, checks out and we receive the payment.
      *
-     * @author Michael Hopp
+     * @author Tom Käppler
      */
     @Test
     public void quite_happy_path_() throws ShoppingcartEmptyException
     {
-        //Given
-        //When
+    //Given
+    //When
         // User creates new Account
         Account myAccount = new Account(
                 new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
@@ -100,7 +98,7 @@ public class TestShop
         Order oldestUnpaidOrder = myAccount.getOldestUnpaidOrder();
         boolean success = oldestUnpaidOrder.pay();
 
-        //Then
+    //Then
         assertTrue(success);
         assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
     }
@@ -109,13 +107,13 @@ public class TestShop
      * Use Case:
      * User signs up at our shop, puts one predefined watches into his*her shoppingcart, deletes one, checks out and we receive the payment.
      *
-     * @author Michael Hopp
+     * @author Tom Käppler
      */
     @Test
     public void not_happy_path_()
     {
-        //Given
-        //When
+    //Given
+    //When
         // User creates new Account
         Account myAccount = new Account(
                 new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
@@ -126,6 +124,7 @@ public class TestShop
         // User removes one watch
         myAccount.getShoppingCart().removeWatch(testWatch1);
         // User checks out
+    //Then
         assertThrows(ShoppingcartEmptyException.class, () ->
         {
             Order myOrder = new Order(myAccount.getCustomer().getAddress(), myAccount.getShoppingCart());

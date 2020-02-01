@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
+ * Class which tests the functionality of Order
  * @author Michael Hopp
  */
 public class TestOrder
@@ -33,6 +34,11 @@ public class TestOrder
     {
     }
 
+    /**
+     * Creates Shoppingcart, which won't throw ShoppingcartEmptyException.
+     * @param watch Watch that will be added to returned Shoppingcart
+     * @return Shoppingcart object which is not empty
+     */
     private Shoppingcart createNotEmptyShoppingcart(Watch watch)
     {
         Shoppingcart shoppingcart = new Shoppingcart();

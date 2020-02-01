@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
+ * Class which represents a Shoppingcart
  * @author Michael Hopp
  */
 public class Shoppingcart
@@ -16,6 +17,10 @@ public class Shoppingcart
     private double total;
     private ArrayList<Watch> items = new ArrayList<>();
 
+    /**
+     * Creates an empty Shoppingcart object with total = 0.0
+     * @author Michael Hopp
+     */
     public Shoppingcart()
     {
         calcTotal();
@@ -51,7 +56,7 @@ public class Shoppingcart
 
     /**
      * Adds given Watch to ShoppingCart-List items.
-     * @param watch Watch which shall be added
+     * @param watch Watch which shall be added to this Shoppingcart
      * @return True if successful, false if watch not found or invalid.
      * @author Michael Hopp
      */
@@ -96,12 +101,12 @@ public class Shoppingcart
     }
 
     /**
-     * Removes all posts/occurances of given Watch from ShoppingCart-List items.
+     * Removes all posts/occurrences of given Watch from ShoppingCart-List items.
      * @param watch Watch which shall be removed
      * @return amount of removed Watches as int. Zero if none were found.
      * @author Michael Hopp
      */
-    public int removeAllOccurancesOfWatch(Watch watch)
+    public int removeAllOccurrencesOfWatch(Watch watch)
     {
         int result = 0;
         if (watch != null)

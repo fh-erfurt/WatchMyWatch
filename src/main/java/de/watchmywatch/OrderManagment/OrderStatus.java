@@ -1,6 +1,7 @@
 package de.watchmywatch.OrderManagment;
 
 /**
+ * Enum which represents different statuses of an Order
  * @author Michael Hopp
  */
 public enum OrderStatus

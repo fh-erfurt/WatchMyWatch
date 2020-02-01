@@ -195,10 +195,10 @@ public class Account
     }
 
     /**
-     * First Come First Serve: Oldest unpaid Order should be paid first.
-     *
+     * For Payment logic by principle "First Come First Serve": Oldest unpaid Order should be paid first.
+     * Returns the oldest unpaid Order of this Account.
      * @return Oldest unpaid Order of this account
-     * @author Michael Hopp, noch verändert von Anton Bespalov
+     * @author Michael Hopp
      */
     public Order getOldestUnpaidOrder()
     {

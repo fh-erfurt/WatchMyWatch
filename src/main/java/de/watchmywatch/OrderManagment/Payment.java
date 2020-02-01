@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
 /**
+ * Class which represents a Payment
  * @author Michael Hopp
  */
 public class Payment
@@ -15,7 +16,7 @@ public class Payment
     private String details;                 // Usage, Extra information, ...
 
     /**
-     * Creates empty Payment-Object which has to be initialized by set-Methods after reaching influencing steps in the payment process.
+     * Creates an empty Payment-Object which has to be initialized by set-Methods after reaching influencing steps in the payment process.
      * @author Michael Hopp
      */
     public Payment()
@@ -48,7 +49,7 @@ public class Payment
     }
 
     /**
-     * Creates a completed Payment.
+     * Creates a completed/paid Payment.
      * @param paymentMethod Payment Method. For example PayPal or Transfer.
      * @param details       Details for Payment. Usage or extra information.
      * @param paid          Date at which Payment was executed.

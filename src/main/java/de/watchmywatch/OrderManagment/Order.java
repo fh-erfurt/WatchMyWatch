@@ -7,6 +7,7 @@ import de.watchmywatch.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.Helper.Address;
 
 /**
+ * Class which represents an Order
  * @author Michael Hopp
  */
 public class Order
@@ -23,6 +24,12 @@ public class Order
     private Shoppingcart shoppingcart;
     private Payment payment;
 
+    /**
+     * Creates an Order Object without PaymentMethod.
+     * @param address       Address for shipping and billing.
+     * @param shoppingcart  List of watches, which shall be ordered
+     * @author Michael Hopp
+     */
     public Order(Address address, Shoppingcart shoppingcart) throws ShoppingcartEmptyException {
         checkShoppingcartEmpty(shoppingcart);
         this.ordered = LocalDateTime.now();
@@ -36,6 +43,13 @@ public class Order
         logger.info("New Order was created.");
     }
 
+    /**
+     * Creates an Order Object with PaymentMethod.
+     * @param address       Address for shipping and billing.
+     * @param shoppingcart  List of watches, which shall be ordered
+     * @param paymentMethod How the Order shall be paid.
+     * @author Michael Hopp
+     */
     public Order(Address address, Shoppingcart shoppingcart, PaymentMethod paymentMethod) throws ShoppingcartEmptyException {
         checkShoppingcartEmpty(shoppingcart);
         this.ordered = LocalDateTime.now();
@@ -49,6 +63,11 @@ public class Order
         logger.info("New Order was created.");
     }
 
+    /**
+     * Checks if the Shoppingcart contains any Items: If not - throws ShoppingcartEmptyException
+     * @param shoppingcart Shoppingcart which will be checked
+     * @author Michael Hopp
+     */
     private void checkShoppingcartEmpty(Shoppingcart shoppingcart) throws ShoppingcartEmptyException {
         if (shoppingcart.getItems().isEmpty())
         {
@@ -102,7 +121,7 @@ public class Order
     }
 
     /**
-     * If newShippingStatus is SENT, sets shipping date to current time
+     * Sets the ShippingStatus of an Order and if newShippingStatus is SENT, sets shipping date to current time
      * @param newShippingStatus Desired new ShippingStatus
      * @author Michael Hopp
      */
@@ -145,12 +164,22 @@ public class Order
     this.payment = payment;
     }
 
+    /**
+     * Checks whether or not this Order has a set datePaid in its Payment.
+     * @return true if datePaid in this Payment is set, else false
+     * @author Michael Hopp
+     */
     public boolean isPaid()
     {
         return this.payment.getDatePaid() != null;
     }
 
-    // Pays given Order, sends it and thereby completes Order.
+    // TODO: Apply Principle of Single Responsibilty to pay() ...
+    /**
+     * Pays given Order, sends it and thereby completes Order.
+     * @return true if Order wasn't paid yet and could be paid, else false
+     * @author Michael Hopp
+     */
     public boolean pay(){
         boolean success = false;
         if(!isPaid()) {
