@@ -17,9 +17,13 @@ import java.util.Date;
 import static de.watchmywatch.AccountManagment.Account.get_SHA_256_SecurePassword;
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/**
+ * class which tests the functionality of Account
+ * @author  Anton Bespalov
+ */
 public class TestAccount
 {
+    // create some reusable objects
     private Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
     private Account account = new Account(new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov",
             new Date(1998, Calendar.SEPTEMBER, 23)), "Salami", address, new Date(2020, Calendar.JANUARY, 26), PAYPAL, ACTIV,
@@ -35,7 +39,7 @@ public class TestAccount
     public void get_secure_password()
     {
         //Given
-        String securePassword = get_SHA_256_SecurePassword("Salamination"/*, new byte[256]*/);
+        String securePassword = get_SHA_256_SecurePassword("Salamination");
         //When
 
         //Then

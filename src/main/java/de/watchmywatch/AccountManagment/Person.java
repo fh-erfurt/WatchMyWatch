@@ -4,11 +4,11 @@ import de.watchmywatch.Helper.Address;
 
 public class Person
 {
-    private String email;
-    private Address address;
-    private String phone;
-    private String firstname;
-    private String lastname;
+    private String      email;
+    private Address     address;
+    private String      phone;
+    private String      firstname;
+    private String      lastname;
     /**
      *
      * @param email         the email from the person
@@ -20,11 +20,11 @@ public class Person
      */
     public Person(String email, Address address, String phone, String firstname, String lastname)
     {
-        this.email = email;
-        this.address = address;
-        this.phone = phone;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.email =        email;
+        this.address =      address;
+        this.phone =        phone;
+        this.firstname =    firstname;
+        this.lastname =     lastname;
     }
 
     public String getEmail()

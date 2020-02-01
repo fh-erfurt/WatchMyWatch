@@ -5,6 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * class which tests the functionality of Person
+ * @author  Anton Bespalov
+ */
 public class TestPerson
 {
     @Test
