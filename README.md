@@ -5,7 +5,7 @@ Von Anton Bespalov, Michael Hopp, Tom Käppler
 Öffnen Sie die pom.xml in IntelliJ
 
 ## Projektbeschreibung
-WatchMyWatch ist ein Armbanduhren Online-Shop, der registrierten Kunden die Möglichkeit bietet eine vorgebaute Uhr zu erwerben oder selbst eine Konfiguration aus den angebotenen Uhrenteilen zusammenzustellen.
+WatchMyWatch ist ein Armbanduhren Online-Shop, der registrierten Kunden die Möglichkeit bietet, eine vorgebaute Uhr zu erwerben oder selbst eine Konfiguration aus den angebotenen Uhrenteilen zusammenzustellen.
 
 Erläuterung am Use Case "New User wants to buy a Watch": ![EPK](EPK WatchMyWatch.png?raw=true)
 ### Klassendiamgramm
@@ -48,16 +48,15 @@ Ab Modul Java 2 zusätzlich Konfigurator.
 1. Rechnungswesen: Das System soll keine Lohnzahlungen an Personal oder Rechnungen und deren Abwicklung von Kunden- oder
 Herstellerkäufen verwalten. Dies übernimmt ein externer Dienstleister.
 
-2. Zahlungsabwicklung: Stattdessen über externen Zahlungsdienstleister PayPal oder SofortÜberweisung: Am Ende des Bestell-
-vorgangs, wird der Käufer dorthin weitergeleitet, Shop gibt nötige Käufer- und Bestelldaten an 
+2. Zahlungsabwicklung: Stattdessen über externen Zahlungsdienstleister PayPal oder SofortÜberweisung: Am Ende des Bestellvorgangs, wird der Käufer dorthin weitergeleitet, Shop gibt nötige Käufer- und Bestelldaten an 
 Paypal o.Ä. weiter und erhält eine Status-Rückmeldung.
 
-3. Lieferung: Stattdessen über externe Lieferdienste denen das System nur die benötigten Informationen
+3. Lieferung: Stattdessen über externe Lieferdienste, denen das System nur die benötigten Informationen
 weiterleitet. (Post API)
 
-4. Personalverwaltung: Stammdaten von Admins, Contentmanager, Lagerarbeiter, Analysten und Support(Hotline), Arbeitszeiterfassung: Informationen in Bezug auf Arbeits- und Urlaubszeiten des Personals werden von einem externen Dienstleister verwaltet.
+4. Personalverwaltung: Stammdaten von Admins, Contentmanagern, Lagerarbeitern, Analysten und Support(Hotline) sowie die Arbeitszeiterfassung (Informationen in Bezug auf Arbeits- und Urlaubszeiten des Personals) werden von einem externen Dienstleister verwaltet.
 
-### Geschäftsregeln/Festlegungen/Besonderheiten
+### Geschäftsregeln, Festlegungen, Besonderheiten
 - Richtwert für Preisklasse der Uhren: 100€ bis 50.000€
 - Uhren zusammenbauen kostet eine Gebühr: Bei einem Preis von unter 2000 Euro kostet das Zusammenbauen 10% vom Uhrenpreis, ab 2000 Euro dann pauschal 200 Euro.
 - Gäste bekommen vorerst keinen Einkaufswagen.
@@ -92,7 +91,7 @@ weiterleitet. (Post API)
 ### Lessons Learned
 - Umstellungen auf neue Systeme (Git) bringen Unischerheit und Verzögerungen.
 - Wöchentliche Verständigung dringend aufrechthalten, sonst langsamerer Gesamt-Fortschritt und höherer Aufwand, um aktuellen Stand zu     formulieren. -> Dranbleiben, solange man motiviert ist!
-- Aufgabenteilung ist gut aber wie soll mit Versäumnissen umgegangen werden?
-- Zwischenziele erreicht aber wir hätten mehr schaffen können -> Zumindest hatten wir die Ressourcen dafür... Heiße Phase kommt erst       noch, da käme gelegen, wenn Last durch Vorarbeit abgenommen würde.
-- Wir haben Test-Driven Design zu Beginn vernachlässigt aber ab Implementierung dann prominent Verwendet.
-- Abgrenzung zu Datenbanken schwieriger als Gedacht: Mangelnde Erfahrung außerhalb des DB-Kontexts. (Klassendiagramm sah anfangs wie ER-   Modell aus) -> Sich der eigentlichen Aufgabe "Serverseitige Anwendung" besinnen: Zur Laufzeit, also keine DB.
+- Aufgabenteilung ist gut, aber wie soll mit Versäumnissen umgegangen werden?
+- Zwischenziele erreicht, aber wir hätten mehr schaffen können -> Zumindest hatten wir die Ressourcen dafür... Heiße Phase kommt erst       noch, da käme es gelegen, wenn Last durch Vorarbeit abgenommen würde.
+- Wir haben Test-Driven Design zu Beginn vernachlässigt, aber ab Implementierung dann prominent Verwendet.
+- Abgrenzung zu Datenbanken schwieriger als gedacht: Mangelnde Erfahrung außerhalb des DB-Kontexts. (Klassendiagramm sah anfangs wie ER-   Modell aus) -> Sich der eigentlichen Aufgabe "Serverseitige Anwendung" besinnen: Zur Laufzeit, also keine DB.
