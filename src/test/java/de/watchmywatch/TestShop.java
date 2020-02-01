@@ -114,7 +114,7 @@ public class TestShop
      * @author Michael Hopp
      */
     @Test
-    public void not_happy_path_() throws WatchNameNotValidException, ShoppingcartEmptyException
+    public void not_happy_path_()
     {
         //Given
         //When
