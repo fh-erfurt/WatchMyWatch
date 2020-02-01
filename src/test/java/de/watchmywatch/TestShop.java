@@ -1,16 +1,16 @@
 package de.watchmywatch;
 
-import de.watchmywatch.Accounterwaltung.Account;
-import de.watchmywatch.Accounterwaltung.AccountStatus;
-import de.watchmywatch.Accounterwaltung.Customer;
-import de.watchmywatch.Accounterwaltung.Person;
-import de.watchmywatch.Bestellungsverwaltung.Order;
-import de.watchmywatch.Bestellungsverwaltung.OrderStatus;
-import de.watchmywatch.Bestellungsverwaltung.PaymentMethod;
-import de.watchmywatch.Bestellungsverwaltung.Shoppingcart;
+import de.watchmywatch.AccountManagment.Account;
+import de.watchmywatch.AccountManagment.AccountStatus;
+import de.watchmywatch.AccountManagment.Customer;
+import de.watchmywatch.AccountManagment.Person;
+import de.watchmywatch.OrderManagment.Order;
+import de.watchmywatch.OrderManagment.OrderStatus;
+import de.watchmywatch.OrderManagment.PaymentMethod;
+import de.watchmywatch.OrderManagment.Shoppingcart;
 import de.watchmywatch.Exceptions.WatchNameException;
 import de.watchmywatch.Helper.Address;
-import de.watchmywatch.Uhrenverwaltung.*;
+import de.watchmywatch.WatchManagment.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
