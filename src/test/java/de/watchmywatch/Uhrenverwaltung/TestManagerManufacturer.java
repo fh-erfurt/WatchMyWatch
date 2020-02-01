@@ -16,7 +16,7 @@ public class TestManagerManufacturer
         //Given
         ManagerManufacturer manufacturerManager = new ManagerManufacturer();
         //When
-        manufacturerManager.addManufacturer("Test", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
+        manufacturerManager.addManufacturer("Test", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
                 "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
         //Then
         assertEquals(1, manufacturerManager.amountOfManufacturers());
@@ -28,9 +28,9 @@ public class TestManagerManufacturer
     {
         //Given
         ManagerManufacturer manufacturerManager = new ManagerManufacturer();
-        manufacturerManager.addManufacturer("Test", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
+        manufacturerManager.addManufacturer("Test", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
                 "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
-        manufacturerManager.addManufacturer("Test2", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
+        manufacturerManager.addManufacturer("Test2", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
                 "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
         //When
         manufacturerManager.removeManufacturerByName("Test");

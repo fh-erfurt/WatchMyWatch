@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestManagerCustomer
 {
-    private Address address = new Address("Lilo-Herrmann-Straße", "Erfurt", "Thüringen", "99086");
+    private Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
     private Customer customer =  new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov",  new Date(1998, Calendar.SEPTEMBER, 23));
 
     private ManagerCustomer managerCustomer= new ManagerCustomer();

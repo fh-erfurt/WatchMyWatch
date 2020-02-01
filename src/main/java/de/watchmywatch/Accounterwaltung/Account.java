@@ -34,7 +34,8 @@ public class Account
      * @param PaymentMethod  Enum of the paymentmethod
      * @param accountStatus  Enum of the accountstatus
      * @param shoppingCart   shoppingcart from the customer
-     */
+     * @author Anton Bespalov
+    */
     public Account(Customer customer, String passwordToHash, Address billingAddress, Date opened,
                    PaymentMethod PaymentMethod, AccountStatus accountStatus, Shoppingcart shoppingCart)
     {
@@ -72,12 +73,21 @@ public class Account
         }
         return generatedPassword;
     }
-
+    /**
+     * changePassword
+     * @param newPasswordToHash   password that should be hashed
+     * hashing the new password and replacing it
+     */
     public void changePassword(String newPasswordToHash)
     {
         this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash);
     }
 
+    /**
+     * Adding an order to the Orderlist
+     * @param order   order that schould be added
+     * @return       true when the order was added
+     */
     public boolean addOrder(Order order)
     {
         orders.add(order);
@@ -85,6 +95,11 @@ public class Account
         return true;
     }
 
+    /**
+     * Removing an Order
+     * @param order  order that schould be removed
+     * @return true, when the order was removed / false, when the order was not found
+     */
     public boolean removeOrder(Order order)
     {
         if (orders.contains(order))

@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestManagerAddress
 {
     private ManagerAddress managerAddress = new ManagerAddress();
-    private Address address = new Address("Lilo-Herrmann-Straße", "Erfurt", "Thüringen", "99086");
+    private Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
 
     @Test
     public void adding_a_address_to_addressList_when_address_does_not_exists()

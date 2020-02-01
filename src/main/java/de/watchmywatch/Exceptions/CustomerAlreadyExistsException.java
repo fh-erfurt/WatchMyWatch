@@ -1,6 +1,6 @@
 package de.watchmywatch.Exceptions;
 
-public class CustomerAlreadyExistsException extends Throwable
+public class CustomerAlreadyExistsException extends Exception
 {
     private String message;
 

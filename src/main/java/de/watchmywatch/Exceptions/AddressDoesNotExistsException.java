@@ -1,6 +1,6 @@
 package de.watchmywatch.Exceptions;
 
-public class AddressDoesNotExistsException extends Throwable
+public class AddressDoesNotExistsException extends Exception
 {
     private String message;
 

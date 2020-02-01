@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestOrder
 {
     // create some reusable objects
-    private Address address = new Address("street", "city", "state", "012345");
+    private Address address = new Address("street 2", "city", "state", "012345");
     private Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", address,
             "01716181447", "Anton", "Bespalov"), address);
     private Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 25, 1, ConnectionType.BAND);

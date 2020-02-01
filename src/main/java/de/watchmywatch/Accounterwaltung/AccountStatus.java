@@ -1,5 +1,9 @@
 package de.watchmywatch.Accounterwaltung;
 
+/**
+ * enum which represents the account statuses
+ * @author Anton Bespalov
+ */
 public enum AccountStatus
 {
     ACTIV,

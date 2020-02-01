@@ -9,7 +9,15 @@ public class Person
     private String phone;
     private String firstname;
     private String lastname;
-
+    /**
+     *
+     * @param email         the email from the person
+     * @param address       the address of the person
+     * @param phone         phonenumber from the person
+     * @param firstname     firstname from the person
+     * @param lastname      lastname from the person
+     * @author Anton Bespalov
+     */
     public Person(String email, Address address, String phone, String firstname, String lastname)
     {
         this.email = email;

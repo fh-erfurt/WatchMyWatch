@@ -9,8 +9,13 @@ import java.util.logging.Logger;
 
 public class ManagerAddress
 {
-    private static List<Address> addressList;
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+    private static List<Address> addressList;
+    /**
+     *
+     * @author Anton Bespalov
+     */
 
     public ManagerAddress()
     {
@@ -22,6 +27,13 @@ public class ManagerAddress
         return addressList;
     }
 
+    /**
+     * addAccount function
+     * @param address   address that should be added to the addressList
+     * when the address is not null and is not in the list it will be added
+     * if the address is already in the list an exception will be thrown
+     * if the address is null a warning will be logged
+     */
     public void addAddress(Address address) throws AddressAlreadyExistsException
     {
         if (address != null)
@@ -41,6 +53,12 @@ public class ManagerAddress
         }
     }
 
+    /**
+     * removeAccount function
+     * @param address   address that should be removed from the addressList
+     * if the address is in the list the address will be removed
+     * if the address is not in the list an exception will be thrown
+     */
     public void removeAddress(Address address) throws AddressDoesNotExistsException
     {
         if (addressList.contains(address))

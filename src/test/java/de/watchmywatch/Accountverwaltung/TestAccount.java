@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestAccount
 {
-    private Address address = new Address("Lilo-Herrmann-Straße", "Erfurt", "Thüringen", "99086");
+    private Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
     private Account account = new Account(new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov",
             new Date(1998, Calendar.SEPTEMBER, 23)), "Salami", address, new Date(2020, Calendar.JANUARY, 26), PAYPAL, ACTIV,
             new Shoppingcart());

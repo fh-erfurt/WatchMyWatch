@@ -16,7 +16,7 @@ public class TestShoppingcart
 {
     // create some reusable objects
     Address address = new Address("street", "city", "state", "zip");
-    Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße",
+    Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
             "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM,25, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM,25, 2, 2, ConnectionType.BAND);

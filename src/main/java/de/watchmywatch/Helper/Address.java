@@ -6,6 +6,14 @@ public class Address
     private String city;
     private String state;
     private String zip;
+    /**
+     *
+     * @param street        street and housnumber
+     * @param city          the city
+     * @param state         the state
+     * @param zip           the zip
+     * @author Anton Bespalov
+     */
 
     public Address(String street, String city, String state, String zip)
     {
