@@ -2,29 +2,28 @@
 Von Anton Bespalov, Michael Hopp, Tom Käppler
 
 ## HowTo
-...
+Öffnen Sie die pom.xml in IntelliJ
 
 ## Projektbeschreibung
 WatchMyWatch ist ein Armbanduhren Online-Shop, der registrierten Kunden die Möglichkeit bietet eine vorgebaute Uhr zu erwerben oder selbst eine Konfiguration aus den angebotenen Uhrenteilen zusammenzustellen.
 
 ### Klassendiamgramm
-- Version 1.1 und folgend entnehmen Sie bitte der automatisierten Generierung des Quellcodes.
-- Version 1.0: [UML Klassendiagramm WatchMyWatch](https://www.lucidchart.com/invitations/accept/8876c528-b94f-460d-b4bf-f28249aa68e6) inspiriert durch [Beispieldiagramm](https://www.uml-diagrams.org/examples/online-shopping-domain-uml-diagram-example.html "Vorlage")
+- Version 2: ![UML](UML.png?raw=true)
+- Version 1: [UML Klassendiagramm WatchMyWatch](https://www.lucidchart.com/invitations/accept/8876c528-b94f-460d-b4bf-f28249aa68e6) inspiriert durch [Beispieldiagramm](https://www.uml-diagrams.org/examples/online-shopping-domain-uml-diagram-example.html "Vorlage")
 
 ### Stakeholder/Akteure:
-| Name/Bezeichnung              | Einfluss aufs System  |
+| Name/Bezeichnung              | Beschreibung  |
 | -------------                 |:-------------:        |
-| Kunden                        | - ... |
-| Hersteller/Lieferanten        | ... |
-| Konfigurations-Personal       | Setzt Uhren zusammen  |
-| Lieferdienst                  | ...  |
+| Kunden(Customer)              | Registriert sich im System und bestellt Uhren |
+| Hersteller(Manufacturer)                    | Produzent von Uhrenteilen |
+| Konfigurations-Personal       | Baut Uhren zusammen  |
+| Lieferdienst                  | Paketversand des Shops |
 | Zahlungsdienstleister         | z.B. PayPal |
-| Shop-Betreiber/Geschäftsführer| ...  |
-| Admins/Webmaster              | ...  |
-| Contentmanager                | ...  |
-| Lagerarbeiter                 | ...  |
-| Analysten                     | ...  |
-| Support(Hotline)              | ...  |
+| Geschäftsführer               | Rechtlicher Eigentümer von WatchMyWatch |
+| Admins/Webmaster              | Entwicklung und Wartung des Systems |
+| Contentmanager                | Pflegt neue Uhren und Einzelteile in das System ein |
+| Analysten                     | Wertet Verkaufsstatistiken und Nutzungsverhalten des Systems aus |
+| Support(Hotline)              | Erster Ansprechpartner bei technischen Problemen, Fragen oder Anregungen zum System  |
 
 ### Anforderungsbeschreibung(Grob)
 Es soll ein Online Shop entwickelt werden, über den Armbanduhren verschiedener Preisklassen auf einer Website dargestellt und vertrieben werden. Die Uhren sollen aus einem Vorrat von Komponenten konfigurierbar sein, wobei das System die Kompatibilität der Einzelteile berücksichten und dem Kunden mit Vorschlägen und Hinweisen Hilfestellung leisten soll.
@@ -69,23 +68,25 @@ weiterleitet. (Post API)
 #### Arbeits-/Aufgabenteilung
 - **Anton Bespalov:**
   - Accountverwaltung
+  - Exceptions
   - ...
 - **Michael Hopp:**
   - Bestellungsverwaltung
+  - TestShop
   - ...
 - **Tom Käppler:**
   - Uhrenverwaltung
+  - Validator
+  - Exceptions
   - ...
 
 ### Verwendete Technologie
-- Entwicklungsumgebung: IntelliJ Java 11
-- Versionskontrollsystem: Git
-- Build-Tool: Maven
-- Github Desktop als Brücke zwischen Versionskontrolle und Entwicklungsumgebung.
-- Kommunikation: WhatsApp und Discord
-### Rechtliche Informationen
-- Lizenz: Lizenz*
-- Impressum?
+    - IntelliJ Java 11
+    - JUnit5.4, Maven, JavaDoc
+    - Versionskontrollsystem: Git
+    - Github Desktop als Brücke zwischen Versionskontrolle und Entwicklungsumgebung.
+    - Kommunikation: WhatsApp und Discord
+
 ### Lessons Learned
 - Umstellungen auf neue Systeme (Git) bringen Unischerheit und Verzögerungen.
 - Wöchentliche Verständigung dringend aufrechthalten, sonst langsamerer Gesamt-Fortschritt und höherer Aufwand, um aktuellen Stand zu     formulieren. -> Dranbleiben, solange man motiviert ist!
