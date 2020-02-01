@@ -3,6 +3,7 @@ package de.watchmywatch.OrderManagment;
 import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
+import de.watchmywatch.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.Helper.Address;
 
 /**
@@ -22,8 +23,8 @@ public class Order
     private Shoppingcart shoppingcart;
     private Payment payment;
 
-    public Order(Address address, Shoppingcart shoppingcart)
-    {
+    public Order(Address address, Shoppingcart shoppingcart) throws ShoppingcartEmptyException {
+        checkShoppingcartEmpty(shoppingcart);
         this.ordered = LocalDateTime.now();
         this.shipped = null;
         this.shippingAddress = address;
@@ -35,8 +36,8 @@ public class Order
         logger.info("New Order was created.");
     }
 
-    public Order(Address address, Shoppingcart shoppingcart, PaymentMethod paymentMethod)
-    {
+    public Order(Address address, Shoppingcart shoppingcart, PaymentMethod paymentMethod) throws ShoppingcartEmptyException {
+        checkShoppingcartEmpty(shoppingcart);
         this.ordered = LocalDateTime.now();
         this.shipped = null;
         this.shippingAddress = address;
@@ -48,6 +49,13 @@ public class Order
         logger.info("New Order was created.");
     }
 
+    private void checkShoppingcartEmpty(Shoppingcart shoppingcart) throws ShoppingcartEmptyException {
+        if (shoppingcart.getItems().isEmpty())
+        {
+            logger.warning("Shoppingcart in Order cannot be empty");
+            throw new ShoppingcartEmptyException("Shoppingcart in Order cannot be empty");
+        }
+    }
     public LocalDateTime getOrderDate()
     {
         return this.ordered;
@@ -126,12 +134,6 @@ public class Order
 
     public Shoppingcart getShoppingcart(){
     return this.shoppingcart;
-    }
-
-    public void setShoppingcart(Shoppingcart shoppingcart)
-    {
-    this.shoppingcart = shoppingcart;
-    this.calcTotal();
     }
 
     public Payment getPayment(){

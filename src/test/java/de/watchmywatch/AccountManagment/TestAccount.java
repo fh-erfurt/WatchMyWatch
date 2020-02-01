@@ -1,5 +1,6 @@
 package de.watchmywatch.AccountManagment;
 
+import de.watchmywatch.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.OrderManagment.Order;
 import de.watchmywatch.OrderManagment.Shoppingcart;
 import de.watchmywatch.Helper.Address;
@@ -25,6 +26,9 @@ public class TestAccount
             new Shoppingcart());
     private Shoppingcart shoppingcart = new Shoppingcart();
     private Order order = new Order(address, shoppingcart);
+
+    public TestAccount() throws ShoppingcartEmptyException {
+    }
 
     @Test
     public void get_secure_password()
@@ -73,8 +77,7 @@ public class TestAccount
     }
 
     @Test
-    public void should_return_oldest_of_two_unpaid_orders_with_correct_OrderDate()
-    {
+    public void should_return_oldest_of_two_unpaid_orders_with_correct_OrderDate() throws ShoppingcartEmptyException {
         // Given
         Order order2 = new Order(address, shoppingcart);
         LocalDateTime date = LocalDateTime.of(2000, Month.JANUARY, 1, 12, 0);
@@ -89,8 +92,7 @@ public class TestAccount
     }
 
     @Test
-    public void should_return_oldest_of_three_orders_where_two_are_unpaid_with_correct_OrderDate()
-    {
+    public void should_return_oldest_of_three_orders_where_two_are_unpaid_with_correct_OrderDate() throws ShoppingcartEmptyException {
         // Given
         Order order2 = new Order(address, shoppingcart);
         LocalDateTime date = LocalDateTime.of(2000, Month.JANUARY, 1, 12, 0);

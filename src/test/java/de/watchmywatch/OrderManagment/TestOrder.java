@@ -1,6 +1,7 @@
 package de.watchmywatch.OrderManagment;
 
 import de.watchmywatch.AccountManagment.Person;
+import de.watchmywatch.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.Helper.Address;
 import de.watchmywatch.WatchManagment.*;
@@ -25,17 +26,20 @@ public class TestOrder
     private Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 50, 2);
     private Watch watch = new Watch("Swatch", "Test", bracelet, casing, clockwork);
 
-    private Shoppingcart shoppingcart = new Shoppingcart();
-
+    private Shoppingcart shoppingcart = createNotEmptyShoppingcart(watch);
     private Order testOrder = new Order(address, shoppingcart);
 
-    public TestOrder() throws WatchNameNotValidException
-    {
+    public TestOrder() throws WatchNameNotValidException, ShoppingcartEmptyException {
+    }
+
+    private Shoppingcart createNotEmptyShoppingcart(Watch watch){
+        Shoppingcart shoppingcart = new Shoppingcart();
+        shoppingcart.addWatch(watch);
+        return shoppingcart;
     }
 
     @Test
-    public void should_create_new_order_with_orderstatus_pending()
-    {
+    public void should_create_new_order_with_orderstatus_pending() throws ShoppingcartEmptyException {
         //Given
         Order order = new Order(address, shoppingcart);
         OrderStatus pending = OrderStatus.PENDING;
@@ -46,11 +50,9 @@ public class TestOrder
     }
 
     @Test
-    public void should_calculate_total_with_shippingfee() throws WatchNameNotValidException
-    {
+    public void should_calculate_total_with_shippingfee() throws ShoppingcartEmptyException {
         //Given
         Order order = new Order(address, shoppingcart);
-        order.getShoppingcart().addWatch(watch);
         // When
 
         //Then
@@ -58,8 +60,7 @@ public class TestOrder
     }
 
     @Test
-    public void should_set_shippingDate_to_current_time_when_sent()
-    {
+    public void should_set_shippingDate_to_current_time_when_sent() throws ShoppingcartEmptyException {
         //Given
         Order order = new Order(address, shoppingcart);
         // When

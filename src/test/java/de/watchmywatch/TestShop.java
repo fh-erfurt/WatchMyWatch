@@ -4,6 +4,7 @@ import de.watchmywatch.AccountManagment.Account;
 import de.watchmywatch.AccountManagment.AccountStatus;
 import de.watchmywatch.AccountManagment.Customer;
 import de.watchmywatch.AccountManagment.Person;
+import de.watchmywatch.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.OrderManagment.Order;
 import de.watchmywatch.OrderManagment.OrderStatus;
 import de.watchmywatch.OrderManagment.PaymentMethod;
@@ -44,8 +45,7 @@ public class TestShop
      * @author Michael Hopp
      */
     @Test
-    public void happy_path() throws WatchNameNotValidException
-    {
+    public void happy_path() throws WatchNameNotValidException, ShoppingcartEmptyException {
     //Given
         // The desired watch
         Watch watch1 = new Watch("SweetRolex", "Attributes: +2 Handshaking, +3 Intimidation",

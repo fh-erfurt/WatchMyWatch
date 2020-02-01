@@ -72,7 +72,6 @@ public class Shoppingcart
         return result;
     }
 
-
     /**
      * Removes given Watch from ShoppingCart-List items.
      * @param watch Watch which shall be removed
@@ -121,7 +120,6 @@ public class Shoppingcart
         }
         return result;
     }
-
 
     /**
      * Removes all Watches from Shoppingcart-List and sets total as 0.0

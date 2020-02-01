@@ -8,7 +8,7 @@ Von Anton Bespalov, Michael Hopp, Tom Käppler
 WatchMyWatch ist ein Armbanduhren Online-Shop, der registrierten Kunden die Möglichkeit bietet eine vorgebaute Uhr zu erwerben oder selbst eine Konfiguration aus den angebotenen Uhrenteilen zusammenzustellen.
 
 ### Klassendiamgramm
-- Version 2: ![UML](UML.png?raw=true)
+- Aktuell: Version 2 ![UML](UML.png?raw=true)
 - Version 1: [UML Klassendiagramm WatchMyWatch](https://www.lucidchart.com/invitations/accept/8876c528-b94f-460d-b4bf-f28249aa68e6) inspiriert durch [Beispieldiagramm](https://www.uml-diagrams.org/examples/online-shopping-domain-uml-diagram-example.html "Vorlage")
 
 ### Stakeholder/Akteure:
@@ -41,8 +41,7 @@ ersetzen).
 2. Accountverwaltung: Account- und Kundendaten, Registrierung, Login, Bestellhistorie.
 3. Bestellungsverwaltung: Bestellungsdaten, Warenkörbe und Zahlungs-, Versandinformationen.
 
-Ab Version 2 (Java 2 Projekt) zusätzlich:
-4. Shop: Darstellung als Website und Zusammenführung der Teilsysteme.
+Ab Modul Java 2 zusätzlich Konfigurator.
 
 ### Abgrenzung(Das System soll nicht beinhalten:)
 1. Rechnungswesen: Das System soll keine Lohnzahlungen an Personal oder Rechnungen und deren Abwicklung von Kunden- oder
@@ -68,18 +67,18 @@ weiterleitet. (Post API)
 #### Arbeits-/Aufgabenteilung
 - **Anton Bespalov:**
   - Accountverwaltung
-  - Exceptions
-  - ...
+
 - **Michael Hopp:**
   - Bestellungsverwaltung
   - TestShop
-  - ...
+  - ReadMe
+  
 - **Tom Käppler:**
   - Uhrenverwaltung
   - Validator
-  - Exceptions
-  - ...
-
+  - ReadMe
+  - Projektstruktur
+  
 ### Verwendete Technologie
     - IntelliJ Java 11
     - JUnit5.4, Maven, JavaDoc
@@ -92,5 +91,5 @@ weiterleitet. (Post API)
 - Wöchentliche Verständigung dringend aufrechthalten, sonst langsamerer Gesamt-Fortschritt und höherer Aufwand, um aktuellen Stand zu     formulieren. -> Dranbleiben, solange man motiviert ist!
 - Aufgabenteilung ist gut aber wie soll mit Versäumnissen umgegangen werden?
 - Zwischenziele erreicht aber wir hätten mehr schaffen können -> Zumindest hatten wir die Ressourcen dafür... Heiße Phase kommt erst       noch, da käme gelegen, wenn Last durch Vorarbeit abgenommen würde.
-- Wir haben Test-Driven Design zu Beginn vernachlässigt aber dann ab Implementierung dann prominent Verwendet.
+- Wir haben Test-Driven Design zu Beginn vernachlässigt aber ab Implementierung dann prominent Verwendet.
 - Abgrenzung zu Datenbanken schwieriger als Gedacht: Mangelnde Erfahrung außerhalb des DB-Kontexts. (Klassendiagramm sah anfangs wie ER-   Modell aus) -> Sich der eigentlichen Aufgabe "Serverseitige Anwendung" besinnen: Zur Laufzeit, also keine DB.
