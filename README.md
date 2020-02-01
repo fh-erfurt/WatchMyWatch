@@ -69,6 +69,8 @@ weiterleitet. (Post API)
 #### Arbeits-/Aufgabenteilung
 - **Anton Bespalov:**
   - Accountverwaltung
+  - Adressverwaltung
+  - ReadMe
 
 - **Michael Hopp:**
   - Bestellungsverwaltung
