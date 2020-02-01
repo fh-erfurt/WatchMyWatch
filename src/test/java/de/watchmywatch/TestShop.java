@@ -56,8 +56,6 @@ public class TestShop
                 new Customer("michael.hopp@fh-erfurt.de", myAddress,"0123456789", "Michael" , "Hopp",
                 new Date(1996,9,24)),
                 "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
-        // TODO: User Logs in?
-
         // User puts new Watch into his*her shoppingcart
         myAccount.getShoppingCart().addWatch(watch1);
         // User checks out

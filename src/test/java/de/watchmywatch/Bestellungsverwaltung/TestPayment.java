@@ -63,30 +63,4 @@ public class TestPayment
         //Then
         assertEquals(date, payment.getDatePaid());
     }
-
-    @Test
-    public void should_change_payment_method()
-    {
-        //Given
-        Payment payment = new Payment(paypal, details);
-        PaymentMethod method = PaymentMethod.CREDITCARD;
-        // When
-        payment.setPaymentMethod(method);
-        //Then
-        assertEquals(PaymentMethod.CREDITCARD, payment.getPaymentMethod());
-    }
-
-    @Test
-    public void should_change_payment_details()
-    {
-        //Given
-        Payment payment = new Payment(paypal, details);
-        String newDetails = "New Details";
-        // When
-        payment.setDetails(newDetails);
-        //Then
-        assertEquals(newDetails, payment.getDetails());
-    }
-
-    // TODO: Any "useful" tests?
 }

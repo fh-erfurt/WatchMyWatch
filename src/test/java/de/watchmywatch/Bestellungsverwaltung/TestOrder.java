@@ -29,7 +29,7 @@ public class TestOrder
 
     private Order testOrder = new Order(address, shoppingcart);
 
-    public TestOrder() throws WatchNameException //TODO: Nötig?
+    public TestOrder() throws WatchNameException
     {
     }
 

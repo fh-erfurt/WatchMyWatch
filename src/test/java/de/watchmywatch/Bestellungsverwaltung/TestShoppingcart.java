@@ -24,7 +24,7 @@ public class TestShoppingcart
     Watch watch = new Watch("Swatch","Test", bracelet, casing, clockwork);
 
 
-    public TestShoppingcart() throws WatchNameException  //TODO: nötig?
+    public TestShoppingcart() throws WatchNameException
     {
     }
 

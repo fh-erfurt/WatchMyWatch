@@ -63,9 +63,7 @@ weiterleitet. (Post API)
 - Uhren zusammenbauen kostet eine Gebühr: Bei einem Preis von unter 2000 Euro kostet das Zusammenbauen 10% vom Uhrenpreis, ab 2000 Euro dann pauschal 200 Euro.
 - Gäste bekommen vorerst keinen Einkaufswagen.
 - Ein Kunde kann seine Bestellungen vorerst nur nach dem "First Come First Serve" Prinzip bezahlen.
-
-### Ausstehend
-- Wo sind Infos über den Shop wie zB Inhaberinfo, Name des Shops, usw zu speichern?
+- Login-Funktion wird erst implementiert, wenn nötig.
 
 ## Über uns
 #### Arbeits-/Aufgabenteilung
@@ -93,5 +91,5 @@ weiterleitet. (Post API)
 - Wöchentliche Verständigung dringend aufrechthalten, sonst langsamerer Gesamt-Fortschritt und höherer Aufwand, um aktuellen Stand zu     formulieren. -> Dranbleiben, solange man motiviert ist!
 - Aufgabenteilung ist gut aber wie soll mit Versäumnissen umgegangen werden?
 - Zwischenziele erreicht aber wir hätten mehr schaffen können -> Zumindest hatten wir die Ressourcen dafür... Heiße Phase kommt erst       noch, da käme gelegen, wenn Last durch Vorarbeit abgenommen würde.
-- Wir haben Test-Driven Design vernachlässigt -> Eher Sequentielles Verfahren genutzt: Aktuell in Implementierungsphase mit               gelegentlicher Rückkopplung zu bisher unbeachteteten Anforderungen und unsauberen Entwurf.
+- Wir haben Test-Driven Design zu Beginn vernachlässigt aber dann ab Implementierung dann prominent Verwendet.
 - Abgrenzung zu Datenbanken schwieriger als Gedacht: Mangelnde Erfahrung außerhalb des DB-Kontexts. (Klassendiagramm sah anfangs wie ER-   Modell aus) -> Sich der eigentlichen Aufgabe "Serverseitige Anwendung" besinnen: Zur Laufzeit, also keine DB.
