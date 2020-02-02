@@ -22,8 +22,7 @@
    - Wo ihr unser Repo findet
    - Programme, mit denen wir gearbeitet haben
 
-4. Idee (Michael)
-    - Wo haben wir Angefangen
+4. Idee (Anton)
     - Armbanduhren Online-Shop
     - Besonderheit: Konfigurator
 
