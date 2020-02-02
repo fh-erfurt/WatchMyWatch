@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 /**
- * class which contains a list of Accounts
+ * Class which contains a list of Accounts
  *
  * @author Anton Bespalov
  */

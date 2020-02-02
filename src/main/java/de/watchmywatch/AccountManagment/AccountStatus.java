@@ -1,7 +1,7 @@
 package de.watchmywatch.AccountManagment;
 
 /**
- * enum which represents the account statuses
+ * Enum which represents the account statuses
  *
  * @author Anton Bespalov
  */
