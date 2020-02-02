@@ -27,6 +27,15 @@
     - Besonderheit: Konfigurator
 
 5. Projektstruktur (Tom)
+    - Hauptpackage WatchMyWatch
+	    - Accountverwaltung		- Anton
+	    - Bestellungsverwaltung	- Michael
+	    - Uhrenverwaltung		- Ich
+		    -Validator Interface
+	    - eigene Exceptions
+	    - Helper
+	    - 73 Test
+	    
 6. Klassenmodell (Anton)
 7. Accountverwaltung (Anton)
    - Account -> alle Daten zusammengefasst
@@ -40,8 +49,27 @@
    - Zahlungsinformationen in Payment: Methode, Verwendungszweck o.Ä. und Datum der Bezahlung. Falls Date is set => Order is paid.
 
 9. Uhrenverwaltung (Tom)
+    - Watchparts abstract - grundlegende Eigenschaften eines Teils einer Uhr
+        - Gehäuse, Uhrenwerk, Armband
+    - Uhren selbst
+    - Hersteller der Uhrenteile
+    - ENUMS: Material, ConnectionType
+    
 10. Validierungs Interface (Tom)
+    - für Uhren und deren Parts
+    - Validatable und Validator
+    - Validatable ist ein Indikator-Interface
+    - Validator validate Methode muss bereitgestellt werden
+    - Für jede Validierbare Klasse eine eigene Implementierung
+    
 11. Grundlagen für Konfigurator (Tom)
+    - nächstes Semester umsetzen
+    - Vorbereitung bereits jetzt getroffen
+    - ENUM ConnectionType Gehäuse zu Armband
+    - innerer Durchmesser des Gehäuses und Durchmesser des Uhrenwerks
+    - Im Moment: Fehlermeldung, falls nicht valide
+    - Nächstes Semester: Falsche zusammensetzung direkt blocken,
+        passende Teile vorschlagen
 
 12. Integration Test (Michael)
     - Keine Gottklasse "Shop", die die Subsysteme zusammenführt, sondern Integrations Tests.
