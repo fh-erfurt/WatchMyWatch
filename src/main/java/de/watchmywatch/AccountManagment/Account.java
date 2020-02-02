@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 
 /**
  * Class which represents an Account
+ *
  * @author Anton Bespalov
  */
 public class Account
@@ -30,7 +31,6 @@ public class Account
     private ArrayList<Order> orders;
 
     /**
-     *
      * @param customer       the given customer
      * @param passwordToHash not hashed password
      * @param billingAddress Address for the bill
@@ -39,24 +39,25 @@ public class Account
      * @param accountStatus  Enum of the accountstatus
      * @param shoppingCart   shoppingcart from the customer
      * @author Anton Bespalov
-    */
+     */
     public Account(Customer customer, String passwordToHash, Address billingAddress, Date opened,
                    PaymentMethod PaymentMethod, AccountStatus accountStatus, Shoppingcart shoppingCart)
     {
-        this.customer       = customer;
+        this.customer = customer;
         this.securePassword = get_SHA_256_SecurePassword(passwordToHash);
         this.billingAddress = billingAddress;
-        this.opened         = opened;
-        this.paymentMethod  = PaymentMethod;
-        this.accountStatus  = accountStatus;
-        this.shoppingCart   = shoppingCart;
-        this.orders         = new ArrayList<>();
+        this.opened = opened;
+        this.paymentMethod = PaymentMethod;
+        this.accountStatus = accountStatus;
+        this.shoppingCart = shoppingCart;
+        this.orders = new ArrayList<>();
     }
 
     /**
      * Hash-Function
-     * @param passwordToHash    password that should be hashed
-     * @return                  hashed password
+     *
+     * @param passwordToHash password that should be hashed
+     * @return hashed password
      */
     public static String get_SHA_256_SecurePassword(String passwordToHash)
     {
@@ -77,10 +78,12 @@ public class Account
         }
         return generatedPassword;
     }
+
     /**
      * changePassword
-     * @param newPasswordToHash   password that should be hashed
-     * hashing the new password and replacing it
+     *
+     * @param newPasswordToHash password that should be hashed
+     *                          hashing the new password and replacing it
      */
     public void changePassword(String newPasswordToHash)
     {
@@ -89,8 +92,9 @@ public class Account
 
     /**
      * Adding an order to the Orderlist
-     * @param order   order that schould be added
-     * @return       true when the order was added
+     *
+     * @param order order that schould be added
+     * @return true when the order was added
      */
     public boolean addOrder(Order order)
     {
@@ -101,7 +105,8 @@ public class Account
 
     /**
      * Removing an Order
-     * @param order  order that schould be removed
+     *
+     * @param order order that schould be removed
      * @return true, when the order was removed / false, when the order was not found
      */
     public boolean removeOrder(Order order)
@@ -201,6 +206,7 @@ public class Account
     /**
      * For Payment logic by principle "First Come First Serve": Oldest unpaid Order should be paid first.
      * Returns the oldest unpaid Order of this Account.
+     *
      * @return Oldest unpaid Order of this account
      * @author Michael Hopp
      */

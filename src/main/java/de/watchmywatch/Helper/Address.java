@@ -1,17 +1,22 @@
 package de.watchmywatch.Helper;
 
+/**
+ * Class which represents an Address
+ *
+ * @author Anton Bespalov
+ */
 public class Address
 {
     private String street;
     private String city;
     private String state;
     private String zip;
+
     /**
-     *
-     * @param street        street and housnumber
-     * @param city          the city
-     * @param state         the state
-     * @param zip           the zip
+     * @param street street and housnumber
+     * @param city   the city
+     * @param state  the state
+     * @param zip    the zip
      * @author Anton Bespalov
      */
 

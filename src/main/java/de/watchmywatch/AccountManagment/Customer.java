@@ -3,16 +3,18 @@ package de.watchmywatch.AccountManagment;
 import de.watchmywatch.Helper.Address;
 
 import java.util.Date;
+
 /**
  * Class which represents an Customer
+ *
  * @author Anton Bespalov
  */
 public class Customer extends Person
 {
     private Date dob;
+
     /**
-     *
-     * @param dob      the date of birth from the customer
+     * @param dob the date of birth from the customer
      * @author Anton Bespalov
      */
 
@@ -21,7 +23,6 @@ public class Customer extends Person
         super(email, address, phone, firstname, lastname);
         this.dob = dob;
     }
-
 
 
     public Date getDob()

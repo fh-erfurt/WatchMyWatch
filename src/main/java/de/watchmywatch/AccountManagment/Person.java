@@ -4,31 +4,32 @@ import de.watchmywatch.Helper.Address;
 
 /**
  * Class which represents an Person
+ *
  * @author Anton Bespalov
  */
 public class Person
 {
-    private String      email;
-    private Address     address;
-    private String      phone;
-    private String      firstname;
-    private String      lastname;
+    private String email;
+    private Address address;
+    private String phone;
+    private String firstname;
+    private String lastname;
+
     /**
-     *
-     * @param email         the email from the person
-     * @param address       the address of the person
-     * @param phone         phonenumber from the person
-     * @param firstname     firstname from the person
-     * @param lastname      lastname from the person
+     * @param email     the email from the person
+     * @param address   the address of the person
+     * @param phone     phonenumber from the person
+     * @param firstname firstname from the person
+     * @param lastname  lastname from the person
      * @author Anton Bespalov
      */
     public Person(String email, Address address, String phone, String firstname, String lastname)
     {
-        this.email =        email;
-        this.address =      address;
-        this.phone =        phone;
-        this.firstname =    firstname;
-        this.lastname =     lastname;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
     public String getEmail()
@@ -46,10 +47,12 @@ public class Person
     {
         return lastname;
     }
+
     public Address getAddress()
     {
         return address;
     }
+
     public String getPhone()
     {
         return phone;
