@@ -87,7 +87,4 @@
       - Test-Driven Design
       - Abgrenzung zur Datenbankenprogrammierung 
       - Kommunikation ist sehr wichtig
-      - Intensiv Arbeiten
-      - Häufiger an dem Projekt arbeiten
-      - Aufgabenteilung
 14. Ende (Anton)
