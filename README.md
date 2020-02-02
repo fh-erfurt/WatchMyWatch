@@ -68,17 +68,14 @@ weiterleitet. (Post API)
 - **Anton Bespalov:**
   - Accountverwaltung
   - Adressverwaltung
-  - ReadMe
 
 - **Michael Hopp:**
   - Bestellungsverwaltung
   - TestShop
-  - ReadMe
   
 - **Tom Käppler:**
   - Uhrenverwaltung
   - Validator
-  - ReadMe
   - Projektstruktur
   
 ### Verwendete Technologie
