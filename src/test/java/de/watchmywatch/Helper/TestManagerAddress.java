@@ -8,6 +8,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Class which tests the functionality of ManagerAddress
+ * @author  Anton Bespalov
+ */
 public class TestManagerAddress
 {
     private ManagerAddress managerAddress = new ManagerAddress();

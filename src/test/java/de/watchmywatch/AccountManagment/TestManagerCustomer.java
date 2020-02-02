@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * class which tests the functionality of ManagerCustomer
+ * Class which tests the functionality of ManagerCustomer
  *
  * @author Anton Bespalov
  */

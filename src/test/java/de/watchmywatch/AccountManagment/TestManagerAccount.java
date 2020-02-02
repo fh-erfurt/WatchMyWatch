@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * class which tests the functionality of ManagerAccount
+ * Class which tests the functionality of ManagerAccount
  * @author  Anton Bespalov
  */
 public class TestManagerAccount

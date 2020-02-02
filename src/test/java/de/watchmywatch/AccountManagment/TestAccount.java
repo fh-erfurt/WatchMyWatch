@@ -18,7 +18,7 @@ import static de.watchmywatch.AccountManagment.Account.get_SHA_256_SecurePasswor
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * class which tests the functionality of Account
+ * Class which tests the functionality of Account
  * @author  Anton Bespalov
  */
 public class TestAccount
