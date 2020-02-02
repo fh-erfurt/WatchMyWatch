@@ -75,9 +75,9 @@ public class TestAccount
         account.addOrder(order);
         boolean result = account.removeOrder(order);
 
-        //Then
-
         //When
+
+        //Then
         assertTrue(result);
     }
 

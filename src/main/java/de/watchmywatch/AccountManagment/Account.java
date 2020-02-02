@@ -12,6 +12,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Logger;
 
+/**
+ * Class which represents an Account
+ * @author Anton Bespalov
+ */
 public class Account
 {
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

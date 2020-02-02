@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * class which contains a list of customers
+ * @author Anton Bespalov
+ */
 public class ManagerCustomer
 {
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

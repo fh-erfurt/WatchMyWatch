@@ -3,7 +3,10 @@ package de.watchmywatch.AccountManagment;
 import de.watchmywatch.Helper.Address;
 
 import java.util.Date;
-
+/**
+ * Class which represents an Customer
+ * @author Anton Bespalov
+ */
 public class Customer extends Person
 {
     private Date dob;

@@ -2,6 +2,10 @@ package de.watchmywatch.AccountManagment;
 
 import de.watchmywatch.Helper.Address;
 
+/**
+ * Class which represents an Person
+ * @author Anton Bespalov
+ */
 public class Person
 {
     private String      email;

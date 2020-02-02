@@ -6,7 +6,6 @@ import de.watchmywatch.Exceptions.AccountDoesNotExistsException;
 import de.watchmywatch.Helper.Address;
 import org.junit.Test;
 
-
 import java.util.Calendar;
 import java.util.Date;
 
@@ -29,7 +28,7 @@ public class TestManagerAccount
 
 
     @Test
-    public void adding_a_account_to_accountList_when_account_does_not_exists()
+    public void adding_a_account_to_accountList_when_account_does_not_exists_in_the_list()
     {
         // Given
         ManagerAccount managerAccount = new ManagerAccount();
