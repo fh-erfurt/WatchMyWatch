@@ -1,5 +1,5 @@
 # JavaProject [![Build Status](https://github.com/fh-erfurt/WatchMyWatch/workflows/WatchMyWatch/badge.svg)](https://github.com/fh-erfurt/WatchMyWatch/actions)
-Von Anton Bespalov, Michael Hopp, Tom Käppler
+Von [Anton Bespalov](https://github.com/kanton1998), [Michael Hopp](https://github.com/Maffotter), [Tom Käppler](https://github.com/TKSpectro)
 
 ## HowTo
 Öffnen Sie die pom.xml in IntelliJ
@@ -90,8 +90,8 @@ weiterleitet. (Post API)
 
 ### Lessons Learned
 - Umstellungen auf neue Systeme (Git) bringen Unischerheit und Verzögerungen.
-- Wöchentliche Verständigung dringend aufrechthalten, sonst langsamerer Gesamt-Fortschritt und höherer Aufwand, um aktuellen Stand zu     formulieren. -> Dranbleiben, solange man motiviert ist!
-- Aufgabenteilung ist gut, aber wie soll mit Versäumnissen umgegangen werden?
-- Zwischenziele erreicht, aber wir hätten mehr schaffen können -> Zumindest hatten wir die Ressourcen dafür... Heiße Phase kommt erst       noch, da käme es gelegen, wenn Last durch Vorarbeit abgenommen würde.
+- Wöchentliche Verständigung dringend aufrechthalten, sonst langsamerer Gesamt-Fortschritt und höherer Aufwand, um aktuellen Stand zu formulieren.
 - Wir haben Test-Driven Design zu Beginn vernachlässigt, aber ab Implementierung dann prominent Verwendet.
-- Abgrenzung zu Datenbanken schwieriger als gedacht: Mangelnde Erfahrung außerhalb des DB-Kontexts. (Klassendiagramm sah anfangs wie ER-   Modell aus) -> Sich der eigentlichen Aufgabe "Serverseitige Anwendung" besinnen: Zur Laufzeit, also keine DB.
+- Abgrenzung zu Datenbanken schwieriger als gedacht: Mangelnde Erfahrung außerhalb des DB-Kontexts. (Klassendiagramm sah anfangs wie ER-Modell aus)
+- Allgemein Fragen stellen und bei Schwierigkeiten aktiv Hilfe suchen: Lieber einmal mehr Fragen als einmal zu wenig.
+
