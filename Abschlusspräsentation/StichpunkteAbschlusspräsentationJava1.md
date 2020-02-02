@@ -30,7 +30,9 @@
 5. Projektstruktur (Tom)
 6. Klassenmodell (Anton)
 7. Accountverwaltung (Anton)
-   
+   - Account -> alle Daten zusammengefasst
+   - Customer extends Person 
+   - In ManagerAccount und ManagerCustomer sind jeweils Listen von Accounts und Customers
 8. Bestellungsverwaltung (Michael)
    - Schwerpunkt die Klasse Bestellung:
      - Bestellungs- und Versandstatus, Versandkosten-Konstante sowie Datum+Zeit der Bestellung.
@@ -55,4 +57,10 @@
       - Sobald Bezahlt, ist die Bestellung vollständig und kann an den Lieferdienst übergeben werden.
 
 13. Lessons Learned (Anton)
+   - Test-Driven Design
+   - Abgrenzung zur Datenbankenprogrammierung 
+   - Kommunikation ist sehr wichtig
+   - Intensiv Arbeiten
+   - Häufiger an dem Projekt arbeiten
+   - Aufgabenteilung
 14. Ende (Anton)
