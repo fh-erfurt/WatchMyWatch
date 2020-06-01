@@ -45,7 +45,7 @@ public class TestAccount
         //Then
         assertEquals("f1aca9ab91d28dd37c4f7b3595afe26a4eec88c138b0fac8bbeb6062d88df126", securePassword);
     }
-
+//TEST
     @Test
     public void change_password()
     {
