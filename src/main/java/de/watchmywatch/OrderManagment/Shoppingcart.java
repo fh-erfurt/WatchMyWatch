@@ -11,11 +11,14 @@ import java.util.logging.Logger;
  * Class which represents a Shoppingcart
  * @author Michael Hopp
  */
+@Entity
 public class Shoppingcart
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private double total;
+
+    @ManyToMany //TODO: Map in Class Watch
     private ArrayList<Watch> items = new ArrayList<>();
 
     /**
@@ -42,6 +45,7 @@ public class Shoppingcart
      * Default = 0.0
      * @author Michael Hopp
      */
+    @PreUpdate
     public void calcTotal()
     {
         double result = 0.0;

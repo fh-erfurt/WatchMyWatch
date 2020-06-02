@@ -11,19 +11,52 @@ import de.watchmywatch.Helper.DatabaseEntity;
  * Class which represents an Order
  * @author Michael Hopp
  */
+@Entity
 public class Order extends DatabaseEntity
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private static final double SHIPPINGFEE = 5.90;     // Constant Shipping cost.
+
+    @Temporal( TemporalType.DATETIME )
     private LocalDateTime ordered;
+
+    @Temporal( TemporalType.DATETIME )
     private LocalDateTime shipped;
+
+    // TODO: ManyToOne korrekt?
+    @ManyToOne
     private Address shippingAddress;
+
+    // TODO: ManyToOne korrekt?
+    @ManyToOne
     private OrderStatus orderStatus;
+
+    // TODO: ManyToOne korrekt?
+    @ManyToOne
     private ShippingStatus shippingStatus;
+
     private double total;
+
+    @OneToOne
     private Shoppingcart shoppingcart;
+
+    @OneToOne
     private Payment payment;
+
+    // Constructor without Parameters for JPA
+    public Order() {
+        this.ordered = LocalDateTime.now();
+        this.shipped = null;
+        this.shippingAddress = null;
+        this.orderStatus = OrderStatus.PENDING;
+        this.shippingStatus = ShippingStatus.PENDING;
+        // TODO: Kann das ohne übergebene shoppingcart noch konsistent sein?
+        this.shoppingcart = null;
+        this.total = 0.0;
+        this.payment = new Payment();
+        logger.info("New Order was created.");
+    }
 
     // TODO: ADD Parent Constructor in Child
     /**
@@ -77,6 +110,10 @@ public class Order extends DatabaseEntity
             throw new ShoppingcartEmptyException("Shoppingcart in Order cannot be empty");
         }
     }
+
+    public void setShoppingcart(Shoppingcart shoppingcart) {
+    this.shoppingcart = shoppingcart;
+}
     public LocalDateTime getOrderDate()
     {
         return this.ordered;

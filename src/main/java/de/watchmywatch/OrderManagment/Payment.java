@@ -8,12 +8,18 @@ import java.util.logging.Logger;
  * Class which represents a Payment
  * @author Michael Hopp
  */
+@Entity
 public class Payment
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    @Temporal( TemporalType.DATETIME )
     private LocalDateTime datePaid;         // Date at which Payment was executed. Acts as Flag for paid or unpaid Orders.
+
+    // TODO: ManyToOne korrekt?
+    @ManyToOne
     private PaymentMethod paymentMethod;
+
     private String details;                 // Usage, Extra information, ...
 
     /**
