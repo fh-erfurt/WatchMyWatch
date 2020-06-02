@@ -6,6 +6,7 @@ import de.watchmywatch.WatchManagment.Watch;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
+// TODO: ADD Parent Constructor in Child
 /**
  * Class which represents a Shoppingcart
  * @author Michael Hopp

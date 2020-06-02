@@ -5,12 +5,13 @@ import java.util.logging.Logger;
 
 import de.watchmywatch.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.Helper.Address;
+import de.watchmywatch.Helper.DatabaseEntity;
 
 /**
  * Class which represents an Order
  * @author Michael Hopp
  */
-public class Order
+public class Order extends DatabaseEntity
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -24,6 +25,7 @@ public class Order
     private Shoppingcart shoppingcart;
     private Payment payment;
 
+    // TODO: ADD Parent Constructor in Child
     /**
      * Creates an Order Object without PaymentMethod.
      * @param address       Address for shipping and billing.

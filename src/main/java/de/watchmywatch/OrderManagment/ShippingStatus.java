@@ -1,5 +1,5 @@
 package de.watchmywatch.OrderManagment;
-
+// TODO: How shall enums be implemented into the Database? Where comes the id? No Timestamps needed...
 /**
  * Enum which represents the different shipping statuses of an Order
  * @author Michael Hopp
