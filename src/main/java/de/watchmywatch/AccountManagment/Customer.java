@@ -9,8 +9,10 @@ import java.util.Date;
  *
  * @author Anton Bespalov
  */
-public class Customer extends Person
+@Entity
+public class Customer extends Person extends DatabaseEntity
 {
+    @ManyToOne
     private Date dob;
 
     /**

@@ -1,5 +1,6 @@
 package de.watchmywatch.AccountManagment;
 
+import de.watchmywatch.Helper.DatabaseEntity;
 import de.watchmywatch.OrderManagment.Order;
 import de.watchmywatch.OrderManagment.PaymentMethod;
 import de.watchmywatch.OrderManagment.Shoppingcart;
@@ -17,17 +18,34 @@ import java.util.logging.Logger;
  *
  * @author Anton Bespalov
  */
-public class Account
+@Entity
+public class Account extends DatabaseEntity
 {
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    @OneToOne
     private Customer customer;
+
+    @ManyToOne
     private String securePassword;
+
+    @ManyToOne
     private Address billingAddress;
+
+    @Temporal( TemporalType.DATETIME )
     private Date opened;
+
+    @ManyToOne
     private PaymentMethod paymentMethod;
+
+    @ManyToOne
     private AccountStatus accountStatus;
+
+    @OneToOne
     private Shoppingcart shoppingCart;
+
+    // TODO: ??
+    @OneToOne
     private ArrayList<Order> orders;
 
     /**

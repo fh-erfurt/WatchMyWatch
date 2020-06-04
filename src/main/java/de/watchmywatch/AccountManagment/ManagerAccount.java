@@ -12,6 +12,7 @@ import java.util.logging.Logger;
  *
  * @author Anton Bespalov
  */
+
 public class ManagerAccount
 {
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

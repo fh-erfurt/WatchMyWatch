@@ -5,11 +5,19 @@ package de.watchmywatch.Helper;
  *
  * @author Anton Bespalov
  */
-public class Address
+@Entity
+public class Address extends DatabaseEntity
 {
+    @ManyToOne
     private String street;
+
+    @ManyToOne
     private String city;
+
+    @ManyToOne
     private String state;
+
+    @ManyToOne
     private String zip;
 
     /**

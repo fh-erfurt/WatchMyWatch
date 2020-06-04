@@ -7,12 +7,22 @@ import de.watchmywatch.Helper.Address;
  *
  * @author Anton Bespalov
  */
-public class Person
+@Entity
+public class Person extends DatabaseEntity
 {
+    @OneToOne
     private String email;
+
+    @OneToOne
     private Address address;
+
+    @OneToOne
     private String phone;
+
+    @ManyToOne
     private String firstname;
+
+    @ManyToOne
     private String lastname;
 
     /**

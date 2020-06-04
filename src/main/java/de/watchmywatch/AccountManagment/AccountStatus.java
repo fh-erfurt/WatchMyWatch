@@ -5,6 +5,7 @@ package de.watchmywatch.AccountManagment;
  *
  * @author Anton Bespalov
  */
+
 public enum AccountStatus
 {
     ACTIV,
