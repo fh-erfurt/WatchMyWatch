@@ -1,6 +1,8 @@
 package de.watchmywatch.Helper;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * Parent Class that contains general fields for classes that are stored in a Database

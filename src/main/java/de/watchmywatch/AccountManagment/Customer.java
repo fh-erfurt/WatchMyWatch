@@ -2,6 +2,8 @@ package de.watchmywatch.AccountManagment;
 
 import de.watchmywatch.Helper.Address;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 /**
