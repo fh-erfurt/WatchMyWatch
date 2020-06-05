@@ -1,5 +1,8 @@
 package de.watchmywatch.Helper;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 /**
  * Class which represents an Address
  *

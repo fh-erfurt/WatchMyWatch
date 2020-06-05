@@ -1,6 +1,7 @@
 package de.watchmywatch.OrderManagment;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.logging.Logger;
 
 import de.watchmywatch.Exceptions.ShoppingcartEmptyException;
@@ -20,11 +21,11 @@ public class Order extends DatabaseEntity
 
     private static final double SHIPPINGFEE = 5.90;     // Constant Shipping cost.
 
-    @Temporal( TemporalType.DATETIME )
-    private LocalDateTime ordered;
+    @Temporal( TemporalType.TIMESTAMP )
+    private Date ordered;
 
-    @Temporal( TemporalType.DATETIME )
-    private LocalDateTime shipped;
+    @Temporal( TemporalType.TIMESTAMP )
+    private Date shipped;
 
     @ManyToOne
     private Address shippingAddress;
@@ -46,7 +47,7 @@ public class Order extends DatabaseEntity
     // Constructor without Parameters for JPA
     // TODO: Bleibt einfach leer?
     public Order() {
-        this.ordered = LocalDateTime.now();
+        this.ordered = Date.now();
         this.shipped = null;
         this.shippingAddress = null;
         this.orderStatus = OrderStatus.PENDING;
@@ -67,7 +68,7 @@ public class Order extends DatabaseEntity
      */
     public Order(Address address, Shoppingcart shoppingcart) throws ShoppingcartEmptyException {
         checkShoppingcartEmpty(shoppingcart);
-        this.ordered = LocalDateTime.now();
+        this.ordered = Date.now();
         this.shipped = null;
         this.shippingAddress = address;
         this.orderStatus = OrderStatus.PENDING;
@@ -87,7 +88,7 @@ public class Order extends DatabaseEntity
      */
     public Order(Address address, Shoppingcart shoppingcart, PaymentMethod paymentMethod) throws ShoppingcartEmptyException {
         checkShoppingcartEmpty(shoppingcart);
-        this.ordered = LocalDateTime.now();
+        this.ordered = Date.now();
         this.shipped = null;
         this.shippingAddress = address;
         this.orderStatus = OrderStatus.PENDING;
@@ -114,23 +115,23 @@ public class Order extends DatabaseEntity
     public void setShoppingcart(Shoppingcart shoppingcart) {
     this.shoppingcart = shoppingcart;
 }
-    public LocalDateTime getOrderDate()
+    public Date getOrderDate()
     {
         return this.ordered;
     }
 
-    public void setOrderDate(LocalDateTime date)
+    public void setOrderDate(Date date)
     {
         this.ordered = date;
         logger.info("OrderDate was set to " + date + ".");
     }
 
-    public LocalDateTime getShipDate()
+    public Date getShipDate()
     {
         return this.shipped;
     }
 
-    public void setShipDate(LocalDateTime date)
+    public void setShipDate(Date date)
     {
         this.shipped =date;
     }
@@ -170,7 +171,7 @@ public class Order extends DatabaseEntity
         logger.info("ShippingStatus was set to " + newShippingStatus + ".");
         if(newShippingStatus == ShippingStatus.SENT)
         {
-            setShipDate(LocalDateTime.now());
+            setShipDate(Date.now());
         }
 
     }
@@ -222,7 +223,7 @@ public class Order extends DatabaseEntity
     public boolean pay(){
         boolean success = false;
         if(!isPaid()) {
-            this.getPayment().setDatePaid(LocalDateTime.now());
+            this.getPayment().setDatePaid(Date.now());
             this.setShippingStatus(ShippingStatus.SENT);
             this.setOrderStatus(OrderStatus.COMPLETE);
             success = true;
