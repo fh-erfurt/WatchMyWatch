@@ -26,7 +26,6 @@ public class Account extends DatabaseEntity
     @OneToOne
     private Customer customer;
 
-    @ManyToOne
     private String securePassword;
 
     @ManyToOne
@@ -44,7 +43,6 @@ public class Account extends DatabaseEntity
     @OneToOne
     private Shoppingcart shoppingCart;
 
-    // TODO: ??
     @OneToOne
     private ArrayList<Order> orders;
 
