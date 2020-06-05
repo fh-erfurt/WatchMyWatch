@@ -7,6 +7,8 @@ import de.watchmywatch.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.Helper.Address;
 import de.watchmywatch.Helper.DatabaseEntity;
 
+import javax.persistence.*;
+
 /**
  * Class which represents an Order
  * @author Michael Hopp
