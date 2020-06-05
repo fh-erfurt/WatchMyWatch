@@ -1,8 +1,6 @@
 package de.watchmywatch.OrderManagment;
 
-
-import de.watchmywatch.WatchManagment.Watch;
-
+import io.jonashackt.lectures.exercises.model.WatchManagment.Watch;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
@@ -18,7 +16,8 @@ public class Shoppingcart
 
     private double total;
 
-    @ManyToMany //TODO: Map in Class Watch
+    // TODO: ArrayList durch zb. List ersetzen -> JPA meckert sonst
+    @OneToMany
     private ArrayList<Watch> items = new ArrayList<>();
 
     /**
@@ -45,13 +44,12 @@ public class Shoppingcart
      * Default = 0.0
      * @author Michael Hopp
      */
-    @PreUpdate
     public void calcTotal()
     {
         double result = 0.0;
         if (!this.items.isEmpty())
         {
-            for (Watch temp : this.items)
+            for (io.jonashackt.lectures.exercises.model.WatchManagment.Watch temp : this.items)
             {
                 result += temp.getPriceWithFee();
             }

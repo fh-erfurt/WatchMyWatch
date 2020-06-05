@@ -16,8 +16,7 @@ public class Payment
     @Temporal( TemporalType.DATETIME )
     private LocalDateTime datePaid;         // Date at which Payment was executed. Acts as Flag for paid or unpaid Orders.
 
-    // TODO: ManyToOne korrekt?
-    @ManyToOne
+    // TODO: Enum in Datenbank
     private PaymentMethod paymentMethod;
 
     private String details;                 // Usage, Extra information, ...

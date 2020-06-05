@@ -1,6 +1,6 @@
 package de.watchmywatch.Helper;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * Parent Class that contains general fields for classes that are stored in a Database
@@ -16,18 +16,10 @@ public abstract class DatabaseEntity
     protected long id;
 
     @Temporal( TemporalType.TIMESTAMP )
-    protected LocalDateTime created;
+    protected Date created;
 
     @Temporal( TemporalType.TIMESTAMP )
-    protected LocalDateTime modified;
-
-
-    public DatabaseEntity() {
-    }
-
-    public DatabaseEntity(long id) {
-        this.id = id;
-    }
+    protected Date modified;
 
     @PrePersist
     void onCreate() { this.setCreated( new Date() ); }
@@ -43,19 +35,19 @@ public abstract class DatabaseEntity
         this.id = id;
     }
 
-    public LocalDateTime getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDateTime created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 
-    public LocalDateTime getModified() {
+    public Date getModified() {
         return modified;
     }
 
-    public void setModified(LocalDateTime modified) {
+    public void setModified(Date modified) {
         this.modified = modified;
     }
 

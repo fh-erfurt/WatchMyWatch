@@ -24,16 +24,13 @@ public class Order extends DatabaseEntity
     @Temporal( TemporalType.DATETIME )
     private LocalDateTime shipped;
 
-    // TODO: ManyToOne korrekt?
     @ManyToOne
     private Address shippingAddress;
 
-    // TODO: ManyToOne korrekt?
-    @ManyToOne
+    // TODO: Enum
     private OrderStatus orderStatus;
 
-    // TODO: ManyToOne korrekt?
-    @ManyToOne
+    // TODO: Enum
     private ShippingStatus shippingStatus;
 
     private double total;
@@ -45,6 +42,7 @@ public class Order extends DatabaseEntity
     private Payment payment;
 
     // Constructor without Parameters for JPA
+    // TODO: Bleibt einfach leer?
     public Order() {
         this.ordered = LocalDateTime.now();
         this.shipped = null;

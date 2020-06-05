@@ -16,3 +16,9 @@
 - Datenbank MySQL
 - ORM Framework Eclipse
 - Heroku als Server für Datenbank und Website
+
+## Notes vom Treffen am 05.06.2020
+- JPA kennt keine ArrayList -> Ersetzen durch zb. List
+### Fragen
+- Beziehungen mit JPA darstellen. @OneToMany Shoppincarts items zu watch?
+
