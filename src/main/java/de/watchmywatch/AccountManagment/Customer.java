@@ -2,6 +2,8 @@ package de.watchmywatch.AccountManagment;
 
 import de.watchmywatch.Helper.Address;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 /**
@@ -10,9 +12,9 @@ import java.util.Date;
  * @author Anton Bespalov
  */
 @Entity
-public class Customer extends Person extends DatabaseEntity
+public class Customer extends Person
 {
-    @ManyToOne
+
     private Date dob;
 
     /**

@@ -1,5 +1,7 @@
 package de.watchmywatch.Helper;
 
+
+import javax.persistence.*;
 import java.util.Date;
 
 /**

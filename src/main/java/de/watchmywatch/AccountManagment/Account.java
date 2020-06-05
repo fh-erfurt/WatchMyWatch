@@ -6,6 +6,7 @@ import de.watchmywatch.OrderManagment.PaymentMethod;
 import de.watchmywatch.OrderManagment.Shoppingcart;
 import de.watchmywatch.Helper.Address;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
@@ -26,13 +27,12 @@ public class Account extends DatabaseEntity
     @OneToOne
     private Customer customer;
 
-    @ManyToOne
     private String securePassword;
 
     @ManyToOne
     private Address billingAddress;
 
-    @Temporal( TemporalType.DATETIME )
+    @Temporal( TemporalType.TIMESTAMP )
     private Date opened;
 
     @ManyToOne
@@ -44,7 +44,6 @@ public class Account extends DatabaseEntity
     @OneToOne
     private Shoppingcart shoppingCart;
 
-    // TODO: ??
     @OneToOne
     private ArrayList<Order> orders;
 
