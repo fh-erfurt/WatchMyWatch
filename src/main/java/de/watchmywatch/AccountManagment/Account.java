@@ -32,7 +32,6 @@ public class Account extends DatabaseEntity
     @ManyToOne
     private Address billingAddress;
 
-    @Temporal( TemporalType.TIMESTAMP )
     private Date opened;
 
     @ManyToOne

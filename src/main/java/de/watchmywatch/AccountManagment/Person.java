@@ -1,6 +1,9 @@
 package de.watchmywatch.AccountManagment;
 
 import de.watchmywatch.Helper.Address;
+import de.watchmywatch.Helper.DatabaseEntity;
+import javax.persistence.*;
+
 
 /**
  * Class which represents an Person
@@ -8,12 +11,12 @@ import de.watchmywatch.Helper.Address;
  * @author Anton Bespalov
  */
 @Entity
-public class Person
+public class Person extends DatabaseEntity
 {
 
     private String email;
 
-    @OneToOne
+    @ManyToOne
     private Address address;
 
     private String phone;

@@ -1,5 +1,5 @@
 package de.watchmywatch.Helper;
-
+import javax.persistence.*;
 /**
  * Class which represents an Address
  *
@@ -8,16 +8,10 @@ package de.watchmywatch.Helper;
 @Entity
 public class Address extends DatabaseEntity
 {
-    @ManyToOne
+
     private String street;
-
-    @ManyToOne
     private String city;
-
-    @ManyToOne
     private String state;
-
-    @ManyToOne
     private String zip;
 
     /**
