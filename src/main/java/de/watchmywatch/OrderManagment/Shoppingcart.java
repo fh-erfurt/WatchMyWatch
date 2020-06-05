@@ -1,6 +1,9 @@
 package de.watchmywatch.OrderManagment;
 
 import io.jonashackt.lectures.exercises.model.WatchManagment.Watch;
+
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 

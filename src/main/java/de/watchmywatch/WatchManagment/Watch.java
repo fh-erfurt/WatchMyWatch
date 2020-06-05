@@ -1,7 +1,9 @@
-package io.jonashackt.lectures.exercises.model.WatchManagment;
-import io.jonashackt.lectures.exercises.model.Exceptions.WatchNameNotValidException;
-import io.jonashackt.lectures.exercises.model.Helper.AbstractDatabaseEntity;
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.*;
+package de.watchmywatch.WatchManagment;
+
+
+import de.watchmywatch.Exceptions.WatchNameNotValidException;
+import de.watchmywatch.Helper.DatabaseEntity;
+import de.watchmywatch.WatchManagment.Validator.*;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -13,10 +15,9 @@ import java.util.regex.Pattern;
  * class which represents a watch
  */
 @Entity
-public class Watch extends AbstractDatabaseEntity implements Validatable
+public class Watch extends DatabaseEntity implements Validatable
 {
-    //Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private String name;
     private double price;
@@ -90,17 +91,17 @@ public class Watch extends AbstractDatabaseEntity implements Validatable
 
         if (!matcher.find())
         {
-            //logger.warning("watch name contains invalid characters");
+            logger.warning("watch name contains invalid characters");
             throw new WatchNameNotValidException("Name contains invalid characters");
         }
         else if (name.trim().isEmpty())
         {
-            //logger.warning("watch name should not be empty");
+            logger.warning("watch name should not be empty");
             throw new WatchNameNotValidException("Name should not be empty");
         }
         else if (name.length() > 140)
         {
-            //logger.warning("watch name should not be longer than 140 characters");
+            logger.warning("watch name should not be longer than 140 characters");
             throw new WatchNameNotValidException("Name should not be longer than 140 characters");
         }
     }
@@ -145,7 +146,7 @@ public class Watch extends AbstractDatabaseEntity implements Validatable
     {
         if (price <= 0)
         {
-            //logger.warning("price should not be lower/equal 0");
+            logger.warning("price should not be lower/equal 0");
         }
         this.price = price;
     }
@@ -185,7 +186,7 @@ public class Watch extends AbstractDatabaseEntity implements Validatable
         }
         else
         {
-            //logger.warning("bracelet is not valid -> was not set");
+            logger.warning("bracelet is not valid -> was not set");
         }
     }
 
@@ -199,7 +200,7 @@ public class Watch extends AbstractDatabaseEntity implements Validatable
         }
         else
         {
-            //logger.warning("casing is not valid -> was not set");
+            logger.warning("casing is not valid -> was not set");
         }
     }
 
@@ -213,7 +214,7 @@ public class Watch extends AbstractDatabaseEntity implements Validatable
         }
         else
         {
-            //logger.warning("clockwork is not valid -> was not set");
+            logger.warning("clockwork is not valid -> was not set");
         }
 
     }
@@ -230,12 +231,12 @@ public class Watch extends AbstractDatabaseEntity implements Validatable
                 && this.getClockwork().validate()
                 && this.getBracelet().validate())
         {
-            //logger.info("watch validation was successful");
+            logger.info("watch validation was successful");
             return true;
         }
         else
         {
-            //logger.info("watch validation was not successful");
+            logger.info("watch validation was not successful");
             return false;
         }
     }

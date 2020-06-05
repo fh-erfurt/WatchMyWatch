@@ -1,9 +1,9 @@
-package io.jonashackt.lectures.exercises.model.WatchManagment;
+package de.watchmywatch.WatchManagment;
 
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.CasingValidator;
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.Validatable;
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.Validator;
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.WatchpartValidator;
+import de.watchmywatch.WatchManagment.Validator.CasingValidator;
+import de.watchmywatch.WatchManagment.Validator.Validatable;
+import de.watchmywatch.WatchManagment.Validator.Validator;
+import de.watchmywatch.WatchManagment.Validator.WatchpartValidator;
 
 import javax.persistence.Entity;
 import java.util.logging.Logger;
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 @Entity
 public class Casing extends Watchpart implements Validatable
 {
-    //Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private double outerDiameter;
     private double innerDiameter;
@@ -51,7 +51,7 @@ public class Casing extends Watchpart implements Validatable
     public void setOuterDiameter(double outerDiameter)
     {
         if(outerDiameter < 0 || outerDiameter < innerDiameter){
-            //logger.warning("outerDiameter is smaller zero or smaller then innerDiameter");
+            logger.warning("outerDiameter is smaller zero or smaller then innerDiameter");
         }
         this.outerDiameter = outerDiameter;
     }
@@ -64,7 +64,7 @@ public class Casing extends Watchpart implements Validatable
     public void setInnerDiameter(double innerDiameter)
     {
         if(innerDiameter < 0 || innerDiameter > outerDiameter){
-            //logger.warning("innerDiameter is smaller zero or bigger then outerDiameter");
+            logger.warning("innerDiameter is smaller zero or bigger then outerDiameter");
         }
         this.innerDiameter = innerDiameter;
     }
@@ -89,12 +89,12 @@ public class Casing extends Watchpart implements Validatable
         //check if either the casing or the watchpart are valid
         if (casingValidator.validate(this) && watchpartValidator.validate(this))
         {
-            //logger.info("casing is valid");
+            logger.info("casing is valid");
             return true;
         }
         else
         {
-            //logger.warning("casing is not valid");
+            logger.warning("casing is not valid");
             return false;
         }
     }

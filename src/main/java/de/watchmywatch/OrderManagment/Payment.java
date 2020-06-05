@@ -1,6 +1,10 @@
 package de.watchmywatch.OrderManagment;
 
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.logging.Logger;
 
 // TODO: ADD Parent Constructor in Child
@@ -13,8 +17,8 @@ public class Payment
 {
     Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    @Temporal( TemporalType.DATETIME )
-    private LocalDateTime datePaid;         // Date at which Payment was executed. Acts as Flag for paid or unpaid Orders.
+    @Temporal( TemporalType.TIMESTAMP )
+    private Date datePaid;         // Date at which Payment was executed. Acts as Flag for paid or unpaid Orders.
 
     // TODO: Enum in Datenbank
     private PaymentMethod paymentMethod;
@@ -61,13 +65,13 @@ public class Payment
      * @param paid          Date at which Payment was executed.
      * @author Michael Hopp
      */
-    public Payment(LocalDateTime paid, PaymentMethod paymentMethod, String details) {
+    public Payment(Date paid, PaymentMethod paymentMethod, String details) {
         this.datePaid = paid;
         this.paymentMethod = paymentMethod;
         this.details = details;
     }
 
-    public LocalDateTime getDatePaid()
+    public Date getDatePaid()
     {
         return datePaid;
     }
@@ -87,7 +91,7 @@ public class Payment
         this.details = details;
     }
 
-    public void setDatePaid(LocalDateTime paid)
+    public void setDatePaid(Date paid)
     {
         this.datePaid = paid;
     }

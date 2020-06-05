@@ -1,19 +1,19 @@
-package io.jonashackt.lectures.exercises.model.WatchManagment;
+package de.watchmywatch.WatchManagment;
 
-import io.jonashackt.lectures.exercises.model.Helper.AbstractDatabaseEntity;
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.Validatable;
+import de.watchmywatch.Helper.DatabaseEntity;
+import de.watchmywatch.WatchManagment.Validator.Validatable;
 
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToMany;
+import java.util.logging.Logger;
 
 /**
  * abstract class which represents a watchpart (used for bracelet,casing etc.)
  */
 @MappedSuperclass
-public abstract class Watchpart extends AbstractDatabaseEntity implements Validatable
+public abstract class Watchpart extends DatabaseEntity implements Validatable
 {
-    //Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     @ManyToOne
     private Manufacturer manufacturer;
@@ -86,7 +86,7 @@ public abstract class Watchpart extends AbstractDatabaseEntity implements Valida
     public void setPrice(double price)
     {
         if(price < 0){
-            //logger.warning("price should not be smaller 0");
+            logger.warning("price should not be smaller 0");
         }
         this.price = price;
     }

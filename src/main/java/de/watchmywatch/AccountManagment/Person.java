@@ -5,6 +5,7 @@ import de.watchmywatch.Helper.DatabaseEntity;
 import javax.persistence.*;
 
 
+
 /**
  * Class which represents an Person
  *

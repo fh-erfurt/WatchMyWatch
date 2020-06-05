@@ -1,5 +1,6 @@
 package de.watchmywatch.Helper;
 import javax.persistence.*;
+
 /**
  * Class which represents an Address
  *
