@@ -1,20 +1,27 @@
-package de.watchmywatch.WatchManagment;
+package io.jonashackt.lectures.exercises.model.WatchManagment;
 
-import de.watchmywatch.AccountManagment.Person;
-import de.watchmywatch.Helper.Address;
+import io.jonashackt.lectures.exercises.model.Address;
+import io.jonashackt.lectures.exercises.model.Helper.AbstractDatabaseEntity;
+import io.jonashackt.lectures.exercises.model.Person;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import java.util.logging.Logger;
 
 /**
  * class which represents a manufacturer
  * @author Tom Käppler
  */
-public class Manufacturer
+@Entity
+public class Manufacturer extends AbstractDatabaseEntity
 {
-    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    //Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private String name;
+    @ManyToOne
     private Person contactPerson;
+    @ManyToOne
     private Address address;
 
     /**
@@ -30,6 +37,8 @@ public class Manufacturer
         this.contactPerson = contactPerson;
         this.address = address;
     }
+
+    protected Manufacturer(){}
 
     public String getName()
     {
@@ -49,18 +58,18 @@ public class Manufacturer
     public void setName(String name)
     {
         this.name = name;
-        logger.info("name was set");
+        //logger.info("name was set");
     }
 
     public void setContactPerson(Person contactPerson)
     {
         this.contactPerson = contactPerson;
-        logger.info("contactPerson was set");
+        //logger.info("contactPerson was set");
     }
 
     public void setAddress(Address address)
     {
         this.address = address;
-        logger.info("address was set");
+        //logger.info("address was set");
     }
 }

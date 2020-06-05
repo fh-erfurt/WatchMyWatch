@@ -1,16 +1,21 @@
-package de.watchmywatch.WatchManagment;
+package io.jonashackt.lectures.exercises.model.WatchManagment;
 
-import de.watchmywatch.WatchManagment.Validator.Validatable;
+import io.jonashackt.lectures.exercises.model.Helper.AbstractDatabaseEntity;
+import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.Validatable;
 
-import java.util.logging.Logger;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
 
 /**
  * abstract class which represents a watchpart (used for bracelet,casing etc.)
  */
-public abstract class Watchpart implements Validatable
+@MappedSuperclass
+public abstract class Watchpart extends AbstractDatabaseEntity implements Validatable
 {
-    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    //Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    @ManyToOne
     private Manufacturer manufacturer;
     //contains the ID which was given by the original manufacturer so we could order it directly when we are out of stock
     private String manufacturerPartID;
@@ -37,6 +42,10 @@ public abstract class Watchpart implements Validatable
         this.manufacturerPartID = manufacturerPartID;
         this.material = material;
         this.price = price;
+    }
+
+    protected Watchpart(){
+
     }
 
     public Manufacturer getManufacturer()
@@ -77,7 +86,7 @@ public abstract class Watchpart implements Validatable
     public void setPrice(double price)
     {
         if(price < 0){
-            logger.warning("price should not be smaller 0");
+            //logger.warning("price should not be smaller 0");
         }
         this.price = price;
     }
