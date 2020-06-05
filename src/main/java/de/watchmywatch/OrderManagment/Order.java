@@ -47,7 +47,7 @@ public class Order extends DatabaseEntity
     // Constructor without Parameters for JPA
     // TODO: Bleibt einfach leer?
     public Order() {
-        this.ordered = Date.now();
+        this.ordered = new Date();
         this.shipped = null;
         this.shippingAddress = null;
         this.orderStatus = OrderStatus.PENDING;
@@ -68,7 +68,7 @@ public class Order extends DatabaseEntity
      */
     public Order(Address address, Shoppingcart shoppingcart) throws ShoppingcartEmptyException {
         checkShoppingcartEmpty(shoppingcart);
-        this.ordered = Date.now();
+        this.ordered = new Date();
         this.shipped = null;
         this.shippingAddress = address;
         this.orderStatus = OrderStatus.PENDING;
@@ -88,7 +88,7 @@ public class Order extends DatabaseEntity
      */
     public Order(Address address, Shoppingcart shoppingcart, PaymentMethod paymentMethod) throws ShoppingcartEmptyException {
         checkShoppingcartEmpty(shoppingcart);
-        this.ordered = Date.now();
+        this.ordered = new Date();
         this.shipped = null;
         this.shippingAddress = address;
         this.orderStatus = OrderStatus.PENDING;
@@ -171,7 +171,7 @@ public class Order extends DatabaseEntity
         logger.info("ShippingStatus was set to " + newShippingStatus + ".");
         if(newShippingStatus == ShippingStatus.SENT)
         {
-            setShipDate(Date.now());
+            setShipDate(new Date());
         }
 
     }
@@ -223,7 +223,7 @@ public class Order extends DatabaseEntity
     public boolean pay(){
         boolean success = false;
         if(!isPaid()) {
-            this.getPayment().setDatePaid(Date.now());
+            this.getPayment().setDatePaid(new Date());
             this.setShippingStatus(ShippingStatus.SENT);
             this.setOrderStatus(OrderStatus.COMPLETE);
             success = true;
