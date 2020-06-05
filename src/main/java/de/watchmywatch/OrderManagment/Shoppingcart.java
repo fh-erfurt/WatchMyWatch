@@ -1,6 +1,6 @@
 package de.watchmywatch.OrderManagment;
 
-import io.jonashackt.lectures.exercises.model.WatchManagment.Watch;
+import de.watchmywatch.WatchManagment.Watch;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -52,7 +52,7 @@ public class Shoppingcart
         double result = 0.0;
         if (!this.items.isEmpty())
         {
-            for (io.jonashackt.lectures.exercises.model.WatchManagment.Watch temp : this.items)
+            for (Watch temp : this.items)
             {
                 result += temp.getPriceWithFee();
             }
