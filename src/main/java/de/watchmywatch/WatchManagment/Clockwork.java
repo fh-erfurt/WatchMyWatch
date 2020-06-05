@@ -1,9 +1,9 @@
-package io.jonashackt.lectures.exercises.model.WatchManagment;
+package de.watchmywatch.WatchManagment;
 
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.ClockworkValidator;
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.Validatable;
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.Validator;
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.WatchpartValidator;
+import de.watchmywatch.WatchManagment.Validator.ClockworkValidator;
+import de.watchmywatch.WatchManagment.Validator.Validatable;
+import de.watchmywatch.WatchManagment.Validator.Validator;
+import de.watchmywatch.WatchManagment.Validator.WatchpartValidator;
 
 import javax.persistence.Entity;
 import java.util.logging.Logger;
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 @Entity
 public class Clockwork extends Watchpart implements Validatable
 {
-    //Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private double diameter;
 
@@ -44,7 +44,7 @@ public class Clockwork extends Watchpart implements Validatable
     public void setDiameter(double diameter)
     {
         if(diameter < 0){
-            //logger.warning("diameter is smaller zero");
+            logger.warning("diameter is smaller zero");
         }
         this.diameter = diameter;
     }
@@ -59,12 +59,12 @@ public class Clockwork extends Watchpart implements Validatable
         //check if either the casing or the watchpart are valid
         if (clockworkValidator.validate(this) && watchpartValidator.validate(this))
         {
-            //logger.info("clockwork is valid");
+            logger.info("clockwork is valid");
             return true;
         }
         else
         {
-            //logger.warning("clockwork is not valid");
+            logger.warning("clockwork is not valid");
             return false;
         }
     }

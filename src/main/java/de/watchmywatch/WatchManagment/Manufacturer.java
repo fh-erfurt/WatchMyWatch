@@ -1,12 +1,11 @@
-package io.jonashackt.lectures.exercises.model.WatchManagment;
+package de.watchmywatch.WatchManagment;
 
-import io.jonashackt.lectures.exercises.model.Address;
-import io.jonashackt.lectures.exercises.model.Helper.AbstractDatabaseEntity;
-import io.jonashackt.lectures.exercises.model.Person;
+import de.watchmywatch.AccountManagment.Person;
+import de.watchmywatch.Helper.Address;
+import de.watchmywatch.Helper.DatabaseEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import java.util.logging.Logger;
 
 /**
@@ -14,9 +13,9 @@ import java.util.logging.Logger;
  * @author Tom Käppler
  */
 @Entity
-public class Manufacturer extends AbstractDatabaseEntity
+public class Manufacturer extends DatabaseEntity
 {
-    //Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private String name;
     @ManyToOne
@@ -58,18 +57,18 @@ public class Manufacturer extends AbstractDatabaseEntity
     public void setName(String name)
     {
         this.name = name;
-        //logger.info("name was set");
+        logger.info("name was set");
     }
 
     public void setContactPerson(Person contactPerson)
     {
         this.contactPerson = contactPerson;
-        //logger.info("contactPerson was set");
+        logger.info("contactPerson was set");
     }
 
     public void setAddress(Address address)
     {
         this.address = address;
-        //logger.info("address was set");
+        logger.info("address was set");
     }
 }

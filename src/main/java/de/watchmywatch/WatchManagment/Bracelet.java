@@ -1,9 +1,9 @@
-package io.jonashackt.lectures.exercises.model.WatchManagment;
+package de.watchmywatch.WatchManagment;
 
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.BraceletValidator;
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.Validatable;
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.Validator;
-import io.jonashackt.lectures.exercises.model.WatchManagment.Validator.WatchpartValidator;
+import de.watchmywatch.WatchManagment.Validator.BraceletValidator;
+import de.watchmywatch.WatchManagment.Validator.Validatable;
+import de.watchmywatch.WatchManagment.Validator.Validator;
+import de.watchmywatch.WatchManagment.Validator.WatchpartValidator;
 
 import javax.persistence.Entity;
 import java.util.logging.Logger;
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 @Entity
 public class Bracelet extends Watchpart implements Validatable
 {
-    //Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private double size;
     private ConnectionType connection;
@@ -52,7 +52,7 @@ public class Bracelet extends Watchpart implements Validatable
     public void setSize(double size)
     {
         if(size < 0){
-            //logger.warning("bracelet size smaller 0");
+            logger.warning("bracelet size smaller 0");
         }
         this.size = size;
     }
@@ -72,12 +72,12 @@ public class Bracelet extends Watchpart implements Validatable
         //check if either the casing or the watchpart are valid
         if (braceletValidator.validate(this) && watchpartValidator.validate(this))
         {
-            //logger.info("bracelet is valid");
+            logger.info("bracelet is valid");
             return true;
         }
         else
         {
-            //logger.warning("bracelet is not valid");
+            logger.warning("bracelet is not valid");
             return false;
         }
     }
