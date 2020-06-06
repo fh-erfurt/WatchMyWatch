@@ -115,7 +115,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.watchmywatch.AccountManagment</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.watchmywatch.model.AccountManagment</a></div>
 <h2 title="Class ManagerCustomer" class="title">Class ManagerCustomer</h2>
 </div>
 <div class="contentContainer">
@@ -123,7 +123,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>de.watchmywatch.AccountManagment.ManagerCustomer</li>
+<li>de.watchmywatch.model.AccountManagment.ManagerCustomer</li>
 </ul>
 </li>
 </ul>
@@ -159,7 +159,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private java.util.List&lt;<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&gt;</code></td>
+<td class="colFirst"><code>private java.util.List&lt;<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#customerList">customerList</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -209,19 +209,19 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addCustomer(de.watchmywatch.AccountManagment.Customer)">addCustomer</a></span>&#8203;(<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&nbsp;customer)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addCustomer(de.watchmywatch.model.AccountManagment.Customer)">addCustomer</a></span>&#8203;(<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&nbsp;customer)</code></th>
 <td class="colLast">
 <div class="block">addAccount function</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCustomerList()">getCustomerList</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeCustomer(de.watchmywatch.AccountManagment.Customer)">removeCustomer</a></span>&#8203;(<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&nbsp;customer)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeCustomer(de.watchmywatch.model.AccountManagment.Customer)">removeCustomer</a></span>&#8203;(<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&nbsp;customer)</code></th>
 <td class="colLast">
 <div class="block">removeAccount function</div>
 </td>
@@ -265,7 +265,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>customerList</h4>
-<pre>private&nbsp;java.util.List&lt;<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&gt; customerList</pre>
+<pre>private&nbsp;java.util.List&lt;<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&gt; customerList</pre>
 </li>
 </ul>
 </li>
@@ -297,14 +297,14 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="addCustomer(de.watchmywatch.AccountManagment.Customer)">
+<a id="addCustomer(de.watchmywatch.model.AccountManagment.Customer)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addCustomer</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;addCustomer&#8203;(<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&nbsp;customer)
-                 throws <a href="../Exceptions/CustomerAlreadyExistsException.html" title="class in de.watchmywatch.Exceptions">CustomerAlreadyExistsException</a></pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;addCustomer&#8203;(<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&nbsp;customer)
+                 throws <a href="../Exceptions/CustomerAlreadyExistsException.html" title="class in de.watchmywatch.model.Exceptions">CustomerAlreadyExistsException</a></pre>
 <div class="block">addAccount function</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -313,18 +313,18 @@ extends java.lang.Object</pre>
                  if the customer is already in the list an exception will be thrown
                  if the customer is null a warning will be logged</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../Exceptions/CustomerAlreadyExistsException.html" title="class in de.watchmywatch.Exceptions">CustomerAlreadyExistsException</a></code></dd>
+<dd><code><a href="../Exceptions/CustomerAlreadyExistsException.html" title="class in de.watchmywatch.model.Exceptions">CustomerAlreadyExistsException</a></code></dd>
 </dl>
 </li>
 </ul>
-<a id="removeCustomer(de.watchmywatch.AccountManagment.Customer)">
+<a id="removeCustomer(de.watchmywatch.model.AccountManagment.Customer)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>removeCustomer</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;removeCustomer&#8203;(<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&nbsp;customer)
-                    throws <a href="../Exceptions/CustomerDoesNotExistException.html" title="class in de.watchmywatch.Exceptions">CustomerDoesNotExistException</a></pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;removeCustomer&#8203;(<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&nbsp;customer)
+                    throws <a href="../Exceptions/CustomerDoesNotExistException.html" title="class in de.watchmywatch.model.Exceptions">CustomerDoesNotExistException</a></pre>
 <div class="block">removeAccount function</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -332,7 +332,7 @@ extends java.lang.Object</pre>
                  if the customer is in the list the customer will be removed
                  if the customer is not in the list an exception will be thrown</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../Exceptions/CustomerDoesNotExistException.html" title="class in de.watchmywatch.Exceptions">CustomerDoesNotExistException</a></code></dd>
+<dd><code><a href="../Exceptions/CustomerDoesNotExistException.html" title="class in de.watchmywatch.model.Exceptions">CustomerDoesNotExistException</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -342,7 +342,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getCustomerList</h4>
-<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&gt;&nbsp;getCustomerList()</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&gt;&nbsp;getCustomerList()</pre>
 </li>
 </ul>
 </li>

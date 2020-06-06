@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="WatchMyWatch" target="11" />
+      <module name="WatchMyWatch" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

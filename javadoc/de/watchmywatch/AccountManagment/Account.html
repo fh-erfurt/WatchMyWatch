@@ -115,7 +115,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.watchmywatch.AccountManagment</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.watchmywatch.model.AccountManagment</a></div>
 <h2 title="Class Account" class="title">Class Account</h2>
 </div>
 <div class="contentContainer">
@@ -123,7 +123,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>de.watchmywatch.AccountManagment.Account</li>
+<li>de.watchmywatch.model.AccountManagment.Account</li>
 </ul>
 </li>
 </ul>
@@ -159,17 +159,17 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private <a href="AccountStatus.html" title="enum in de.watchmywatch.AccountManagment">AccountStatus</a></code></td>
+<td class="colFirst"><code>private <a href="AccountStatus.html" title="enum in de.watchmywatch.model.AccountManagment">AccountStatus</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#accountStatus">accountStatus</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>private <a href="../Helper/Address.html" title="class in de.watchmywatch.Helper">Address</a></code></td>
+<td class="colFirst"><code>private <a href="../Helper/Address.html" title="class in de.watchmywatch.model.Helper">Address</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#billingAddress">billingAddress</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private <a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a></code></td>
+<td class="colFirst"><code>private <a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#customer">customer</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -184,12 +184,12 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>private java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a>&gt;</code></td>
+<td class="colFirst"><code>private java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#orders">orders</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private <a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.OrderManagment">PaymentMethod</a></code></td>
+<td class="colFirst"><code>private <a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.model.OrderManagment">PaymentMethod</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#paymentMethod">paymentMethod</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -199,7 +199,7 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private <a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.OrderManagment">Shoppingcart</a></code></td>
+<td class="colFirst"><code>private <a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.model.OrderManagment">Shoppingcart</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shoppingCart">shoppingCart</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -221,13 +221,13 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(de.watchmywatch.AccountManagment.Customer,java.lang.String,de.watchmywatch.Helper.Address,java.util.Date,de.watchmywatch.OrderManagment.PaymentMethod,de.watchmywatch.AccountManagment.AccountStatus,de.watchmywatch.OrderManagment.Shoppingcart)">Account</a></span>&#8203;(<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&nbsp;customer,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(de.watchmywatch.model.AccountManagment.Customer,java.lang.String,de.watchmywatch.model.Helper.Address,java.util.Date,de.watchmywatch.model.OrderManagment.PaymentMethod,de.watchmywatch.model.AccountManagment.AccountStatus,de.watchmywatch.model.OrderManagment.Shoppingcart)">Account</a></span>&#8203;(<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&nbsp;customer,
        java.lang.String&nbsp;passwordToHash,
-       <a href="../Helper/Address.html" title="class in de.watchmywatch.Helper">Address</a>&nbsp;billingAddress,
+       <a href="../Helper/Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&nbsp;billingAddress,
        java.util.Date&nbsp;opened,
-       <a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.OrderManagment">PaymentMethod</a>&nbsp;PaymentMethod,
-       <a href="AccountStatus.html" title="enum in de.watchmywatch.AccountManagment">AccountStatus</a>&nbsp;accountStatus,
-       <a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.OrderManagment">Shoppingcart</a>&nbsp;shoppingCart)</code></th>
+       <a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.model.OrderManagment">PaymentMethod</a>&nbsp;PaymentMethod,
+       <a href="AccountStatus.html" title="enum in de.watchmywatch.model.AccountManagment">AccountStatus</a>&nbsp;accountStatus,
+       <a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.model.OrderManagment">Shoppingcart</a>&nbsp;shoppingCart)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -250,7 +250,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addOrder(de.watchmywatch.OrderManagment.Order)">addOrder</a></span>&#8203;(<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a>&nbsp;order)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addOrder(de.watchmywatch.model.OrderManagment.Order)">addOrder</a></span>&#8203;(<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a>&nbsp;order)</code></th>
 <td class="colLast">
 <div class="block">Adding an order to the Orderlist</div>
 </td>
@@ -270,22 +270,22 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="AccountStatus.html" title="enum in de.watchmywatch.AccountManagment">AccountStatus</a></code></td>
+<td class="colFirst"><code><a href="AccountStatus.html" title="enum in de.watchmywatch.model.AccountManagment">AccountStatus</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAccountStatus()">getAccountStatus</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../Helper/Address.html" title="class in de.watchmywatch.Helper">Address</a></code></td>
+<td class="colFirst"><code><a href="../Helper/Address.html" title="class in de.watchmywatch.model.Helper">Address</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBillingAddress()">getBillingAddress</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a></code></td>
+<td class="colFirst"><code><a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCustomer()">getCustomer</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a></code></td>
+<td class="colFirst"><code><a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOldestUnpaidOrder()">getOldestUnpaidOrder</a></span>()</code></th>
 <td class="colLast">
 <div class="block">For Payment logic by principle "First Come First Serve": Oldest unpaid Order should be paid first.</div>
@@ -297,12 +297,12 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOrders()">getOrders</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code><a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.OrderManagment">PaymentMethod</a></code></td>
+<td class="colFirst"><code><a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.model.OrderManagment">PaymentMethod</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPaymentMethod()">getPaymentMethod</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -312,30 +312,30 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code><a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.OrderManagment">Shoppingcart</a></code></td>
+<td class="colFirst"><code><a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.model.OrderManagment">Shoppingcart</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getShoppingCart()">getShoppingCart</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeOrder(de.watchmywatch.OrderManagment.Order)">removeOrder</a></span>&#8203;(<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a>&nbsp;order)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeOrder(de.watchmywatch.model.OrderManagment.Order)">removeOrder</a></span>&#8203;(<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a>&nbsp;order)</code></th>
 <td class="colLast">
 <div class="block">Removing an Order</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAccountStatus(de.watchmywatch.AccountManagment.AccountStatus)">setAccountStatus</a></span>&#8203;(<a href="AccountStatus.html" title="enum in de.watchmywatch.AccountManagment">AccountStatus</a>&nbsp;accountStatus)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAccountStatus(de.watchmywatch.model.AccountManagment.AccountStatus)">setAccountStatus</a></span>&#8203;(<a href="AccountStatus.html" title="enum in de.watchmywatch.model.AccountManagment">AccountStatus</a>&nbsp;accountStatus)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBillingAddress(de.watchmywatch.Helper.Address)">setBillingAddress</a></span>&#8203;(<a href="../Helper/Address.html" title="class in de.watchmywatch.Helper">Address</a>&nbsp;billingAddress)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBillingAddress(de.watchmywatch.model.Helper.Address)">setBillingAddress</a></span>&#8203;(<a href="../Helper/Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&nbsp;billingAddress)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCustomer(de.watchmywatch.AccountManagment.Customer)">setCustomer</a></span>&#8203;(<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&nbsp;customer)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCustomer(de.watchmywatch.model.AccountManagment.Customer)">setCustomer</a></span>&#8203;(<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&nbsp;customer)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i16" class="altColor">
@@ -345,12 +345,12 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOrders(java.util.ArrayList)">setOrders</a></span>&#8203;(java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a>&gt;&nbsp;orders)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOrders(java.util.ArrayList)">setOrders</a></span>&#8203;(java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a>&gt;&nbsp;orders)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPaymentMethod(de.watchmywatch.OrderManagment.PaymentMethod)">setPaymentMethod</a></span>&#8203;(<a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.OrderManagment">PaymentMethod</a>&nbsp;PaymentMethod)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPaymentMethod(de.watchmywatch.model.OrderManagment.PaymentMethod)">setPaymentMethod</a></span>&#8203;(<a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.model.OrderManagment">PaymentMethod</a>&nbsp;PaymentMethod)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i19" class="rowColor">
@@ -360,7 +360,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShoppingCart(de.watchmywatch.OrderManagment.Shoppingcart)">setShoppingCart</a></span>&#8203;(<a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.OrderManagment">Shoppingcart</a>&nbsp;shoppingCart)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShoppingCart(de.watchmywatch.model.OrderManagment.Shoppingcart)">setShoppingCart</a></span>&#8203;(<a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.model.OrderManagment">Shoppingcart</a>&nbsp;shoppingCart)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -402,7 +402,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>customer</h4>
-<pre>private&nbsp;<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a> customer</pre>
+<pre>private&nbsp;<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a> customer</pre>
 </li>
 </ul>
 <a id="securePassword">
@@ -420,7 +420,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>billingAddress</h4>
-<pre>private&nbsp;<a href="../Helper/Address.html" title="class in de.watchmywatch.Helper">Address</a> billingAddress</pre>
+<pre>private&nbsp;<a href="../Helper/Address.html" title="class in de.watchmywatch.model.Helper">Address</a> billingAddress</pre>
 </li>
 </ul>
 <a id="opened">
@@ -438,7 +438,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>paymentMethod</h4>
-<pre>private&nbsp;<a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.OrderManagment">PaymentMethod</a> paymentMethod</pre>
+<pre>private&nbsp;<a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.model.OrderManagment">PaymentMethod</a> paymentMethod</pre>
 </li>
 </ul>
 <a id="accountStatus">
@@ -447,7 +447,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>accountStatus</h4>
-<pre>private&nbsp;<a href="AccountStatus.html" title="enum in de.watchmywatch.AccountManagment">AccountStatus</a> accountStatus</pre>
+<pre>private&nbsp;<a href="AccountStatus.html" title="enum in de.watchmywatch.model.AccountManagment">AccountStatus</a> accountStatus</pre>
 </li>
 </ul>
 <a id="shoppingCart">
@@ -456,7 +456,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>shoppingCart</h4>
-<pre>private&nbsp;<a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.OrderManagment">Shoppingcart</a> shoppingCart</pre>
+<pre>private&nbsp;<a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.model.OrderManagment">Shoppingcart</a> shoppingCart</pre>
 </li>
 </ul>
 <a id="orders">
@@ -465,7 +465,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>orders</h4>
-<pre>private&nbsp;java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a>&gt; orders</pre>
+<pre>private&nbsp;java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a>&gt; orders</pre>
 </li>
 </ul>
 </li>
@@ -478,19 +478,19 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(de.watchmywatch.AccountManagment.Customer,java.lang.String,de.watchmywatch.Helper.Address,java.util.Date,de.watchmywatch.OrderManagment.PaymentMethod,de.watchmywatch.AccountManagment.AccountStatus,de.watchmywatch.OrderManagment.Shoppingcart)">
+<a id="&lt;init&gt;(de.watchmywatch.model.AccountManagment.Customer,java.lang.String,de.watchmywatch.model.Helper.Address,java.util.Date,de.watchmywatch.model.OrderManagment.PaymentMethod,de.watchmywatch.model.AccountManagment.AccountStatus,de.watchmywatch.model.OrderManagment.Shoppingcart)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Account</h4>
-<pre>public&nbsp;Account&#8203;(<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&nbsp;customer,
+<pre>public&nbsp;Account&#8203;(<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&nbsp;customer,
                java.lang.String&nbsp;passwordToHash,
-               <a href="../Helper/Address.html" title="class in de.watchmywatch.Helper">Address</a>&nbsp;billingAddress,
+               <a href="../Helper/Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&nbsp;billingAddress,
                java.util.Date&nbsp;opened,
-               <a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.OrderManagment">PaymentMethod</a>&nbsp;PaymentMethod,
-               <a href="AccountStatus.html" title="enum in de.watchmywatch.AccountManagment">AccountStatus</a>&nbsp;accountStatus,
-               <a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.OrderManagment">Shoppingcart</a>&nbsp;shoppingCart)</pre>
+               <a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.model.OrderManagment">PaymentMethod</a>&nbsp;PaymentMethod,
+               <a href="AccountStatus.html" title="enum in de.watchmywatch.model.AccountManagment">AccountStatus</a>&nbsp;accountStatus,
+               <a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.model.OrderManagment">Shoppingcart</a>&nbsp;shoppingCart)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>customer</code> - the given customer</dd>
@@ -544,13 +544,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="addOrder(de.watchmywatch.OrderManagment.Order)">
+<a id="addOrder(de.watchmywatch.model.OrderManagment.Order)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addOrder</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;addOrder&#8203;(<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a>&nbsp;order)</pre>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;addOrder&#8203;(<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a>&nbsp;order)</pre>
 <div class="block">Adding an order to the Orderlist</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -560,13 +560,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="removeOrder(de.watchmywatch.OrderManagment.Order)">
+<a id="removeOrder(de.watchmywatch.model.OrderManagment.Order)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>removeOrder</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;removeOrder&#8203;(<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a>&nbsp;order)</pre>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;removeOrder&#8203;(<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a>&nbsp;order)</pre>
 <div class="block">Removing an Order</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -582,7 +582,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getCustomer</h4>
-<pre class="methodSignature">public&nbsp;<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&nbsp;getCustomer()</pre>
+<pre class="methodSignature">public&nbsp;<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&nbsp;getCustomer()</pre>
 </li>
 </ul>
 <a id="getSecurePassword()">
@@ -600,7 +600,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getBillingAddress</h4>
-<pre class="methodSignature">public&nbsp;<a href="../Helper/Address.html" title="class in de.watchmywatch.Helper">Address</a>&nbsp;getBillingAddress()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../Helper/Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&nbsp;getBillingAddress()</pre>
 </li>
 </ul>
 <a id="getOpened()">
@@ -618,7 +618,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getPaymentMethod</h4>
-<pre class="methodSignature">public&nbsp;<a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.OrderManagment">PaymentMethod</a>&nbsp;getPaymentMethod()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.model.OrderManagment">PaymentMethod</a>&nbsp;getPaymentMethod()</pre>
 </li>
 </ul>
 <a id="getAccountStatus()">
@@ -627,7 +627,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getAccountStatus</h4>
-<pre class="methodSignature">public&nbsp;<a href="AccountStatus.html" title="enum in de.watchmywatch.AccountManagment">AccountStatus</a>&nbsp;getAccountStatus()</pre>
+<pre class="methodSignature">public&nbsp;<a href="AccountStatus.html" title="enum in de.watchmywatch.model.AccountManagment">AccountStatus</a>&nbsp;getAccountStatus()</pre>
 </li>
 </ul>
 <a id="getShoppingCart()">
@@ -636,7 +636,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getShoppingCart</h4>
-<pre class="methodSignature">public&nbsp;<a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.OrderManagment">Shoppingcart</a>&nbsp;getShoppingCart()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.model.OrderManagment">Shoppingcart</a>&nbsp;getShoppingCart()</pre>
 </li>
 </ul>
 <a id="getOrders()">
@@ -645,34 +645,34 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getOrders</h4>
-<pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a>&gt;&nbsp;getOrders()</pre>
+<pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a>&gt;&nbsp;getOrders()</pre>
 </li>
 </ul>
-<a id="setCustomer(de.watchmywatch.AccountManagment.Customer)">
+<a id="setCustomer(de.watchmywatch.model.AccountManagment.Customer)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setCustomer</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setCustomer&#8203;(<a href="Customer.html" title="class in de.watchmywatch.AccountManagment">Customer</a>&nbsp;customer)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setCustomer&#8203;(<a href="Customer.html" title="class in de.watchmywatch.model.AccountManagment">Customer</a>&nbsp;customer)</pre>
 </li>
 </ul>
-<a id="setAccountStatus(de.watchmywatch.AccountManagment.AccountStatus)">
+<a id="setAccountStatus(de.watchmywatch.model.AccountManagment.AccountStatus)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setAccountStatus</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setAccountStatus&#8203;(<a href="AccountStatus.html" title="enum in de.watchmywatch.AccountManagment">AccountStatus</a>&nbsp;accountStatus)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setAccountStatus&#8203;(<a href="AccountStatus.html" title="enum in de.watchmywatch.model.AccountManagment">AccountStatus</a>&nbsp;accountStatus)</pre>
 </li>
 </ul>
-<a id="setBillingAddress(de.watchmywatch.Helper.Address)">
+<a id="setBillingAddress(de.watchmywatch.model.Helper.Address)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setBillingAddress</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setBillingAddress&#8203;(<a href="../Helper/Address.html" title="class in de.watchmywatch.Helper">Address</a>&nbsp;billingAddress)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setBillingAddress&#8203;(<a href="../Helper/Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&nbsp;billingAddress)</pre>
 </li>
 </ul>
 <a id="setSecurePassword(java.lang.String)">
@@ -684,13 +684,13 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;setSecurePassword&#8203;(java.lang.String&nbsp;securePassword)</pre>
 </li>
 </ul>
-<a id="setPaymentMethod(de.watchmywatch.OrderManagment.PaymentMethod)">
+<a id="setPaymentMethod(de.watchmywatch.model.OrderManagment.PaymentMethod)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setPaymentMethod</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setPaymentMethod&#8203;(<a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.OrderManagment">PaymentMethod</a>&nbsp;PaymentMethod)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setPaymentMethod&#8203;(<a href="../OrderManagment/PaymentMethod.html" title="enum in de.watchmywatch.model.OrderManagment">PaymentMethod</a>&nbsp;PaymentMethod)</pre>
 </li>
 </ul>
 <a id="setOpened(java.util.Date)">
@@ -708,16 +708,16 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setOrders</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setOrders&#8203;(java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a>&gt;&nbsp;orders)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setOrders&#8203;(java.util.ArrayList&lt;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a>&gt;&nbsp;orders)</pre>
 </li>
 </ul>
-<a id="setShoppingCart(de.watchmywatch.OrderManagment.Shoppingcart)">
+<a id="setShoppingCart(de.watchmywatch.model.OrderManagment.Shoppingcart)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setShoppingCart</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setShoppingCart&#8203;(<a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.OrderManagment">Shoppingcart</a>&nbsp;shoppingCart)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setShoppingCart&#8203;(<a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.model.OrderManagment">Shoppingcart</a>&nbsp;shoppingCart)</pre>
 </li>
 </ul>
 <a id="getOldestUnpaidOrder()">
@@ -726,7 +726,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getOldestUnpaidOrder</h4>
-<pre class="methodSignature">public&nbsp;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a>&nbsp;getOldestUnpaidOrder()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a>&nbsp;getOldestUnpaidOrder()</pre>
 <div class="block">For Payment logic by principle "First Come First Serve": Oldest unpaid Order should be paid first.
  Returns the oldest unpaid Order of this Account.</div>
 <dl>
