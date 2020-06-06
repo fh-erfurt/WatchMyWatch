@@ -1,5 +1,5 @@
 # JavaProject [![Build Status](https://github.com/fh-erfurt/WatchMyWatch/workflows/WatchMyWatch/badge.svg)](https://github.com/fh-erfurt/WatchMyWatch/actions) ![License](http://img.shields.io/:license-mit-blue.svg) ![CodeFactor](https://img.shields.io/badge/JAVA-11.0.4-orange)
-Von [Anton Bespalov](https://github.com/kanton1998), [Michael Hopp](https://github.com/Maffotter), [Tom Käppler](https://github.com/TKSpectro), [Bilal Alnaani] (https://github.com/bilal0710)
+Von [Anton Bespalov](https://github.com/kanton1998), [Michael Hopp](https://github.com/Maffotter), [Tom Käppler](https://github.com/TKSpectro), [Bilal Alnaani](https://github.com/bilal0710)
 
 ## HowTo
 Öffnen Sie die pom.xml in IntelliJ
