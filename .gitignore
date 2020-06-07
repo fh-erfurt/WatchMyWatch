@@ -23,3 +23,7 @@
 hs_err_pid*
 .idea/workspace.xml
 target/
+.idea/dataSources.local.xml
+.idea/dataSources.xml
+dropDDL.jdbc
+createDDL.jdbc

@@ -1,0 +1,1040 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="jdbc:h2:tcp://localhost/~/watch-my-watch">
+  <database-model serializer="dbm" dbms="H2" family-id="H2" format-version="4.18">
+    <root id="1">
+      <ServerVersion>1.4.200</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="WATCH-MY-WATCH">
+      <Current>1</Current>
+    </database>
+    <schema id="3" parent="2" name="INFORMATION_SCHEMA"/>
+    <schema id="4" parent="2" name="PUBLIC">
+      <Current>1</Current>
+    </schema>
+    <user id="5" parent="2" name="SA">
+      <ObjectId>2</ObjectId>
+      <Admin>1</Admin>
+    </user>
+    <role id="6" parent="2" name="PUBLIC">
+      <ObjectId>0</ObjectId>
+      <AutoCreated>1</AutoCreated>
+    </role>
+    <collation id="7" parent="2" name="ALBANIAN"/>
+    <collation id="8" parent="2" name="ALBANIAN_ALBANIA"/>
+    <collation id="9" parent="2" name="ARABIC"/>
+    <collation id="10" parent="2" name="ARABIC_ALGERIA"/>
+    <collation id="11" parent="2" name="ARABIC_BAHRAIN"/>
+    <collation id="12" parent="2" name="ARABIC_EGYPT"/>
+    <collation id="13" parent="2" name="ARABIC_IRAQ"/>
+    <collation id="14" parent="2" name="ARABIC_JORDAN"/>
+    <collation id="15" parent="2" name="ARABIC_KUWAIT"/>
+    <collation id="16" parent="2" name="ARABIC_LEBANON"/>
+    <collation id="17" parent="2" name="ARABIC_LIBYA"/>
+    <collation id="18" parent="2" name="ARABIC_MOROCCO"/>
+    <collation id="19" parent="2" name="ARABIC_OMAN"/>
+    <collation id="20" parent="2" name="ARABIC_QATAR"/>
+    <collation id="21" parent="2" name="ARABIC_SAUDI_ARABIA"/>
+    <collation id="22" parent="2" name="ARABIC_SUDAN"/>
+    <collation id="23" parent="2" name="ARABIC_SYRIA"/>
+    <collation id="24" parent="2" name="ARABIC_TUNISIA"/>
+    <collation id="25" parent="2" name="ARABIC_UNITED_ARAB_EMIRATES"/>
+    <collation id="26" parent="2" name="ARABIC_YEMEN"/>
+    <collation id="27" parent="2" name="BELARUSIAN"/>
+    <collation id="28" parent="2" name="BELARUSIAN_BELARUS"/>
+    <collation id="29" parent="2" name="BULGARIAN"/>
+    <collation id="30" parent="2" name="BULGARIAN_BULGARIA"/>
+    <collation id="31" parent="2" name="CATALAN"/>
+    <collation id="32" parent="2" name="CATALAN_SPAIN"/>
+    <collation id="33" parent="2" name="CHINESE"/>
+    <collation id="34" parent="2" name="CHINESE_CHINA"/>
+    <collation id="35" parent="2" name="CHINESE_HONG_KONG_SAR_CHINA"/>
+    <collation id="36" parent="2" name="CHINESE_SINGAPORE"/>
+    <collation id="37" parent="2" name="CHINESE_TAIWAN"/>
+    <collation id="38" parent="2" name="CROATIAN"/>
+    <collation id="39" parent="2" name="CROATIAN_CROATIA"/>
+    <collation id="40" parent="2" name="CZECH"/>
+    <collation id="41" parent="2" name="CZECH_CZECHIA"/>
+    <collation id="42" parent="2" name="DANISH"/>
+    <collation id="43" parent="2" name="DANISH_DENMARK"/>
+    <collation id="44" parent="2" name="DUTCH"/>
+    <collation id="45" parent="2" name="DUTCH_BELGIUM"/>
+    <collation id="46" parent="2" name="DUTCH_NETHERLANDS"/>
+    <collation id="47" parent="2" name="ENGLISH"/>
+    <collation id="48" parent="2" name="ENGLISH_AUSTRALIA"/>
+    <collation id="49" parent="2" name="ENGLISH_CANADA"/>
+    <collation id="50" parent="2" name="ENGLISH_INDIA"/>
+    <collation id="51" parent="2" name="ENGLISH_IRELAND"/>
+    <collation id="52" parent="2" name="ENGLISH_MALTA"/>
+    <collation id="53" parent="2" name="ENGLISH_NEW_ZEALAND"/>
+    <collation id="54" parent="2" name="ENGLISH_PHILIPPINES"/>
+    <collation id="55" parent="2" name="ENGLISH_SINGAPORE"/>
+    <collation id="56" parent="2" name="ENGLISH_SOUTH_AFRICA"/>
+    <collation id="57" parent="2" name="ENGLISH_UNITED_KINGDOM"/>
+    <collation id="58" parent="2" name="ENGLISH_UNITED_STATES"/>
+    <collation id="59" parent="2" name="ESTONIAN"/>
+    <collation id="60" parent="2" name="ESTONIAN_ESTONIA"/>
+    <collation id="61" parent="2" name="FINNISH"/>
+    <collation id="62" parent="2" name="FINNISH_FINLAND"/>
+    <collation id="63" parent="2" name="FRENCH"/>
+    <collation id="64" parent="2" name="FRENCH_BELGIUM"/>
+    <collation id="65" parent="2" name="FRENCH_CANADA"/>
+    <collation id="66" parent="2" name="FRENCH_FRANCE"/>
+    <collation id="67" parent="2" name="FRENCH_LUXEMBOURG"/>
+    <collation id="68" parent="2" name="FRENCH_SWITZERLAND"/>
+    <collation id="69" parent="2" name="GERMAN"/>
+    <collation id="70" parent="2" name="GERMAN_AUSTRIA"/>
+    <collation id="71" parent="2" name="GERMAN_GERMANY"/>
+    <collation id="72" parent="2" name="GERMAN_LUXEMBOURG"/>
+    <collation id="73" parent="2" name="GERMAN_SWITZERLAND"/>
+    <collation id="74" parent="2" name="GREEK"/>
+    <collation id="75" parent="2" name="GREEK_CYPRUS"/>
+    <collation id="76" parent="2" name="GREEK_GREECE"/>
+    <collation id="77" parent="2" name="HEBREW"/>
+    <collation id="78" parent="2" name="HEBREW_ISRAEL"/>
+    <collation id="79" parent="2" name="HINDI"/>
+    <collation id="80" parent="2" name="HINDI_INDIA"/>
+    <collation id="81" parent="2" name="HUNGARIAN"/>
+    <collation id="82" parent="2" name="HUNGARIAN_HUNGARY"/>
+    <collation id="83" parent="2" name="ICELANDIC"/>
+    <collation id="84" parent="2" name="ICELANDIC_ICELAND"/>
+    <collation id="85" parent="2" name="INDONESIAN"/>
+    <collation id="86" parent="2" name="INDONESIAN_INDONESIA"/>
+    <collation id="87" parent="2" name="IRISH"/>
+    <collation id="88" parent="2" name="IRISH_IRELAND"/>
+    <collation id="89" parent="2" name="ITALIAN"/>
+    <collation id="90" parent="2" name="ITALIAN_ITALY"/>
+    <collation id="91" parent="2" name="ITALIAN_SWITZERLAND"/>
+    <collation id="92" parent="2" name="JAPANESE"/>
+    <collation id="93" parent="2" name="JAPANESE_JAPAN"/>
+    <collation id="94" parent="2" name="JAPANESE_JAPAN_JP"/>
+    <collation id="95" parent="2" name="KOREAN"/>
+    <collation id="96" parent="2" name="KOREAN_SOUTH_KOREA"/>
+    <collation id="97" parent="2" name="LATVIAN"/>
+    <collation id="98" parent="2" name="LATVIAN_LATVIA"/>
+    <collation id="99" parent="2" name="LITHUANIAN"/>
+    <collation id="100" parent="2" name="LITHUANIAN_LITHUANIA"/>
+    <collation id="101" parent="2" name="MACEDONIAN"/>
+    <collation id="102" parent="2" name="MACEDONIAN_NORTH_MACEDONIA"/>
+    <collation id="103" parent="2" name="MALAY"/>
+    <collation id="104" parent="2" name="MALAY_MALAYSIA"/>
+    <collation id="105" parent="2" name="MALTESE"/>
+    <collation id="106" parent="2" name="MALTESE_MALTA"/>
+    <collation id="107" parent="2" name="NORWEGIAN"/>
+    <collation id="108" parent="2" name="NORWEGIAN_BOKMÅL"/>
+    <collation id="109" parent="2" name="NORWEGIAN_BOKMÅL_NORWAY"/>
+    <collation id="110" parent="2" name="NORWEGIAN_NORWAY"/>
+    <collation id="111" parent="2" name="NORWEGIAN_NORWAY_NY"/>
+    <collation id="112" parent="2" name="NORWEGIAN_NYNORSK_NORWAY"/>
+    <collation id="113" parent="2" name="POLISH"/>
+    <collation id="114" parent="2" name="POLISH_POLAND"/>
+    <collation id="115" parent="2" name="PORTUGUESE"/>
+    <collation id="116" parent="2" name="PORTUGUESE_BRAZIL"/>
+    <collation id="117" parent="2" name="PORTUGUESE_PORTUGAL"/>
+    <collation id="118" parent="2" name="ROMANIAN"/>
+    <collation id="119" parent="2" name="ROMANIAN_ROMANIA"/>
+    <collation id="120" parent="2" name="RUSSIAN"/>
+    <collation id="121" parent="2" name="RUSSIAN_RUSSIA"/>
+    <collation id="122" parent="2" name="SERBIAN"/>
+    <collation id="123" parent="2" name="SERBIAN_BOSNIA_&amp;_HERZEGOVINA"/>
+    <collation id="124" parent="2" name="SERBIAN_MONTENEGRO"/>
+    <collation id="125" parent="2" name="SERBIAN_SERBIA"/>
+    <collation id="126" parent="2" name="SERBIAN_SERBIA_AND_MONTENEGRO"/>
+    <collation id="127" parent="2" name="SLOVAK"/>
+    <collation id="128" parent="2" name="SLOVAK_SLOVAKIA"/>
+    <collation id="129" parent="2" name="SLOVENIAN"/>
+    <collation id="130" parent="2" name="SLOVENIAN_SLOVENIA"/>
+    <collation id="131" parent="2" name="SPANISH"/>
+    <collation id="132" parent="2" name="SPANISH_ARGENTINA"/>
+    <collation id="133" parent="2" name="SPANISH_BOLIVIA"/>
+    <collation id="134" parent="2" name="SPANISH_CHILE"/>
+    <collation id="135" parent="2" name="SPANISH_COLOMBIA"/>
+    <collation id="136" parent="2" name="SPANISH_COSTA_RICA"/>
+    <collation id="137" parent="2" name="SPANISH_CUBA"/>
+    <collation id="138" parent="2" name="SPANISH_DOMINICAN_REPUBLIC"/>
+    <collation id="139" parent="2" name="SPANISH_ECUADOR"/>
+    <collation id="140" parent="2" name="SPANISH_EL_SALVADOR"/>
+    <collation id="141" parent="2" name="SPANISH_GUATEMALA"/>
+    <collation id="142" parent="2" name="SPANISH_HONDURAS"/>
+    <collation id="143" parent="2" name="SPANISH_MEXICO"/>
+    <collation id="144" parent="2" name="SPANISH_NICARAGUA"/>
+    <collation id="145" parent="2" name="SPANISH_PANAMA"/>
+    <collation id="146" parent="2" name="SPANISH_PARAGUAY"/>
+    <collation id="147" parent="2" name="SPANISH_PERU"/>
+    <collation id="148" parent="2" name="SPANISH_PUERTO_RICO"/>
+    <collation id="149" parent="2" name="SPANISH_SPAIN"/>
+    <collation id="150" parent="2" name="SPANISH_UNITED_STATES"/>
+    <collation id="151" parent="2" name="SPANISH_URUGUAY"/>
+    <collation id="152" parent="2" name="SPANISH_VENEZUELA"/>
+    <collation id="153" parent="2" name="SWEDISH"/>
+    <collation id="154" parent="2" name="SWEDISH_SWEDEN"/>
+    <collation id="155" parent="2" name="THAI"/>
+    <collation id="156" parent="2" name="THAI_THAILAND"/>
+    <collation id="157" parent="2" name="THAI_THAILAND_TH"/>
+    <collation id="158" parent="2" name="TURKISH"/>
+    <collation id="159" parent="2" name="TURKISH_TURKEY"/>
+    <collation id="160" parent="2" name="UKRAINIAN"/>
+    <collation id="161" parent="2" name="UKRAINIAN_UKRAINE"/>
+    <collation id="162" parent="2" name="VIETNAMESE"/>
+    <collation id="163" parent="2" name="VIETNAMESE_VIETNAM"/>
+    <sequence id="164" parent="4" name="SYSTEM_SEQUENCE_0C4A233D_BF46_42BB_A68B_AE8B20FB0334">
+      <ObjectId>4</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>32</CacheSize>
+      <AutoCreated>1</AutoCreated>
+    </sequence>
+    <table id="165" parent="4" name="ACCOUNT">
+      <ObjectId>19</ObjectId>
+    </table>
+    <table id="166" parent="4" name="ACCOUNT_ORDER">
+      <ObjectId>43</ObjectId>
+    </table>
+    <table id="167" parent="4" name="ADDRESS">
+      <ObjectId>28</ObjectId>
+    </table>
+    <table id="168" parent="4" name="BRACELET">
+      <ObjectId>7</ObjectId>
+    </table>
+    <table id="169" parent="4" name="CASING">
+      <ObjectId>22</ObjectId>
+    </table>
+    <table id="170" parent="4" name="CLOCKWORK">
+      <ObjectId>37</ObjectId>
+    </table>
+    <table id="171" parent="4" name="CUSTOMER">
+      <ObjectId>34</ObjectId>
+    </table>
+    <table id="172" parent="4" name="DATABASEENTITY">
+      <ObjectId>3</ObjectId>
+    </table>
+    <table id="173" parent="4" name="MANUFACTURER">
+      <ObjectId>10</ObjectId>
+    </table>
+    <table id="174" parent="4" name="PAYMENT">
+      <ObjectId>31</ObjectId>
+    </table>
+    <table id="175" parent="4" name="PERSON">
+      <ObjectId>25</ObjectId>
+    </table>
+    <table id="176" parent="4" name="SHOPPINGCART">
+      <ObjectId>13</ObjectId>
+    </table>
+    <table id="177" parent="4" name="SHOPPINGCART_WATCH">
+      <ObjectId>40</ObjectId>
+    </table>
+    <table id="178" parent="4" name="WATCH">
+      <ObjectId>16</ObjectId>
+    </table>
+    <column id="179" parent="165" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="180" parent="165" name="ACCOUNTSTATUS">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="181" parent="165" name="OPENED">
+      <Position>3</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+    </column>
+    <column id="182" parent="165" name="PAYMENTMETHOD">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="183" parent="165" name="SECUREPASSWORD">
+      <Position>5</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="184" parent="165" name="BILLINGADDRESS_ID">
+      <Position>6</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <column id="185" parent="165" name="CUSTOMER_ID">
+      <Position>7</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <column id="186" parent="165" name="SHOPPINGCART_ID">
+      <Position>8</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <index id="187" parent="165" name="PRIMARY_KEY_E4">
+      <ObjectId>20</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>72</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="188" parent="165" name="FK_ACCOUNT_BILLINGADDRESS_ID_INDEX_E">
+      <ObjectId>63</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>103</SourceTextLength>
+      <ColNames>BILLINGADDRESS_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="189" parent="165" name="FK_ACCOUNT_CUSTOMER_ID_INDEX_E">
+      <ObjectId>65</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>91</SourceTextLength>
+      <ColNames>CUSTOMER_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="190" parent="165" name="FK_ACCOUNT_SHOPPINGCART_ID_INDEX_E">
+      <ObjectId>67</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>99</SourceTextLength>
+      <ColNames>SHOPPINGCART_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="191" parent="165" name="CONSTRAINT_E4">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="192" parent="165" name="FK_ACCOUNT_ID">
+      <ColNames>ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="193" parent="165" name="FK_ACCOUNT_BILLINGADDRESS_ID">
+      <ColNames>BILLINGADDRESS_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="194" parent="165" name="FK_ACCOUNT_CUSTOMER_ID">
+      <ColNames>CUSTOMER_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="195" parent="165" name="FK_ACCOUNT_SHOPPINGCART_ID">
+      <ColNames>SHOPPINGCART_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="196" parent="166" name="ACCOUNT_ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="197" parent="166" name="ORDERS_ID">
+      <Position>2</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="198" parent="166" name="PRIMARY_KEY_D">
+      <ObjectId>44</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>98</SourceTextLength>
+      <ColNames>ACCOUNT_ID
+ORDERS_ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="199" parent="166" name="FK_ACCOUNT_ORDER_ACCOUNT_ID_INDEX_D">
+      <ObjectId>85</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>101</SourceTextLength>
+      <ColNames>ACCOUNT_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="200" parent="166" name="FK_ACCOUNT_ORDER_ORDERS_ID_INDEX_D">
+      <ObjectId>87</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>99</SourceTextLength>
+      <ColNames>ORDERS_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="201" parent="166" name="CONSTRAINT_D">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ACCOUNT_ID
+ORDERS_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="202" parent="166" name="FK_ACCOUNT_ORDER_ACCOUNT_ID">
+      <ColNames>ACCOUNT_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="203" parent="166" name="FK_ACCOUNT_ORDER_ORDERS_ID">
+      <ColNames>ORDERS_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="204" parent="167" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="205" parent="167" name="CITY">
+      <Position>2</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="206" parent="167" name="STATE">
+      <Position>3</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="207" parent="167" name="STREET">
+      <Position>4</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="208" parent="167" name="ZIP">
+      <Position>5</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <index id="209" parent="167" name="PRIMARY_KEY_E6">
+      <ObjectId>29</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>72</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="210" parent="167" name="CONSTRAINT_E6">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="211" parent="167" name="FK_ADDRESS_ID">
+      <ColNames>ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="212" parent="168" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="213" parent="168" name="AMOUNTAVAILABLE">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="214" parent="168" name="CONNECTION">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="215" parent="168" name="MANUFACTURERPARTID">
+      <Position>4</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="216" parent="168" name="MATERIAL">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="217" parent="168" name="PRICE">
+      <Position>6</Position>
+      <DataType>DOUBLE|0s</DataType>
+    </column>
+    <column id="218" parent="168" name="SIZE">
+      <Position>7</Position>
+      <DataType>DOUBLE|0s</DataType>
+    </column>
+    <column id="219" parent="168" name="MANUFACTURER_ID">
+      <Position>8</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <index id="220" parent="168" name="PRIMARY_KEY_2">
+      <ObjectId>8</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>72</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="221" parent="168" name="FK_BRACELET_MANUFACTURER_ID_INDEX_2">
+      <ObjectId>47</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>101</SourceTextLength>
+      <ColNames>MANUFACTURER_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="222" parent="168" name="CONSTRAINT_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="223" parent="168" name="FK_BRACELET_ID">
+      <ColNames>ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="224" parent="168" name="FK_BRACELET_MANUFACTURER_ID">
+      <ColNames>MANUFACTURER_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="225" parent="169" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="226" parent="169" name="AMOUNTAVAILABLE">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="227" parent="169" name="CONNECTION">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="228" parent="169" name="INNERDIAMETER">
+      <Position>4</Position>
+      <DataType>DOUBLE|0s</DataType>
+    </column>
+    <column id="229" parent="169" name="MANUFACTURERPARTID">
+      <Position>5</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="230" parent="169" name="MATERIAL">
+      <Position>6</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="231" parent="169" name="OUTERDIAMETER">
+      <Position>7</Position>
+      <DataType>DOUBLE|0s</DataType>
+    </column>
+    <column id="232" parent="169" name="PRICE">
+      <Position>8</Position>
+      <DataType>DOUBLE|0s</DataType>
+    </column>
+    <column id="233" parent="169" name="MANUFACTURER_ID">
+      <Position>9</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <index id="234" parent="169" name="PRIMARY_KEY_7">
+      <ObjectId>23</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>70</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="235" parent="169" name="FK_CASING_MANUFACTURER_ID_INDEX_7">
+      <ObjectId>69</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>97</SourceTextLength>
+      <ColNames>MANUFACTURER_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="236" parent="169" name="CONSTRAINT_7">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="237" parent="169" name="FK_CASING_ID">
+      <ColNames>ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="238" parent="169" name="FK_CASING_MANUFACTURER_ID">
+      <ColNames>MANUFACTURER_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="239" parent="170" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="240" parent="170" name="AMOUNTAVAILABLE">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="241" parent="170" name="DIAMETER">
+      <Position>3</Position>
+      <DataType>DOUBLE|0s</DataType>
+    </column>
+    <column id="242" parent="170" name="MANUFACTURERPARTID">
+      <Position>4</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="243" parent="170" name="MATERIAL">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="244" parent="170" name="PRICE">
+      <Position>6</Position>
+      <DataType>DOUBLE|0s</DataType>
+    </column>
+    <column id="245" parent="170" name="MANUFACTURER_ID">
+      <Position>7</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <index id="246" parent="170" name="PRIMARY_KEY_6">
+      <ObjectId>38</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>73</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="247" parent="170" name="FK_CLOCKWORK_MANUFACTURER_ID_INDEX_6">
+      <ObjectId>78</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>103</SourceTextLength>
+      <ColNames>MANUFACTURER_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="248" parent="170" name="CONSTRAINT_6">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="249" parent="170" name="FK_CLOCKWORK_ID">
+      <ColNames>ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="250" parent="170" name="FK_CLOCKWORK_MANUFACTURER_ID">
+      <ColNames>MANUFACTURER_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="251" parent="171" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="252" parent="171" name="DOB">
+      <Position>2</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+    </column>
+    <index id="253" parent="171" name="PRIMARY_KEY_5">
+      <ObjectId>35</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>72</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="254" parent="171" name="CONSTRAINT_5">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="255" parent="171" name="FK_CUSTOMER_ID">
+      <ColNames>ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="256" parent="172" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="257" parent="172" name="DTYPE">
+      <Position>2</Position>
+      <DataType>VARCHAR(31)|0s</DataType>
+    </column>
+    <column id="258" parent="172" name="CREATED">
+      <Position>3</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+    </column>
+    <column id="259" parent="172" name="MODIFIED">
+      <Position>4</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+    </column>
+    <index id="260" parent="172" name="PRIMARY_KEY_E">
+      <ObjectId>5</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>78</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="261" parent="172" name="CONSTRAINT_E">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="262" parent="173" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="263" parent="173" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="264" parent="173" name="ADDRESS_ID">
+      <Position>3</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <column id="265" parent="173" name="CONTACTPERSON_ID">
+      <Position>4</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <index id="266" parent="173" name="PRIMARY_KEY_1">
+      <ObjectId>11</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>76</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="267" parent="173" name="FK_MANUFACTURER_ADDRESS_ID_INDEX_1">
+      <ObjectId>52</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>99</SourceTextLength>
+      <ColNames>ADDRESS_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="268" parent="173" name="FK_MANUFACTURER_CONTACTPERSON_ID_INDEX_1">
+      <ObjectId>49</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>111</SourceTextLength>
+      <ColNames>CONTACTPERSON_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="269" parent="173" name="CONSTRAINT_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="270" parent="173" name="FK_MANUFACTURER_ID">
+      <ColNames>ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="271" parent="173" name="FK_MANUFACTURER_ADDRESS_ID">
+      <ColNames>ADDRESS_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="272" parent="173" name="FK_MANUFACTURER_CONTACTPERSON_ID">
+      <ColNames>CONTACTPERSON_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="273" parent="174" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="274" parent="174" name="DATEPAID">
+      <Position>2</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+    </column>
+    <column id="275" parent="174" name="DETAILS">
+      <Position>3</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="276" parent="174" name="PAYMENTMETHOD">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <index id="277" parent="174" name="PRIMARY_KEY_F">
+      <ObjectId>32</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>71</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="278" parent="174" name="CONSTRAINT_F">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="279" parent="174" name="FK_PAYMENT_ID">
+      <ColNames>ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="280" parent="175" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="281" parent="175" name="EMAIL">
+      <Position>2</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="282" parent="175" name="FIRSTNAME">
+      <Position>3</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="283" parent="175" name="LASTNAME">
+      <Position>4</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="284" parent="175" name="PHONE">
+      <Position>5</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="285" parent="175" name="ADDRESS_ID">
+      <Position>6</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <index id="286" parent="175" name="PRIMARY_KEY_8">
+      <ObjectId>26</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>70</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="287" parent="175" name="FK_PERSON_ADDRESS_ID_INDEX_8">
+      <ObjectId>73</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>87</SourceTextLength>
+      <ColNames>ADDRESS_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="288" parent="175" name="CONSTRAINT_8">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="289" parent="175" name="FK_PERSON_ID">
+      <ColNames>ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="290" parent="175" name="FK_PERSON_ADDRESS_ID">
+      <ColNames>ADDRESS_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="291" parent="176" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="292" parent="176" name="TOTAL">
+      <Position>2</Position>
+      <DataType>DOUBLE|0s</DataType>
+    </column>
+    <index id="293" parent="176" name="PRIMARY_KEY_2C">
+      <ObjectId>14</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>77</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="294" parent="176" name="CONSTRAINT_2C">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="295" parent="176" name="FK_SHOPPINGCART_ID">
+      <ColNames>ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="296" parent="177" name="SHOPPINGCART_ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="297" parent="177" name="ITEMS_ID">
+      <Position>2</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="298" parent="177" name="PRIMARY_KEY_3">
+      <ObjectId>41</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>107</SourceTextLength>
+      <ColNames>SHOPPINGCART_ID
+ITEMS_ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="299" parent="177" name="FK_SHOPPINGCART_WATCH_SHOPPINGCART_ID_INDEX_3">
+      <ObjectId>83</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>121</SourceTextLength>
+      <ColNames>SHOPPINGCART_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="300" parent="177" name="FK_SHOPPINGCART_WATCH_ITEMS_ID_INDEX_3">
+      <ObjectId>81</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>107</SourceTextLength>
+      <ColNames>ITEMS_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="301" parent="177" name="CONSTRAINT_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SHOPPINGCART_ID
+ITEMS_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="302" parent="177" name="FK_SHOPPINGCART_WATCH_SHOPPINGCART_ID">
+      <ColNames>SHOPPINGCART_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="303" parent="177" name="FK_SHOPPINGCART_WATCH_ITEMS_ID">
+      <ColNames>ITEMS_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="304" parent="178" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="305" parent="178" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="306" parent="178" name="PARTICULARITY">
+      <Position>3</Position>
+      <DataType>VARCHAR|0s</DataType>
+    </column>
+    <column id="307" parent="178" name="PRICE">
+      <Position>4</Position>
+      <DataType>DOUBLE|0s</DataType>
+    </column>
+    <column id="308" parent="178" name="BRACELET_ID">
+      <Position>5</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <column id="309" parent="178" name="CASING_ID">
+      <Position>6</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <column id="310" parent="178" name="CLOCKWORK_ID">
+      <Position>7</Position>
+      <DataType>BIGINT|0s</DataType>
+    </column>
+    <index id="311" parent="178" name="PRIMARY_KEY_4">
+      <ObjectId>17</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>69</SourceTextLength>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="312" parent="178" name="FK_WATCH_BRACELET_ID_INDEX_4">
+      <ObjectId>58</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>87</SourceTextLength>
+      <ColNames>BRACELET_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="313" parent="178" name="FK_WATCH_CASING_ID_INDEX_4">
+      <ObjectId>55</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>83</SourceTextLength>
+      <ColNames>CASING_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <index id="314" parent="178" name="FK_WATCH_CLOCKWORK_ID_INDEX_4">
+      <ObjectId>60</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <SourceTextLength>89</SourceTextLength>
+      <ColNames>CLOCKWORK_ID</ColNames>
+      <AutoCreated>1</AutoCreated>
+    </index>
+    <key id="315" parent="178" name="CONSTRAINT_4">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="316" parent="178" name="FK_WATCH_ID">
+      <ColNames>ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="317" parent="178" name="FK_WATCH_BRACELET_ID">
+      <ColNames>BRACELET_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="318" parent="178" name="FK_WATCH_CASING_ID">
+      <ColNames>CASING_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="319" parent="178" name="FK_WATCH_CLOCKWORK_ID">
+      <ColNames>CLOCKWORK_ID</ColNames>
+      <RefTableName>DATABASEENTITY</RefTableName>
+      <RefKeyName>PRIMARY_KEY_E</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+  </database-model>
+</dataSource>
