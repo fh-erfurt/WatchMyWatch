@@ -19,6 +19,7 @@
 
 ## Notes vom Treffen am 05.06.2020
 - JPA kennt keine ArrayList -> Ersetzen durch zb. List
+- LocalDateTime soll überall durch Date ersetzt werden
 ### Fragen
 - Beziehungen mit JPA darstellen. @OneToMany Shoppincarts items zu watch?
 
