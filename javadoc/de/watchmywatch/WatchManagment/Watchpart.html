@@ -115,7 +115,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.watchmywatch.WatchManagment</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.watchmywatch.model.WatchManagment</a></div>
 <h2 title="Class Watchpart" class="title">Class Watchpart</h2>
 </div>
 <div class="contentContainer">
@@ -123,7 +123,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>de.watchmywatch.WatchManagment.Watchpart</li>
+<li>de.watchmywatch.model.WatchManagment.Watchpart</li>
 </ul>
 </li>
 </ul>
@@ -132,16 +132,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="Validator/Validatable.html" title="interface in de.watchmywatch.WatchManagment.Validator">Validatable</a></code></dd>
+<dd><code><a href="Validator/Validatable.html" title="interface in de.watchmywatch.model.WatchManagment.Validator">Validatable</a></code></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="Bracelet.html" title="class in de.watchmywatch.WatchManagment">Bracelet</a></code>, <code><a href="Casing.html" title="class in de.watchmywatch.WatchManagment">Casing</a></code>, <code><a href="Clockwork.html" title="class in de.watchmywatch.WatchManagment">Clockwork</a></code></dd>
+<dd><code><a href="Bracelet.html" title="class in de.watchmywatch.model.WatchManagment">Bracelet</a></code>, <code><a href="Casing.html" title="class in de.watchmywatch.model.WatchManagment">Casing</a></code>, <code><a href="Clockwork.html" title="class in de.watchmywatch.model.WatchManagment">Clockwork</a></code></dd>
 </dl>
 <hr>
 <pre>public abstract class <span class="typeNameLabel">Watchpart</span>
 extends java.lang.Object
-implements <a href="Validator/Validatable.html" title="interface in de.watchmywatch.WatchManagment.Validator">Validatable</a></pre>
+implements <a href="Validator/Validatable.html" title="interface in de.watchmywatch.model.WatchManagment.Validator">Validatable</a></pre>
 <div class="block">abstract class which represents a watchpart (used for bracelet,casing etc.)</div>
 </li>
 </ul>
@@ -174,7 +174,7 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private <a href="Manufacturer.html" title="class in de.watchmywatch.WatchManagment">Manufacturer</a></code></td>
+<td class="colFirst"><code>private <a href="Manufacturer.html" title="class in de.watchmywatch.model.WatchManagment">Manufacturer</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#manufacturer">manufacturer</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -184,7 +184,7 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private <a href="Material.html" title="enum in de.watchmywatch.WatchManagment">Material</a></code></td>
+<td class="colFirst"><code>private <a href="Material.html" title="enum in de.watchmywatch.model.WatchManagment">Material</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#material">material</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -211,9 +211,9 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(de.watchmywatch.WatchManagment.Manufacturer,java.lang.String,de.watchmywatch.WatchManagment.Material,double)">Watchpart</a></span>&#8203;(<a href="Manufacturer.html" title="class in de.watchmywatch.WatchManagment">Manufacturer</a>&nbsp;manufacturer,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(de.watchmywatch.model.WatchManagment.Manufacturer,java.lang.String,de.watchmywatch.model.WatchManagment.Material,double)">Watchpart</a></span>&#8203;(<a href="Manufacturer.html" title="class in de.watchmywatch.model.WatchManagment">Manufacturer</a>&nbsp;manufacturer,
          java.lang.String&nbsp;manufacturerPartID,
-         <a href="Material.html" title="enum in de.watchmywatch.WatchManagment">Material</a>&nbsp;material,
+         <a href="Material.html" title="enum in de.watchmywatch.model.WatchManagment">Material</a>&nbsp;material,
          double&nbsp;price)</code></th>
 <td class="colLast">
 <div class="block">abstract class which is used for bracelet, casing, clockwork</div>
@@ -238,7 +238,7 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="Manufacturer.html" title="class in de.watchmywatch.WatchManagment">Manufacturer</a></code></td>
+<td class="colFirst"><code><a href="Manufacturer.html" title="class in de.watchmywatch.model.WatchManagment">Manufacturer</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getManufacturer()">getManufacturer</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -248,7 +248,7 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="Material.html" title="enum in de.watchmywatch.WatchManagment">Material</a></code></td>
+<td class="colFirst"><code><a href="Material.html" title="enum in de.watchmywatch.model.WatchManagment">Material</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMaterial()">getMaterial</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -259,7 +259,7 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setManufacturer(de.watchmywatch.WatchManagment.Manufacturer)">setManufacturer</a></span>&#8203;(<a href="Manufacturer.html" title="class in de.watchmywatch.WatchManagment">Manufacturer</a>&nbsp;manufacturer)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setManufacturer(de.watchmywatch.model.WatchManagment.Manufacturer)">setManufacturer</a></span>&#8203;(<a href="Manufacturer.html" title="class in de.watchmywatch.model.WatchManagment">Manufacturer</a>&nbsp;manufacturer)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -269,7 +269,7 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMaterial(de.watchmywatch.WatchManagment.Material)">setMaterial</a></span>&#8203;(<a href="Material.html" title="enum in de.watchmywatch.WatchManagment">Material</a>&nbsp;material)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMaterial(de.watchmywatch.model.WatchManagment.Material)">setMaterial</a></span>&#8203;(<a href="Material.html" title="enum in de.watchmywatch.model.WatchManagment">Material</a>&nbsp;material)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -316,7 +316,7 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 <ul class="blockList">
 <li class="blockList">
 <h4>manufacturer</h4>
-<pre>private&nbsp;<a href="Manufacturer.html" title="class in de.watchmywatch.WatchManagment">Manufacturer</a> manufacturer</pre>
+<pre>private&nbsp;<a href="Manufacturer.html" title="class in de.watchmywatch.model.WatchManagment">Manufacturer</a> manufacturer</pre>
 </li>
 </ul>
 <a id="manufacturerPartID">
@@ -334,7 +334,7 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 <ul class="blockList">
 <li class="blockList">
 <h4>material</h4>
-<pre>private&nbsp;<a href="Material.html" title="enum in de.watchmywatch.WatchManagment">Material</a> material</pre>
+<pre>private&nbsp;<a href="Material.html" title="enum in de.watchmywatch.model.WatchManagment">Material</a> material</pre>
 </li>
 </ul>
 <a id="amountAvailable">
@@ -365,15 +365,15 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(de.watchmywatch.WatchManagment.Manufacturer,java.lang.String,de.watchmywatch.WatchManagment.Material,double)">
+<a id="&lt;init&gt;(de.watchmywatch.model.WatchManagment.Manufacturer,java.lang.String,de.watchmywatch.model.WatchManagment.Material,double)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Watchpart</h4>
-<pre>public&nbsp;Watchpart&#8203;(<a href="Manufacturer.html" title="class in de.watchmywatch.WatchManagment">Manufacturer</a>&nbsp;manufacturer,
+<pre>public&nbsp;Watchpart&#8203;(<a href="Manufacturer.html" title="class in de.watchmywatch.model.WatchManagment">Manufacturer</a>&nbsp;manufacturer,
                  java.lang.String&nbsp;manufacturerPartID,
-                 <a href="Material.html" title="enum in de.watchmywatch.WatchManagment">Material</a>&nbsp;material,
+                 <a href="Material.html" title="enum in de.watchmywatch.model.WatchManagment">Material</a>&nbsp;material,
                  double&nbsp;price)</pre>
 <div class="block">abstract class which is used for bracelet, casing, clockwork</div>
 <dl>
@@ -401,16 +401,16 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 <ul class="blockList">
 <li class="blockList">
 <h4>getManufacturer</h4>
-<pre class="methodSignature">public&nbsp;<a href="Manufacturer.html" title="class in de.watchmywatch.WatchManagment">Manufacturer</a>&nbsp;getManufacturer()</pre>
+<pre class="methodSignature">public&nbsp;<a href="Manufacturer.html" title="class in de.watchmywatch.model.WatchManagment">Manufacturer</a>&nbsp;getManufacturer()</pre>
 </li>
 </ul>
-<a id="setManufacturer(de.watchmywatch.WatchManagment.Manufacturer)">
+<a id="setManufacturer(de.watchmywatch.model.WatchManagment.Manufacturer)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setManufacturer</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setManufacturer&#8203;(<a href="Manufacturer.html" title="class in de.watchmywatch.WatchManagment">Manufacturer</a>&nbsp;manufacturer)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setManufacturer&#8203;(<a href="Manufacturer.html" title="class in de.watchmywatch.model.WatchManagment">Manufacturer</a>&nbsp;manufacturer)</pre>
 </li>
 </ul>
 <a id="getManufacturerPartID()">
@@ -437,16 +437,16 @@ implements <a href="Validator/Validatable.html" title="interface in de.watchmywa
 <ul class="blockList">
 <li class="blockList">
 <h4>getMaterial</h4>
-<pre class="methodSignature">public&nbsp;<a href="Material.html" title="enum in de.watchmywatch.WatchManagment">Material</a>&nbsp;getMaterial()</pre>
+<pre class="methodSignature">public&nbsp;<a href="Material.html" title="enum in de.watchmywatch.model.WatchManagment">Material</a>&nbsp;getMaterial()</pre>
 </li>
 </ul>
-<a id="setMaterial(de.watchmywatch.WatchManagment.Material)">
+<a id="setMaterial(de.watchmywatch.model.WatchManagment.Material)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setMaterial</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setMaterial&#8203;(<a href="Material.html" title="enum in de.watchmywatch.WatchManagment">Material</a>&nbsp;material)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setMaterial&#8203;(<a href="Material.html" title="enum in de.watchmywatch.model.WatchManagment">Material</a>&nbsp;material)</pre>
 </li>
 </ul>
 <a id="getPrice()">

@@ -115,7 +115,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.watchmywatch.AccountManagment</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.watchmywatch.model.AccountManagment</a></div>
 <h2 title="Class TestAccount" class="title">Class TestAccount</h2>
 </div>
 <div class="contentContainer">
@@ -123,7 +123,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>de.watchmywatch.AccountManagment.TestAccount</li>
+<li>de.watchmywatch.model.AccountManagment.TestAccount</li>
 </ul>
 </li>
 </ul>
@@ -159,22 +159,22 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private <a href="Account.html" title="class in de.watchmywatch.AccountManagment">Account</a></code></td>
+<td class="colFirst"><code>private <a href="Account.html" title="class in de.watchmywatch.model.AccountManagment">Account</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#account">account</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>private <a href="../Helper/Address.html" title="class in de.watchmywatch.Helper">Address</a></code></td>
+<td class="colFirst"><code>private <a href="../Helper/Address.html" title="class in de.watchmywatch.model.Helper">Address</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#address">address</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private <a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a></code></td>
+<td class="colFirst"><code>private <a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#order">order</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>private <a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.OrderManagment">Shoppingcart</a></code></td>
+<td class="colFirst"><code>private <a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.model.OrderManagment">Shoppingcart</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shoppingcart">shoppingcart</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -277,7 +277,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>address</h4>
-<pre>private&nbsp;<a href="../Helper/Address.html" title="class in de.watchmywatch.Helper">Address</a> address</pre>
+<pre>private&nbsp;<a href="../Helper/Address.html" title="class in de.watchmywatch.model.Helper">Address</a> address</pre>
 </li>
 </ul>
 <a id="account">
@@ -286,7 +286,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>account</h4>
-<pre>private&nbsp;<a href="Account.html" title="class in de.watchmywatch.AccountManagment">Account</a> account</pre>
+<pre>private&nbsp;<a href="Account.html" title="class in de.watchmywatch.model.AccountManagment">Account</a> account</pre>
 </li>
 </ul>
 <a id="shoppingcart">
@@ -295,7 +295,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>shoppingcart</h4>
-<pre>private&nbsp;<a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.OrderManagment">Shoppingcart</a> shoppingcart</pre>
+<pre>private&nbsp;<a href="../OrderManagment/Shoppingcart.html" title="class in de.watchmywatch.model.OrderManagment">Shoppingcart</a> shoppingcart</pre>
 </li>
 </ul>
 <a id="order">
@@ -304,7 +304,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>order</h4>
-<pre>private&nbsp;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.OrderManagment">Order</a> order</pre>
+<pre>private&nbsp;<a href="../OrderManagment/Order.html" title="class in de.watchmywatch.model.OrderManagment">Order</a> order</pre>
 </li>
 </ul>
 </li>
@@ -324,10 +324,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>TestAccount</h4>
 <pre>public&nbsp;TestAccount()
-            throws <a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.Exceptions">ShoppingcartEmptyException</a></pre>
+            throws <a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.model.Exceptions">ShoppingcartEmptyException</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.Exceptions">ShoppingcartEmptyException</a></code></dd>
+<dd><code><a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.model.Exceptions">ShoppingcartEmptyException</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -384,10 +384,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>should_return_oldest_of_two_unpaid_orders_with_correct_OrderDate</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;should_return_oldest_of_two_unpaid_orders_with_correct_OrderDate()
-                                                                      throws <a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.Exceptions">ShoppingcartEmptyException</a></pre>
+                                                                      throws <a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.model.Exceptions">ShoppingcartEmptyException</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.Exceptions">ShoppingcartEmptyException</a></code></dd>
+<dd><code><a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.model.Exceptions">ShoppingcartEmptyException</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -398,10 +398,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>should_return_oldest_of_three_orders_where_two_are_unpaid_with_correct_OrderDate</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;should_return_oldest_of_three_orders_where_two_are_unpaid_with_correct_OrderDate()
-                                                                                      throws <a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.Exceptions">ShoppingcartEmptyException</a></pre>
+                                                                                      throws <a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.model.Exceptions">ShoppingcartEmptyException</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.Exceptions">ShoppingcartEmptyException</a></code></dd>
+<dd><code><a href="../Exceptions/ShoppingcartEmptyException.html" title="class in de.watchmywatch.model.Exceptions">ShoppingcartEmptyException</a></code></dd>
 </dl>
 </li>
 </ul>
