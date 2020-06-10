@@ -1,11 +1,11 @@
 package de.watchmywatch;
 
-import de.watchmywatch.AccountManagment.*;
-import de.watchmywatch.Exceptions.ShoppingcartEmptyException;
-import de.watchmywatch.OrderManagment.*;
-import de.watchmywatch.Exceptions.WatchNameNotValidException;
-import de.watchmywatch.Helper.Address;
-import de.watchmywatch.WatchManagment.*;
+import de.watchmywatch.model.AccountManagment.*;
+import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
+import de.watchmywatch.model.OrderManagment.*;
+import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
+import de.watchmywatch.model.Helper.Address;
+import de.watchmywatch.model.WatchManagment.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;

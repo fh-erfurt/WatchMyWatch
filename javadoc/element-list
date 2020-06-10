@@ -1,7 +1,7 @@
 de.watchmywatch
-de.watchmywatch.AccountManagment
-de.watchmywatch.Exceptions
-de.watchmywatch.Helper
-de.watchmywatch.OrderManagment
-de.watchmywatch.WatchManagment
-de.watchmywatch.WatchManagment.Validator
+de.watchmywatch.model.AccountManagment
+de.watchmywatch.model.Exceptions
+de.watchmywatch.model.Helper
+de.watchmywatch.model.OrderManagment
+de.watchmywatch.model.WatchManagment
+de.watchmywatch.model.WatchManagment.Validator

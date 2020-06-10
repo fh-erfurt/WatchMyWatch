@@ -115,7 +115,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.watchmywatch.Helper</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.watchmywatch.model.Helper</a></div>
 <h2 title="Class ManagerAddress" class="title">Class ManagerAddress</h2>
 </div>
 <div class="contentContainer">
@@ -123,7 +123,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>de.watchmywatch.Helper.ManagerAddress</li>
+<li>de.watchmywatch.model.Helper.ManagerAddress</li>
 </ul>
 </li>
 </ul>
@@ -159,7 +159,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private static java.util.List&lt;<a href="Address.html" title="class in de.watchmywatch.Helper">Address</a>&gt;</code></td>
+<td class="colFirst"><code>private static java.util.List&lt;<a href="Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addressList">addressList</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -209,19 +209,19 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addAddress(de.watchmywatch.Helper.Address)">addAddress</a></span>&#8203;(<a href="Address.html" title="class in de.watchmywatch.Helper">Address</a>&nbsp;address)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addAddress(de.watchmywatch.model.Helper.Address)">addAddress</a></span>&#8203;(<a href="Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&nbsp;address)</code></th>
 <td class="colLast">
 <div class="block">addAccount function</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="Address.html" title="class in de.watchmywatch.Helper">Address</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAddressList()">getAddressList</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeAddress(de.watchmywatch.Helper.Address)">removeAddress</a></span>&#8203;(<a href="Address.html" title="class in de.watchmywatch.Helper">Address</a>&nbsp;address)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeAddress(de.watchmywatch.model.Helper.Address)">removeAddress</a></span>&#8203;(<a href="Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&nbsp;address)</code></th>
 <td class="colLast">
 <div class="block">removeAccount function</div>
 </td>
@@ -265,7 +265,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>addressList</h4>
-<pre>private static&nbsp;java.util.List&lt;<a href="Address.html" title="class in de.watchmywatch.Helper">Address</a>&gt; addressList</pre>
+<pre>private static&nbsp;java.util.List&lt;<a href="Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&gt; addressList</pre>
 </li>
 </ul>
 </li>
@@ -303,17 +303,17 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getAddressList</h4>
-<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Address.html" title="class in de.watchmywatch.Helper">Address</a>&gt;&nbsp;getAddressList()</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&gt;&nbsp;getAddressList()</pre>
 </li>
 </ul>
-<a id="addAddress(de.watchmywatch.Helper.Address)">
+<a id="addAddress(de.watchmywatch.model.Helper.Address)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addAddress</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;addAddress&#8203;(<a href="Address.html" title="class in de.watchmywatch.Helper">Address</a>&nbsp;address)
-                throws <a href="../Exceptions/AddressAlreadyExistsException.html" title="class in de.watchmywatch.Exceptions">AddressAlreadyExistsException</a></pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;addAddress&#8203;(<a href="Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&nbsp;address)
+                throws <a href="../Exceptions/AddressAlreadyExistsException.html" title="class in de.watchmywatch.model.Exceptions">AddressAlreadyExistsException</a></pre>
 <div class="block">addAccount function</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -322,18 +322,18 @@ extends java.lang.Object</pre>
                 if the address is already in the list an exception will be thrown
                 if the address is null a warning will be logged</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../Exceptions/AddressAlreadyExistsException.html" title="class in de.watchmywatch.Exceptions">AddressAlreadyExistsException</a></code></dd>
+<dd><code><a href="../Exceptions/AddressAlreadyExistsException.html" title="class in de.watchmywatch.model.Exceptions">AddressAlreadyExistsException</a></code></dd>
 </dl>
 </li>
 </ul>
-<a id="removeAddress(de.watchmywatch.Helper.Address)">
+<a id="removeAddress(de.watchmywatch.model.Helper.Address)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>removeAddress</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;removeAddress&#8203;(<a href="Address.html" title="class in de.watchmywatch.Helper">Address</a>&nbsp;address)
-                   throws <a href="../Exceptions/AddressDoesNotExistsException.html" title="class in de.watchmywatch.Exceptions">AddressDoesNotExistsException</a></pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;removeAddress&#8203;(<a href="Address.html" title="class in de.watchmywatch.model.Helper">Address</a>&nbsp;address)
+                   throws <a href="../Exceptions/AddressDoesNotExistsException.html" title="class in de.watchmywatch.model.Exceptions">AddressDoesNotExistsException</a></pre>
 <div class="block">removeAccount function</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -341,7 +341,7 @@ extends java.lang.Object</pre>
                 if the address is in the list the address will be removed
                 if the address is not in the list an exception will be thrown</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../Exceptions/AddressDoesNotExistsException.html" title="class in de.watchmywatch.Exceptions">AddressDoesNotExistsException</a></code></dd>
+<dd><code><a href="../Exceptions/AddressDoesNotExistsException.html" title="class in de.watchmywatch.model.Exceptions">AddressDoesNotExistsException</a></code></dd>
 </dl>
 </li>
 </ul>
