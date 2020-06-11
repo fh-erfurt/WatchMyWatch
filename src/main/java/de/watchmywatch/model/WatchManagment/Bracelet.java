@@ -6,6 +6,8 @@ import de.watchmywatch.model.WatchManagment.Validator.Validator;
 import de.watchmywatch.model.WatchManagment.Validator.WatchpartValidator;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.logging.Logger;
 
 /**
@@ -17,6 +19,8 @@ public class Bracelet extends Watchpart implements Validatable
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private double size;
+
+    @Enumerated(EnumType.STRING)
     private ConnectionType connection;
 
     /**

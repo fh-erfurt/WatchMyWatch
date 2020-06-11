@@ -3,6 +3,8 @@ package de.watchmywatch.model.WatchManagment;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 import de.watchmywatch.model.WatchManagment.Validator.Validatable;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import java.util.logging.Logger;
@@ -20,6 +22,7 @@ public abstract class Watchpart extends DatabaseEntity implements Validatable
     //contains the ID which was given by the original manufacturer so we could order it directly when we are out of stock
     private String manufacturerPartID;
     //contains the main material of which the part consists
+    @Enumerated(EnumType.STRING)
     private Material material;
     //contains the stock we currently have
     private int amountAvailable;
