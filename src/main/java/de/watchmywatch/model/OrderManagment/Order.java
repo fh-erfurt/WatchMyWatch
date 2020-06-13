@@ -9,6 +9,7 @@ import de.watchmywatch.model.Helper.DatabaseEntity;
 
 import javax.persistence.*;
 
+
 /**
  * Class which represents an Order
  * @author Michael Hopp
@@ -28,7 +29,7 @@ public class Order extends DatabaseEntity
     private Date shipped;
 
     // TODO: Fehlt noch in DB Tabellen...
-    @ManyToOne
+    @ManyToOne(cascade= CascadeType.PERSIST)
     private Address shippingAddress;
 
     @Enumerated(EnumType.STRING)

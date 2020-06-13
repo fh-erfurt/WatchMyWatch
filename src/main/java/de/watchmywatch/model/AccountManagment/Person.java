@@ -12,6 +12,7 @@ import javax.persistence.*;
  * @author Anton Bespalov
  */
 @Entity
+@Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 public class Person extends DatabaseEntity
 {
 

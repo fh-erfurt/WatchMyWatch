@@ -8,8 +8,9 @@ import java.util.Date;
  * Parent Class that contains general fields for classes that are stored in a Database
  * @author Michael Hopp
  */
-@Entity
-@Inheritance( strategy = InheritanceType.JOINED )
+@MappedSuperclass
+//@Entity
+//@Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 public abstract class DatabaseEntity
 {
     @Id
@@ -28,7 +29,7 @@ public abstract class DatabaseEntity
 
     @PreUpdate
     void onUpdate() { this.setModified( new Date() ); }
-    
+
     public long getId() {
         return id;
     }

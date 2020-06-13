@@ -4,10 +4,7 @@ import de.watchmywatch.model.AccountManagment.Account;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 import de.watchmywatch.model.WatchManagment.Watch;
 
-import javax.persistence.Access;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
