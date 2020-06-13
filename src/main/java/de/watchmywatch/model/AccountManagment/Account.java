@@ -72,7 +72,7 @@ public class Account extends DatabaseEntity
         this.paymentMethod = PaymentMethod;
         this.accountStatus = accountStatus;
         this.shoppingCart = shoppingCart;
-        this.orders = new ArrayList<>();
+
     }
 
     /**

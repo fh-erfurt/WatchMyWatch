@@ -1,9 +1,7 @@
 package de.watchmywatch.model.OrderManagment;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.logging.Logger;
-
 import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
@@ -16,12 +14,13 @@ import javax.persistence.*;
  * @author Michael Hopp
  */
 // TODO: Wird in DB Tabellen noch nicht angelegt!
-@Entity
+@Entity(name = "Order")
+@javax.persistence.Table(name = "\"ORDER\"")
 public class Order extends DatabaseEntity
 {
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    private static final double SHIPPINGFEE = 5.90;     // Constant Shipping cost.
+  private static final double SHIPPINGFEE = 5.90;     // Constant Shipping cost.
 
     @Temporal( TemporalType.TIMESTAMP )
     private Date ordered;
@@ -41,11 +40,12 @@ public class Order extends DatabaseEntity
 
     private double total;
 
-    @OneToOne
+    @OneToOne(cascade= CascadeType.PERSIST)
     private Shoppingcart shoppingcart;
 
     @OneToOne
     private Payment payment;
+
 
     /**
      * Creates an Order Object without PaymentMethod.
@@ -53,6 +53,7 @@ public class Order extends DatabaseEntity
      * @param shoppingcart  List of watches, which shall be ordered
      * @author Michael Hopp
      */
+
     public Order(Address address, Shoppingcart shoppingcart) throws ShoppingcartEmptyException {
         checkShoppingcartEmpty(shoppingcart);
         this.ordered = new Date();

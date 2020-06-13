@@ -2,6 +2,7 @@ package de.watchmywatch.repository.exception;
 
 import de.watchmywatch.model.AccountManagment.Account;
 import de.watchmywatch.model.AccountManagment.Customer;
+import de.watchmywatch.model.OrderManagment.Order;
 import de.watchmywatch.repository.core.DataController;
 import de.watchmywatch.repository.core.IGenericDao;
 
@@ -68,6 +69,16 @@ public class JpaStorageController {
 
         // if( customer.getId() == null )
         accountDao.create( account );
+
+
+    }
+
+    public void saveOrder(Order order ) throws StorageException
+    {
+        IGenericDao<Order> accountDao = DataController.getInstance().getOrderDao();
+
+        // if( customer.getId() == null )
+        accountDao.create( order );
 
 
     }
