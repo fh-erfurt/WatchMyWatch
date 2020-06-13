@@ -1,5 +1,6 @@
 package de.watchmywatch.repository.core;
 
+import de.watchmywatch.model.AccountManagment.Account;
 import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.Helper.Address;
 
@@ -32,5 +33,9 @@ public class DataController {
     public IGenericDao<Address>getAddressDao()
     {
         return new JpaGenericDao<Address, Long>( Address.class, this.entityManagerFactory.createEntityManager() );
+    }
+    public IGenericDao<Account> getAccountDao()
+    {
+        return new JpaGenericDao<Account, Long>( Account.class,this.entityManagerFactory.createEntityManager() );
     }
 }

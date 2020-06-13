@@ -1,5 +1,6 @@
 package de.watchmywatch.repository.exception;
 
+import de.watchmywatch.model.AccountManagment.Account;
 import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.repository.core.DataController;
 import de.watchmywatch.repository.core.IGenericDao;
@@ -58,6 +59,15 @@ public class JpaStorageController {
 
            // if( customer.getId() == null )
                 customerDao.create( customer );
+
+
+    }
+    public void saveAccount(Account account ) throws StorageException
+    {
+        IGenericDao<Account> accountDao = DataController.getInstance().getAccountDao();
+
+        // if( customer.getId() == null )
+        accountDao.create( account );
 
 
     }

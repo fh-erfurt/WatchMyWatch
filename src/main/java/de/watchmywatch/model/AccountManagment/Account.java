@@ -25,20 +25,20 @@ public class Account extends DatabaseEntity
 {
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    @OneToOne
+    @OneToOne(cascade= CascadeType.PERSIST)
     private Customer customer;
 
     private String securePassword;
 
-    @ManyToOne
+    @ManyToOne(cascade= CascadeType.PERSIST)
     private Address billingAddress;
 
     private Date opened;
 
-
+    @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
 
-
+    @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
 
     @OneToOne(cascade= CascadeType.PERSIST)
