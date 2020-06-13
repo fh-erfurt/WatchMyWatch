@@ -6,6 +6,8 @@ import de.watchmywatch.model.WatchManagment.Validator.Validator;
 import de.watchmywatch.model.WatchManagment.Validator.WatchpartValidator;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.logging.Logger;
 
 /**
@@ -18,6 +20,8 @@ public class Casing extends Watchpart implements Validatable
 
     private double outerDiameter;
     private double innerDiameter;
+
+    @Enumerated(EnumType.STRING)
     private ConnectionType connection;
 
     /**
