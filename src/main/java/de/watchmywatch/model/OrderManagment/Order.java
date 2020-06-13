@@ -14,6 +14,7 @@ import javax.persistence.*;
  * Class which represents an Order
  * @author Michael Hopp
  */
+// TODO: Wird in DB Tabellen noch nicht angelegt!
 @Entity
 public class Order extends DatabaseEntity
 {
@@ -27,13 +28,14 @@ public class Order extends DatabaseEntity
     @Temporal( TemporalType.TIMESTAMP )
     private Date shipped;
 
+    // TODO: Fehlt noch in DB Tabellen...
     @ManyToOne
     private Address shippingAddress;
 
-    // TODO: Enum
+    @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
-    // TODO: Enum
+    @Enumerated(EnumType.STRING)
     private ShippingStatus shippingStatus;
 
     private double total;
@@ -44,22 +46,6 @@ public class Order extends DatabaseEntity
     @OneToOne
     private Payment payment;
 
-    // Constructor without Parameters for JPA
-    // TODO: Bleibt einfach leer?
-    public Order() {
-        this.ordered = new Date();
-        this.shipped = null;
-        this.shippingAddress = null;
-        this.orderStatus = OrderStatus.PENDING;
-        this.shippingStatus = ShippingStatus.PENDING;
-        // TODO: Kann das ohne übergebene shoppingcart noch konsistent sein?
-        this.shoppingcart = null;
-        this.total = 0.0;
-        this.payment = new Payment();
-        logger.info("New Order was created.");
-    }
-
-    // TODO: ADD Parent Constructor in Child
     /**
      * Creates an Order Object without PaymentMethod.
      * @param address       Address for shipping and billing.
@@ -98,6 +84,13 @@ public class Order extends DatabaseEntity
         this.payment = new Payment(paymentMethod);
         logger.info("New Order was created.");
     }
+
+    /**
+     * Constructor without Parameters for JPA.
+     * @author Michael Hopp
+     */
+    protected Order(){}
+
 
     /**
      * Checks if the Shoppingcart contains any Items: If not - throws ShoppingcartEmptyException
