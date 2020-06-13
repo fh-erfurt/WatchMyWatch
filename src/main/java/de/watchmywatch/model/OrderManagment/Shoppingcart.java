@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-// TODO: ADD Parent Constructor in Child
+// TODO: ADD Parent Constructor in Child?
 /**
  * Class which represents a Shoppingcart
  * @author Michael Hopp
@@ -24,7 +24,6 @@ public class Shoppingcart extends DatabaseEntity
 
     private double total;
 
-    // TODO: ArrayList durch zb. List ersetzen -> JPA meckert sonst
     @OneToMany
     private List<Watch> items = new ArrayList<>();
 

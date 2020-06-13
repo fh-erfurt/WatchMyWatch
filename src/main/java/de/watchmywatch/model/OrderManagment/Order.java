@@ -13,6 +13,7 @@ import javax.persistence.*;
  * Class which represents an Order
  * @author Michael Hopp
  */
+// TODO: Wird in DB Tabellen noch nicht angelegt!
 @Entity
 public class Order extends DatabaseEntity
 {
@@ -26,6 +27,7 @@ public class Order extends DatabaseEntity
     @Temporal( TemporalType.TIMESTAMP )
     private Date shipped;
 
+    // TODO: Fehlt noch in DB Tabellen...
     @ManyToOne
     private Address shippingAddress;
 
@@ -45,7 +47,9 @@ public class Order extends DatabaseEntity
 
     // Constructor without Parameters for JPA
     // TODO: Bleibt einfach leer?
-    public Order() {
+    public Order(){}
+    /*
+        public Order() {
         this.ordered = new Date();
         this.shipped = null;
         this.shippingAddress = null;
@@ -57,7 +61,7 @@ public class Order extends DatabaseEntity
         this.payment = new Payment();
         logger.info("New Order was created.");
     }
-
+    */
     // TODO: ADD Parent Constructor in Child
     /**
      * Creates an Order Object without PaymentMethod.

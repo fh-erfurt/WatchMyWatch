@@ -21,7 +21,7 @@ public class Payment extends DatabaseEntity
     @Temporal( TemporalType.TIMESTAMP )
     private Date datePaid;         // Date at which Payment was executed. Acts as Flag for paid or unpaid Orders.
 
-    // TODO: Enum in Datenbank
+    // TODO: Enum in Datenbank ist aktuell int
     private PaymentMethod paymentMethod;
 
     private String details;                 // Usage, Extra information, ...
