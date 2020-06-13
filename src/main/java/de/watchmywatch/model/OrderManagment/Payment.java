@@ -2,13 +2,10 @@ package de.watchmywatch.model.OrderManagment;
 
 import de.watchmywatch.model.Helper.DatabaseEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.logging.Logger;
 
-// TODO: ADD Parent Constructor in Child
 /**
  * Class which represents a Payment
  * @author Michael Hopp
@@ -21,7 +18,7 @@ public class Payment extends DatabaseEntity
     @Temporal( TemporalType.TIMESTAMP )
     private Date datePaid;         // Date at which Payment was executed. Acts as Flag for paid or unpaid Orders.
 
-    // TODO: Enum in Datenbank ist aktuell int
+    @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
 
     private String details;                 // Usage, Extra information, ...
