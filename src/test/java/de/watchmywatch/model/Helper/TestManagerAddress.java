@@ -2,11 +2,9 @@ package de.watchmywatch.model.Helper;
 
 import de.watchmywatch.model.Exceptions.AddressAlreadyExistsException;
 import de.watchmywatch.model.Exceptions.AddressDoesNotExistsException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Class which tests the functionality of ManagerAddress

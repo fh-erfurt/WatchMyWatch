@@ -4,14 +4,15 @@ import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import de.watchmywatch.model.Exceptions.AccountAlreadyExistsException;
 import de.watchmywatch.model.Exceptions.AccountDoesNotExistsException;
 import de.watchmywatch.model.Helper.Address;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 import java.util.Calendar;
 import java.util.Date;
 
 import static de.watchmywatch.model.AccountManagment.AccountStatus.*;
 import static de.watchmywatch.model.OrderManagment.PaymentMethod.*;
-import static org.junit.Assert.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

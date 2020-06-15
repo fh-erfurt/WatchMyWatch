@@ -15,7 +15,7 @@ public abstract class DatabaseEntity
 {
     @Id
     @GeneratedValue(strategy =
-            GenerationType.IDENTITY)
+            GenerationType.AUTO)
     protected Long id;
 
     @Temporal( TemporalType.TIMESTAMP )

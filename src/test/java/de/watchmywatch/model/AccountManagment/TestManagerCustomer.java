@@ -3,12 +3,13 @@ package de.watchmywatch.model.AccountManagment;
 import de.watchmywatch.model.Exceptions.CustomerAlreadyExistsException;
 import de.watchmywatch.model.Exceptions.CustomerDoesNotExistException;
 import de.watchmywatch.model.Helper.Address;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.junit.Assert.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

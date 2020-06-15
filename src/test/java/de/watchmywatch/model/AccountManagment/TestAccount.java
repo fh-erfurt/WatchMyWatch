@@ -4,7 +4,7 @@ import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.OrderManagment.Order;
 import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import de.watchmywatch.model.Helper.Address;
-import org.junit.Test;
+
 
 import static de.watchmywatch.model.AccountManagment.AccountStatus.ACTIV;
 import static de.watchmywatch.model.OrderManagment.PaymentMethod.PAYPAL;
