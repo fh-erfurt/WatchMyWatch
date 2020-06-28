@@ -32,6 +32,13 @@
             <artifactId>h2</artifactId>
         </dependency>
 
+        <!-- mysql Database -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
         <!-- JPA Provider -->
 
         <dependency>

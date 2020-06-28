@@ -8,15 +8,14 @@ import java.util.Date;
  * Parent Class that contains general fields for classes that are stored in a Database
  * @author Michael Hopp
  */
-@MappedSuperclass
-//@Entity
-//@Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
+//@MappedSuperclass
+@Entity
+@Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 public abstract class DatabaseEntity
 {
     @Id
-    @GeneratedValue(strategy =
-            GenerationType.AUTO)
-    protected Long id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer id;
 
     @Temporal( TemporalType.TIMESTAMP )
     protected Date created;
@@ -34,7 +33,7 @@ public abstract class DatabaseEntity
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

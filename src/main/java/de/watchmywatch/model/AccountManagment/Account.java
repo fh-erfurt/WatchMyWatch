@@ -44,7 +44,7 @@ public class Account extends DatabaseEntity
     @OneToOne(cascade= CascadeType.PERSIST)
     private Shoppingcart shoppingCart;
 
-    @OneToMany(cascade= CascadeType.PERSIST)
+    @OneToMany(mappedBy = "account")
     private List<Order> orders = new ArrayList<>();
 
     public Account() {
