@@ -1,5 +1,6 @@
 package de.watchmywatch.model.WatchManagment;
 
+import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.AccountManagment.Person;
 import de.watchmywatch.model.Helper.Address;
 
@@ -45,7 +46,7 @@ public class ManagerManufacturer
      * @param address       Address object of the headquarter
      * @return true - manufacturer was added / false - manufacturer was not added
      */
-    public boolean addManufacturer(String name, Person contactPerson, Address address)
+    public boolean addManufacturer(String name, Customer contactPerson, Address address)
     {
         try
         {

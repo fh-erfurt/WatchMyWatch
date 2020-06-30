@@ -19,9 +19,10 @@ public class AddressController {
     public AddressRepository addressRepository;
 
 
+
     @PostMapping(path = "/address") // Map ONLY POST Requests
     public @ResponseBody
-    String addNewAddress() {
+    String addNewAddress(Address addres) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 

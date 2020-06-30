@@ -1,5 +1,6 @@
 package de.watchmywatch.model.OrderManagment;
 
+import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.AccountManagment.Person;
 import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
@@ -8,6 +9,7 @@ import de.watchmywatch.model.WatchManagment.*;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,9 +22,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestOrder
 {
     // create some reusable objects
-    private Address address = new Address("street 2", "city", "state", "012345");
-    private Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", address,
-            "01716181447", "Anton", "Bespalov"), address);
+    Address address = new Address("street 2", "city", "state", "012345");
+    Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
+            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov",new Date(1998, Calendar.SEPTEMBER, 23)), address);
     private Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 25, 1, ConnectionType.BAND);
     private Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 25, 2, 2, ConnectionType.BAND);
     private Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 50, 2);

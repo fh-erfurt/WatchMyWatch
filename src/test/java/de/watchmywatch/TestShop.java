@@ -8,6 +8,7 @@ import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.WatchManagment.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,11 +21,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  */
 public class TestShop
 {
+
     // create some reusable objects
     Address myAddress = new Address("Grolmannstraße 13", "Erfurt", "Germany", "99085");
     Shoppingcart myShoppingcart = new Shoppingcart();
-    Manufacturer manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", myAddress,
-            "01716181447", "Anton", "Bespalov"), myAddress);
+    Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", myAddress,
+            "01716181447", "Anton", "Bespalov",new Date(1998, Calendar.SEPTEMBER, 23)), myAddress);
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 2);

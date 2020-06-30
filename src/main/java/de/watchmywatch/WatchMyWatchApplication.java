@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WatchMyWatchApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WatchMyWatchApplication.class, args);
+        SpringApplication.run(WatchMyWatchApplication.class);
     }
 
 }

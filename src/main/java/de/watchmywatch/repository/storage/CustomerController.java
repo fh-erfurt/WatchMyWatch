@@ -23,14 +23,15 @@ public class CustomerController {
     public CustomerRepository customerRepository;
 
 
+
     @PostMapping(path="/customer") // Map ONLY POST Requests
-    public @ResponseBody String addNewCustomer () {
+    public @ResponseBody String addNewCustomer (Customer custome) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
 
         Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
-        Customer customer = new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23));
+        Customer customer = new Customer("anto.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23));
 
        customerRepository.save(customer);
         return "Saved";
