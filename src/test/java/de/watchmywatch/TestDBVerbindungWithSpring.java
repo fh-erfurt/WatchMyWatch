@@ -2,8 +2,8 @@ package de.watchmywatch;
 
 import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.Helper.Address;
-import de.watchmywatch.repository.core.CustomerRepository;
-import de.watchmywatch.repository.core.MainController;
+import de.watchmywatch.repository.storage.CustomerRepository;
+import de.watchmywatch.repository.storage.CustomerController;
 import de.watchmywatch.repository.exception.StorageException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,14 +16,14 @@ public class TestDBVerbindungWithSpring<args> {
     private Address address;
     private Customer customer;
     @Autowired
-    private MainController mc;
+    private CustomerController mc;
     CustomerRepository repository;
 
     @BeforeEach
     void SetSomeData() {
         address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
         customer = new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23));
-        mc = new MainController();
+        mc = new CustomerController();
     }
 
     @Test

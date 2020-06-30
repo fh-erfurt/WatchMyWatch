@@ -15,7 +15,7 @@ public class Address extends DatabaseEntity
     private String state;
     private String zip;
 
-    public Address() {
+    public Address(){
     }
 
     /**
