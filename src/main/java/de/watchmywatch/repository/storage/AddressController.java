@@ -26,6 +26,7 @@ public class AddressController {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
+        // TODO: Testing should be done in a different file/class ...
         Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
         addressRepository.save(address);
         return "Saved";
