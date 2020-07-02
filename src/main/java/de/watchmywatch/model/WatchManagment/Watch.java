@@ -5,6 +5,7 @@ import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 import de.watchmywatch.model.WatchManagment.Validator.*;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import java.util.logging.Logger;
@@ -23,11 +24,13 @@ public class Watch extends DatabaseEntity implements Validatable
     private double price;
     private String particularity;
     //parts in the following order: Bracelet, Casing, Clockwork (if adding manually)
-    @ManyToOne
+    @ManyToOne(cascade= CascadeType.PERSIST)
     private Bracelet bracelet;
-    @ManyToOne
+
+    @ManyToOne(cascade= CascadeType.PERSIST)
     private Casing casing;
-    @ManyToOne
+
+    @ManyToOne(cascade= CascadeType.PERSIST)
     private Clockwork clockwork;
 
     //contains the maximum Fee we would charge

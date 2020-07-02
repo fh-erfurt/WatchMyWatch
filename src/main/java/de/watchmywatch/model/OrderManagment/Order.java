@@ -15,14 +15,17 @@ import javax.persistence.*;
  * Class which represents an Order
  * @author Michael Hopp
  */
-// TODO: Wird in DB Tabellen noch nicht angelegt!
-@Entity(name = "Order")
-@javax.persistence.Table(name = "\"ORDER\"")
+
+
+@Entity//(name = "Order")
+//@javax.persistence.Table(name = "\"ORDER\"")
+@Table(name="\"Order\"")
 public class Order extends DatabaseEntity
 {
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-  private static final double SHIPPINGFEE = 5.90;     // Constant Shipping cost.
+    @Transient
+    private static final double SHIPPINGFEE = 5.90;     // Constant Shipping cost.
 
     @Temporal( TemporalType.TIMESTAMP )
     private Date ordered;
@@ -30,8 +33,8 @@ public class Order extends DatabaseEntity
     @Temporal( TemporalType.TIMESTAMP )
     private Date shipped;
 
-    // TODO: Fehlt noch in DB Tabellen...
-    @ManyToOne(cascade= CascadeType.PERSIST)
+
+    @OneToOne(cascade= CascadeType.PERSIST)
     private Address shippingAddress;
 
     @Enumerated(EnumType.STRING)
@@ -45,7 +48,7 @@ public class Order extends DatabaseEntity
     @OneToOne(cascade= CascadeType.PERSIST)
     private Shoppingcart shoppingcart;
 
-    @OneToOne
+    @OneToOne(cascade= CascadeType.PERSIST)
     private Payment payment;
 
     @ManyToOne(cascade= CascadeType.PERSIST)

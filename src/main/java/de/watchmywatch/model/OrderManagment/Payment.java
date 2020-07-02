@@ -23,6 +23,7 @@ public class Payment extends DatabaseEntity
 
     private String details;                 // Usage, Extra information, ...
 
+
     /**
      * Creates an empty Payment-Object which has to be initialized by set-Methods after reaching influencing steps in the payment process.
      * @author Michael Hopp

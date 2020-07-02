@@ -3,21 +3,18 @@ package de.watchmywatch.model.WatchManagment;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 import de.watchmywatch.model.WatchManagment.Validator.Validatable;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.util.logging.Logger;
 
 /**
  * abstract class which represents a watchpart (used for bracelet,casing etc.)
  */
-@MappedSuperclass
+
 public abstract class Watchpart extends DatabaseEntity implements Validatable
 {
     private transient  Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    @ManyToOne
+    @ManyToOne(cascade= CascadeType.PERSIST)
     private Manufacturer manufacturer;
     //contains the ID which was given by the original manufacturer so we could order it directly when we are out of stock
     private String manufacturerPartID;

@@ -1,9 +1,11 @@
 package de.watchmywatch.model.WatchManagment;
 
+import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.AccountManagment.Person;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import java.util.logging.Logger;
@@ -18,9 +20,10 @@ public class Manufacturer extends DatabaseEntity
     private transient Logger logger = Logger.getLogger("Logger");
 
     private String name;
-    @ManyToOne
-    private Person contactPerson;
-    @ManyToOne
+    @ManyToOne(cascade= CascadeType.PERSIST)
+    private Customer contactPerson;
+
+    @ManyToOne(cascade= CascadeType.PERSIST)
     private Address address;
 
     /**
@@ -30,7 +33,7 @@ public class Manufacturer extends DatabaseEntity
      * @param address       Hauptadresse des Herstellers
      * @author Tom Käppler
      */
-    public Manufacturer(String name, Person contactPerson, Address address)
+    public Manufacturer(String name, Customer contactPerson, Address address)
     {
         this.name = name;
         this.contactPerson = contactPerson;
@@ -60,7 +63,7 @@ public class Manufacturer extends DatabaseEntity
         //logger.info("name was set");
     }
 
-    public void setContactPerson(Person contactPerson)
+    public void setContactPerson(Customer contactPerson)
     {
         this.contactPerson = contactPerson;
         //logger.info("contactPerson was set");

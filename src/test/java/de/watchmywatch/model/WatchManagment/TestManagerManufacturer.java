@@ -1,8 +1,12 @@
 package de.watchmywatch.model.WatchManagment;
 
+import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.AccountManagment.Person;
 import de.watchmywatch.model.Helper.Address;
 import org.junit.jupiter.api.Test;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,8 +23,8 @@ public class TestManagerManufacturer
         //Given
         ManagerManufacturer manufacturerManager = new ManagerManufacturer();
         //When
-        manufacturerManager.addManufacturer("Test", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
-                "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
+        Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
+                "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov",new Date(1998, Calendar.SEPTEMBER, 23)), address);
         //Then
         assertEquals(1, manufacturerManager.amountOfManufacturers());
         manufacturerManager.removeManufacturerByName("Test");
@@ -29,12 +33,14 @@ public class TestManagerManufacturer
     @Test
     public void should_create_two_Manufacturers_and_delete_one()
     {
+
+
         //Given
         ManagerManufacturer manufacturerManager = new ManagerManufacturer();
-        manufacturerManager.addManufacturer("Test", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
-                "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
-        manufacturerManager.addManufacturer("Test2", new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
-                "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov"), address);
+        manufacturerManager.addManufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
+                "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov",new Date(1998,Calendar.SEPTEMBER, 23)), address);
+        manufacturerManager.addManufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
+                "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov",new Date(1998,Calendar.SEPTEMBER, 23)), address);
         //When
         manufacturerManager.removeManufacturerByName("Test");
         //Then

@@ -19,7 +19,6 @@ import java.util.Date;
 
 import static de.watchmywatch.model.AccountManagment.AccountStatus.*;
 import static de.watchmywatch.model.OrderManagment.PaymentMethod.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestDBVerbindung {
 
@@ -41,8 +40,8 @@ public class TestDBVerbindung {
         customer = new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23));
         controller= new  JpaStorageController();
 
-         manufacturer = new Manufacturer("Apple", new Person("anton.bespalov@fh-erfurt.de", address,
-                "01716181447", "Anton", "Bespalov"), address);
+         manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", address,
+                "01716181447", "Anton", "Bespalov",new Date(1998, Calendar.SEPTEMBER, 23)), address);
          bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 1, ConnectionType.BAND);
          casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 2, 2, ConnectionType.BAND);
          clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 2);

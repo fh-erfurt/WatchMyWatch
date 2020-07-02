@@ -11,11 +11,12 @@ import javax.persistence.*;
  *
  * @author Anton Bespalov
  */
-@Entity
-@Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
+
+@MappedSuperclass
 public class Person extends DatabaseEntity
 {
 
+    @Column(unique=true)
     private String email;
 
     @ManyToOne(cascade= CascadeType.PERSIST)
