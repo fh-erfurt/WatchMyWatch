@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"de.watchmywatch"},{"l":"de.watchmywatch.model.AccountManagment"},{"l":"de.watchmywatch.model.Exceptions"},{"l":"de.watchmywatch.model.Helper"},{"l":"de.watchmywatch.model.OrderManagment"},{"l":"de.watchmywatch.model.WatchManagment"},{"l":"de.watchmywatch.model.WatchManagment.Validator"}]

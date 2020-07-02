@@ -2,7 +2,6 @@ package de.watchmywatch.storage;
 
 import de.watchmywatch.model.AccountManagment.Account;
 import de.watchmywatch.model.AccountManagment.Customer;
-import de.watchmywatch.model.AccountManagment.Person;
 import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.Helper.Address;

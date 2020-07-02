@@ -3,6 +3,9 @@ package de.watchmywatch.model.AccountManagment;
 import de.watchmywatch.model.Helper.Address;
 import org.junit.jupiter.api.Test;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -14,18 +17,18 @@ public class TestPerson
     @Test
     public void should_create_a_Person_with_email()
     {
-        Person person1 = new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
-                "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov");
+        Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
+        Customer customer = new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23));
 
-        assertEquals("anton.bespalov@fh-erfurt.de", person1.getEmail());
+        assertEquals("anton.bespalov@fh-erfurt.de", customer.getEmail());
     }
 
     @Test
     public void should_create_a_Person_with_phone()
     {
-        Person person1 = new Person("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
-                "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov");
+        Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
+        Customer customer = new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23));
 
-        assertEquals("01716181447", person1.getPhone());
+        assertEquals("01716181447", customer.getPhone());
     }
 }

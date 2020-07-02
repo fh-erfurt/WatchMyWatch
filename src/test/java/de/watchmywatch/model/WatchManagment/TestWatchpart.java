@@ -1,7 +1,6 @@
 package de.watchmywatch.model.WatchManagment;
 
 import de.watchmywatch.model.AccountManagment.Customer;
-import de.watchmywatch.model.AccountManagment.Person;
 import de.watchmywatch.model.Helper.Address;
 import org.junit.jupiter.api.Test;
 

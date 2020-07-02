@@ -1,7 +1,6 @@
 package de.watchmywatch.model.WatchManagment;
 
 import de.watchmywatch.model.AccountManagment.Customer;
-import de.watchmywatch.model.AccountManagment.Person;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 
@@ -47,7 +46,7 @@ public class Manufacturer extends DatabaseEntity
         return name;
     }
 
-    public Person getContactPerson()
+    public Customer getContactPerson()
     {
         return contactPerson;
     }
