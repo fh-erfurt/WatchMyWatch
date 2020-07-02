@@ -5,7 +5,6 @@ import de.watchmywatch.model.Helper.Address;
 
 import de.watchmywatch.repository.storage.AddressRepository;
 import org.junit.Assert;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;

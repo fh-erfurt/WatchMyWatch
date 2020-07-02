@@ -17,10 +17,10 @@ public class AccountController {
         // This returns a JSON or XML with the users
         return accountRepository.findAll();
     }
-
+/*
     @PostMapping(path="/create")
     public @ResponseBody void addAccount(Account account){
         accountRepository.save(account);
     }
-//HH
+*/
 }

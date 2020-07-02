@@ -1,7 +1,6 @@
 package de.watchmywatch.repository.storage;
 
 
-import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.Helper.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
