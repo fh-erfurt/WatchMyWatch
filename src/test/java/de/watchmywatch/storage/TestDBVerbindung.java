@@ -1,4 +1,4 @@
-package de.watchmywatch;
+package de.watchmywatch.storage;
 
 import de.watchmywatch.model.AccountManagment.Account;
 import de.watchmywatch.model.AccountManagment.Customer;

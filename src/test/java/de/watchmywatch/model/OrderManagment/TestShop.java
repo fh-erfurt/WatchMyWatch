@@ -1,4 +1,4 @@
-package de.watchmywatch;
+package de.watchmywatch.model.OrderManagment;
 
 import de.watchmywatch.model.AccountManagment.*;
 import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
