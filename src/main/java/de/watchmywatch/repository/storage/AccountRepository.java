@@ -1,4 +1,4 @@
-package de.watchmywatch.repository.core;
+package de.watchmywatch.repository.storage;
 
 import de.watchmywatch.model.AccountManagment.Account;
 import org.springframework.data.repository.CrudRepository;
