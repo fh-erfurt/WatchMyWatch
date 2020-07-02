@@ -25,6 +25,10 @@ public class Account extends DatabaseEntity
 {
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    @Id
+    @GeneratedValue
+    private Long id;
+
     @OneToOne(cascade= CascadeType.PERSIST)
     private Customer customer;
 
@@ -100,6 +104,14 @@ public class Account extends DatabaseEntity
         }
         return generatedPassword;
     }
+
+    /*
+    public Long getId() {
+        return this.id;
+    }
+
+    */
+
 
     /**
      * changePassword
