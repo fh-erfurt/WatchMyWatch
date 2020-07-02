@@ -50,6 +50,7 @@ public class TestShop
     //When
         // User creates new Account
         Account myAccount = new Account(
+
                 new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
                         new Date(1996, 9, 24)),
                 "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
