@@ -79,6 +79,20 @@ public class Watch extends DatabaseEntity implements Validatable
         this.price = this.bracelet.getPrice() + this.casing.getPrice() + this.clockwork.getPrice();
     }
 
+    /*
+    public Watch(int id, String name, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork) throws WatchNameNotValidException
+    {
+        super.id = id;
+        checkWatchName(name);
+        this.name = name;
+        this.particularity = particularity;
+        this.bracelet = bracelet;
+        this.casing = casing;
+        this.clockwork = clockwork;
+        this.price = this.bracelet.getPrice() + this.casing.getPrice() + this.clockwork.getPrice();
+    }
+    */
+
     protected Watch(){}
 
     /**
