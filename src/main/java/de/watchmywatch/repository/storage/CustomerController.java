@@ -25,7 +25,7 @@ public class CustomerController {
 
 
     @PostMapping(path="/customer") // Map ONLY POST Requests
-    public @ResponseBody String addNewCustomer (@PathVariable String name,@PathVariable String email) {
+    public @ResponseBody String addNewCustomer (@RequestParam String name,@RequestParam String email) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
