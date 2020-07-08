@@ -5,6 +5,7 @@ import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.WatchManagment.*;
+import de.watchmywatch.repository.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -24,75 +25,70 @@ public class WatchController {
     public WatchRepository watchRepository;
 
     //define helper findByIDs
-    public Optional<Bracelet> findBraceletById(Long id) {
+    public Optional<Bracelet> findBraceletById(int id) {
         return watchRepository.findBraceletById(id);
     }
 
-    public Optional<Casing> findCasingById(Long id) {
+    public Optional<Casing> findCasingById(int id) {
         return watchRepository.findCasingById(id);
     }
 
-    public Optional<Clockwork> findClockworkById(Long id) {
+    public Optional<Clockwork> findClockworkById(int id) {
         return watchRepository.findClockworkById(id);
     }
 
     // GET /api/watches returns all watches
-    @GetMapping(path = "/watches")
+    @GetMapping("/watches")
     public @ResponseBody
     Iterable<Watch> getAllWatches() {
         return watchRepository.findAll();
     }
 
     // GET /api/watches/:id returns watch with id
-    @GetMapping(value = "/watches/{watchId}")
+    @GetMapping("/watches/{id}")
     public @ResponseBody
-    Optional<Watch> getOneCustomer(@PathVariable Integer watchId) {
-        return watchRepository.findById(watchId);
+    Watch getOneCustomer(@PathVariable Integer id) {
+        return watchRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("watch", id));
     }
 
-    // POST /api/watches adds a watch to db
-    @PostMapping(path = "/watches")
+    // POST /api/watches creates a watch in the database and returns it
+    @PostMapping("/watches")
     public @ResponseBody
-    String addNewWatch(@RequestParam String name, @RequestParam String particularity
-            /*, @RequestParam long bracelet_id, @RequestParam long casing_id, @RequestParam long clockwork_id*/) throws ShoppingcartEmptyException, WatchNameNotValidException {
-        Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
-        Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", address,
-                "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23)), address);
-        Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 1, ConnectionType.BAND);
-        Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 2, 2, ConnectionType.BAND);
-        Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 2);
-
-        Watch watch = new Watch(name, particularity, bracelet, casing, clockwork);
-
-        watchRepository.save(watch);
-        return "Saved";
+    Watch addNewWatch(@RequestBody Watch watch) {
+        return watchRepository.save(watch);
     }
 
-    @PutMapping(path = "/watches/{watchId}")
+    // PUT /api/watches updates the watch with the id
+    @PutMapping("/watches/{id}")
     public @ResponseBody
-    String updateWatch(@PathVariable Integer watchId,@RequestParam String name, @RequestParam String particularity
-            /*, @RequestParam long bracelet_id, @RequestParam long casing_id, @RequestParam long clockwork_id*/) throws ShoppingcartEmptyException, WatchNameNotValidException {
-        Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
-        Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", address,
-                "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23)), address);
-        Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 1, ConnectionType.BAND);
-        Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 2, 2, ConnectionType.BAND);
-        Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 2);
-
-        Watch watch = new Watch(name, particularity, bracelet, casing, clockwork);
-
-        watchRepository.save(watch);
-        return "Updated";
+    Watch updateWatch(@PathVariable Integer id, @RequestBody Watch newWatch) {
+        return watchRepository.findById(id)
+                .map(watch -> {
+                    try {
+                        watch.setName(newWatch.getName());
+                    } catch (WatchNameNotValidException e) {
+                        e.printStackTrace();
+                    }
+                    watch.setParticularity(newWatch.getParticularity());
+                    watch.setBracelet(newWatch.getBracelet());
+                    watch.setCasing(newWatch.getCasing());
+                    watch.setClockwork(newWatch.getClockwork());
+                    return watchRepository.save(watch);
+                })
+                .orElseGet(() -> {
+                    newWatch.setId(id);
+                    return watchRepository.save(newWatch);
+                });
     }
 
-    @DeleteMapping(path = "/watches/{watchId}")
+    // DELETE /api/watches/:id deletes the watch with id
+    @DeleteMapping(path = "/watches/{id}")
     public @ResponseBody
-    String updateWatch(@PathVariable Integer watchId) {
-        watchRepository.deleteById(watchId);
+    String updateWatch(@PathVariable Integer id) {
+        watchRepository.deleteById(id);
         return "Deleted";
     }
-
-
 }
 
 

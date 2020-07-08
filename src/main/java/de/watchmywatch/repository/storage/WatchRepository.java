@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
 public interface WatchRepository extends CrudRepository<Watch, Integer> {
-    Optional<Bracelet> findBraceletById(Long id);
-    Optional<Casing> findCasingById(Long id);
-    Optional<Clockwork> findClockworkById(Long id);
+    Optional<Bracelet> findBraceletById(int id);
+    Optional<Casing> findCasingById(int id);
+    Optional<Clockwork> findClockworkById(int id);
 }
