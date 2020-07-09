@@ -71,9 +71,9 @@ public class WatchController {
                         e.printStackTrace();
                     }
                     watch.setParticularity(newWatch.getParticularity());
-                    watch.setBracelet(newWatch.getBracelet());
-                    watch.setCasing(newWatch.getCasing());
-                    watch.setClockwork(newWatch.getClockwork());
+                    //watch.setBracelet(newWatch.getBracelet());
+                    //watch.setCasing(newWatch.getCasing());
+                    //watch.setClockwork(newWatch.getClockwork());
                     return watchRepository.save(watch);
                 })
                 .orElseGet(() -> {
