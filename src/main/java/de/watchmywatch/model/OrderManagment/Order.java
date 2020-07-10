@@ -61,7 +61,6 @@ public class Order extends DatabaseEntity
      * @param shoppingcart  List of watches, which shall be ordered
      * @author Michael Hopp
      */
-
     public Order(Address address, Shoppingcart shoppingcart) throws ShoppingcartEmptyException {
         checkShoppingcartEmpty(shoppingcart);
         this.ordered = new Date();
@@ -70,7 +69,7 @@ public class Order extends DatabaseEntity
         this.orderStatus = OrderStatus.PENDING;
         this.shippingStatus = ShippingStatus.PENDING;
         this.shoppingcart = shoppingcart;
-        this.total = shoppingcart.getTotal() + SHIPPINGFEE;
+        this.calcTotal();
         this.payment = new Payment();
         logger.info("New Order was created.");
     }
@@ -90,7 +89,7 @@ public class Order extends DatabaseEntity
         this.orderStatus = OrderStatus.PENDING;
         this.shippingStatus = ShippingStatus.PENDING;
         this.shoppingcart = shoppingcart;
-        this.total = shoppingcart.getTotal() + SHIPPINGFEE;
+        this.calcTotal();
         this.payment = new Payment(paymentMethod);
         logger.info("New Order was created.");
     }
@@ -115,8 +114,9 @@ public class Order extends DatabaseEntity
         }
     }
 
-    public void setShoppingcart(Shoppingcart shoppingcart) {
-    this.shoppingcart = shoppingcart;
+    public void setShoppingcart(Shoppingcart shoppingcart){
+        this.shoppingcart = shoppingcart;
+        this.calcTotal();
 }
     public Date getOrderDate()
     {

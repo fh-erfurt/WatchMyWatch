@@ -43,6 +43,8 @@ public class Shoppingcart extends DatabaseEntity
         return items;
     }
 
+    public void setItems(List<Watch> items) { this.items = items; }
+
     /**
      * Calculates the sum of prices in items and sets it as total.
      * Default = 0.0
