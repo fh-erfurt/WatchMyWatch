@@ -4,6 +4,7 @@ import de.watchmywatch.model.WatchManagment.Validator.BraceletValidator;
 import de.watchmywatch.model.WatchManagment.Validator.Validatable;
 import de.watchmywatch.model.WatchManagment.Validator.Validator;
 import de.watchmywatch.model.WatchManagment.Validator.WatchpartValidator;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -18,8 +19,10 @@ public class Bracelet extends Watchpart implements Validatable
 {
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    @ApiModelProperty(notes = "The size of the bracelet.")
     private double size;
 
+    @ApiModelProperty(notes = "The connectionType which will be used to connect to the watch.")
     @Enumerated(EnumType.STRING)
     private ConnectionType connection;
 

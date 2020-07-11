@@ -4,6 +4,7 @@ import de.watchmywatch.model.WatchManagment.Validator.ClockworkValidator;
 import de.watchmywatch.model.WatchManagment.Validator.Validatable;
 import de.watchmywatch.model.WatchManagment.Validator.Validator;
 import de.watchmywatch.model.WatchManagment.Validator.WatchpartValidator;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Entity;
 import java.util.logging.Logger;
@@ -16,6 +17,7 @@ public class Clockwork extends Watchpart implements Validatable
 {
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    @ApiModelProperty(notes = "The diameter of the clockwork (needs to fit into casing.innerDiameter).")
     private double diameter;
 
     /**

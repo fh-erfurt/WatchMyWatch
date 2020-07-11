@@ -4,6 +4,7 @@ import de.watchmywatch.model.WatchManagment.Validator.CasingValidator;
 import de.watchmywatch.model.WatchManagment.Validator.Validatable;
 import de.watchmywatch.model.WatchManagment.Validator.Validator;
 import de.watchmywatch.model.WatchManagment.Validator.WatchpartValidator;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -18,9 +19,12 @@ public class Casing extends Watchpart implements Validatable
 {
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    @ApiModelProperty(notes = "The outerDiameter of the casing.")
     private double outerDiameter;
+    @ApiModelProperty(notes = "The innerDiameter of the casing (space for the clockwork)")
     private double innerDiameter;
 
+    @ApiModelProperty(notes = "The connectionType which will be used to connect to the watch.")
     @Enumerated(EnumType.STRING)
     private ConnectionType connection;
 

@@ -4,6 +4,7 @@ package de.watchmywatch.model.WatchManagment;
 import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 import de.watchmywatch.model.WatchManagment.Validator.*;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -20,16 +21,25 @@ public class Watch extends DatabaseEntity implements Validatable
 {
     private transient  Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    @ApiModelProperty(notes = "The user given name of the watch.")
     private String name;
+
+    @ApiModelProperty(notes = "The calculated price of the watch.")
     private double price;
+
+    @ApiModelProperty(notes = "The user given particularity of the watch.")
     private String particularity;
+
     //parts in the following order: Bracelet, Casing, Clockwork (if adding manually)
+    @ApiModelProperty(notes = "The bracelet of the watch.")
     @ManyToOne(cascade= CascadeType.PERSIST)
     private Bracelet bracelet;
 
+    @ApiModelProperty(notes = "The casing of the watch.")
     @ManyToOne(cascade= CascadeType.PERSIST)
     private Casing casing;
 
+    @ApiModelProperty(notes = "The clockwork of the watch.")
     @ManyToOne(cascade= CascadeType.PERSIST)
     private Clockwork clockwork;
 

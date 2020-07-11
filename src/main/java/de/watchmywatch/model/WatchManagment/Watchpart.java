@@ -2,6 +2,7 @@ package de.watchmywatch.model.WatchManagment;
 
 import de.watchmywatch.model.Helper.DatabaseEntity;
 import de.watchmywatch.model.WatchManagment.Validator.Validatable;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.util.logging.Logger;
@@ -14,16 +15,25 @@ public abstract class Watchpart extends DatabaseEntity implements Validatable
 {
     private transient  Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    @ApiModelProperty(notes = "The manufacturer of the part.")
     @ManyToOne(cascade= CascadeType.PERSIST)
     private Manufacturer manufacturer;
+
     //contains the ID which was given by the original manufacturer so we could order it directly when we are out of stock
+    @ApiModelProperty(notes = "The manufacturerPartId which was given originally by the manufacturer.")
     private String manufacturerPartID;
+
     //contains the main material of which the part consists
+    @ApiModelProperty(notes = "The main material of which the part consists.")
     @Enumerated(EnumType.STRING)
     private Material material;
+
     //contains the stock we currently have
+    @ApiModelProperty(notes = "The current stock of this part.")
     private int amountAvailable;
+    
     //contains price which the part alone costs
+    @ApiModelProperty(notes = "The price of this part.")
     private double price;
 
     /**

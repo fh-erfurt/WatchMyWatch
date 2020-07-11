@@ -1,5 +1,6 @@
 package de.watchmywatch.model.Helper;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -14,14 +15,16 @@ import java.util.Date;
 //@Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 public abstract class DatabaseEntity
 {
+    @ApiModelProperty(notes = "The database generated ID.")
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-
     protected Integer id;
 
+    @ApiModelProperty(notes = "The date of creation.")
     @Temporal( TemporalType.TIMESTAMP )
     protected Date created;
 
+    @ApiModelProperty(notes = "The date of the last update.")
     @Temporal( TemporalType.TIMESTAMP )
     protected Date modified;
 

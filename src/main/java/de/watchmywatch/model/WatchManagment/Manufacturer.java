@@ -3,6 +3,7 @@ package de.watchmywatch.model.WatchManagment;
 import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -18,10 +19,14 @@ public class Manufacturer extends DatabaseEntity
 {
     private transient Logger logger = Logger.getLogger("Logger");
 
+    @ApiModelProperty(notes = "The name of the manufacturer.")
     private String name;
+
+    @ApiModelProperty(notes = "The contact person of this manufacturer.")
     @ManyToOne(cascade= CascadeType.PERSIST)
     private Customer contactPerson;
 
+    @ApiModelProperty(notes = "The address of the manufacturer.")
     @ManyToOne(cascade= CascadeType.PERSIST)
     private Address address;
 
