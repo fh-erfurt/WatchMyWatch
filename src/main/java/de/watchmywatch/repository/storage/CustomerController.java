@@ -51,9 +51,33 @@ public class CustomerController {
         return customerRepository.findById(customerId);
     }
 
+    // PUT /api/customers/:id updates the customer with the id
+    @PutMapping("/customers/{id}")
+    public @ResponseBody
+    Customer updateCustomer(@PathVariable Integer id, @RequestBody Customer newCustomer) {
+        return customerRepository.findById(id)
+                .map(customer -> {
+              customer.setAddress(newCustomer.getAddress());
+              customer.setDob(newCustomer.getDob());
+              customer.setEmail(newCustomer.getEmail());
+              customer.setFirstname(newCustomer.getFirstname());
+              customer.setLastname(newCustomer.getLastname());
+              customer.setPhone(newCustomer.getPhone());
+              return customerRepository.save(customer);
+                })
+                .orElseGet(() -> {
+                    newCustomer.setId(id);
+                    return customerRepository.save(newCustomer);
+                });
+    }
 
-
-
+    // DELETE /api/customers/:id deletes the customer with id
+    @DeleteMapping("/customers/{id}")
+    public @ResponseBody
+    String deleteCustomer(@PathVariable int id) {
+        customerRepository.deleteById(id);
+        return "Deleted";
+    }
 
 }
 

@@ -2,6 +2,7 @@ package de.watchmywatch.repository.storage;
 
 
 import de.watchmywatch.model.Helper.Address;
+import de.watchmywatch.model.OrderManagment.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,6 +52,28 @@ public class AddressController {
         model.addAttribute("name",name);
         return "greeting";
     }
-
-
+    // PUT /api/addresses/:id updates the addresses with the id
+    @PutMapping("/addresses/{id}")
+    public @ResponseBody
+    Address updateAddress(@PathVariable Integer id, @RequestBody Address newAddress) {
+        return addressRepository.findById(id)
+                .map(address -> {
+           address.setCity(newAddress.getCity());
+           address.setState(newAddress.getState());
+           address.setStreet(newAddress.getStreet());
+           address.setZip(newAddress.getZip());
+                    return addressRepository.save(address);
+                })
+                .orElseGet(() -> {
+                    newAddress.setId(id);
+                    return addressRepository.save(newAddress);
+                });
+    }
+    // DELETE /api/addresses/:id deletes the address with id
+    @DeleteMapping("/addresses/{id}")
+    public @ResponseBody
+    String deleteAddress(@PathVariable int id) {
+        addressRepository.deleteById(id);
+        return "Deleted";
+    }
 }
