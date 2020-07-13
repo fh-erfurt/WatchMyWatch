@@ -57,10 +57,15 @@ public class Watch extends DatabaseEntity implements Validatable
      * @param particularity (Einzigartigkeit)
      * @author Tom Käppler
      */
-    public Watch(String name, String particularity) throws WatchNameNotValidException
+    public Watch(String name, String particularity)
     {
-        checkWatchName(name);
         this.name = name;
+        try{
+            checkWatchName(name);
+        }
+        catch (WatchNameNotValidException e) {
+            this.name = "InvalidName";
+        }
         this.price = 0;
         this.particularity = particularity;
         this.bracelet = null;
@@ -78,10 +83,15 @@ public class Watch extends DatabaseEntity implements Validatable
      * @param clockwork clockwork of the watch
      * @author Tom Käppler
      */
-    public Watch(String name, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork) throws WatchNameNotValidException
+    public Watch(String name, String particularity, Bracelet bracelet, Casing casing, Clockwork clockwork)
     {
-        checkWatchName(name);
         this.name = name;
+        try{
+            checkWatchName(name);
+        }
+        catch (WatchNameNotValidException e) {
+            this.name = "InvalidName";
+        }
         this.particularity = particularity;
         this.bracelet = bracelet;
         this.casing = casing;
@@ -124,10 +134,15 @@ public class Watch extends DatabaseEntity implements Validatable
         return name;
     }
 
-    public void setName(String name) throws WatchNameNotValidException
+    public void setName(String name)
     {
-        checkWatchName(name);
         this.name = name;
+        try{
+            checkWatchName(name);
+        }
+        catch (WatchNameNotValidException e) {
+            this.name = "InvalidName";
+        }
     }
 
     /**
