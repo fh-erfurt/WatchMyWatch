@@ -17,39 +17,38 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * class which tests the integration of subsystems AccountManagement, OrderManagement and WatchManagement
+ *
  * @author Michael Hopp, Tom Käppler
  */
-public class TestShop
-{
+public class TestShop {
 
     // create some reusable objects
     Address myAddress = new Address("Grolmannstraße 13", "Erfurt", "Germany", "99085");
     Shoppingcart myShoppingcart = new Shoppingcart();
     Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", myAddress,
-            "01716181447", "Anton", "Bespalov",new Date(1998, Calendar.SEPTEMBER, 23)), myAddress);
-    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 1, ConnectionType.BAND);
-    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 2);
+            "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23)), myAddress);
+    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 100, 1, ConnectionType.BAND);
+    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 100, 2, 2, ConnectionType.BAND);
+    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 100, 2);
     Watch testWatch1 = new Watch("Swatch1", "Test1", bracelet, casing, clockwork);
     Watch testWatch2 = new Watch("Swatch2", "Test2", bracelet, casing, clockwork);
 
-    public TestShop() throws WatchNameNotValidException
-    {
+    public TestShop() throws WatchNameNotValidException {
     }
 
     /**
      * Use Case: New User wants to buy a predefined Watch.
      * User signs up at our shop, puts a predefined watch into his*her shoppingcart, checks out and we receive the payment, whereby the Order is completed.
+     *
      * @author Michael Hopp
      */
     @Test
-    public void happy_path() throws WatchNameNotValidException, ShoppingcartEmptyException
-    {
-    //Given
+    public void happy_path() throws WatchNameNotValidException, ShoppingcartEmptyException {
+        //Given
         // The desired watch
         Watch watch1 = new Watch("SweetRolex", "Attributes: +2 Handshaking, +3 Intimidation",
                 bracelet, casing, clockwork);
-    //When
+        //When
         // User creates new Account
         Account myAccount = new Account(
 
@@ -66,7 +65,7 @@ public class TestShop
         Order oldestUnpaidOrder = myAccount.getOldestUnpaidOrder();
         boolean success = oldestUnpaidOrder.pay();
 
-    //Then
+        //Then
         assertTrue(success);
         assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
     }
@@ -79,10 +78,9 @@ public class TestShop
      * @author Tom Käppler
      */
     @Test
-    public void quite_happy_path_() throws ShoppingcartEmptyException
-    {
-    //Given
-    //When
+    public void quite_happy_path_() throws ShoppingcartEmptyException {
+        //Given
+        //When
         // User creates new Account
         Account myAccount = new Account(
                 new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
@@ -101,7 +99,7 @@ public class TestShop
         Order oldestUnpaidOrder = myAccount.getOldestUnpaidOrder();
         boolean success = oldestUnpaidOrder.pay();
 
-    //Then
+        //Then
         assertTrue(success);
         assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
     }
@@ -113,10 +111,9 @@ public class TestShop
      * @author Tom Käppler
      */
     @Test
-    public void not_happy_path_()
-    {
-    //Given
-    //When
+    public void not_happy_path_() {
+        //Given
+        //When
         // User creates new Account
         Account myAccount = new Account(
                 new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
@@ -127,7 +124,7 @@ public class TestShop
         // User removes one watch
         myAccount.getShoppingCart().removeWatch(testWatch1);
         // User checks out
-    //Then
+        //Then
         assertThrows(ShoppingcartEmptyException.class, () ->
         {
             Order myOrder = new Order(myAccount.getCustomer().getAddress(), myAccount.getShoppingCart());

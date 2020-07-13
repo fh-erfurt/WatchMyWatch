@@ -10,7 +10,8 @@ import java.util.logging.Logger;
 /**
  * abstract class which represents a watchpart (used for bracelet,casing etc.)
  */
-
+@MappedSuperclass
+@Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 public abstract class Watchpart extends DatabaseEntity implements Validatable
 {
     private transient  Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -46,16 +47,25 @@ public abstract class Watchpart extends DatabaseEntity implements Validatable
      * @param price price of the part itself
      */
     public Watchpart(Manufacturer manufacturer, String manufacturerPartID,
-                        Material material, double price)
+                        Material material, double price, int amountAvailable)
     {
         this.manufacturer = manufacturer;
         this.manufacturerPartID = manufacturerPartID;
         this.material = material;
         this.price = price;
+        this.amountAvailable = amountAvailable;
     }
 
     protected Watchpart(){
 
+    }
+
+    public int getAmountAvailable() {
+        return amountAvailable;
+    }
+
+    public void setAmountAvailable(int amountAvailable) {
+        this.amountAvailable = amountAvailable;
     }
 
     public Manufacturer getManufacturer()

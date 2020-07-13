@@ -42,7 +42,7 @@ public class AccountController {
         accountRepository.save(account);
         return "banana";
     }
-    @GetMapping(value="/accounts/{accountId}")
+    @GetMapping(value="/accounts/{id}")
     public @ResponseBody
     Optional<Account> getOneCustomer(@PathVariable Integer  accountId) {
         // This returns a JSON or XML with the one user

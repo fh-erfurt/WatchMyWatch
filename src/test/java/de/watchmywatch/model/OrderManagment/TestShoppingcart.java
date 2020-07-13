@@ -14,27 +14,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Class which tests the functionality of Shoppingcart
+ *
  * @author Michael Hopp
  */
-public class TestShoppingcart
-{
+public class TestShoppingcart {
     // create some reusable objects
     Address address = new Address("street", "city", "state", "zip");
     Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
-            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov",new Date(1998, Calendar.SEPTEMBER, 23)), address);
-    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 25, 1, ConnectionType.BAND);
-    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 25, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 50, 2);
+            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23)), address);
+    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 25, 100, 1, ConnectionType.BAND);
+    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 25, 100, 2, 2, ConnectionType.BAND);
+    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 50, 100, 2);
     Watch watch = new Watch("Swatch", "Test", bracelet, casing, clockwork);
 
 
-    public TestShoppingcart() throws WatchNameNotValidException
-    {
+    public TestShoppingcart() throws WatchNameNotValidException {
     }
 
     @Test
-    public void should_return_zero_as_total_for_new_shoppingcart()
-    {
+    public void should_return_zero_as_total_for_new_shoppingcart() {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         // When
@@ -44,8 +42,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_add_a_watch_to_shoppingcart()
-    {
+    public void should_add_a_watch_to_shoppingcart() {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         // When
@@ -58,8 +55,7 @@ public class TestShoppingcart
 
 
     @Test
-    public void should_remove_a_watch_from_shoppingcart()
-    {
+    public void should_remove_a_watch_from_shoppingcart() {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         shoppingcart.addWatch(watch);
@@ -76,8 +72,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_remove_only_one_of_multiple_identical_watches_from_shoppingcart()
-    {
+    public void should_remove_only_one_of_multiple_identical_watches_from_shoppingcart() {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         shoppingcart.addWatch(watch);
@@ -89,8 +84,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_remove_all_occurrences_of_given_watch_from_shoppingcart()
-    {
+    public void should_remove_all_occurrences_of_given_watch_from_shoppingcart() {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         shoppingcart.addWatch(watch);
@@ -108,8 +102,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_remove_the_two_occurrences_of_given_watch_from_shoppingcart()
-    {
+    public void should_remove_the_two_occurrences_of_given_watch_from_shoppingcart() {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         shoppingcart.addWatch(watch);
@@ -121,8 +114,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_110_as_new_total_for_shoppingcart() throws WatchNameNotValidException
-    {
+    public void should_return_110_as_new_total_for_shoppingcart() throws WatchNameNotValidException {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         Watch watch1 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
@@ -135,8 +127,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_zero_as_new_total_for_shoppingcart() throws WatchNameNotValidException
-    {
+    public void should_return_zero_as_new_total_for_shoppingcart() throws WatchNameNotValidException {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         Watch watch1 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
@@ -149,8 +140,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_220_as_new_total_for_shoppingcart() throws WatchNameNotValidException
-    {
+    public void should_return_220_as_new_total_for_shoppingcart() throws WatchNameNotValidException {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         Watch watch1 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
@@ -165,12 +155,11 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_330_as_new_total_for_shoppingcart() throws WatchNameNotValidException
-    {
+    public void should_return_330_as_new_total_for_shoppingcart() throws WatchNameNotValidException {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         Watch watch1 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
-        Clockwork clockwork1 = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 250, 2);
+        Clockwork clockwork1 = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 250, 100, 2);
         Watch watch2 = new Watch("Swatch", "Test", bracelet, casing, clockwork1);
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch1);
@@ -182,12 +171,11 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_440_as_new_total_for_shoppingcart() throws WatchNameNotValidException
-    {
+    public void should_return_440_as_new_total_for_shoppingcart() throws WatchNameNotValidException {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         Watch watch1 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
-        Clockwork clockwork1 = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 250, 2);
+        Clockwork clockwork1 = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 250, 100, 2);
         Watch watch2 = new Watch("Swatch", "Test", bracelet, casing, clockwork1);
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch1);
@@ -199,8 +187,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_empty_shoppingcart_completely()
-    {
+    public void should_empty_shoppingcart_completely() {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         shoppingcart.addWatch(watch);
@@ -213,8 +200,7 @@ public class TestShoppingcart
     }
 
     @Test
-    public void should_return_zero_as_total_after_clearing_shoppingcart()
-    {
+    public void should_return_zero_as_total_after_clearing_shoppingcart() {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         shoppingcart.addWatch(watch);   // Add a couple of watches

@@ -16,29 +16,25 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * class which tests the functionality of Watch
  */
-public class TestWatch
-{
+public class TestWatch {
     //create some reusable objects
     Address address = new Address("street", "city", "state", "zip");
     Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
-            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov",new Date(1998,Calendar.SEPTEMBER, 23)), address);
-    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 2, 1, ConnectionType.BAND);
-    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 2, 2);
+            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23)), address);
+    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 2, 100, 1, ConnectionType.BAND);
+    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 100, 2, 2, ConnectionType.BAND);
+    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 100, 2, 2);
 
-    private String create141characterString()
-    {
+    private String create141characterString() {
         String string = "";
-        for (int i = 0; i < 141; ++i)
-        {
+        for (int i = 0; i < 141; ++i) {
             string += "a";
         }
         return string;
     }
 
     @Test
-    public void should_create_a_valid_watch() throws WatchNameNotValidException
-    {
+    public void should_create_a_valid_watch() throws WatchNameNotValidException {
         //Given
 
         // When
@@ -49,8 +45,7 @@ public class TestWatch
 
     @ParameterizedTest
     @ValueSource(strings = {" ", "!", "\"", "§", "$", "%", "&", "/", "(", ")", "=", "?", "´", "`", "*", "+", "'", "#", ";", ",", "_", "~", "@", "€", "[", "]", "{", "}"})
-    void should_throw_nameException_with_not_allowed_chars(String testString) throws WatchNameNotValidException
-    {
+    void should_throw_nameException_with_not_allowed_chars(String testString) throws WatchNameNotValidException {
         assertThrows(WatchNameNotValidException.class, () ->
         {
             Watch watch = new Watch(testString, "Test", bracelet, casing, clockwork);
@@ -58,8 +53,7 @@ public class TestWatch
     }
 
     @Test
-    void should_throw_nameException_with_empty_name() throws WatchNameNotValidException
-    {
+    void should_throw_nameException_with_empty_name() throws WatchNameNotValidException {
         assertThrows(WatchNameNotValidException.class, () ->
         {
             Watch watch = new Watch("", "Test", bracelet, casing, clockwork);
@@ -67,8 +61,7 @@ public class TestWatch
     }
 
     @Test
-    void should_throw_nameException_with_name_longer_140() throws WatchNameNotValidException
-    {
+    void should_throw_nameException_with_name_longer_140() throws WatchNameNotValidException {
         assertThrows(WatchNameNotValidException.class, () ->
         {
             Watch watch = new Watch(create141characterString(), "Test", bracelet, casing, clockwork);
@@ -76,8 +69,7 @@ public class TestWatch
     }
 
     @Test
-    public void should_create_a_non_valid_watch_with_no_parts() throws WatchNameNotValidException
-    {
+    public void should_create_a_non_valid_watch_with_no_parts() throws WatchNameNotValidException {
         //Given
         //When
         Watch watch = new Watch("Swatch", "Test");
@@ -86,28 +78,25 @@ public class TestWatch
     }
 
     @Test
-    public void should_create_a_non_valid_watch_price_smaller_zero_without_fee() throws WatchNameNotValidException
-    {
+    public void should_create_a_non_valid_watch_price_smaller_zero_without_fee() throws WatchNameNotValidException {
         //Given
         //When
-        Watch watch = new Watch("Swatch", "Test", new Bracelet(manufacturer, "part1", Material.ALUMINIUM, -200, 1, ConnectionType.BAND), casing, clockwork);
+        Watch watch = new Watch("Swatch", "Test", new Bracelet(manufacturer, "part1", Material.ALUMINIUM, -200, 100, 1, ConnectionType.BAND), casing, clockwork);
         //Then
         assertEquals(false, watch.validate());
     }
 
     @Test
-    public void should_create_a_non_valid_watch_price_equal_zero_without_fee() throws WatchNameNotValidException
-    {
+    public void should_create_a_non_valid_watch_price_equal_zero_without_fee() throws WatchNameNotValidException {
         //Given
         //When
-        Watch watch = new Watch("Swatch", "Test", new Bracelet(manufacturer, "part1", Material.ALUMINIUM, -4, 1, ConnectionType.BAND), casing, clockwork);
+        Watch watch = new Watch("Swatch", "Test", new Bracelet(manufacturer, "part1", Material.ALUMINIUM, -4, 100, 1, ConnectionType.BAND), casing, clockwork);
         //Then
         assertEquals(false, watch.validate());
     }
 
     @Test
-    public void should_check_fee_calculation_for_under_2000euro() throws WatchNameNotValidException
-    {
+    public void should_check_fee_calculation_for_under_2000euro() throws WatchNameNotValidException {
         //Given
         //When
         Watch watch = new Watch("Swatch", "Test");
@@ -117,8 +106,7 @@ public class TestWatch
     }
 
     @Test
-    public void should_check_fee_calculation_for_over_2000euro() throws WatchNameNotValidException
-    {
+    public void should_check_fee_calculation_for_over_2000euro() throws WatchNameNotValidException {
         //Given
         //When
         Watch watch = new Watch("Swatch", "Test");

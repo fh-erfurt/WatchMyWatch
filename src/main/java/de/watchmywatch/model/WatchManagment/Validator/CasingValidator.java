@@ -42,6 +42,7 @@ public class CasingValidator implements Validator
             }
             if (casing.getConnection() == null)
             {
+                logger.warning(casing.getConnection().toString());
                 logger.warning("casing connection cant be null");
                 return false;
             }

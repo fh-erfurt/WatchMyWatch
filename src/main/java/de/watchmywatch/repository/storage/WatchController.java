@@ -31,7 +31,9 @@ public class WatchController {
     // POST /api/watches creates a watch in the database and returns it
     @PostMapping(path = "/watches", produces = "application/json")
     public @ResponseBody
-    Watch addNewWatch(@RequestBody Watch watch) {
+    Watch addNewWatch(@RequestBody Watch watch)
+    {
+        //customer find all email = email
         return watchRepository.save(watch);
     }
 

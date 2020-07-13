@@ -12,14 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/api")
-public class WatchpartController{
-    @Autowired
-    //public WatchRepository watchRepository;
-    public BraceletRepository braceletRepository;
-    public CasingRepository casingRepository;
-    public ClockworkRepository clockworkRepository;
-
+public class WatchpartController {
     /* -------------- BraceletApi -------------- */
+    @Autowired
+    public BraceletRepository braceletRepository;
 
     // GET /api/bracelets returns all bracelets
     @GetMapping(path = "/bracelets", produces = "application/json")
@@ -44,6 +40,8 @@ public class WatchpartController{
     }
 
     /* -------------- CasingApi -------------- */
+    @Autowired
+    public CasingRepository casingRepository;
 
     // GET /api/casings returns all casings
     @GetMapping(path = "/casings", produces = "application/json")
@@ -63,11 +61,14 @@ public class WatchpartController{
     // POST /api/casings creates a casing in the database and returns it
     @PostMapping(path = "/casings", produces = "application/json")
     public @ResponseBody
-    Casing addNewCasing(@RequestBody Casing casing) {
+    Casing addNewCasing(@RequestBody Casing casing)
+    {
         return casingRepository.save(casing);
     }
 
     /* -------------- ClockworkApi -------------- */
+    @Autowired
+    public ClockworkRepository clockworkRepository;
 
     // GET /api/clockworks returns all clockworks
     @GetMapping(path = "/clockworks", produces = "application/json")

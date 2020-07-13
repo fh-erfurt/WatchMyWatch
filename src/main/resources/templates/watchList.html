@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Person List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<h1>Watch List</h1>
+<br/><br/>
+<div>
+    <div class="col-md-4">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Particularity</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="watch : ${watches}">
+                <td th:utext="${watch.id}">...</td>
+                <td th:utext="${watch.name}">...</td>
+                <td th:utext="${watch.particularity}">...</td>
+                <td th:utext="${watch.priceWithFee}">...</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
