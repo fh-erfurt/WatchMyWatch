@@ -5,9 +5,7 @@ import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.logging.Logger;
 
 /**
@@ -23,7 +21,7 @@ public class Manufacturer extends DatabaseEntity
     private String name;
 
     @ApiModelProperty(notes = "The contact person of this manufacturer.")
-    @ManyToOne(cascade= CascadeType.PERSIST)
+    @OneToOne
     private Customer contactPerson;
 
     @ApiModelProperty(notes = "The address of the manufacturer.")
