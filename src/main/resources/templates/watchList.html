@@ -17,14 +17,20 @@
                 <th>Name</th>
                 <th>Particularity</th>
                 <th>Price</th>
+                <th>Bracelet</th>
+                <th>Casing</th>
+                <th>Clockwork</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="watch : ${watches}">
-                <td th:utext="${watch.id}">...</td>
-                <td th:utext="${watch.name}">...</td>
-                <td th:utext="${watch.particularity}">...</td>
-                <td th:utext="${watch.priceWithFee}">...</td>
+                <td th:utext="${watch.getId()}">...</td>
+                <td th:utext="${watch.getName()}">...</td>
+                <td th:utext="${watch.getParticularity()}">...</td>
+                <td th:utext="${watch.getPriceWithFee()}">...</td>
+                <td th:utext="${watch.bracelet.getId()}">...</td>
+                <td th:utext="${watch.casing.getId()}">...</td>
+                <td th:utext="${watch.clockwork.getId()}">...</td>
             </tr>
             </tbody>
         </table>
