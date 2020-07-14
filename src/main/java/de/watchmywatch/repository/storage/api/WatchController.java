@@ -1,9 +1,7 @@
-package de.watchmywatch.repository.storage;
+package de.watchmywatch.repository.storage.api;
 
-import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.WatchManagment.*;
 import de.watchmywatch.repository.exception.NotFoundException;
-import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

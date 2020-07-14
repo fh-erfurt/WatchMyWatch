@@ -7,6 +7,7 @@ import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.WatchManagment.*;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -22,7 +23,7 @@ public class TestOrder {
     // create some reusable objects
     Address address = new Address("street 2", "city", "state", "012345");
     Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
-            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23)), address);
+            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), address);
     private Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 25, 100, 1, ConnectionType.BAND);
     private Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 25, 100, 2, 2, ConnectionType.BAND);
     private Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 50, 100, 2);

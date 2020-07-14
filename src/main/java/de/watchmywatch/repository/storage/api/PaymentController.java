@@ -1,13 +1,10 @@
-package de.watchmywatch.repository.storage;
+package de.watchmywatch.repository.storage.api;
 
-import de.watchmywatch.model.OrderManagment.Order;
 import de.watchmywatch.model.OrderManagment.Payment;
 import de.watchmywatch.repository.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @Controller // Identifies Class as Controller
 @RequestMapping(path="/api") // URL's start with /demo (after Application path)

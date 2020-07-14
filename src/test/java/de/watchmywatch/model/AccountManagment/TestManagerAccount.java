@@ -7,6 +7,7 @@ import de.watchmywatch.model.Helper.Address;
 import org.junit.jupiter.api.Test;
 
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -24,7 +25,7 @@ public class TestManagerAccount
     // create some reusable objects
     private Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
     private Account account = new Account(new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov",
-            new Date(1998, Calendar.SEPTEMBER, 23)), "Salami", address, new Date(2020, Calendar.JANUARY, 26), PAYPAL, ACTIV,
+            LocalDate.of(1998, 9, 23)), "Salami", address, new Date(2020, Calendar.JANUARY, 26), PAYPAL, ACTIV,
             new Shoppingcart());
 
 

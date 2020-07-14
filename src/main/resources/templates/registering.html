@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Register</title>
+</head>
+<body>
+    <h1>Form</h1>
+    <form action="#" th:action="@{/newCustomer}" th:object="${newCustomer}" method="post">
+        <div th:action="@{/newCustomer}" th:object="${newAddress}" method="post">
+            <p>city: <input type="text" th:field="*{city}" /></p>
+            <p>state: <input type="text" th:field="*{state}" /></p>
+            <p>street: <input type="text" th:field="*{street}" /></p>
+            <p>zip: <input type="text" th:field="*{zip}" /></p>
+        </div>
+            <p>firstname: <input type="text" th:field="*{firstname}" /></p>
+            <p>lastname: <input type="text" th:field="*{lastname}" /></p>
+            <p>phone: <input type="text" th:field="*{phone}" /></p>
+            <p>email: <input type="email" th:field="*{email}" /></p>
+            <p>dob: <input type="date" th:field="*{dob}" /></p>
+
+
+
+
+
+
+
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+</body>
+</html>

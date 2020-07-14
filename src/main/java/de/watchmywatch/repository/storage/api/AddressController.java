@@ -1,8 +1,7 @@
-package de.watchmywatch.repository.storage;
+package de.watchmywatch.repository.storage.api;
 
 
 import de.watchmywatch.model.Helper.Address;
-import de.watchmywatch.model.OrderManagment.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +20,7 @@ public class AddressController {
 
 
 
-    @PostMapping(path = "/address") // Map ONLY POST Requests
+    /*@PostMapping(path = "/address") // Map ONLY POST Requests
     public @ResponseBody
     String addNewAddress(Address addres) {
         // @ResponseBody means the returned String is the response, not a view name
@@ -31,7 +30,12 @@ public class AddressController {
         Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
         addressRepository.save(address);
         return "Saved";
-    }
+    }*/
+
+
+
+
+
 
     @GetMapping(path="/addresses")
     public @ResponseBody Iterable<Address> getAllAddresses() {
@@ -47,11 +51,6 @@ public class AddressController {
         return addressRepository.findById(addressId);
     }
 
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name",required = false,defaultValue = "World") String name, Model model){
-        model.addAttribute("name",name);
-        return "greeting";
-    }
     // PUT /api/addresses/:id updates the addresses with the id
     @PutMapping("/addresses/{id}")
     public @ResponseBody

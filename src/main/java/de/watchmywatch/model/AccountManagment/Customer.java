@@ -3,10 +3,12 @@ package de.watchmywatch.model.AccountManagment;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -30,7 +32,8 @@ public class Customer extends DatabaseEntity {
 
     private String lastname;
 
-    private Date dob;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dob;
 
     public Customer() {
 
@@ -46,7 +49,7 @@ public class Customer extends DatabaseEntity {
      * @author Anton Bespalov
      */
 
-    public Customer(String email, Address address, String phone, String firstname, String lastname, Date dob) {
+    public Customer(String email, Address address, String phone, String firstname, String lastname, LocalDate dob) {
         this.email = email;
         this.address = address;
         this.phone = phone;
@@ -55,11 +58,20 @@ public class Customer extends DatabaseEntity {
         this.dob = dob;
     }
 
-    public Date getDob() {
+    public Customer(String email, String street, String city, String state, String zip, String phone, String firstname, String lastname, LocalDate dob) {
+        this.email = email;
+        this.address = new Address(street,state,city,zip);
+        this.phone = phone;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.dob = dob;
+    }
+
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 
