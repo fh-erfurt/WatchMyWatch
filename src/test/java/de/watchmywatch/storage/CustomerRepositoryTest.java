@@ -3,7 +3,7 @@ package de.watchmywatch.storage;
 
 import de.watchmywatch.model.Helper.Address;
 
-import de.watchmywatch.repository.storage.AddressRepository;
+import de.watchmywatch.repository.storage.api.AddressRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

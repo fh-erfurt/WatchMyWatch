@@ -10,10 +10,11 @@ import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import de.watchmywatch.model.WatchManagment.*;
 import de.watchmywatch.repository.exception.JpaStorageController;
 import de.watchmywatch.repository.exception.StorageException;
-import de.watchmywatch.repository.storage.WatchRepository;
+import de.watchmywatch.repository.storage.api.WatchRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -38,10 +39,10 @@ public class TestDBVerbindung {
     @BeforeEach
     void SetSomeData() throws ShoppingcartEmptyException, WatchNameNotValidException {
         address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
-        customer = new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23));
+        customer = new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23));
         controller = new JpaStorageController();
         manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", address,
-                "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23)), address);
+                "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), address);
         bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 100, 1, ConnectionType.BAND);
         casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 100, 2, 2, ConnectionType.BAND);
         clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 100, 2);

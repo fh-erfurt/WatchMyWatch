@@ -8,6 +8,7 @@ import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.WatchManagment.*;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -26,7 +27,7 @@ public class TestShop {
     Address myAddress = new Address("Grolmannstraße 13", "Erfurt", "Germany", "99085");
     Shoppingcart myShoppingcart = new Shoppingcart();
     Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", myAddress,
-            "01716181447", "Anton", "Bespalov", new Date(1998, Calendar.SEPTEMBER, 23)), myAddress);
+            "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), myAddress);
     Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 100, 1, ConnectionType.BAND);
     Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 100, 2, 2, ConnectionType.BAND);
     Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 100, 2);
@@ -53,7 +54,7 @@ public class TestShop {
         Account myAccount = new Account(
 
                 new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
-                        new Date(1996, 9, 24)),
+                        LocalDate.of(1998, 9, 23)),
                 "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
         // User puts new Watch into his*her shoppingcart
         myAccount.getShoppingCart().addWatch(watch1);
@@ -84,7 +85,7 @@ public class TestShop {
         // User creates new Account
         Account myAccount = new Account(
                 new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
-                        new Date(1996, 9, 24)),
+                        LocalDate.of(1998, 9, 23)),
                 "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
         // User puts new Watch into his*her shoppingcart
         myAccount.getShoppingCart().addWatch(testWatch1);
@@ -117,7 +118,7 @@ public class TestShop {
         // User creates new Account
         Account myAccount = new Account(
                 new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
-                        new Date(1996, 9, 24)),
+                        LocalDate.of(1998, 9, 23)),
                 "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
         // User puts new Watch into his*her shoppingcart
         myAccount.getShoppingCart().addWatch(testWatch1);
