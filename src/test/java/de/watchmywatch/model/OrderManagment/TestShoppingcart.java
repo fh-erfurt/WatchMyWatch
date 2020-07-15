@@ -23,9 +23,9 @@ public class TestShoppingcart {
     Address address = new Address("street", "city", "state", "zip");
     Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
             "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), address);
-    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 25, 100, 1, ConnectionType.BAND);
-    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 25, 100, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 50, 100, 2);
+    Bracelet bracelet = new Bracelet("SlickBracelet", manufacturer, "part1", Material.ALUMINIUM, 25, 100, 1, ConnectionType.BAND);
+    Casing casing = new Casing("SlickCasing", manufacturer, "part2", Material.ALUMINIUM, 25, 100, 2, 2, ConnectionType.BAND);
+    Clockwork clockwork = new Clockwork("SlickClockwork", manufacturer, "part3", Material.ALUMINIUM, 50, 100, 2);
     Watch watch = new Watch("Swatch", "Test", bracelet, casing, clockwork);
 
 
@@ -160,7 +160,7 @@ public class TestShoppingcart {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         Watch watch1 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
-        Clockwork clockwork1 = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 250, 100, 2);
+        Clockwork clockwork1 = new Clockwork("Clockwork No.1", manufacturer, "part3", Material.ALUMINIUM, 250, 100, 2);
         Watch watch2 = new Watch("Swatch", "Test", bracelet, casing, clockwork1);
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch1);
@@ -176,7 +176,7 @@ public class TestShoppingcart {
         //Given
         Shoppingcart shoppingcart = new Shoppingcart();
         Watch watch1 = new Watch("Swatch", "Test", bracelet, casing, clockwork);
-        Clockwork clockwork1 = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 250, 100, 2);
+        Clockwork clockwork1 = new Clockwork("Clockwork No.1", manufacturer, "part3", Material.ALUMINIUM, 250, 100, 2);
         Watch watch2 = new Watch("Swatch", "Test", bracelet, casing, clockwork1);
         shoppingcart.addWatch(watch1);
         shoppingcart.addWatch(watch1);

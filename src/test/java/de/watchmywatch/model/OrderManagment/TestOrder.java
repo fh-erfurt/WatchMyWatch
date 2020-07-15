@@ -24,9 +24,9 @@ public class TestOrder {
     Address address = new Address("street 2", "city", "state", "012345");
     Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
             "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), address);
-    private Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 25, 100, 1, ConnectionType.BAND);
-    private Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 25, 100, 2, 2, ConnectionType.BAND);
-    private Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 50, 100, 2);
+    private Bracelet bracelet = new Bracelet("Bracelet No.1", manufacturer, "part1", Material.ALUMINIUM, 25, 100, 1, ConnectionType.BAND);
+    private Casing casing = new Casing("Casing No.1", manufacturer, "part2", Material.ALUMINIUM, 25, 100, 2, 2, ConnectionType.BAND);
+    private Clockwork clockwork = new Clockwork("Clockwork No.1", manufacturer, "part3", Material.ALUMINIUM, 50, 100, 2);
     private Watch watch = new Watch("Swatch", "Test", bracelet, casing, clockwork);
 
     private Shoppingcart shoppingcart = createNotEmptyShoppingcart(watch);

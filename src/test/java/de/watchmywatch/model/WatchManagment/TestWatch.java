@@ -22,9 +22,9 @@ public class TestWatch {
     Address address = new Address("street", "city", "state", "zip");
     Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
             "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), address);
-    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 2, 100, 1, ConnectionType.BAND);
-    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 2, 100, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 100, 2, 2);
+    Bracelet bracelet = new Bracelet("Bracelet No.1", manufacturer, "part1", Material.ALUMINIUM, 2, 100, 1, ConnectionType.BAND);
+    Casing casing = new Casing("Casing No.1", manufacturer, "part2", Material.ALUMINIUM, 2, 100, 2, 2, ConnectionType.BAND);
+    Clockwork clockwork = new Clockwork("Clockwork No.1", manufacturer, "part3", Material.ALUMINIUM, 100, 2, 2);
 
     private String create141characterString() {
         String string = "";
@@ -82,7 +82,7 @@ public class TestWatch {
     public void should_create_a_non_valid_watch_price_smaller_zero_without_fee() throws WatchNameNotValidException {
         //Given
         //When
-        Watch watch = new Watch("Swatch", "Test", new Bracelet(manufacturer, "part1", Material.ALUMINIUM, -200, 100, 1, ConnectionType.BAND), casing, clockwork);
+        Watch watch = new Watch("Swatch", "Test", new Bracelet("Bracelet No.1", manufacturer, "part1", Material.ALUMINIUM, -200, 100, 1, ConnectionType.BAND), casing, clockwork);
         //Then
         assertEquals(false, watch.validate());
     }
@@ -91,7 +91,7 @@ public class TestWatch {
     public void should_create_a_non_valid_watch_price_equal_zero_without_fee() throws WatchNameNotValidException {
         //Given
         //When
-        Watch watch = new Watch("Swatch", "Test", new Bracelet(manufacturer, "part1", Material.ALUMINIUM, -4, 100, 1, ConnectionType.BAND), casing, clockwork);
+        Watch watch = new Watch("Swatch", "Test", new Bracelet("Bracelet No.1", manufacturer, "part1", Material.ALUMINIUM, -4, 100, 1, ConnectionType.BAND), casing, clockwork);
         //Then
         assertEquals(false, watch.validate());
     }

@@ -128,12 +128,12 @@ public class WatchController {
     // POST /api/bracelets creates a bracelet in the database and returns it
     @PostMapping(path = "/bracelets", produces = "application/json")
     public @ResponseBody
-    Bracelet addNewBracelet(@RequestParam Integer manufacturerId, @RequestParam Integer amountAvailable,
+    Bracelet addNewBracelet(@RequestParam String name, @RequestParam Integer manufacturerId, @RequestParam Integer amountAvailable,
                             @RequestParam String manufacturerPartId, @RequestParam Material material,
                             @RequestParam double price, @RequestParam double size, @RequestParam ConnectionType connection) {
         Optional<Manufacturer> optionalManufacturer = manufacturerRepository.findById(manufacturerId);
         Manufacturer manufacturer = optionalManufacturer.get();
-        Bracelet bracelet = new Bracelet(manufacturer, manufacturerPartId, material, price, amountAvailable, size, connection);
+        Bracelet bracelet = new Bracelet(name, manufacturer, manufacturerPartId, material, price, amountAvailable, size, connection);
 
         return braceletRepository.save(bracelet);
     }
@@ -177,13 +177,13 @@ public class WatchController {
     // POST /api/casings creates a casing in the database and returns it
     @PostMapping(path = "/casings", produces = "application/json")
     public @ResponseBody
-    Casing addNewCasing(@RequestParam Integer manufacturerId, @RequestParam Integer amountAvailable,
+    Casing addNewCasing(@RequestParam String name, @RequestParam Integer manufacturerId, @RequestParam Integer amountAvailable,
                         @RequestParam String manufacturerPartId, @RequestParam Material material,
                         @RequestParam double price, @RequestParam double outerDiameter,
                         @RequestParam double innerDiameter, @RequestParam ConnectionType connection) {
         Optional<Manufacturer> optionalManufacturer = manufacturerRepository.findById(manufacturerId);
         Manufacturer manufacturer = optionalManufacturer.get();
-        Casing casing = new Casing(manufacturer, manufacturerPartId, material, price, amountAvailable, outerDiameter, innerDiameter, connection);
+        Casing casing = new Casing(name, manufacturer, manufacturerPartId, material, price, amountAvailable, outerDiameter, innerDiameter, connection);
 
         return casingRepository.save(casing);
     }
@@ -227,12 +227,12 @@ public class WatchController {
     // POST /api/clockworks creates a clockwork in the database and returns it
     @PostMapping(path = "/clockworks", produces = "application/json")
     public @ResponseBody
-    Clockwork addNewClockwork(@RequestParam Integer manufacturerId, @RequestParam Integer amountAvailable,
+    Clockwork addNewClockwork(@RequestParam String name, @RequestParam Integer manufacturerId, @RequestParam Integer amountAvailable,
                               @RequestParam String manufacturerPartId, @RequestParam Material material,
                               @RequestParam double price, @RequestParam double diameter) {
         Optional<Manufacturer> optionalManufacturer = manufacturerRepository.findById(manufacturerId);
         Manufacturer manufacturer = optionalManufacturer.get();
-        Clockwork clockwork = new Clockwork(manufacturer, manufacturerPartId, material, price, amountAvailable, diameter);
+        Clockwork clockwork = new Clockwork(name, manufacturer, manufacturerPartId, material, price, amountAvailable, diameter);
 
         return clockworkRepository.save(clockwork);
     }

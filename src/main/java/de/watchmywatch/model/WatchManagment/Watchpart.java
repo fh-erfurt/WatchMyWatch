@@ -16,6 +16,9 @@ public abstract class Watchpart extends DatabaseEntity implements Validatable
 {
     private transient  Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    @ApiModelProperty(notes = "The name of the part.")
+    private String name;
+
     @ApiModelProperty(notes = "The manufacturer of the part.")
     @ManyToOne(cascade= CascadeType.PERSIST)
     private Manufacturer manufacturer;
@@ -41,14 +44,17 @@ public abstract class Watchpart extends DatabaseEntity implements Validatable
      * abstract class which is used for bracelet, casing, clockwork
      *
      * @author Tom Käppler
+     * @param name name of the part
      * @param manufacturer object of the manufacturer
      * @param manufacturerPartID ID which was given by the manufacturer itself
      * @param material material which the part consists of
+     *
      * @param price price of the part itself
      */
-    public Watchpart(Manufacturer manufacturer, String manufacturerPartID,
+    public Watchpart(String name, Manufacturer manufacturer, String manufacturerPartID,
                         Material material, double price, int amountAvailable)
     {
+        this.name = name;
         this.manufacturer = manufacturer;
         this.manufacturerPartID = manufacturerPartID;
         this.material = material;
@@ -58,6 +64,14 @@ public abstract class Watchpart extends DatabaseEntity implements Validatable
 
     protected Watchpart(){
 
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAmountAvailable() {

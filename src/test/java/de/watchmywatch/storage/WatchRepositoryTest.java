@@ -28,9 +28,9 @@ public class WatchRepositoryTest {
         Customer customer = new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23));
         Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", address,
                 "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), address);
-        Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 100, 1, ConnectionType.BAND);
-        Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 100, 2, 2, ConnectionType.BAND);
-        Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 100, 2);
+        Bracelet bracelet = new Bracelet("Bracelet No.1", manufacturer, "part1", Material.ALUMINIUM, 10000, 100, 1, ConnectionType.BAND);
+        Casing casing = new Casing("Casing No.1", manufacturer, "part2", Material.ALUMINIUM, 15000, 100, 2, 2, ConnectionType.BAND);
+        Clockwork clockwork = new Clockwork("Clockwork No.1", manufacturer, "part3", Material.ALUMINIUM, 25000, 100, 2);
 
         Watch watch1 = new Watch("SweetRolex", "Attributes: +2 Handshaking, +3 Intimidation",
                 bracelet, casing, clockwork);
@@ -43,9 +43,9 @@ public class WatchRepositoryTest {
         Customer customer = new Customer("anton.bespalov@fh-erfurt.de", address, "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23));
         Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", address,
                 "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), address);
-        Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 100, 1, ConnectionType.BAND);
-        Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 100, 2, 2, ConnectionType.BAND);
-        Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 100, 2);
+        Bracelet bracelet = new Bracelet("Bracelet No.1", manufacturer, "part1", Material.ALUMINIUM, 10000, 100, 1, ConnectionType.BAND);
+        Casing casing = new Casing("Casing No.1", manufacturer, "part2", Material.ALUMINIUM, 15000, 100, 2, 2, ConnectionType.BAND);
+        Clockwork clockwork = new Clockwork("Clockwork No.1", manufacturer, "part3", Material.ALUMINIUM, 25000, 100, 2);
         Watch watch1 = new Watch("SweetRolex", "Attributes: +2 Handshaking, +3 Intimidation",
                 bracelet, casing, clockwork);
         watchRepository.save(watch1);

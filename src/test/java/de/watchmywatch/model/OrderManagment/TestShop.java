@@ -28,9 +28,9 @@ public class TestShop {
     Shoppingcart myShoppingcart = new Shoppingcart();
     Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", myAddress,
             "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), myAddress);
-    Bracelet bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 100, 1, ConnectionType.BAND);
-    Casing casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 100, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 100, 2);
+    Bracelet bracelet = new Bracelet("Bracelet No.1", manufacturer, "part1", Material.ALUMINIUM, 10000, 100, 1, ConnectionType.BAND);
+    Casing casing = new Casing("Casing No.1", manufacturer, "part2", Material.ALUMINIUM, 15000, 100, 2, 2, ConnectionType.BAND);
+    Clockwork clockwork = new Clockwork("Clockwork No.1", manufacturer, "part3", Material.ALUMINIUM, 25000, 100, 2);
     Watch testWatch1 = new Watch("Swatch1", "Test1", bracelet, casing, clockwork);
     Watch testWatch2 = new Watch("Swatch2", "Test2", bracelet, casing, clockwork);
 

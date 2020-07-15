@@ -35,11 +35,11 @@ public class Bracelet extends Watchpart implements Validatable
      * @param connection connectionType
      * @author Tom Käppler
      */
-    public Bracelet(Manufacturer manufacturer, String manufacturerPartID,
+    public Bracelet(String name, Manufacturer manufacturer, String manufacturerPartID,
                     Material material, double price, int amountAvailable,
                     double size, ConnectionType connection)
     {
-        super(manufacturer, manufacturerPartID, material, price, amountAvailable);
+        super(name, manufacturer, manufacturerPartID, material, price, amountAvailable);
         this.size = size;
         this.connection = connection;
     }

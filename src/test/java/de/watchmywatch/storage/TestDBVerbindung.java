@@ -43,9 +43,9 @@ public class TestDBVerbindung {
         controller = new JpaStorageController();
         manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", address,
                 "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), address);
-        bracelet = new Bracelet(manufacturer, "part1", Material.ALUMINIUM, 10000, 100, 1, ConnectionType.BAND);
-        casing = new Casing(manufacturer, "part2", Material.ALUMINIUM, 15000, 100, 2, 2, ConnectionType.BAND);
-        clockwork = new Clockwork(manufacturer, "part3", Material.ALUMINIUM, 25000, 100, 2);
+        bracelet = new Bracelet("SlickBracelet", manufacturer, "part1", Material.ALUMINIUM, 10000, 100, 1, ConnectionType.BAND);
+        casing = new Casing("SlickCasing", manufacturer, "part2", Material.ALUMINIUM, 15000, 100, 2, 2, ConnectionType.BAND);
+        clockwork = new Clockwork("SlickClockwork", manufacturer, "part3", Material.ALUMINIUM, 25000, 100, 2);
 
         watch1 = new Watch("SweetRolex", "Attributes: +2 Handshaking, +3 Intimidation",
                 bracelet, casing, clockwork);

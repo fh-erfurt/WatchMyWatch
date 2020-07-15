@@ -23,7 +23,7 @@ public class TestWatchpart {
     public void should_create_a_valid_casing() {
         //Given
         // When
-        Casing casing = new Casing(manufacturer, "id", Material.ALUMINIUM, 1.00, 100, 2.00, 2.00, ConnectionType.BAND);
+        Casing casing = new Casing("Casing No.1", manufacturer, "id", Material.ALUMINIUM, 1.00, 100, 2.00, 2.00, ConnectionType.BAND);
         //Then
         assertEquals(true, casing.validate());
     }
@@ -32,7 +32,7 @@ public class TestWatchpart {
     public void should_create_a_non_valid_casing() {
         //Given
         //When
-        Casing casing = new Casing(manufacturer, "id", Material.ALUMINIUM, -1.00, 100, 2.00, 2.00, ConnectionType.BAND);
+        Casing casing = new Casing("Casing No.1", manufacturer, "id", Material.ALUMINIUM, -1.00, 100, 2.00, 2.00, ConnectionType.BAND);
         //Then
         assertEquals(false, casing.validate());
     }
@@ -41,7 +41,7 @@ public class TestWatchpart {
     public void should_create_a_valid_bracelet() {
         //Given
         // When
-        Bracelet bracelet = new Bracelet(manufacturer, "ID", Material.ALUMINIUM, 2.00, 100, 2.00, ConnectionType.BAND);
+        Bracelet bracelet = new Bracelet("Bracelet No.1", manufacturer, "ID", Material.ALUMINIUM, 2.00, 100, 2.00, ConnectionType.BAND);
         //Then
         assertEquals(true, bracelet.validate());
     }
@@ -50,7 +50,7 @@ public class TestWatchpart {
     public void should_create_a_non_valid_bracelet() {
         //Given
         //When
-        Bracelet bracelet = new Bracelet(manufacturer, "ID", Material.ALUMINIUM, -2.00, 100, 2.00, ConnectionType.BAND);
+        Bracelet bracelet = new Bracelet("Bracelet No.1", manufacturer, "ID", Material.ALUMINIUM, -2.00, 100, 2.00, ConnectionType.BAND);
         //Then
         assertEquals(false, bracelet.validate());
     }
@@ -59,7 +59,7 @@ public class TestWatchpart {
     public void should_create_a_valid_clockwork() {
         //Given
         // When
-        Clockwork clockwork = new Clockwork(manufacturer, "ID", Material.ALUMINIUM, 2.00, 100, 2.00);
+        Clockwork clockwork = new Clockwork("Clockwork No.1", manufacturer, "ID", Material.ALUMINIUM, 2.00, 100, 2.00);
         //Then
         assertEquals(true, clockwork.validate());
     }
@@ -68,7 +68,7 @@ public class TestWatchpart {
     public void should_create_a_non_valid_clockwork() {
         //Given
         //When
-        Clockwork clockwork = new Clockwork(manufacturer, "ID", Material.ALUMINIUM, -1.00, 100, 2.00);
+        Clockwork clockwork = new Clockwork("Clockwork No.1", manufacturer, "ID", Material.ALUMINIUM, -1.00, 100, 2.00);
         //Then
         assertEquals(false, clockwork.validate());
     }
