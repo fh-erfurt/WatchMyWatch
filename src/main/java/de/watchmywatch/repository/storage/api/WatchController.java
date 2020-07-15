@@ -1,13 +1,16 @@
-package de.watchmywatch.repository.storage;
+package de.watchmywatch.repository.storage.api;
 
+import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.WatchManagment.*;
 import de.watchmywatch.repository.exception.NotFoundException;
+import de.watchmywatch.repository.storage.*;
 import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Controller
@@ -21,6 +24,10 @@ public class WatchController {
     public CasingRepository casingRepository;
     @Autowired
     public ClockworkRepository clockworkRepository;
+    @Autowired
+    public ManufacturerRepository manufacturerRepository;
+    @Autowired
+    public CustomerRepository customerRepository;
 
     /* -------------- WatchApi -------------- */
     // GET /api/watches returns all watches
@@ -122,13 +129,15 @@ public class WatchController {
     @PostMapping(path = "/bracelets", produces = "application/json")
     public @ResponseBody
     Bracelet addNewBracelet(@RequestBody Bracelet bracelet) {
+
+
         return braceletRepository.save(bracelet);
     }
 
     // PUT /api/bracelets/:id returns updated bracelet
     @PutMapping(path = "/bracelets/{id}", produces = "application/json")
     public @ResponseBody
-    Bracelet updateBracelet(@PathVariable Integer id, @PathVariable Integer amountAvailable) {
+    Bracelet updateBracelet(@PathVariable Integer id, @RequestParam Integer amountAvailable) {
         Optional<Bracelet> optionalBracelet = braceletRepository.findById(id);
         Bracelet bracelet = optionalBracelet.get();
 
@@ -165,13 +174,21 @@ public class WatchController {
     @PostMapping(path = "/casings", produces = "application/json")
     public @ResponseBody
     Casing addNewCasing(@RequestBody Casing casing) {
+        Optional<Manufacturer> optionalManufacturer = manufacturerRepository.findById(casing.getManufacturer().getId());
+        try {
+            casing.setManufacturer(optionalManufacturer.get());
+        } catch (NoSuchElementException e) {
+            Manufacturer savedManufacturer = manufacturerRepository.save(new Manufacturer(casing.getManufacturer().getName(),
+                    casing.getManufacturer().getContactPerson(), casing.getManufacturer().getAddress()));
+            casing.setManufacturer(savedManufacturer);
+        }
         return casingRepository.save(casing);
     }
 
     // PUT /api/casings/:id returns updated casing
     @PutMapping(path = "/casings/{id}", produces = "application/json")
     public @ResponseBody
-    Casing updateCasing(@PathVariable Integer id, @PathVariable Integer amountAvailable) {
+    Casing updateCasing(@PathVariable Integer id, @RequestParam Integer amountAvailable) {
         Optional<Casing> optionalCasing = casingRepository.findById(id);
         Casing casing = optionalCasing.get();
 
@@ -208,15 +225,23 @@ public class WatchController {
     @PostMapping(path = "/clockworks", produces = "application/json")
     public @ResponseBody
     Clockwork addNewClockwork(@RequestBody Clockwork clockwork) {
+        Optional<Manufacturer> optionalManufacturer = manufacturerRepository.findById(clockwork.getManufacturer().getId());
+        try {
+            clockwork.setManufacturer(optionalManufacturer.get());
+        } catch (NoSuchElementException e) {
+            Manufacturer savedManufacturer = manufacturerRepository.save(new Manufacturer(clockwork.getManufacturer().getName(),
+                    clockwork.getManufacturer().getContactPerson(), clockwork.getManufacturer().getAddress()));
+            clockwork.setManufacturer(savedManufacturer);
+        }
         return clockworkRepository.save(clockwork);
     }
 
     // PUT /api/clockworks/:id returns updated clockwork
     @PutMapping(path = "/clockworks/{id}", produces = "application/json")
     public @ResponseBody
-    Clockwork updateClockwork(@PathVariable Integer id, @PathVariable Integer amountAvailable) {
-        Optional<Clockwork> optionalclockwork = clockworkRepository.findById(id);
-        Clockwork clockwork = optionalclockwork.get();
+    Clockwork updateClockwork(@PathVariable Integer id, @RequestParam Integer amountAvailable) {
+        Optional<Clockwork> optionalClockwork = clockworkRepository.findById(id);
+        Clockwork clockwork = optionalClockwork.get();
 
         clockwork.setAmountAvailable(amountAvailable);
 
