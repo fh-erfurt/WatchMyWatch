@@ -1,9 +1,9 @@
 package de.watchmywatch.model.AccountManagment;
 
-import com.sun.istack.NotNull;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
+import javax.validation.constraints.*;
 
 
 import javax.persistence.*;
@@ -19,17 +19,28 @@ import java.time.LocalDate;
 public class Customer extends DatabaseEntity {
     
     @Column(unique = true)
+
+    @NotBlank
+    @Email(message = "Please enter a valid e-mail address")
     private String email;
 
+    @NotNull( message = "Please enter a valid address")
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Address address;
 
+    @NotNull(message = "Please enter a valid Phone Number")
+    @Min(9)
     private String phone;
 
+    @NotNull
+    @Size(min=3, max = 7, message = "Firstname must be 2-35 characters long.")
     private String firstname;
 
+    @NotNull
+    @Size(min = 2, max = 35, message = "Lastname must be 2-35 characters long.")
     private String lastname;
 
+    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
 

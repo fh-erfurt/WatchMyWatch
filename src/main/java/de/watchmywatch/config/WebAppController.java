@@ -60,7 +60,7 @@ public class WebAppController {
         model.addAttribute("newAddress", new Address());
         model.addAttribute("newCustomer", new Customer());
 
-        return "registering";
+        return "register";
     }
 
 

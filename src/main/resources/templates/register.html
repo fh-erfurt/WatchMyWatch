@@ -6,13 +6,24 @@
     <title>Register</title>
 </head>
 <body>
-    <h1>Form</h1>
+    <h1 >Form</h1>
     <form action="#" th:action="@{/newCustomer}" th:object="${newCustomer}" method="post">
             <p>firstname: <input type="text" th:field="*{firstname}" /></p>
+        <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
+
             <p>lastname: <input type="text" th:field="*{lastname}" /></p>
+        <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
+
             <p>phone: <input type="text" th:field="*{phone}" /></p>
+        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+
             <p>email: <input type="email" th:field="*{email}" /></p>
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+
             <p>dob: <input type="date" th:field="*{dob}" /></p>
+        <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
+
         <div th:action="@{/newCustomer}" th:object="${newAddress}" method="post">
             <p>city: <input type="text" th:field="*{city}" /></p>
             <p>state: <input type="text" th:field="*{state}" /></p>

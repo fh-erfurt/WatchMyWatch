@@ -22,14 +22,5 @@ public class WebMvcConfig implements WebMvcConfigurer {
                         "classpath:/static/js/");
     }
 
-    public void addViewControllers(ViewControllerRegistry registry) {
 
-
-        registry.addViewController("/").setViewName("index");
-        registry.addViewController("/index").setViewName("index");
-        registry.addViewController("/greeting").setViewName("greeting");
-
-        //registry.addViewController("/register").setViewName("register");
-        //registry.addViewController("/login").setViewName("login");
-    }
 }

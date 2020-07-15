@@ -7,8 +7,11 @@ import de.watchmywatch.repository.storage.api.AddressRepository;
 import de.watchmywatch.repository.storage.api.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Controller
 public class RegisterController {
@@ -22,12 +25,21 @@ public class RegisterController {
 
 
     @PostMapping(path = "/newCustomer")
-    public String addNewCustomer(@ModelAttribute("newCustomer") Customer newCustomer,@ModelAttribute("newAddress")  Address newAddress) {
+    public String addNewCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer, BindingResult bindingResult,
+                                 @ModelAttribute("newAddress")  Address newAddress) {
+
+        if (bindingResult.hasErrors()) {
+            return "register";
+        } else {
 
         addressRepository.save(newAddress);
         newCustomer.setAddress(newAddress);
         customerRepository.save(newCustomer);
         return "index";
+        }
+       // return "index";
+
+
     }
 
 }
