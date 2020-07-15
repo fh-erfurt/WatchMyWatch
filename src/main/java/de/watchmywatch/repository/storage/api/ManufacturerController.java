@@ -1,10 +1,16 @@
 package de.watchmywatch.repository.storage.api;
 
+import de.watchmywatch.model.AccountManagment.Customer;
+import de.watchmywatch.model.Helper.Address;
+import de.watchmywatch.model.WatchManagment.Clockwork;
 import de.watchmywatch.model.WatchManagment.Manufacturer;
+import de.watchmywatch.model.WatchManagment.Material;
 import de.watchmywatch.repository.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path = "/api") // This means URL's start with /api
@@ -12,6 +18,10 @@ public class ManufacturerController {
 
     @Autowired
     private ManufacturerRepository manufacturerRepository;
+    @Autowired
+    private AddressRepository addressRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
     // GET /api/manufacturers returns all manufacturers
     @GetMapping("/manufacturers")
@@ -31,8 +41,15 @@ public class ManufacturerController {
     // POST /api/manufacturers creates a manufacturer
     @PostMapping("/manufacturers")
     public @ResponseBody
-    Manufacturer newManufacturer(@RequestBody Manufacturer newManufacturer) {
-        return manufacturerRepository.save(newManufacturer);
+    Manufacturer newManufacturer(@RequestParam String name, @RequestParam int addressId,@RequestParam int contactPersonId) {
+        Optional<Address> optionalAddress = addressRepository.findById(addressId);
+        Address address = optionalAddress.get();
+        Optional<Customer> optionalCustomer = customerRepository.findById(contactPersonId);
+        Customer customer = optionalCustomer.get();
+
+        Manufacturer manufacturer = new Manufacturer(name, customer, address);
+
+        return manufacturerRepository.save(manufacturer);
     }
 
     // PUT /api/manufacturers updates a manufacturer with id

@@ -128,8 +128,12 @@ public class WatchController {
     // POST /api/bracelets creates a bracelet in the database and returns it
     @PostMapping(path = "/bracelets", produces = "application/json")
     public @ResponseBody
-    Bracelet addNewBracelet(@RequestBody Bracelet bracelet) {
-
+    Bracelet addNewBracelet(@RequestParam Integer manufacturerId, @RequestParam Integer amountAvailable,
+                            @RequestParam String manufacturerPartId, @RequestParam Material material,
+                            @RequestParam double price, @RequestParam double size, @RequestParam ConnectionType connection) {
+        Optional<Manufacturer> optionalManufacturer = manufacturerRepository.findById(manufacturerId);
+        Manufacturer manufacturer = optionalManufacturer.get();
+        Bracelet bracelet = new Bracelet(manufacturer, manufacturerPartId, material, price, amountAvailable, size, connection);
 
         return braceletRepository.save(bracelet);
     }
@@ -173,15 +177,14 @@ public class WatchController {
     // POST /api/casings creates a casing in the database and returns it
     @PostMapping(path = "/casings", produces = "application/json")
     public @ResponseBody
-    Casing addNewCasing(@RequestBody Casing casing) {
-        Optional<Manufacturer> optionalManufacturer = manufacturerRepository.findById(casing.getManufacturer().getId());
-        try {
-            casing.setManufacturer(optionalManufacturer.get());
-        } catch (NoSuchElementException e) {
-            Manufacturer savedManufacturer = manufacturerRepository.save(new Manufacturer(casing.getManufacturer().getName(),
-                    casing.getManufacturer().getContactPerson(), casing.getManufacturer().getAddress()));
-            casing.setManufacturer(savedManufacturer);
-        }
+    Casing addNewCasing(@RequestParam Integer manufacturerId, @RequestParam Integer amountAvailable,
+                        @RequestParam String manufacturerPartId, @RequestParam Material material,
+                        @RequestParam double price, @RequestParam double outerDiameter,
+                        @RequestParam double innerDiameter, @RequestParam ConnectionType connection) {
+        Optional<Manufacturer> optionalManufacturer = manufacturerRepository.findById(manufacturerId);
+        Manufacturer manufacturer = optionalManufacturer.get();
+        Casing casing = new Casing(manufacturer, manufacturerPartId, material, price, amountAvailable, outerDiameter, innerDiameter, connection);
+
         return casingRepository.save(casing);
     }
 
@@ -224,15 +227,13 @@ public class WatchController {
     // POST /api/clockworks creates a clockwork in the database and returns it
     @PostMapping(path = "/clockworks", produces = "application/json")
     public @ResponseBody
-    Clockwork addNewClockwork(@RequestBody Clockwork clockwork) {
-        Optional<Manufacturer> optionalManufacturer = manufacturerRepository.findById(clockwork.getManufacturer().getId());
-        try {
-            clockwork.setManufacturer(optionalManufacturer.get());
-        } catch (NoSuchElementException e) {
-            Manufacturer savedManufacturer = manufacturerRepository.save(new Manufacturer(clockwork.getManufacturer().getName(),
-                    clockwork.getManufacturer().getContactPerson(), clockwork.getManufacturer().getAddress()));
-            clockwork.setManufacturer(savedManufacturer);
-        }
+    Clockwork addNewClockwork(@RequestParam Integer manufacturerId, @RequestParam Integer amountAvailable,
+                              @RequestParam String manufacturerPartId, @RequestParam Material material,
+                              @RequestParam double price, @RequestParam double diameter) {
+        Optional<Manufacturer> optionalManufacturer = manufacturerRepository.findById(manufacturerId);
+        Manufacturer manufacturer = optionalManufacturer.get();
+        Clockwork clockwork = new Clockwork(manufacturer, manufacturerPartId, material, price, amountAvailable, diameter);
+
         return clockworkRepository.save(clockwork);
     }
 
