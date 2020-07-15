@@ -25,7 +25,7 @@ public class RegisterController {
     public String addNewCustomer(@ModelAttribute("newCustomer") Customer newCustomer,@ModelAttribute("newAddress")  Address newAddress) {
 
         addressRepository.save(newAddress);
-       // newCustomer.setAddress(newAddress);
+        newCustomer.setAddress(newAddress);
         customerRepository.save(newCustomer);
         return "index";
     }

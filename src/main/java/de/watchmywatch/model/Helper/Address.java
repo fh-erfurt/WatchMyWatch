@@ -1,4 +1,5 @@
 package de.watchmywatch.model.Helper;
+
 import javax.persistence.*;
 
 /**
@@ -11,6 +12,7 @@ public class Address extends DatabaseEntity
 {
 
     private String street;
+
     private String city;
     private String state;
     private String zip;

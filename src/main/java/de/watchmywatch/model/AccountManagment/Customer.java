@@ -1,15 +1,13 @@
 package de.watchmywatch.model.AccountManagment;
 
+import com.sun.istack.NotNull;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Component;
 
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * Class which represents an Customer
@@ -58,14 +56,7 @@ public class Customer extends DatabaseEntity {
         this.dob = dob;
     }
 
-    public Customer(String email, String street, String city, String state, String zip, String phone, String firstname, String lastname, LocalDate dob) {
-        this.email = email;
-        this.address = new Address(street,state,city,zip);
-        this.phone = phone;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.dob = dob;
-    }
+
 
     public LocalDate getDob() {
         return dob;
