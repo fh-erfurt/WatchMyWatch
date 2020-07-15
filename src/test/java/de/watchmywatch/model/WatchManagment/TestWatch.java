@@ -44,31 +44,6 @@ public class TestWatch {
         assertEquals(true, watch.validate());
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = {" ", "!", "\"", "§", "$", "%", "&", "/", "(", ")", "=", "?", "´", "`", "*", "+", "'", "#", ";", ",", "_", "~", "@", "€", "[", "]", "{", "}"})
-    void should_throw_nameException_with_not_allowed_chars(String testString) throws WatchNameNotValidException {
-        assertThrows(WatchNameNotValidException.class, () ->
-        {
-            Watch watch = new Watch(testString, "Test", bracelet, casing, clockwork);
-        });
-    }
-
-    @Test
-    void should_throw_nameException_with_empty_name() throws WatchNameNotValidException {
-        assertThrows(WatchNameNotValidException.class, () ->
-        {
-            Watch watch = new Watch("", "Test", bracelet, casing, clockwork);
-        });
-    }
-
-    @Test
-    void should_throw_nameException_with_name_longer_140() throws WatchNameNotValidException {
-        assertThrows(WatchNameNotValidException.class, () ->
-        {
-            Watch watch = new Watch(create141characterString(), "Test", bracelet, casing, clockwork);
-        });
-    }
-
     @Test
     public void should_create_a_non_valid_watch_with_no_parts() throws WatchNameNotValidException {
         //Given
