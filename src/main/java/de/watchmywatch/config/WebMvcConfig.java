@@ -22,5 +22,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
                         "classpath:/static/js/");
     }
 
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/index").setViewName("index");
+        //registry.addViewController("/form").setViewName("form");
 
+    }
 }

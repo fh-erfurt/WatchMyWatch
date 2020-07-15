@@ -26,16 +26,17 @@
 
         <div th:action="@{/newCustomer}" th:object="${newAddress}" method="post">
             <p>city: <input type="text" th:field="*{city}" /></p>
+            <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+
             <p>state: <input type="text" th:field="*{state}" /></p>
+            <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></span>
+
             <p>street: <input type="text" th:field="*{street}" /></p>
+            <span th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></span>
+
             <p>zip: <input type="text" th:field="*{zip}" /></p>
+            <span th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}"></span>
         </div>
-
-
-
-
-
-
 
         <p><input type="submit" value="Submit" /></p>
     </form>

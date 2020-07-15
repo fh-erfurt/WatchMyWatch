@@ -22,20 +22,21 @@ public class RegisterController {
     public AddressRepository addressRepository;
 
 
-
-
     @PostMapping(path = "/newCustomer")
-    public String addNewCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer, BindingResult bindingResult,
-                                 @ModelAttribute("newAddress")  Address newAddress) {
+    public String addNewCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer, BindingResult customerBindingResult,
+                                @Valid @ModelAttribute("newAddress")  Address newAddress, BindingResult addressBindingResult) {
 
-        if (bindingResult.hasErrors()) {
-            return "register";
+
+
+        if ( customerBindingResult.hasErrors() || addressBindingResult.hasErrors()) {
+            return "/register";
         } else {
 
-        addressRepository.save(newAddress);
-        newCustomer.setAddress(newAddress);
-        customerRepository.save(newCustomer);
-        return "index";
+            addressRepository.save(newAddress);
+            newCustomer.setAddress(newAddress);
+            customerRepository.save(newCustomer);
+
+        return "redirect:/index";
         }
        // return "index";
 

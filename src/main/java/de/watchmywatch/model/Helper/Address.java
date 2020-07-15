@@ -1,6 +1,8 @@
 package de.watchmywatch.model.Helper;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
+import javax.validation.constraints.Size;
 
 /**
  * Class which represents an Address
@@ -10,11 +12,20 @@ import javax.persistence.*;
 @Entity
 public class Address extends DatabaseEntity
 {
-
+    @NotNull (message = "Name cannot be null.")
+    @Size(min = 2, max = 35, message = "Street must be 2-35 characters long.")
     private String street;
 
+    @NotNull (message = "Name cannot be null.")
+    @Size(min = 2, max = 35, message = "City must be 2-35 characters long.")
     private String city;
+
+    @NotNull (message = "Name cannot be null.")
+    @Size(min = 2, max = 35, message = "State must be 2-35 characters long.")
     private String state;
+
+    @NotNull (message = "Name cannot be null.")
+    @Size( min = 5 , message = "zip must be 5 characters long.")
     private String zip;
 
     public Address(){

@@ -19,17 +19,17 @@ import java.time.LocalDate;
 public class Customer extends DatabaseEntity {
     
     @Column(unique = true)
-
+    @NotNull
     @NotBlank
     @Email(message = "Please enter a valid e-mail address")
     private String email;
 
-    @NotNull( message = "Please enter a valid address")
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Address address;
 
-    @NotNull(message = "Please enter a valid Phone Number")
-    @Min(9)
+    @NotNull
+    @NotBlank( message = "Require")
     private String phone;
 
     @NotNull
