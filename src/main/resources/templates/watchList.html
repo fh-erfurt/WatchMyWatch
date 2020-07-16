@@ -7,33 +7,37 @@
 </head>
 <body>
 <h1>Watch List</h1>
-<br/><br/>
 <div>
-    <div class="col-md-4">
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Particularity</th>
-                <th>Price</th>
-                <th>Bracelet</th>
-                <th>Casing</th>
-                <th>Clockwork</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="watch : ${watches}">
-                <td th:utext="${watch.getId()}">...</td>
-                <td th:utext="${watch.getName()}">...</td>
-                <td th:utext="${watch.getParticularity()}">...</td>
-                <td th:utext="${watch.getPriceWithFee()}">...</td>
-                <td th:utext="${watch.bracelet.getId()}">...</td>
-                <td th:utext="${watch.casing.getId()}">...</td>
-                <td th:utext="${watch.clockwork.getId()}">...</td>
-            </tr>
-            </tbody>
-        </table>
+    <div th:if="${#lists.isEmpty(watches)}">
+        <h1><span class="label label-danger">No Watches found</span></h1>
+    </div>
+    <div th:unless="${#lists.isEmpty(watches)}">
+        <div class="col-md-4">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Particularity</th>
+                    <th>Price</th>
+                    <th>Bracelet</th>
+                    <th>Casing</th>
+                    <th>Clockwork</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="watch : ${watches}">
+                    <td th:utext="${watch.getId()}">...</td>
+                    <td th:utext="${watch.getName()}">...</td>
+                    <td th:utext="${watch.getParticularity()}">...</td>
+                    <td th:utext="${watch.getPriceWithFee()}">...</td>
+                    <td th:utext="${watch.bracelet.getName()}">...</td>
+                    <td th:utext="${watch.casing.getName()}">...</td>
+                    <td th:utext="${watch.clockwork.getName()}">...</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
