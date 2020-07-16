@@ -1,6 +1,6 @@
 package de.watchmywatch.config;
 
-import de.watchmywatch.model.AccountManagment.Customer;
+import de.watchmywatch.model.AccountManagment.*;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.WatchManagment.*;
 import de.watchmywatch.repository.storage.api.WatchRepository;
@@ -56,12 +56,19 @@ public class WebAppController {
 
 
     @GetMapping("/register")
-    public String newCustomer(Model model) {
+    public String newUser(Model model) {
         model.addAttribute("newAddress", new Address());
-        model.addAttribute("newCustomer", new Customer());
+        model.addAttribute("newUser", new User());
 
         return "register";
     }
+
+    @GetMapping("/login")
+    public String login() {
+
+        return "login";
+    }
+
 
 
 

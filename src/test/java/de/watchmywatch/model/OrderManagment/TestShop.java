@@ -1,5 +1,5 @@
 package de.watchmywatch.model.OrderManagment;
-
+/*
 import de.watchmywatch.model.AccountManagment.*;
 import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.OrderManagment.*;
@@ -21,6 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  *
  * @author Michael Hopp, Tom Käppler
  */
+/*
 public class TestShop {
 
     // create some reusable objects
@@ -43,6 +44,7 @@ public class TestShop {
      *
      * @author Michael Hopp
      */
+/*
     @Test
     public void happy_path() throws WatchNameNotValidException, ShoppingcartEmptyException {
         //Given
@@ -78,6 +80,7 @@ public class TestShop {
      *
      * @author Tom Käppler
      */
+/*
     @Test
     public void quite_happy_path_() throws ShoppingcartEmptyException {
         //Given
@@ -111,6 +114,7 @@ public class TestShop {
      *
      * @author Tom Käppler
      */
+/*
     @Test
     public void not_happy_path_() {
         //Given
@@ -131,4 +135,4 @@ public class TestShop {
             Order myOrder = new Order(myAccount.getCustomer().getAddress(), myAccount.getShoppingCart());
         });
     }
-}
+}*/

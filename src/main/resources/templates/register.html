@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1 >Form</h1>
-    <form action="#" th:action="@{/newCustomer}" th:object="${newCustomer}" method="post">
+    <form action="#" th:action="@{/newUser}" th:object="${newUser}" method="post">
             <p>firstname: <input type="text" th:field="*{firstname}" /></p>
         <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
 
@@ -23,6 +23,11 @@
 
             <p>dob: <input type="date" th:field="*{dob}" /></p>
         <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
+
+            <p>password: <input type="password" th:field="*{securePassword}" /></p>
+            <span th:if="${#fields.hasErrors('securePassword')}" th:errors="*{securePassword}"></span>
+
+
 
         <div th:action="@{/newCustomer}" th:object="${newAddress}" method="post">
             <p>city: <input type="text" th:field="*{city}" /></p>

@@ -1,10 +1,7 @@
 package de.watchmywatch.repository.storage.api;
 
-import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.Helper.Address;
-import de.watchmywatch.model.WatchManagment.Clockwork;
 import de.watchmywatch.model.WatchManagment.Manufacturer;
-import de.watchmywatch.model.WatchManagment.Material;
 import de.watchmywatch.repository.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +18,7 @@ public class ManufacturerController {
     @Autowired
     private AddressRepository addressRepository;
     @Autowired
-    private CustomerRepository customerRepository;
+    private UserRepository userRepository;
 
     // GET /api/manufacturers returns all manufacturers
     @GetMapping("/manufacturers")
@@ -41,13 +38,12 @@ public class ManufacturerController {
     // POST /api/manufacturers creates a manufacturer
     @PostMapping("/manufacturers")
     public @ResponseBody
-    Manufacturer newManufacturer(@RequestParam String name, @RequestParam int addressId,@RequestParam int contactPersonId) {
+    Manufacturer newManufacturer(@RequestParam String name, @RequestParam int addressId,@RequestParam String contactEmail, @RequestParam String contactPhone) {
         Optional<Address> optionalAddress = addressRepository.findById(addressId);
         Address address = optionalAddress.get();
-        Optional<Customer> optionalCustomer = customerRepository.findById(contactPersonId);
-        Customer customer = optionalCustomer.get();
 
-        Manufacturer manufacturer = new Manufacturer(name, customer, address);
+
+        Manufacturer manufacturer = new Manufacturer(name,contactEmail,contactPhone ,address);
 
         return manufacturerRepository.save(manufacturer);
     }
@@ -59,7 +55,8 @@ public class ManufacturerController {
         return manufacturerRepository.findById(id)
                 .map(manufacturer -> {
                     manufacturer.setName(newManufacturer.getName());
-                    manufacturer.setContactPerson(newManufacturer.getContactPerson());
+                    manufacturer.setContactEmail(newManufacturer.getContactEmail());
+                    manufacturer.setContactPhone(newManufacturer.getContactPhone());
                     manufacturer.setAddress(newManufacturer.getAddress());
                     return manufacturerRepository.save(manufacturer);
                 })

@@ -1,6 +1,5 @@
 package de.watchmywatch.model.OrderManagment;
 
-import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.Helper.Address;
@@ -19,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * @author Michael Hopp
  */
+/*
 public class TestOrder {
     // create some reusable objects
     Address address = new Address("street 2", "city", "state", "012345");
@@ -41,6 +41,7 @@ public class TestOrder {
      * @param watch Watch that will be added to returned Shoppingcart
      * @return Shoppingcart object which is not empty
      */
+/*
     private Shoppingcart createNotEmptyShoppingcart(Watch watch) {
         Shoppingcart shoppingcart = new Shoppingcart();
         shoppingcart.addWatch(watch);
@@ -98,4 +99,4 @@ public class TestOrder {
         assertTrue(testOrder.isPaid());
     }
 
-}
+}*/

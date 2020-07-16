@@ -25,7 +25,7 @@ public class Address extends DatabaseEntity
     private String state;
 
     @NotNull (message = "Name cannot be null.")
-    @Size( min = 5 , message = "zip must be 5 characters long.")
+    @Size( min = 5 , message = "zip must be  5 characters long.")
     private String zip;
 
     public Address(){

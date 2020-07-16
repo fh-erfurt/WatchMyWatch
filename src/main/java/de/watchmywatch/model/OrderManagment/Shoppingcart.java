@@ -1,6 +1,5 @@
 package de.watchmywatch.model.OrderManagment;
 
-import de.watchmywatch.model.AccountManagment.Account;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 import de.watchmywatch.model.WatchManagment.Watch;
 

@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Class which tests the functionality of ManagerAccount
  * @author  Anton Bespalov
  */
+/*
 public class TestManagerAccount
 {
     // create some reusable objects
@@ -134,6 +135,7 @@ public class TestManagerAccount
     /**
      * Account doesnt exists in the AccountList, false was expected
      */
+/*
     @Test
     public void change_account_status_when_account_does_not_exists() //
     {
@@ -162,4 +164,4 @@ public class TestManagerAccount
         // Then
         assertFalse(result);
     }
-}
+}*/

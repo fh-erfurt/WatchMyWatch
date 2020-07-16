@@ -1,22 +1,5 @@
 package de.watchmywatch.model.AccountManagment;
 
-import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
-import de.watchmywatch.model.OrderManagment.Order;
-import de.watchmywatch.model.OrderManagment.Shoppingcart;
-import de.watchmywatch.model.Helper.Address;
-
-
-import static de.watchmywatch.model.AccountManagment.AccountStatus.ACTIV;
-import static de.watchmywatch.model.OrderManagment.PaymentMethod.PAYPAL;
-
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.Calendar;
-import java.util.Date;
-
-import static de.watchmywatch.model.AccountManagment.Account.get_SHA_256_SecurePassword;
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * Class which tests the functionality of Account
  * @author  Anton Bespalov

@@ -1,4 +1,6 @@
+/*
 package de.watchmywatch.model.AccountManagment;
+
 
 import de.watchmywatch.model.Exceptions.CustomerAlreadyExistsException;
 import de.watchmywatch.model.Exceptions.CustomerDoesNotExistException;
@@ -12,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Anton Bespalov
  */
-public class ManagerCustomer
+/*public class ManagerCustomer
 {
     private Logger logger = Logger.getLogger("Logger");
 
@@ -21,7 +23,7 @@ public class ManagerCustomer
     /**
      * @author Anton Bespalov
      */
-    public ManagerCustomer()
+    /*public ManagerCustomer()
     {
         customerList = new ArrayList<>();
     }
@@ -34,7 +36,7 @@ public class ManagerCustomer
      *                 if the customer is already in the list an exception will be thrown
      *                 if the customer is null a warning will be logged
      */
-    public void addCustomer(Customer customer) throws CustomerAlreadyExistsException
+    /*public void addCustomer(Customer customer) throws CustomerAlreadyExistsException
     {
         if (customer != null)
         {
@@ -58,7 +60,7 @@ public class ManagerCustomer
      *                 if the customer is in the list the customer will be removed
      *                 if the customer is not in the list an exception will be thrown
      */
-    public void removeCustomer(Customer customer) throws CustomerDoesNotExistException
+   /* public void removeCustomer(Customer customer) throws CustomerDoesNotExistException
     {
         if (customerList.contains(customer))
         {
@@ -75,4 +77,4 @@ public class ManagerCustomer
     {
         return customerList;
     }
-}
+}*/

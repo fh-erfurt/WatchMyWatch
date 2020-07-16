@@ -1,5 +1,6 @@
 package de.watchmywatch.model.AccountManagment;
 
+/*
 import de.watchmywatch.model.Exceptions.CustomerAlreadyExistsException;
 import de.watchmywatch.model.Exceptions.CustomerDoesNotExistException;
 import de.watchmywatch.model.Helper.Address;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Anton Bespalov
  */
+/*
 public class TestManagerCustomer
 {
     // create some reusable objects
@@ -103,4 +105,4 @@ public class TestManagerCustomer
         assertEquals("Customer does not exist!", exception.getMessage());
     }
 
-}
+}*/

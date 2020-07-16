@@ -1,22 +1,15 @@
 package de.watchmywatch.model.WatchManagment;
-
-import de.watchmywatch.model.AccountManagment.Customer;
+/*
 import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.Helper.Address;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * class which tests the functionality of Watch
  */
+/*
 public class TestWatch {
     //create some reusable objects
     Address address = new Address("street", "city", "state", "zip");
@@ -90,4 +83,4 @@ public class TestWatch {
         //Then
         assertEquals(2700.00, watch.getPriceWithFee());
     }
-}
+}*/

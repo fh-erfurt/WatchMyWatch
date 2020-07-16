@@ -1,6 +1,5 @@
 package de.watchmywatch.model.WatchManagment;
 
-import de.watchmywatch.model.AccountManagment.Customer;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
 import io.swagger.annotations.ApiModelProperty;
@@ -21,37 +20,35 @@ public class Manufacturer extends DatabaseEntity
     private String name;
 
     @ApiModelProperty(notes = "The contact person of this manufacturer.")
-    @OneToOne
-    private Customer contactPerson;
+    private String contactEmail;
+
+    private String contactPhone;
 
     @ApiModelProperty(notes = "The address of the manufacturer.")
     @ManyToOne(cascade= CascadeType.PERSIST)
     private Address address;
 
+    public Manufacturer(String name, String contactEmail, String contactPhone, Address address) {
+        this.name = name;
+        this.contactEmail = contactEmail;
+        this.contactPhone = contactPhone;
+        this.address = address;
+    }
+
     /**
      * creates a manufacturer object
      * @param name          Name des Herstellers
-     * @param contactPerson Objekt unserer KontatPerson
+     * @param contactEmail Objekt unserer KontatPerson
      * @param address       Hauptadresse des Herstellers
      * @author Tom Käppler
      */
-    public Manufacturer(String name, Customer contactPerson, Address address)
-    {
-        this.name = name;
-        this.contactPerson = contactPerson;
-        this.address = address;
-    }
+
 
     protected Manufacturer(){}
 
     public String getName()
     {
         return name;
-    }
-
-    public Customer getContactPerson()
-    {
-        return contactPerson;
     }
 
     public Address getAddress()
@@ -65,11 +62,22 @@ public class Manufacturer extends DatabaseEntity
         //logger.info("name was set");
     }
 
-    public void setContactPerson(Customer contactPerson)
-    {
-        this.contactPerson = contactPerson;
-        //logger.info("contactPerson was set");
+    public String getContactEmail() {
+        return contactEmail;
     }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
+
+    public String getContactPhone() {
+        return contactPhone;
+    }
+
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
+    }
+
 
     public void setAddress(Address address)
     {

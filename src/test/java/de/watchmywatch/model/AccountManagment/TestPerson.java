@@ -1,5 +1,5 @@
 package de.watchmywatch.model.AccountManagment;
-
+/*
 import de.watchmywatch.model.Helper.Address;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Class which tests the functionality of Person
  * @author  Anton Bespalov
  */
+/*
 public class TestPerson
 {
     @Test
@@ -32,4 +33,4 @@ public class TestPerson
 
         assertEquals("01716181447", customer.getPhone());
     }
-}
+}*/

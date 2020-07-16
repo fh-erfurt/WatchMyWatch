@@ -3,7 +3,7 @@ package de.watchmywatch.model.OrderManagment;
 import java.util.Date;
 import java.util.logging.Logger;
 
-import de.watchmywatch.model.AccountManagment.Account;
+import de.watchmywatch.model.AccountManagment.User;
 import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
@@ -52,7 +52,7 @@ public class Order extends DatabaseEntity
     private Payment payment;
 
     @ManyToOne(cascade= CascadeType.PERSIST)
-    private Account account;
+    private User user;
 
 
     /**

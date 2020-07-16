@@ -8,7 +8,7 @@ package de.watchmywatch.model.AccountManagment;
 
 public enum AccountStatus
 {
-    ACTIV,
-    INNACTIV,
-    BANNED
+   ADMIN,
+    USER,
+    DELETED
 }

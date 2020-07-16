@@ -1,16 +1,13 @@
 package de.watchmywatch.repository.storage.api;
 
-import de.watchmywatch.model.AccountManagment.Customer;
-import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
+
 import de.watchmywatch.model.WatchManagment.*;
 import de.watchmywatch.repository.exception.NotFoundException;
-import de.watchmywatch.repository.storage.*;
-import io.swagger.models.auth.In;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Controller
@@ -26,8 +23,7 @@ public class WatchController {
     public ClockworkRepository clockworkRepository;
     @Autowired
     public ManufacturerRepository manufacturerRepository;
-    @Autowired
-    public CustomerRepository customerRepository;
+
 
     /* -------------- WatchApi -------------- */
     // GET /api/watches returns all watches

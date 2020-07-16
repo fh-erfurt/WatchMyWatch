@@ -1,14 +1,12 @@
 package de.watchmywatch.model.OrderManagment;
-
-import de.watchmywatch.model.AccountManagment.Customer;
+/*
 import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.WatchManagment.*;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Michael Hopp
  */
+/*
 public class TestShoppingcart {
     // create some reusable objects
     Address address = new Address("street", "city", "state", "zip");
@@ -212,4 +211,4 @@ public class TestShoppingcart {
         //Then
         assertEquals(0.0, shoppingcart.getTotal());
     }
-}
+}*/

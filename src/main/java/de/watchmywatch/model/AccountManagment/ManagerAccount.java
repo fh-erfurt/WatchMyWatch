@@ -1,4 +1,4 @@
-package de.watchmywatch.model.AccountManagment;
+/* package de.watchmywatch.model.AccountManagment;
 
 import de.watchmywatch.model.Exceptions.AccountAlreadyExistsException;
 import de.watchmywatch.model.Exceptions.AccountDoesNotExistsException;
@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  *
  * @author Anton Bespalov
  */
-
+/*
 public class ManagerAccount
 {
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -22,7 +22,7 @@ public class ManagerAccount
     /**
      * @author Anton Bespalov
      */
-
+/*
     public ManagerAccount()
     {
         accountList = new ArrayList<>();
@@ -41,7 +41,10 @@ public class ManagerAccount
      *                if the account is already in the list an exception will be thrown
      *                if the account is null a warning will be logged
      */
+
+   /*
     public void addAccount(Account account) throws AccountAlreadyExistsException
+
     {
         if (account != null)
         {
@@ -65,7 +68,7 @@ public class ManagerAccount
      *                if the account is in the list the account will be removed
      *                if the account is not in the list an exception will be thrown
      */
-    public void removeAccount(Account account) throws AccountDoesNotExistsException
+   /* public void removeAccount(Account account) throws AccountDoesNotExistsException
     {
         if (accountList.contains(account))
         {
@@ -76,7 +79,7 @@ public class ManagerAccount
             throw new AccountDoesNotExistsException("Account does not exist!");
         }
     }
-
+*/
     /**
      * removeAccount function
      *
@@ -86,7 +89,7 @@ public class ManagerAccount
      * if the account was found and the status is not the same as the new status, the accountStatus will be changed
      * if the account is not in the list a warning will be logged
      */
-    public boolean changeAccountStatus(Account account, AccountStatus status)
+    /*public boolean changeAccountStatus(Account account, AccountStatus status)
     {
         if (accountList.contains(account))
         {
@@ -106,3 +109,4 @@ public class ManagerAccount
         return false;
     }
 }
+*/
