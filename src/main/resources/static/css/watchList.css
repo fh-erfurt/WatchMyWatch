@@ -1,0 +1,17 @@
+
+
+.allWatches {
+    display: block;
+    background: blue;
+    width: 80%;
+    margin-left: 10%;
+    height: auto;
+}
+
+.singleWatch {
+    text-align: center;
+    padding: 4px;
+    padding-bottom: 20px;
+    height: auto;
+    float: left;
+}

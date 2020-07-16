@@ -3,6 +3,9 @@ package de.watchmywatch.config;
 import de.watchmywatch.model.AccountManagment.*;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.WatchManagment.*;
+import de.watchmywatch.repository.storage.api.BraceletRepository;
+import de.watchmywatch.repository.storage.api.CasingRepository;
+import de.watchmywatch.repository.storage.api.ClockworkRepository;
 import de.watchmywatch.repository.storage.api.WatchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.Clock;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,6 +25,13 @@ public class WebAppController {
     private String appMode;
     @Autowired
     WatchRepository watchRepository;
+    @Autowired
+    BraceletRepository braceletRepository;
+    @Autowired
+    CasingRepository casingRepository;
+    @Autowired
+    ClockworkRepository clockworkRepository;
+
 
     public WebAppController(Environment environment) {
         appMode = environment.getProperty("app-mode");
@@ -53,6 +64,20 @@ public class WebAppController {
 
         return "watchList";
     }
+
+    @GetMapping("/watchConfigurator")
+    public String watchConfigurator(Model model) {
+        Iterable<Bracelet> bracelets = braceletRepository.findAll();
+        Iterable<Casing> casings = casingRepository.findAll();
+        Iterable<Clockwork> clockworks = clockworkRepository.findAll();
+
+        model.addAttribute("bracelets", bracelets);
+        model.addAttribute("casings", casings);
+        model.addAttribute("clockworks", clockworks);
+
+        return "watchConfigurator";
+    }
+
 
 
     @GetMapping("/register")
