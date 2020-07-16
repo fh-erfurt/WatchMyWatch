@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Watch-Configurator</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
+    <link th:href="@{/css/watchConfigurator.css}" rel="stylesheet"/>
+</head>
+<body>
+<p>Name: <input type="text"/></p>
+<p>Particularity: <input type="text"/></p>
+<h2>Parts</h2>
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="false" aria-controls="collapseOne">
+                    Bracelet
+                </button>
+            </h5>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <div class="col-md-8">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>AmountAvailable</th>
+                            <th>Price</th>
+                            <th>Manufacturer</th>
+                            <th>Material</th>
+                            <th>Type</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="bracelet : ${bracelets}">
+                            <td th:utext="${bracelet.getName()}">...</td>
+                            <td th:utext="${bracelet.getAmountAvailable()}">...</td>
+                            <td th:utext="${bracelet.getPrice()}">...</td>
+                            <td th:utext="${bracelet.getManufacturer().getName()}">...</td>
+                            <td th:utext="${bracelet.getMaterial()}">...</td>
+                            <td th:utext="${bracelet.getConnection()}">...</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                    Casing
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <div class="col-md-4">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>AmountAvailable</th>
+                            <th>Price</th>
+                            <th>Manufacturer</th>
+                            <th>Material</th>
+                            <th>Type</th>
+                            <th>InnerDiameter</th>
+                            <th>OuterDiameter</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="casing : ${casings}">
+                            <td th:utext="${casing.getName()}">...</td>
+                            <td th:utext="${casing.getAmountAvailable()}">...</td>
+                            <td th:utext="${casing.getPrice()}">...</td>
+                            <td th:utext="${casing.getManufacturer().getName()}">...</td>
+                            <td th:utext="${casing.getMaterial()}">...</td>
+                            <td th:utext="${casing.getConnection()}">...</td>
+                            <td th:utext="${casing.getInnerDiameter()}">...</td>
+                            <td th:utext="${casing.getOuterDiameter()}">...</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                    Clockwork
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                <div class="col-md-4">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>AmountAvailable</th>
+                            <th>Price</th>
+                            <th>Manufacturer</th>
+                            <th>Material</th>
+                            <th>Type</th>
+                            <th>Diameter</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="clockwork : ${clockworks}">
+                            <td th:utext="${clockwork.getName()}">...</td>
+                            <td th:utext="${clockwork.getAmountAvailable()}">...</td>
+                            <td th:utext="${clockwork.getPrice()}">...</td>
+                            <td th:utext="${clockwork.getManufacturer().getName()}">...</td>
+                            <td th:utext="${clockwork.getMaterial()}">...</td>
+                            <td th:utext="${clockwork.getDiameter()}">...</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
