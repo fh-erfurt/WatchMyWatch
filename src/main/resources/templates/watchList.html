@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <title>Person List</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
+    <link th:href="@{/css/watchList.css}" rel="stylesheet" />
 </head>
 <body>
 <h1>Watch List</h1>
@@ -12,31 +13,20 @@
         <h1><span class="label label-danger">No Watches found</span></h1>
     </div>
     <div th:unless="${#lists.isEmpty(watches)}">
-        <div class="col-md-4">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Particularity</th>
-                    <th>Price</th>
-                    <th>Bracelet</th>
-                    <th>Casing</th>
-                    <th>Clockwork</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="watch : ${watches}">
-                    <td th:utext="${watch.getId()}">...</td>
-                    <td th:utext="${watch.getName()}">...</td>
-                    <td th:utext="${watch.getParticularity()}">...</td>
-                    <td th:utext="${watch.getPriceWithFee()}">...</td>
-                    <td th:utext="${watch.bracelet.getName()}">...</td>
-                    <td th:utext="${watch.casing.getName()}">...</td>
-                    <td th:utext="${watch.clockwork.getName()}">...</td>
-                </tr>
-                </tbody>
-            </table>
+        <div class="allWatches" th:each="watch : ${watches}">
+            <div class="singleWatch col-md-4 panel panel-default">
+                <div class="panel-heading">
+                    <div class="singleWatch-name" th:utext="${watch.getName()}"></div>
+                </div>
+                <div class="panel-body">
+                    <div class="singleWatch-particularity" th:utext="'Particularity: '+${watch.getParticularity()}"></div>
+                    <div class="singleWatch-price" th:utext="'Price: '+${watch.getPriceWithFee()}"></div>
+                    <div class="singleWatch-braceletName" th:utext="'Bracelet: '+${watch.bracelet.getName()}"></div>
+                    <div class="singleWatch-casingName" th:utext="'Casing: '+${watch.casing.getName()}"></div>
+                    <div class="singleWatch-clockworkName" th:utext="'Clockwork: '+${watch.clockwork.getName()}"></div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
