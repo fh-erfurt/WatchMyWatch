@@ -80,33 +80,28 @@ public class TestShop {
      * @author Michael Hopp
      */
 
-    //TODO FIX we dont save a list of orders in user anymore (wrong?)
-    /*
     @Test
     public void happy_path() throws ShoppingcartEmptyException {
         //Given
         //When
         // User creates new Account
-        Account myAccount = new Account(
-
-                new Customer("michael.hopp@fh-erfurt.de", myAddress, "0123456789", "Michael", "Hopp",
-                        LocalDate.of(1998, 9, 23)),
-                "root", myAddress, new Date(), PaymentMethod.PAYPAL, AccountStatus.ACTIV, myShoppingcart);
+        User happyUser = new User("Test", "User", "user@mail.com", "password",
+                "01716181447", address1, LocalDate.of(1998, 9, 23),
+                address1, shoppingcart1);
         // User puts new Watch into his*her shoppingcart
-        myAccount.getShoppingCart().addWatch(watch1);
+        happyUser.getShoppingCart().addWatch(watch1);
         // User checks out
-        Order myOrder = new Order(myAccount.getCustomer().getAddress(), myAccount.getShoppingCart());
+        Order myOrder = new Order(happyUser.getAddress(), happyUser.getShoppingCart());
         myOrder.getPayment().setPaymentMethod(PaymentMethod.PAYPAL);
-        myAccount.addOrder(myOrder);
+        happyUser.addOrder(myOrder);
         // User Paid oldest unpaid Order
-        Order oldestUnpaidOrder = myAccount.getOldestUnpaidOrder();
+        Order oldestUnpaidOrder = happyUser.getOldestUnpaidOrder();
         boolean success = oldestUnpaidOrder.pay();
 
         //Then
         assertTrue(success);
         assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
     }
-     */
 
 
     /**
@@ -115,8 +110,7 @@ public class TestShop {
      *
      * @author Tom Käppler
      */
-//TODO FIX we dont save a list of orders in user anymore (wrong?)
-    /*
+
     @Test
     public void quite_happy_path_() throws ShoppingcartEmptyException {
         //Given
@@ -129,21 +123,19 @@ public class TestShop {
         newUser.getShoppingCart().addWatch(watch1);
         newUser.getShoppingCart().addWatch(watch2);
         // User removes one watch
-        user1.getShoppingCart().removeWatch(watch1);
+        newUser.getShoppingCart().removeWatch(watch1);
         // User checks out
-        Order myOrder = new Order(user1.getAddress(), user1.getShoppingCart());
+        Order myOrder = new Order(newUser.getAddress(), newUser.getShoppingCart());
         myOrder.getPayment().setPaymentMethod(PaymentMethod.PAYPAL);
-        user1.addOrder(myOrder);
+        newUser.addOrder(myOrder);
         // User Paid oldest unpaid Order
-        Order oldestUnpaidOrder = user1.getOldestUnpaidOrder();
+        Order oldestUnpaidOrder = newUser.getOldestUnpaidOrder();
         boolean success = oldestUnpaidOrder.pay();
 
         //Then
         assertTrue(success);
         assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
     }
-
- */
 
     /**
      * Use Case:

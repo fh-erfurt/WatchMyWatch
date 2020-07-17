@@ -72,6 +72,9 @@ public class User extends DatabaseEntity {
     @OneToOne(cascade= CascadeType.PERSIST)
     private Shoppingcart shoppingCart;
 
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
+
   //  @OneToMany(mappedBy = "user")
   //  private List<Order> orders = new ArrayList<>();
 
@@ -105,6 +108,7 @@ public class User extends DatabaseEntity {
         this.paymentMethod = null;
         this.accountStatus = AccountStatus.USER;
         this.role="User";
+        this.orders = new ArrayList<>();
     }
 
     public User() {
@@ -148,6 +152,17 @@ public class User extends DatabaseEntity {
         this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash);
     }
 
+    /**
+     * changePassword
+     *
+     * @param newPasswordToHash password that should be hashed
+     *                          hashing the new password and replacing it
+     */
+    public void changePassword(String newPasswordToHash)
+    {
+        this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash);
+    }
+
 
     /**
      * Adding an order to the Orderlist
@@ -155,12 +170,12 @@ public class User extends DatabaseEntity {
      * @param order order that schould be added
      * @return true when the order was added
      */
-    /*public boolean addOrder(Order order)
+    public boolean addOrder(Order order)
     {
         orders.add(order);
         logger.info("Order was added.");
         return true;
-    }*/
+    }
 
     /**
      * Removing an Order
@@ -168,7 +183,7 @@ public class User extends DatabaseEntity {
      * @param order order that schould be removed
      * @return true, when the order was removed / false, when the order was not found
      */
-    /*
+
     public boolean removeOrder(Order order)
     {
         if (orders.contains(order))
@@ -181,7 +196,7 @@ public class User extends DatabaseEntity {
             logger.info("Order was not found or does not exist.");
             return false;
         }
-    }*/
+    }
 
     /**
      * For Payment logic by principle "First Come First Serve": Oldest unpaid Order should be paid first.
@@ -190,14 +205,14 @@ public class User extends DatabaseEntity {
      * @return Oldest unpaid Order of this account
      * @author Michael Hopp
      */
-    /*
+
     public Order getOldestUnpaidOrder()
     {
         return orders.stream()
                 .filter(order -> !order.isPaid())  // Filter for unpaid Orders
                 .min(Comparator.comparing(Order::getOrderDate)) // select oldest
                 .get();
-    }*/
+    }
 
     public String getFirstname() {
         return firstname;
