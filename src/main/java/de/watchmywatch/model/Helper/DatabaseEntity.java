@@ -5,7 +5,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
-// TODO: Datumsspalten created und modified werden noch nicht in kind Tabellen übernommen
 /**
  * Parent Class that contains general fields for classes that are stored in a Database
  * @author Michael Hopp

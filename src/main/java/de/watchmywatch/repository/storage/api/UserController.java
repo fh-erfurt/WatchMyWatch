@@ -21,7 +21,15 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @PostMapping(path = "/create")
+    @GetMapping(value="/users/{id}")
+    public @ResponseBody
+    Optional<User> getOneUser(@PathVariable Integer  userId) {
+        // This returns a JSON or XML with the one user
+
+        return userRepository.findById(userId);
+    }
+
+    @PostMapping(path = "/users")
     public @ResponseBody
     String addUser(@RequestParam String firstname, @RequestParam String lastname, @RequestParam String email) {
         //Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
@@ -30,14 +38,6 @@ public class UserController {
        // User user = new User(customer, "Salami", address, new Date(2020, Calendar.JANUARY, 26), PAYPAL, ACTIV, new Shoppingcart());
         //userRepository.save(user);
         return "banana";
-    }
-
-    @GetMapping(value="/users/{id}")
-    public @ResponseBody
-    Optional<User> getOneUser(@PathVariable Integer  userId) {
-        // This returns a JSON or XML with the one user
-
-        return userRepository.findById(userId);
     }
 
     // PUT /api/users/:id updates the user with the id

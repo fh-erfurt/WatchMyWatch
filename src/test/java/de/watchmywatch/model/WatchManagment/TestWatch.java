@@ -1,7 +1,12 @@
 package de.watchmywatch.model.WatchManagment;
-/*
+
+import de.watchmywatch.model.AccountManagment.User;
+import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.Helper.Address;
+import de.watchmywatch.model.OrderManagment.Order;
+import de.watchmywatch.model.OrderManagment.Shoppingcart;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,15 +14,39 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * class which tests the functionality of Watch
  */
-/*
+
 public class TestWatch {
-    //create some reusable objects
-    Address address = new Address("street", "city", "state", "zip");
-    Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
-            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), address);
-    Bracelet bracelet = new Bracelet("Bracelet No.1", manufacturer, "part1", Material.ALUMINIUM, 2, 100, 1, ConnectionType.BAND);
-    Casing casing = new Casing("Casing No.1", manufacturer, "part2", Material.ALUMINIUM, 2, 100, 2, 2, ConnectionType.BAND);
-    Clockwork clockwork = new Clockwork("Clockwork No.1", manufacturer, "part3", Material.ALUMINIUM, 100, 2, 2);
+    // create some reusable objects
+    Address address1;
+    User user1;
+    Manufacturer manufacturer1;
+    Bracelet bracelet1;
+    Casing casing1;
+    Clockwork clockwork1;
+    Bracelet bracelet2;
+    Watch watch1;
+    Watch watch2;
+    Shoppingcart shoppingcart1;
+
+    @BeforeEach
+    void setUp() {
+        address1 = new Address("street 2", "city", "state", "012345");
+        shoppingcart1 = new Shoppingcart();
+        user1 = new User("Test", "User", "user@mail.com", "password",
+                "01716181447", address1, LocalDate.of(1998, 9, 23),
+                address1, shoppingcart1);
+        manufacturer1 = new Manufacturer("Apple", "mail@mail.com", "01716181447", address1);
+        bracelet1 = new Bracelet("Bracelet No.1", manufacturer1, "part1", Material.ALUMINIUM,
+                50, 50, 1, ConnectionType.BAND);
+        casing1 = new Casing("Casing No.1", manufacturer1, "part2", Material.ALUMINIUM,
+                50, 100, 2, 2, ConnectionType.BAND);
+        clockwork1 = new Clockwork("Clockwork No.1", manufacturer1, "part3", Material.ALUMINIUM,
+                50, 2, 2);
+        bracelet2 = new Bracelet("Bracelet No.1", manufacturer1, "part1", Material.ALUMINIUM,
+                2000, 50, 1, ConnectionType.BAND);
+        watch1 = new Watch("WatchName", "Flexing", bracelet1, casing1, clockwork1);
+        watch2 = new Watch("Watch2Name", "Flexing2", bracelet2, casing1, clockwork1);
+    }
 
     private String create141characterString() {
         String string = "";
@@ -30,57 +59,51 @@ public class TestWatch {
     @Test
     public void should_create_a_valid_watch() throws WatchNameNotValidException {
         //Given
-
         // When
-        Watch watch = new Watch("Swatch", "Test", bracelet, casing, clockwork);
         //Then
-        assertEquals(true, watch.validate());
+        assertEquals(true, watch1.validate());
     }
 
     @Test
     public void should_create_a_non_valid_watch_with_no_parts() throws WatchNameNotValidException {
         //Given
         //When
-        Watch watch = new Watch("Swatch", "Test");
+        Watch nonValidWatch = new Watch("Swatch", "Test");
         //Then
-        assertEquals(false, watch.validate());
+        assertEquals(false, nonValidWatch.validate());
     }
 
     @Test
     public void should_create_a_non_valid_watch_price_smaller_zero_without_fee() throws WatchNameNotValidException {
         //Given
         //When
-        Watch watch = new Watch("Swatch", "Test", new Bracelet("Bracelet No.1", manufacturer, "part1", Material.ALUMINIUM, -200, 100, 1, ConnectionType.BAND), casing, clockwork);
+        watch1.getClockwork().setPrice(-400);
         //Then
-        assertEquals(false, watch.validate());
+        assertEquals(false, watch1.validate());
     }
 
     @Test
     public void should_create_a_non_valid_watch_price_equal_zero_without_fee() throws WatchNameNotValidException {
         //Given
         //When
-        Watch watch = new Watch("Swatch", "Test", new Bracelet("Bracelet No.1", manufacturer, "part1", Material.ALUMINIUM, -4, 100, 1, ConnectionType.BAND), casing, clockwork);
+        watch1.getClockwork().setPrice(-150);
         //Then
-        assertEquals(false, watch.validate());
+        assertEquals(false, watch1.validate());
     }
 
     @Test
     public void should_check_fee_calculation_for_under_2000euro() throws WatchNameNotValidException {
         //Given
         //When
-        Watch watch = new Watch("Swatch", "Test");
-        watch.setPrice(100.00);
         //Then
-        assertEquals(110.00, watch.getPriceWithFee());
+        assertEquals(165.00, watch1.getPriceWithFee());
     }
 
     @Test
     public void should_check_fee_calculation_for_over_2000euro() throws WatchNameNotValidException {
         //Given
         //When
-        Watch watch = new Watch("Swatch", "Test");
-        watch.setPrice(2500.00);
         //Then
-        assertEquals(2700.00, watch.getPriceWithFee());
+        assertEquals(2300.0, watch2.getPriceWithFee());
     }
-}*/
+}

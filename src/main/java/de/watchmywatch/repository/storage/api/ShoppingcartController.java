@@ -20,8 +20,8 @@ public class ShoppingcartController {
         return shoppingcartRepository.findAll();
     }
 
-    // GET /api/shoppingcart/:id returns shoppingcart with id
-    @GetMapping(value="/shoppingcart/{shoppingcartId}")
+    // GET /api/shoppingcarts/:id returns shoppingcart with id
+    @GetMapping(value="/shoppingcarts/{shoppingcartId}")
     public @ResponseBody
     Shoppingcart getOneShoppingcart(@PathVariable Integer  shoppingcartId) {
         // This returns a JSON or XML with the one shoppingcart
@@ -29,8 +29,8 @@ public class ShoppingcartController {
                 .orElseThrow(() -> new NotFoundException("shoppingcart", shoppingcartId));
     }
 
-    // POST /api/shoppingcart creates a shoppingcart in the database and returns "Saved"
-    @PostMapping(path="/shoppingcart") // Map ONLY POST Requests
+    // POST /api/shoppingcarts creates a shoppingcart in the database and returns "Saved"
+    @PostMapping(path="/shoppingcarts") // Map ONLY POST Requests
     public @ResponseBody String addNewShoppingcart (Shoppingcart shoppingcart) {
         shoppingcartRepository.save(shoppingcart);
         return "Saved";
@@ -52,7 +52,6 @@ public class ShoppingcartController {
                 });
     }
 
-    // TODO: Change overlapping Paths
     // DELETE /api/shoppingcarts/:id deletes the shoppingcart with id and returns "Deleted"
     @DeleteMapping(path = "/shoppingcarts/{id}")
     public @ResponseBody

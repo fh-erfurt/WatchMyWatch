@@ -22,7 +22,7 @@ public class PaymentController {
     }
 
     // GET /api/payment/:id returns payment with id
-    @GetMapping(value = "/payment/{paymentId}")
+    @GetMapping(value = "/payments/{paymentId}")
     public @ResponseBody
     Payment getOnePayment(@PathVariable Integer paymentId) {
         // This returns a JSON or XML with the one payment
@@ -31,7 +31,7 @@ public class PaymentController {
     }
 
     // POST /api/payment creates a payment in the database and returns "Saved"
-    @PostMapping(path = "/payment") // Map ONLY POST Requests
+    @PostMapping(path = "/payments") // Map ONLY POST Requests
     public @ResponseBody
     String addNewPayment(Payment payment) {
         paymentRepository.save(payment);
@@ -55,7 +55,6 @@ public class PaymentController {
                 });
     }
 
-    // TODO: Change overlapping Paths
     // DELETE /api/payments/:id deletes the payment with id and returns "Deleted"
     @DeleteMapping(path = "/payments/{id}")
     public @ResponseBody
