@@ -20,7 +20,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
 
-
 @Entity
 public class User extends DatabaseEntity {
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -33,7 +32,6 @@ public class User extends DatabaseEntity {
     @Size(min = 2, max = 35, message = "Lastname must be 2-35 characters long.")
     private String lastname;
 
-
     @Column(unique = true)
     @NotNull
     @NotBlank
@@ -43,7 +41,6 @@ public class User extends DatabaseEntity {
     @NotNull
     @Size(min = 3 , message = "Password must be 3-9 characters long.")
     private String securePassword;
-
 
     @NotNull
     @NotBlank( message = "Require")
@@ -55,16 +52,12 @@ public class User extends DatabaseEntity {
     @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
 
-    private String role;
-
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
 
-
     @ManyToOne(cascade= CascadeType.PERSIST)
     private Address billingAddress;
-
 
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
@@ -74,10 +67,6 @@ public class User extends DatabaseEntity {
 
     @OneToMany(mappedBy = "user")
     private List<Order> orders;
-
-  //  @OneToMany(mappedBy = "user")
-  //  private List<Order> orders = new ArrayList<>();
-
 
     /**
      * @param passwordToHash not hashed password
@@ -107,13 +96,11 @@ public class User extends DatabaseEntity {
         this.shoppingCart = shoppingCart;
         this.paymentMethod = null;
         this.accountStatus = AccountStatus.USER;
-        this.role="User";
         this.orders = new ArrayList<>();
     }
 
     public User() {
     }
-
 
     /**
      * Hash-Function
@@ -138,6 +125,7 @@ public class User extends DatabaseEntity {
         {
             e.printStackTrace();
         }
+
         return generatedPassword;
     }
 
@@ -183,7 +171,6 @@ public class User extends DatabaseEntity {
      * @param order order that schould be removed
      * @return true, when the order was removed / false, when the order was not found
      */
-
     public boolean removeOrder(Order order)
     {
         if (orders.contains(order))
@@ -205,7 +192,6 @@ public class User extends DatabaseEntity {
      * @return Oldest unpaid Order of this account
      * @author Michael Hopp
      */
-
     public Order getOldestUnpaidOrder()
     {
         return orders.stream()
@@ -241,8 +227,6 @@ public class User extends DatabaseEntity {
     public String getSecurePassword() {
         return securePassword;
     }
-
-
 
     public String getPhone() {
         return phone;
@@ -299,20 +283,12 @@ public class User extends DatabaseEntity {
     public void setShoppingCart(Shoppingcart shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
-/*
+
     public List<Order> getOrders() {
         return orders;
     }
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
-    }*/
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 }
