@@ -1,9 +1,11 @@
 package de.watchmywatch.model.OrderManagment;
 
+import de.watchmywatch.model.AccountManagment.User;
 import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.WatchManagment.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -18,21 +20,39 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * @author Michael Hopp
  */
-/*
+
 public class TestOrder {
     // create some reusable objects
-    Address address = new Address("street 2", "city", "state", "012345");
-    Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
-            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), address);
-    private Bracelet bracelet = new Bracelet("Bracelet No.1", manufacturer, "part1", Material.ALUMINIUM, 25, 100, 1, ConnectionType.BAND);
-    private Casing casing = new Casing("Casing No.1", manufacturer, "part2", Material.ALUMINIUM, 25, 100, 2, 2, ConnectionType.BAND);
-    private Clockwork clockwork = new Clockwork("Clockwork No.1", manufacturer, "part3", Material.ALUMINIUM, 50, 100, 2);
-    private Watch watch = new Watch("Swatch", "Test", bracelet, casing, clockwork);
+    Address address1;
+    User user1;
+    Manufacturer manufacturer1;
+    Bracelet bracelet1;
+    Casing casing1;
+    Clockwork clockwork1;
+    Watch watch1;
+    Shoppingcart shoppingcart1;
+    Order order1;
 
-    private Shoppingcart shoppingcart = createNotEmptyShoppingcart(watch);
-    private Order testOrder = new Order(address, shoppingcart);
-
-    public TestOrder() throws WatchNameNotValidException, ShoppingcartEmptyException {
+    @BeforeEach
+    void setUp() {
+        address1 = new Address("street 2", "city", "state", "012345");
+        user1 = new User("Test", "User", "user@mail.com", "password",
+                "01716181447", address1, LocalDate.of(1998, 9, 23),
+                address1, shoppingcart1);
+        manufacturer1 = new Manufacturer("Apple", "mail@mail.com", "01716181447", address1);
+        bracelet1 = new Bracelet("Bracelet No.1", manufacturer1, "part1", Material.ALUMINIUM,
+                50, 50, 1, ConnectionType.BAND);
+        casing1 = new Casing("Casing No.1", manufacturer1, "part2", Material.ALUMINIUM,
+                50, 100, 2, 2, ConnectionType.BAND);
+        clockwork1 = new Clockwork("Clockwork No.1", manufacturer1, "part3", Material.ALUMINIUM,
+                50, 2, 2);
+        watch1 = new Watch("WatchName", "Flexing", bracelet1, casing1, clockwork1);
+        shoppingcart1 = createNotEmptyShoppingcart(watch1);
+        try {
+            order1 = new Order(address1, shoppingcart1);
+        } catch (ShoppingcartEmptyException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -41,7 +61,7 @@ public class TestOrder {
      * @param watch Watch that will be added to returned Shoppingcart
      * @return Shoppingcart object which is not empty
      */
-/*
+
     private Shoppingcart createNotEmptyShoppingcart(Watch watch) {
         Shoppingcart shoppingcart = new Shoppingcart();
         shoppingcart.addWatch(watch);
@@ -51,52 +71,45 @@ public class TestOrder {
     @Test
     public void should_create_new_order_with_orderstatus_pending() throws ShoppingcartEmptyException {
         //Given
-        Order order = new Order(address, shoppingcart);
         OrderStatus pending = OrderStatus.PENDING;
-        // When
-
+        //When
         //Then
-        assertEquals(pending, order.getOrderStatus());
+        assertEquals(pending, order1.getOrderStatus());
     }
 
     @Test
     public void should_calculate_total_with_shippingfee() throws ShoppingcartEmptyException {
         //Given
-        Order order = new Order(address, shoppingcart);
-        // When
-
+        //When
         //Then
-        assertEquals(115.90, order.getTotal()); // Price of Watch with fee should be 110 + SHIPPINGFEE(5.90)
+        assertEquals(170.9, order1.getTotal()); // Price of Watch with fee should be 165 + SHIPPINGFEE(5.90)
     }
 
     @Test
     public void should_set_shippingDate_to_current_time_when_sent() throws ShoppingcartEmptyException {
         //Given
-        Order order = new Order(address, shoppingcart);
-        // When
-        order.setShippingStatus(ShippingStatus.SENT);
+        //When
+        order1.setShippingStatus(ShippingStatus.SENT);
         //Then
-        assertTrue(order.getShipDate() != null);
+        assertTrue(order1.getShipDate() != null);
     }
 
     @Test
     public void should_have_paymentMethod_paypal() {
         //Given
-        testOrder.setPayment(new Payment(PaymentMethod.PAYPAL, "tests"));
-        // When
-
+        order1.setPayment(new Payment(PaymentMethod.PAYPAL, "tests"));
+        //When
         //Then
-        assertEquals(PaymentMethod.PAYPAL, testOrder.getPayment().getPaymentMethod());
+        assertEquals(PaymentMethod.PAYPAL, order1.getPayment().getPaymentMethod());
     }
 
     @Test
     public void should_be_paid_if_payment_date_is_set() {
         //Given
-
-        // When
-        testOrder.getPayment().setDatePaid(new Date());
+        //When
+        order1.getPayment().setDatePaid(new Date());
         //Then
-        assertTrue(testOrder.isPaid());
+        assertTrue(order1.isPaid());
     }
 
-}*/
+}

@@ -2,6 +2,7 @@ package de.watchmywatch.model.AccountManagment;
 
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
+import de.watchmywatch.model.OrderManagment.Order;
 import de.watchmywatch.model.OrderManagment.PaymentMethod;
 import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,8 +14,10 @@ import javax.validation.constraints.Size;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.logging.Logger;
-
 
 @Entity
 public class User extends DatabaseEntity {
@@ -28,7 +31,6 @@ public class User extends DatabaseEntity {
     @Size(min = 2, max = 35, message = "Lastname must be 2-35 characters long.")
     private String lastname;
 
-
     @Column(unique = true)
     @NotNull
     @NotBlank
@@ -39,7 +41,6 @@ public class User extends DatabaseEntity {
     @Size(min = 3 , message = "Password must be 3-9 characters long.")
     private String securePassword;
 
-
     @NotNull
     @NotBlank( message = "Require")
     private String phone;
@@ -49,17 +50,13 @@ public class User extends DatabaseEntity {
 
     @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
-
-
-
+  
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
 
-
     @ManyToOne(cascade= CascadeType.PERSIST)
     private Address billingAddress;
-
 
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
@@ -67,25 +64,21 @@ public class User extends DatabaseEntity {
     @OneToOne(cascade= CascadeType.PERSIST)
     private Shoppingcart shoppingCart;
 
-  //  @OneToMany(mappedBy = "user")
-  //  private List<Order> orders = new ArrayList<>();
-
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
 
     /**
-     * @param passwordToHash not hashed password
-     * @param billingAddress Address for the bill
-     * @param PaymentMethod  Enum of the paymentmethod
-     * @param accountStatus  Enum of the accountstatus
-     * @param shoppingCart   shoppingcart from the customer
-     * @param email          the email from the person
-     * @param address        the address of the person
-     * @param phone          phonenumber from the person
      * @param firstname      firstname from the person
      * @param lastname       lastname from the person
+     * @param email          the email from the person
+     * @param securePassword the password for the account
+     * @param phone          phonenumber from the person
+     * @param address        the address of the person
      * @param dob            the date of birth from the customer
+     * @param billingAddress Address for the bill
+     * @param shoppingCart   shoppingcart from the customer
      * @author Anton Bespalov
      */
-
     public User(String firstname, String lastname, String email, String securePassword, String phone, Address address,  LocalDate dob,
                 Address billingAddress, Shoppingcart shoppingCart) {
         this.firstname = firstname;
@@ -99,12 +92,11 @@ public class User extends DatabaseEntity {
         this.shoppingCart = shoppingCart;
         this.paymentMethod = null;
         this.accountStatus = AccountStatus.USER;
-
+        this.orders = new ArrayList<>();
     }
 
     public User() {
     }
-
 
     /**
      * Hash-Function
@@ -112,7 +104,6 @@ public class User extends DatabaseEntity {
      * @param passwordToHash password that should be hashed
      * @return hashed password
      */
-
     public static String get_SHA_256_SecurePassword(String passwordToHash)
     {
         String generatedPassword = null;
@@ -130,23 +121,31 @@ public class User extends DatabaseEntity {
         {
             e.printStackTrace();
         }
+
         return generatedPassword;
     }
 
     /**
-     * changePassword
+     * setSecurePassword for Spring default setter
      *
      * @param newPasswordToHash password that should be hashed
      *                          hashing the new password and replacing it
      */
-
-
-
     public void setSecurePassword(String newPasswordToHash)
     {
         this.securePassword=newPasswordToHash;
     }
 
+    /**
+     * changePassword for our method tests
+     *
+     * @param newPasswordToHash password that should be hashed
+     *                          hashing the new password and replacing it
+     */
+    public void changePassword(String newPasswordToHash)
+    {
+        this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash);
+    }
 
     /**
      * Adding an order to the Orderlist
@@ -154,12 +153,12 @@ public class User extends DatabaseEntity {
      * @param order order that schould be added
      * @return true when the order was added
      */
-    /*public boolean addOrder(Order order)
+    public boolean addOrder(Order order)
     {
         orders.add(order);
         logger.info("Order was added.");
         return true;
-    }*/
+    }
 
     /**
      * Removing an Order
@@ -167,7 +166,6 @@ public class User extends DatabaseEntity {
      * @param order order that schould be removed
      * @return true, when the order was removed / false, when the order was not found
      */
-    /*
     public boolean removeOrder(Order order)
     {
         if (orders.contains(order))
@@ -180,7 +178,7 @@ public class User extends DatabaseEntity {
             logger.info("Order was not found or does not exist.");
             return false;
         }
-    }*/
+    }
 
     /**
      * For Payment logic by principle "First Come First Serve": Oldest unpaid Order should be paid first.
@@ -189,20 +187,17 @@ public class User extends DatabaseEntity {
      * @return Oldest unpaid Order of this account
      * @author Michael Hopp
      */
-    /*
     public Order getOldestUnpaidOrder()
     {
         return orders.stream()
                 .filter(order -> !order.isPaid())  // Filter for unpaid Orders
                 .min(Comparator.comparing(Order::getOrderDate)) // select oldest
                 .get();
-    }*/
+    }
 
     public String getRolesForAuthority() {
         return "ROLE_" + accountStatus;
     }
-
-
 
     public String getFirstname() {
         return firstname;
@@ -231,8 +226,6 @@ public class User extends DatabaseEntity {
     public String getSecurePassword() {
         return securePassword;
     }
-
-
 
     public String getPhone() {
         return phone;
@@ -290,6 +283,11 @@ public class User extends DatabaseEntity {
         this.shoppingCart = shoppingCart;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
 
-
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 }

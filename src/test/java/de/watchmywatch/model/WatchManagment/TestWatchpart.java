@@ -1,7 +1,11 @@
 package de.watchmywatch.model.WatchManagment;
-/*
+
+import de.watchmywatch.model.AccountManagment.User;
 import de.watchmywatch.model.Helper.Address;
+import de.watchmywatch.model.OrderManagment.Shoppingcart;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.time.LocalDate;
 
 
@@ -10,65 +14,76 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * class which tests the functionality of Watchparts: Bracelet, Casing and Clockwork
  */
-/*
+
 public class TestWatchpart {
-    //create some reusable objects
-    Address address = new Address("street", "city", "state", "zip");
-    Manufacturer manufacturer = new Manufacturer("Apple", new Customer("anton.bespalov@fh-erfurt.de", new Address("Lilo-Herrmann-Straße 2",
-            "Erfurt", "Thüringen", "99086"), "01716181447", "Anton", "Bespalov", LocalDate.of(1998, 9, 23)), address);
+    // create some reusable objects
+    Address address1;
+    Manufacturer manufacturer1;
+
+
+    @BeforeEach
+    void setUp() {
+        address1 = new Address("street 2", "city", "state", "012345");
+        manufacturer1 = new Manufacturer("Apple", "mail@mail.com", "01716181447", address1);
+    }
 
     @Test
     public void should_create_a_valid_casing() {
         //Given
-        // When
-        Casing casing = new Casing("Casing No.1", manufacturer, "id", Material.ALUMINIUM, 1.00, 100, 2.00, 2.00, ConnectionType.BAND);
+        //When
+        Casing casing1 = new Casing("Casing No.1", manufacturer1, "part2", Material.ALUMINIUM,
+                50, 100, 2, 2, ConnectionType.BAND);
         //Then
-        assertEquals(true, casing.validate());
+        assertEquals(true, casing1.validate());
     }
 
     @Test
     public void should_create_a_non_valid_casing() {
         //Given
         //When
-        Casing casing = new Casing("Casing No.1", manufacturer, "id", Material.ALUMINIUM, -1.00, 100, 2.00, 2.00, ConnectionType.BAND);
+        Casing nonValidCasing = new Casing("Casing No.1", manufacturer1, "part2", Material.ALUMINIUM,
+                -1, 100, 2, 2, ConnectionType.BAND);
         //Then
-        assertEquals(false, casing.validate());
+        assertEquals(false, nonValidCasing.validate());
     }
 
     @Test
     public void should_create_a_valid_bracelet() {
         //Given
         // When
-        Bracelet bracelet = new Bracelet("Bracelet No.1", manufacturer, "ID", Material.ALUMINIUM, 2.00, 100, 2.00, ConnectionType.BAND);
+        Bracelet bracelet1 = new Bracelet("Bracelet No.1", manufacturer1, "part1", Material.ALUMINIUM,
+                50, 50, 1, ConnectionType.BAND);
         //Then
-        assertEquals(true, bracelet.validate());
+        assertEquals(true, bracelet1.validate());
     }
 
     @Test
     public void should_create_a_non_valid_bracelet() {
         //Given
         //When
-        Bracelet bracelet = new Bracelet("Bracelet No.1", manufacturer, "ID", Material.ALUMINIUM, -2.00, 100, 2.00, ConnectionType.BAND);
-        //Then
-        assertEquals(false, bracelet.validate());
+        Bracelet nonValidBracelet = new Bracelet("Bracelet No.1", manufacturer1, "part1", Material.ALUMINIUM,
+                -1, 50, 1, ConnectionType.BAND);//Then
+        assertEquals(false, nonValidBracelet.validate());
     }
 
     @Test
     public void should_create_a_valid_clockwork() {
         //Given
         // When
-        Clockwork clockwork = new Clockwork("Clockwork No.1", manufacturer, "ID", Material.ALUMINIUM, 2.00, 100, 2.00);
+        Clockwork clockwork1 = new Clockwork("Clockwork No.1", manufacturer1, "part3", Material.ALUMINIUM,
+                50, 2, 2);
         //Then
-        assertEquals(true, clockwork.validate());
+        assertEquals(true, clockwork1.validate());
     }
 
     @Test
     public void should_create_a_non_valid_clockwork() {
         //Given
         //When
-        Clockwork clockwork = new Clockwork("Clockwork No.1", manufacturer, "ID", Material.ALUMINIUM, -1.00, 100, 2.00);
+        Clockwork nonValidClockwork = new Clockwork("Clockwork No.1", manufacturer1, "part3", Material.ALUMINIUM,
+                -1, 2, 2);
         //Then
-        assertEquals(false, clockwork.validate());
+        assertEquals(false, nonValidClockwork.validate());
     }
 
-}*/
+}

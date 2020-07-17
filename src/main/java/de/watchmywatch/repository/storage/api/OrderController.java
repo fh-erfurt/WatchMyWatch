@@ -21,8 +21,8 @@ public class OrderController {
         return orderRepository.findAll();
     }
 
-    // GET /api/order/:id returns order with id
-    @GetMapping(value="/order/{orderId}")
+    // GET /api/orders/:id returns order with id
+    @GetMapping(value="/orders/{orderId}")
     public @ResponseBody
     Order getOneOrder(@PathVariable Integer  orderId) {
         // This returns a JSON or XML with the one order
@@ -30,8 +30,8 @@ public class OrderController {
                 .orElseThrow(() -> new NotFoundException("order", orderId));
     }
 
-    // POST /api/order creates an Order in the database and returns "Saved"
-    @PostMapping(path="/order") // Map ONLY POST Requests
+    // POST /api/orders creates an Order in the database and returns "Saved"
+    @PostMapping(path="/orders") // Map ONLY POST Requests
     public @ResponseBody
     String addNewOrder (Order order) {
         // @ResponseBody means the returned String is the response, not a view name
@@ -61,7 +61,6 @@ public class OrderController {
                 });
     }
 
-    // TODO: Change overlapping Paths
     // DELETE /api/orders/:id deletes the order with id and returns "Deleted"
     @DeleteMapping(path = "/orders/{id}")
     public @ResponseBody
