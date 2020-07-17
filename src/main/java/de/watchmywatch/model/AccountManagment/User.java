@@ -2,11 +2,9 @@ package de.watchmywatch.model.AccountManagment;
 
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
-import de.watchmywatch.model.OrderManagment.Order;
 import de.watchmywatch.model.OrderManagment.PaymentMethod;
 import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -15,9 +13,6 @@ import javax.validation.constraints.Size;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 import java.util.logging.Logger;
 
 @Entity
@@ -51,7 +46,7 @@ public class User extends DatabaseEntity {
 
     @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
-
+  
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
@@ -69,20 +64,17 @@ public class User extends DatabaseEntity {
     private List<Order> orders;
 
     /**
-     * @param passwordToHash not hashed password
-     * @param billingAddress Address for the bill
-     * @param PaymentMethod  Enum of the paymentmethod
-     * @param accountStatus  Enum of the accountstatus
-     * @param shoppingCart   shoppingcart from the customer
-     * @param email          the email from the person
-     * @param address        the address of the person
-     * @param phone          phonenumber from the person
      * @param firstname      firstname from the person
      * @param lastname       lastname from the person
+     * @param email          the email from the person
+     * @param securePassword the password for the account
+     * @param phone          phonenumber from the person
+     * @param address        the address of the person
      * @param dob            the date of birth from the customer
+     * @param billingAddress Address for the bill
+     * @param shoppingCart   shoppingcart from the customer
      * @author Anton Bespalov
      */
-
     public User(String firstname, String lastname, String email, String securePassword, String phone, Address address,  LocalDate dob,
                 Address billingAddress, Shoppingcart shoppingCart) {
         this.firstname = firstname;
@@ -130,18 +122,18 @@ public class User extends DatabaseEntity {
     }
 
     /**
-     * changePassword
+     * setSecurePassword for Spring default setter
      *
      * @param newPasswordToHash password that should be hashed
      *                          hashing the new password and replacing it
      */
     public void setSecurePassword(String newPasswordToHash)
     {
-        this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash);
+        this.securePassword=newPasswordToHash;
     }
 
     /**
-     * changePassword
+     * changePassword for our method tests
      *
      * @param newPasswordToHash password that should be hashed
      *                          hashing the new password and replacing it
@@ -150,7 +142,6 @@ public class User extends DatabaseEntity {
     {
         this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash);
     }
-
 
     /**
      * Adding an order to the Orderlist
@@ -198,6 +189,10 @@ public class User extends DatabaseEntity {
                 .filter(order -> !order.isPaid())  // Filter for unpaid Orders
                 .min(Comparator.comparing(Order::getOrderDate)) // select oldest
                 .get();
+    }
+
+    public String getRolesForAuthority() {
+        return "ROLE_" + accountStatus;
     }
 
     public String getFirstname() {
