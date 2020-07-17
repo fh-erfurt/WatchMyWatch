@@ -2,6 +2,7 @@ package de.watchmywatch.model.AccountManagment;
 
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
+import de.watchmywatch.model.OrderManagment.Order;
 import de.watchmywatch.model.OrderManagment.PaymentMethod;
 import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,6 +14,9 @@ import javax.validation.constraints.Size;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.logging.Logger;
 
 @Entity
