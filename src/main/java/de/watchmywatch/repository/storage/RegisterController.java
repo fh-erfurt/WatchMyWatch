@@ -35,9 +35,9 @@ public class RegisterController {
             return "/register";
         }
 
-        Optional<User> test = userRepository.findByEmail(newUser.getEmail());
+        Optional<User> user = userRepository.findByEmail(newUser.getEmail());
 
-        if(test.isPresent())
+        if(user.isPresent())
         {
             userBindingResult.rejectValue("email", "error.newUser","An account already exists for this email.");
             return "/register";
@@ -45,7 +45,7 @@ public class RegisterController {
             addressRepository.save(newAddress);
             newUser.setAddress(newAddress);
             newUser.setBillingAddress(newAddress);
-            newUser.setRole("USER");
+            newUser.setAccountStatus( AccountStatus.USER);
 
         String PasswordToHash = passwordEncoder.encode(newUser.getSecurePassword());
             newUser.setSecurePassword(PasswordToHash);

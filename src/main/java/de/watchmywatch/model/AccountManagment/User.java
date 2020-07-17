@@ -2,11 +2,9 @@ package de.watchmywatch.model.AccountManagment;
 
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.Helper.DatabaseEntity;
-import de.watchmywatch.model.OrderManagment.Order;
 import de.watchmywatch.model.OrderManagment.PaymentMethod;
 import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -15,9 +13,6 @@ import javax.validation.constraints.Size;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 import java.util.logging.Logger;
 
 
@@ -55,7 +50,7 @@ public class User extends DatabaseEntity {
     @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
 
-    private String role;
+
 
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -104,7 +99,7 @@ public class User extends DatabaseEntity {
         this.shoppingCart = shoppingCart;
         this.paymentMethod = null;
         this.accountStatus = AccountStatus.USER;
-        this.role="User";
+
     }
 
     public User() {
@@ -117,6 +112,7 @@ public class User extends DatabaseEntity {
      * @param passwordToHash password that should be hashed
      * @return hashed password
      */
+
     public static String get_SHA_256_SecurePassword(String passwordToHash)
     {
         String generatedPassword = null;
@@ -143,9 +139,12 @@ public class User extends DatabaseEntity {
      * @param newPasswordToHash password that should be hashed
      *                          hashing the new password and replacing it
      */
+
+
+
     public void setSecurePassword(String newPasswordToHash)
     {
-        this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash);
+        this.securePassword=newPasswordToHash;
     }
 
 
@@ -198,6 +197,12 @@ public class User extends DatabaseEntity {
                 .min(Comparator.comparing(Order::getOrderDate)) // select oldest
                 .get();
     }*/
+
+    public String getRolesForAuthority() {
+        return "ROLE_" + accountStatus;
+    }
+
+
 
     public String getFirstname() {
         return firstname;
@@ -284,20 +289,7 @@ public class User extends DatabaseEntity {
     public void setShoppingCart(Shoppingcart shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
-/*
-    public List<Order> getOrders() {
-        return orders;
-    }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }*/
 
-    public String getRole() {
-        return role;
-    }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
 }

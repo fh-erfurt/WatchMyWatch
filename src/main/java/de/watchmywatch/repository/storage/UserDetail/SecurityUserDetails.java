@@ -12,15 +12,17 @@ import java.util.stream.Collectors;
 
 public class SecurityUserDetails implements UserDetails {
 
+    private Integer id;
     private String email;
     private String password;
     private List<GrantedAuthority> authorities;
 
     public SecurityUserDetails(User user) {
 
+        this.id = user.getId();
         this.email = user.getEmail();
         this.password = user.getSecurePassword();
-        this.authorities = Arrays.stream(user.getRole().split(","))
+        this.authorities = Arrays.stream(user.getRolesForAuthority().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }
@@ -29,6 +31,7 @@ public class SecurityUserDetails implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
+
     @Override
     public String getPassword() {
         return password;
@@ -39,12 +42,12 @@ public class SecurityUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
 
