@@ -48,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // The pages does not require login
                 .antMatchers("/","/login","/logout","/register","/newUser","/index").permitAll()
-                .antMatchers("/greeting").hasRole("USER")
+                .antMatchers("/greeting").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

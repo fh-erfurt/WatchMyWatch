@@ -3,6 +3,7 @@ package de.watchmywatch.config;
 import de.watchmywatch.model.AccountManagment.*;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.WatchManagment.*;
+import de.watchmywatch.repository.storage.UserDetail.SecurityUserDetails;
 import de.watchmywatch.repository.storage.api.BraceletRepository;
 import de.watchmywatch.repository.storage.api.CasingRepository;
 import de.watchmywatch.repository.storage.api.ClockworkRepository;
@@ -97,6 +98,14 @@ public class WebAppController {
     @GetMapping(value = "/loginSuccessfull")
     public String currentUserName(Authentication authentication) {
         return "redirect:/";
+    }
+
+    @GetMapping(value = "/shoppingcart")
+    public String shoppingcart(Authentication authentication) {
+        SecurityUserDetails t = (SecurityUserDetails) authentication.getPrincipal();
+         String name = authentication.getName();
+
+        return "shoppingcart";
     }
 
 
