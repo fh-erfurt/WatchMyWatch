@@ -25,7 +25,7 @@ public class Order extends DatabaseEntity
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     @Transient
-    private static final double SHIPPINGFEE = 5.90;     // Constant Shipping cost.
+    public static final double SHIPPINGFEE = 5.90;     // Constant Shipping cost.
 
     @Temporal( TemporalType.TIMESTAMP )
     private Date ordered;

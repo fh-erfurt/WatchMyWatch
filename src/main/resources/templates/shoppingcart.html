@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>shoppingcart</title>
+    <title>Shoppingcart</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
 </head>
 <body>
-
+    <h1>Your Shoppingcart</h1>
+    <div>
+        <div th:if="${shoppingcart.getItems().isEmpty()}">
+            <h1><span class="label label-danger">Empty</span></h1>
+        </div>
+        <div th:unless="${shoppingcart.getItems().isEmpty()}">
+            <div class="list-group" th:each="watch : ${shoppingcart.getItems()}">
+                <a href="#" class="list-group-item list-group-item-action"
+                   th:utext="${watch.getName()} + ' ' + ${watch.getPriceWithFee()}"></a>
+            </div>
+            <br>
+            <div th:utext="'Total: ' + ${shoppingcart.getTotal()} + '€ plus ' + ${shippingFee} + '€ shipping'"></div>
+            <a href="/checkout">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</button>
+            </a>
+        </div>
+    </div>
 </body>
 </html>

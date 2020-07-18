@@ -2,12 +2,10 @@ package de.watchmywatch.config;
 
 import de.watchmywatch.model.AccountManagment.*;
 import de.watchmywatch.model.Helper.Address;
+import de.watchmywatch.model.OrderManagment.*;
 import de.watchmywatch.model.WatchManagment.*;
 import de.watchmywatch.repository.storage.UserDetail.SecurityUserDetails;
-import de.watchmywatch.repository.storage.api.BraceletRepository;
-import de.watchmywatch.repository.storage.api.CasingRepository;
-import de.watchmywatch.repository.storage.api.ClockworkRepository;
-import de.watchmywatch.repository.storage.api.WatchRepository;
+import de.watchmywatch.repository.storage.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.security.core.Authentication;
@@ -21,6 +19,7 @@ import java.time.Clock;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class WebAppController {
@@ -33,7 +32,10 @@ public class WebAppController {
     CasingRepository casingRepository;
     @Autowired
     ClockworkRepository clockworkRepository;
-
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    ShoppingcartRepository shoppingcartRepository;
 
     public WebAppController(Environment environment) {
         appMode = environment.getProperty("app-mode");
@@ -101,13 +103,39 @@ public class WebAppController {
     }
 
     @GetMapping(value = "/shoppingcart")
-    public String shoppingcart(Authentication authentication) {
-        SecurityUserDetails t = (SecurityUserDetails) authentication.getPrincipal();
-         String name = authentication.getName();
-
+    public String shoppingcart(Authentication authentication, Model model) {
+        // TODO: getUserByAuthentication als Funktion auslagern
+        String userEmail = authentication.getName();
+        Optional<User> user = userRepository.findByEmail(userEmail);
+        if(user.isPresent()) {
+            Shoppingcart shoppingcart = user.get().getShoppingCart();
+            model.addAttribute("shoppingcart", shoppingcart);
+            model.addAttribute("shippingFee", Order.SHIPPINGFEE);
+        }
+        else{
+            return "redirect:/";
+        }
         return "shoppingcart";
     }
 
+    @GetMapping(value = "/checkout")
+    public String checkout(Authentication authentication, Model model) {
+        // TODO: getUserByAuthentication als Funktion auslagern
+        String userEmail = authentication.getName();
+        Optional<User> user = userRepository.findByEmail(userEmail);
+        if(user.isPresent()) {
+            model.addAttribute("userId", user.get().getId());
+            model.addAttribute("address", user.get().getAddress());
+            model.addAttribute("total", user.get().getShoppingCart().getTotal() + Order.SHIPPINGFEE);
+            model.addAttribute("paymentMethods", new PaymentMethod[]
+                    {PaymentMethod.PAYPAL, PaymentMethod.CREDITCARD, PaymentMethod.SEPA, PaymentMethod.TRANSFER});
+            model.addAttribute("prefPaymentMethod", user.get().getPaymentMethod());
+        }
+        else{
+            return "redirect:/";
+        }
+        return "checkout";
+    }
 
 
 }
