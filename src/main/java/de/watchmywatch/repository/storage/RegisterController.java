@@ -4,7 +4,9 @@ package de.watchmywatch.repository.storage;
 import de.watchmywatch.model.AccountManagment.AccountStatus;
 import de.watchmywatch.model.AccountManagment.User;
 import de.watchmywatch.model.Helper.Address;
+import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import de.watchmywatch.repository.storage.api.AddressRepository;
+import de.watchmywatch.repository.storage.api.ShoppingcartRepository;
 import de.watchmywatch.repository.storage.api.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,6 +27,8 @@ public class RegisterController {
     public AddressRepository addressRepository;
     @Autowired
     public PasswordEncoder passwordEncoder;
+    @Autowired
+    public ShoppingcartRepository shoppingcartRepository;
 
 
     @PostMapping(path = "/newUser")
@@ -46,6 +50,9 @@ public class RegisterController {
             newUser.setAddress(newAddress);
             newUser.setBillingAddress(newAddress);
             newUser.setAccountStatus( AccountStatus.USER);
+
+            Shoppingcart shoppingcart = new Shoppingcart();
+            newUser.setShoppingCart(shoppingcartRepository.save(shoppingcart));
 
         String PasswordToHash = passwordEncoder.encode(newUser.getSecurePassword());
             newUser.setSecurePassword(PasswordToHash);

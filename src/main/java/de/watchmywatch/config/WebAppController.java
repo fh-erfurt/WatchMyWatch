@@ -102,15 +102,22 @@ public class WebAppController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "/shoppingcart")
+    @GetMapping("/shoppingcart")
     public String shoppingcart(Authentication authentication, Model model) {
         // TODO: getUserByAuthentication als Funktion auslagern
+        List<Watch> items = new ArrayList<Watch>();
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
+
         if(user.isPresent()) {
-            Shoppingcart shoppingcart = user.get().getShoppingCart();
-            model.addAttribute("shoppingcart", shoppingcart);
+            Shoppingcart shoppingcart1 = user.get().getShoppingCart();
+
+            // TODO: Remove after testing
+            shoppingcart1.addWatch(watchRepository.findById(1).get());
+
+            model.addAttribute("shoppingcart1", shoppingcart1);
             model.addAttribute("shippingFee", Order.SHIPPINGFEE);
+            model.addAttribute("items", shoppingcart1.getItems());
         }
         else{
             return "redirect:/";
@@ -118,7 +125,7 @@ public class WebAppController {
         return "shoppingcart";
     }
 
-    @GetMapping(value = "/checkout")
+    @GetMapping("/checkout")
     public String checkout(Authentication authentication, Model model) {
         // TODO: getUserByAuthentication als Funktion auslagern
         String userEmail = authentication.getName();

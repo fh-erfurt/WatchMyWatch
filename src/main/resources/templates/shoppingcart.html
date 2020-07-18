@@ -8,20 +8,25 @@
 <body>
     <h1>Your Shoppingcart</h1>
     <div>
-        <div th:if="${shoppingcart.getItems().isEmpty()}">
+        <div th:if="${#lists.isEmpty(items)}">
             <h1><span class="label label-danger">Empty</span></h1>
         </div>
-        <div th:unless="${shoppingcart.getItems().isEmpty()}">
-            <div class="list-group" th:each="watch : ${shoppingcart.getItems()}">
+        <div th:unless="${#lists.isEmpty(items)}">
+            <div class="list-group" th:each="watch : ${items}">
                 <a href="#" class="list-group-item list-group-item-action"
-                   th:utext="${watch.getName()} + ' ' + ${watch.getPriceWithFee()}"></a>
+                   th:utext="${watch.getName()}+' '+${watch.getPriceWithFee()}"></a>
             </div>
             <br>
-            <div th:utext="'Total: ' + ${shoppingcart.getTotal()} + '€ plus ' + ${shippingFee} + '€ shipping'"></div>
+            <div th:utext="'Total: '+${shoppingcart1.getTotal()}+'€ plus '+${shippingFee}+'€ shipping'"></div>
+
             <a href="/checkout">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</button>
+                Test
+               <!-- <button type="button" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</button> -->
             </a>
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
 </body>
 </html>
