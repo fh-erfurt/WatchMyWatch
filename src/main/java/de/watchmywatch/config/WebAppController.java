@@ -134,8 +134,9 @@ public class WebAppController {
             model.addAttribute("userId", user.get().getId());
             model.addAttribute("address", user.get().getAddress());
             model.addAttribute("total", user.get().getShoppingCart().getTotal() + Order.SHIPPINGFEE);
-            model.addAttribute("paymentMethods", new PaymentMethod[]
-                    {PaymentMethod.PAYPAL, PaymentMethod.CREDITCARD, PaymentMethod.SEPA, PaymentMethod.TRANSFER});
+            model.addAttribute("paymentMethods", new String[]
+                    {PaymentMethod.PAYPAL.toString(), PaymentMethod.CREDITCARD.toString(),
+                    PaymentMethod.SEPA.toString(), PaymentMethod.TRANSFER.toString()});
             model.addAttribute("prefPaymentMethod", user.get().getPaymentMethod());
         }
         else{
@@ -144,5 +145,18 @@ public class WebAppController {
         return "checkout";
     }
 
-
+    @GetMapping("/order")
+    public String order(Authentication authentication, Model model) {
+        // TODO: getUserByAuthentication als Funktion auslagern
+        String userEmail = authentication.getName();
+        Optional<User> user = userRepository.findByEmail(userEmail);
+        if(user.isPresent()) {
+            // TODO: Post Paymentmethod
+            // TODO: Create and Save Order to DB
+        }
+        else{
+            return "redirect:/";
+        }
+        return "order";
+    }
 }
