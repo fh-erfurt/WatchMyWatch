@@ -10,7 +10,7 @@
     </header>
 
     <h1>Checkout</h1>
-    <!-- <form action="#" th:action="@{/newOrder}" method="post"> -->
+<!--     <form action="#" th:action="@{/order}" method="post">-->
         <!-- Price -->
         <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -48,8 +48,9 @@
             </div>
         </div>
 
-<!--        &lt;!&ndash; Submit &ndash;&gt;-->
-<!--        <button type="submit" class="btn btn-primary btn-lg">Buy Now</button>-->
+        <!-- Submit -->
+        <a href="/order" type="submit" class="btn btn-primary btn-lg">Buy Now</a>
+<!--    TODO: Post PaymentMethod to action-->
 <!--    </form>-->
 
     <footer th:replace="fragments/footer :: footer">
