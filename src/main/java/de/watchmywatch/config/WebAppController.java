@@ -159,4 +159,23 @@ public class WebAppController {
         }
         return "order";
     }
+    @GetMapping("/profile")
+    public String profile(Authentication authentication, Model model) {
+        String userEmail = authentication.getName();
+        Optional<User> user = userRepository.findByEmail(userEmail);
+        if(user.isPresent()) {
+            model.addAttribute("firstName", user.get().getFirstname());
+            model.addAttribute("lastName", user.get().getLastname());
+            model.addAttribute("email", user.get().getEmail());
+            model.addAttribute("dob", user.get().getDob());
+            model.addAttribute("street", user.get().getAddress().getStreet());
+            model.addAttribute("zip", user.get().getAddress().getZip());
+            model.addAttribute("state", user.get().getAddress().getState());
+            model.addAttribute("city", user.get().getAddress().getCity());
+        }
+        else{
+            return "redirect:/";
+        }
+        return "profile";
+    }
 }
