@@ -20,9 +20,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Controller
 public class WebAppController {
+    private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private String appMode;
     @Autowired
     WatchRepository watchRepository;
@@ -111,10 +113,7 @@ public class WebAppController {
 
         if(user.isPresent()) {
             Shoppingcart shoppingcart1 = user.get().getShoppingCart();
-
-            // TODO: Remove after testing
-            shoppingcart1.addWatch(watchRepository.findById(1).get());
-
+            shoppingcart1.calcTotal();      // TODO: Remove when DB is consistent/clear and filled by API's
             model.addAttribute("shoppingcart1", shoppingcart1);
             model.addAttribute("shippingFee", Order.SHIPPINGFEE);
             model.addAttribute("items", shoppingcart1.getItems());
@@ -131,13 +130,24 @@ public class WebAppController {
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
         if(user.isPresent()) {
-            model.addAttribute("userId", user.get().getId());
-            model.addAttribute("address", user.get().getAddress());
-            model.addAttribute("total", user.get().getShoppingCart().getTotal() + Order.SHIPPINGFEE);
-            model.addAttribute("paymentMethods", new String[]
-                    {PaymentMethod.PAYPAL.toString(), PaymentMethod.CREDITCARD.toString(),
-                    PaymentMethod.SEPA.toString(), PaymentMethod.TRANSFER.toString()});
-            model.addAttribute("prefPaymentMethod", user.get().getPaymentMethod());
+            if(!user.get().getShoppingCart().getItems().isEmpty())
+            {
+                model.addAttribute("userId" , user.get().getId());
+                model.addAttribute("address", user.get().getAddress());
+
+                user.get().getShoppingCart().calcTotal();      // TODO: Remove when DB is consistent/clear and filled by API's
+                model.addAttribute("total"  , user.get().getShoppingCart().getTotal() + Order.SHIPPINGFEE);
+                model.addAttribute("paymentMethods", new String[]{
+                        PaymentMethod.PAYPAL.toString() ,    PaymentMethod.CREDITCARD.toString() ,
+                        PaymentMethod.SEPA.toString()   ,    PaymentMethod.TRANSFER.toString()   });
+
+                String prefPaymentMethod = user.get().getPaymentMethod() != null ? user.get().getPaymentMethod().toString() : "";
+                model.addAttribute("prefPaymentMethod", prefPaymentMethod);
+            }
+            else
+            {
+                return "redirect:/";
+            }
         }
         else{
             return "redirect:/";

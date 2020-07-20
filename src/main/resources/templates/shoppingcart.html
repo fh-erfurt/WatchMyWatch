@@ -22,8 +22,8 @@
             <br>
             <div th:utext="'Total: '+${shoppingcart1.getTotal()}+'€ plus '+${shippingFee}+'€ shipping'"></div>
 
-            <a href="/checkout">
-                Test
+            <a th:href="'/checkout'" class="btn btn-primary btn-lg btn-block">
+                Proceed to Checkout
                <!-- <button type="button" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</button> -->
             </a>
         </div>
