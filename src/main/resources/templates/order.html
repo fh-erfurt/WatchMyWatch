@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+<header th:replace="fragments/header :: header">
+</header>
+
+<h1>Order</h1>
+<div>
+    <p>Successful!</p>
+    <a href="index.html">Continue</a>
+</div>
+
+<footer th:replace="fragments/footer :: footer">
+</footer>
+
+<th:block th:include="fragments/javascript :: javascript"></th:block>
+</body>
+</html>

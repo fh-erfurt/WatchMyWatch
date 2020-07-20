@@ -145,4 +145,18 @@ public class WebAppController {
         return "checkout";
     }
 
+    @GetMapping("/order")
+    public String order(Authentication authentication, Model model) {
+        // TODO: getUserByAuthentication als Funktion auslagern
+        String userEmail = authentication.getName();
+        Optional<User> user = userRepository.findByEmail(userEmail);
+        if(user.isPresent()) {
+            // TODO: Post Paymentmethod
+            // TODO: Create and Save Order to DB
+        }
+        else{
+            return "redirect:/";
+        }
+        return "order";
+    }
 }
