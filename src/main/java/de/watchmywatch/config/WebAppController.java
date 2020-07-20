@@ -134,8 +134,9 @@ public class WebAppController {
             model.addAttribute("userId", user.get().getId());
             model.addAttribute("address", user.get().getAddress());
             model.addAttribute("total", user.get().getShoppingCart().getTotal() + Order.SHIPPINGFEE);
-            model.addAttribute("paymentMethods", new PaymentMethod[]
-                    {PaymentMethod.PAYPAL, PaymentMethod.CREDITCARD, PaymentMethod.SEPA, PaymentMethod.TRANSFER});
+            model.addAttribute("paymentMethods", new String[]
+                    {PaymentMethod.PAYPAL.toString(), PaymentMethod.CREDITCARD.toString(),
+                    PaymentMethod.SEPA.toString(), PaymentMethod.TRANSFER.toString()});
             model.addAttribute("prefPaymentMethod", user.get().getPaymentMethod());
         }
         else{
@@ -143,6 +144,5 @@ public class WebAppController {
         }
         return "checkout";
     }
-
 
 }
