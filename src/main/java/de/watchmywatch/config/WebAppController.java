@@ -1,6 +1,7 @@
 package de.watchmywatch.config;
 
 import de.watchmywatch.model.AccountManagment.*;
+import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.OrderManagment.*;
 import de.watchmywatch.model.WatchManagment.*;
@@ -38,6 +39,8 @@ public class WebAppController {
     UserRepository userRepository;
     @Autowired
     ShoppingcartRepository shoppingcartRepository;
+    @Autowired
+    OrderRepository orderRepository;
 
     public WebAppController(Environment environment) {
         appMode = environment.getProperty("app-mode");
@@ -125,7 +128,7 @@ public class WebAppController {
     }
 
     @GetMapping("/checkout")
-    public String checkout(Authentication authentication, Model model) {
+    public String checkout(Authentication authentication, Model model) throws ShoppingcartEmptyException {
         // TODO: getUserByAuthentication als Funktion auslagern
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
@@ -133,16 +136,23 @@ public class WebAppController {
             if(!user.get().getShoppingCart().getItems().isEmpty())
             {
                 model.addAttribute("userId" , user.get().getId());
-                model.addAttribute("address", user.get().getAddress());
+                Address address = user.get().getAddress();
+                model.addAttribute("address", address );
 
-                user.get().getShoppingCart().calcTotal();      // TODO: Remove when DB is consistent/clear and filled by API's
-                model.addAttribute("total"  , user.get().getShoppingCart().getTotal() + Order.SHIPPINGFEE);
+                Shoppingcart shoppingcart = user.get().getShoppingCart();
+                shoppingcart.calcTotal();      // TODO: Remove when DB is consistent/clear and filled by API's
+                model.addAttribute("total"  ,shoppingcart.getTotal() + Order.SHIPPINGFEE);
                 model.addAttribute("paymentMethods", new String[]{
                         PaymentMethod.PAYPAL.toString() ,    PaymentMethod.CREDITCARD.toString() ,
                         PaymentMethod.SEPA.toString()   ,    PaymentMethod.TRANSFER.toString()   });
 
                 String prefPaymentMethod = user.get().getPaymentMethod() != null ? user.get().getPaymentMethod().toString() : "";
                 model.addAttribute("prefPaymentMethod", prefPaymentMethod);
+
+                Order newOrder = new Order(address, shoppingcart, user.get());
+                model.addAttribute("newOrder", newOrder);
+                model.addAttribute("newPayment", newOrder.getPayment());
+
             }
             else
             {

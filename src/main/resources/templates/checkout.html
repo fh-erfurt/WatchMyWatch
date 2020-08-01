@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Checkout</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
 </head>
@@ -10,8 +11,10 @@
     </header>
 
     <h1>Checkout</h1>
-<!--     <form action="#" th:action="@{/order}" method="post">-->
+     <form action="#" th:action="@{/newOrder}" th:object="${newPayment}"method="post">
         <!-- Price -->
+         <div th:utext="${newOrder.getTotal()}"></div>
+
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Total:</h5>
@@ -20,12 +23,11 @@
         </div>
 
         <!-- Paymentmethod -->
-
         <div class="card">
             <h5 class="card-title">Payment Method</h5>
             <div th:each="paymentMethod, i : ${paymentMethods}">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios"
+                    <input class="form-check-input" type="radio" name="exampleRadios" th:field="*{paymentMethod}"
                            th:id="'payment'+${i.index}"
                            th:value="${paymentMethod}"
                            th:checked="${prefPaymentMethod} == ${paymentMethod}">
@@ -48,10 +50,12 @@
             </div>
         </div>
 
+        <!-- Order -->
+
+
         <!-- Submit -->
-        <a href="/order" type="submit" class="btn btn-primary btn-lg">Buy Now</a>
-<!--    TODO: Post PaymentMethod to action-->
-<!--    </form>-->
+         <p><input type="submit" class="btn btn-primary btn-lg" value="Buy Now" /></p>
+    </form>
 
     <footer th:replace="fragments/footer :: footer">
     </footer>

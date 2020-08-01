@@ -95,10 +95,30 @@ public class Order extends DatabaseEntity
     }
 
     /**
+     * Creates an Order Object with User.
+     * @param address       Address for shipping and billing.
+     * @param shoppingcart  List of watches, which shall be ordered
+     * @param user          Owner.
+     * @author Michael Hopp
+     */
+    public Order(Address address, Shoppingcart shoppingcart, User user) throws ShoppingcartEmptyException {
+        checkShoppingcartEmpty(shoppingcart);
+        this.ordered = new Date();
+        this.shipped = null;
+        this.shippingAddress = address;
+        this.orderStatus = OrderStatus.PENDING;
+        this.shippingStatus = ShippingStatus.PENDING;
+        this.shoppingcart = shoppingcart;
+        this.calcTotal();
+        this.payment = new Payment();
+        this.user = user;
+        logger.info("New Order was created.");
+    }
+    /**
      * Constructor without Parameters for JPA.
      * @author Michael Hopp
      */
-    protected Order(){}
+    public Order(){}
 
 
     /**
@@ -192,6 +212,10 @@ public class Order extends DatabaseEntity
     public void calcTotal()
     {
         this.total = this.shoppingcart.getTotal() + SHIPPINGFEE;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 
     public Shoppingcart getShoppingcart(){
