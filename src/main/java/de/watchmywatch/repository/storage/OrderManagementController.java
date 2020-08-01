@@ -2,15 +2,14 @@ package de.watchmywatch.repository.storage;
 
 import de.watchmywatch.model.AccountManagment.AccountStatus;
 import de.watchmywatch.model.AccountManagment.User;
+import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.OrderManagment.Order;
 import de.watchmywatch.model.OrderManagment.Payment;
 import de.watchmywatch.model.OrderManagment.Shoppingcart;
-import de.watchmywatch.repository.storage.api.AddressRepository;
-import de.watchmywatch.repository.storage.api.OrderRepository;
-import de.watchmywatch.repository.storage.api.PaymentRepository;
-import de.watchmywatch.repository.storage.api.ShoppingcartRepository;
+import de.watchmywatch.repository.storage.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,28 +28,26 @@ public class OrderManagementController {
     public OrderRepository orderRepository;
     @Autowired
     public PaymentRepository paymentRepository;
+    @Autowired
+    public UserRepository userRepository;
+    @Autowired
+    public ShoppingcartRepository shoppingcartRepository;
 
     @PostMapping(path = "/newOrder")
-    public String addNewOrder(@ModelAttribute("newOrder") Order newOrder,
-                              @ModelAttribute("newPayment") Payment newPayment,
-                              Model model) {
-       Order order = newOrder;
+    public String addNewOrder(@ModelAttribute("newPayment") Payment newPayment,
+                              Authentication authentication) throws ShoppingcartEmptyException {
+        String userEmail = authentication.getName();
+        Optional<User> user = userRepository.findByEmail(userEmail);
+        Shoppingcart shoppingcart = user.get().getShoppingCart();
+        shoppingcart.calcTotal();    // TODO: Remove when DB is consistent/clear and filled by API's
+        Address address = user.get().getAddress();
 
-
-//        orderRepository.save(newOrder);
-//        newUser.setAddress(newAddress);
-//        orderRepository.save(newOrder);
-//        newUser.setBillingAddress(newAddress);
-//        newUser.setAccountStatus( AccountStatus.USER);
-//
-//        Shoppingcart shoppingcart = new Shoppingcart();
-//        newUser.setShoppingCart(shoppingcartRepository.save(shoppingcart));
-//
-//        String PasswordToHash = passwordEncoder.encode(newUser.getSecurePassword());
-//        newUser.setSecurePassword(PasswordToHash);
-//        userRepository.save(newUser);
+        Order saveOrder = new Order(address, shoppingcart, user.get());
+        saveOrder.getPayment().setPaymentMethod(newPayment.getPaymentMethod());
+        orderRepository.save(saveOrder);
+        user.get().setShoppingCart(shoppingcartRepository.save(new Shoppingcart()));
+        userRepository.save(user.get());
 
         return "redirect:/order";
-
     }
 }

@@ -13,7 +13,7 @@
     <h1>Checkout</h1>
      <form action="#" th:action="@{/newOrder}" th:object="${newPayment}"method="post">
         <!-- Price -->
-         <div th:utext="${newOrder.getTotal()}"></div>
+         </div>
 
         <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -49,9 +49,6 @@
                 <p class="card-text" th:utext="'State: '+${address.getState()}"></p>
             </div>
         </div>
-
-        <!-- Order -->
-
 
         <!-- Submit -->
          <p><input type="submit" class="btn btn-primary btn-lg" value="Buy Now" /></p>

@@ -19,7 +19,7 @@ public class Shoppingcart extends DatabaseEntity
 
     private double total;
 
-    @OneToMany
+    @ManyToMany
     private List<Watch> items = new ArrayList<>();
 
 

@@ -148,10 +148,7 @@ public class WebAppController {
 
                 String prefPaymentMethod = user.get().getPaymentMethod() != null ? user.get().getPaymentMethod().toString() : "";
                 model.addAttribute("prefPaymentMethod", prefPaymentMethod);
-
-                Order newOrder = new Order(address, shoppingcart, user.get());
-                model.addAttribute("newOrder", newOrder);
-                model.addAttribute("newPayment", newOrder.getPayment());
+                model.addAttribute("newPayment", new Payment());    // Todo:
 
             }
             else
