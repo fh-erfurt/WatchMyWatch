@@ -22,19 +22,22 @@
             </div>
         </div>
 
-        <!-- Paymentmethod -->
+        <!-- PaymentMethod -->
+        <!-- TODO: field nullifies the default checked -->
         <div class="card">
             <h5 class="card-title">Payment Method</h5>
-            <div th:each="paymentMethod, i : ${paymentMethods}">
+            <div th:each="method, i : ${paymentMethods}">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" th:field="*{paymentMethod}"
+                    <input class="form-check-input" type="radio" name="paymentMethod"
                            th:id="'payment'+${i.index}"
-                           th:value="${paymentMethod}"
-                           th:checked="${prefPaymentMethod} == ${paymentMethod}">
+                           th:value="${method}"
+                           th:checked="${prefPaymentMethod == method}"
+                           th:field="*{paymentMethod}">
                     <label class="form-check-label"
                            th:for="'payment'+${i.index}"
-                           th:utext="${paymentMethod}">
+                           th:utext="${method}">
                     </label>
+                    <p th:text="${prefPaymentMethod == method} ? 'Pref' : 'nope'"></p>
                 </div>
             </div>
         </div>

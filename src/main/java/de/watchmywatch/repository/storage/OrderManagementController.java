@@ -46,6 +46,10 @@ public class OrderManagementController {
         saveOrder.getPayment().setPaymentMethod(newPayment.getPaymentMethod());
         orderRepository.save(saveOrder);
         user.get().setShoppingCart(shoppingcartRepository.save(new Shoppingcart()));
+
+        if (user.get().getPaymentMethod() == null){                     //  On first purchase of user: Remember used paymentmethod as prefered method
+            user.get().setPaymentMethod(newPayment.getPaymentMethod());
+        }
         userRepository.save(user.get());
 
         return "redirect:/order";
