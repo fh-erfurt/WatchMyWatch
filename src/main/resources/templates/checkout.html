@@ -37,7 +37,7 @@
                            th:for="'payment'+${i.index}"
                            th:utext="${method}">
                     </label>
-                    <p th:text="${prefPaymentMethod == method} ? 'Pref' : 'nope'"></p>
+                    <p th:text="${prefPaymentMethod == method} ? 'Prefered' : ''"></p>
                 </div>
             </div>
         </div>

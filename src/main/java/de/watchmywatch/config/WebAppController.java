@@ -146,7 +146,7 @@ public class WebAppController {
                         PaymentMethod.PAYPAL.toString() ,    PaymentMethod.CREDITCARD.toString() ,
                         PaymentMethod.SEPA.toString()   ,    PaymentMethod.TRANSFER.toString()   });
 
-                String prefPaymentMethod = user.get().getPaymentMethod() != null ? user.get().getPaymentMethod().toString() : "";
+                String prefPaymentMethod = (user.get().getPaymentMethod() != null) ? user.get().getPaymentMethod().toString() : "";
                 model.addAttribute("prefPaymentMethod", prefPaymentMethod);
                 model.addAttribute("newPayment", new Payment());    // Todo:
 
