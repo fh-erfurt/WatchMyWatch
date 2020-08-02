@@ -45,14 +45,14 @@ public class UserController {
     public @ResponseBody
     User updateUser(@PathVariable Integer id, @RequestBody User newUser) {
         return userRepository.findById(id)
-                .map(customer -> {
-                    customer.setAddress(newUser.getAddress());
-                    customer.setDob(newUser.getDob());
-                    customer.setEmail(newUser.getEmail());
-                    customer.setFirstname(newUser.getFirstname());
-                    customer.setLastname(newUser.getLastname());
-                    customer.setPhone(newUser.getPhone());
-                    return userRepository.save(customer);
+                .map(user-> {
+                    user.setAddress(newUser.getAddress());
+                    user.setDob(newUser.getDob());
+                    user.setEmail(newUser.getEmail());
+                    user.setFirstname(newUser.getFirstname());
+                    user.setLastname(newUser.getLastname());
+                    user.setPhone(newUser.getPhone());
+                    return userRepository.save(user);
                 })
                 .orElseGet(() -> {
                     newUser.setId(id);
