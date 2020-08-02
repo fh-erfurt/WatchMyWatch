@@ -29,7 +29,7 @@
 
 
 
-        <div th:action="@{/newCustomer}" th:object="${newAddress}" method="post">
+        <div th:action="@{/newUser}" th:object="${newAddress}" method="post">
             <p>city: <input type="text" th:field="*{city}" /></p>
             <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
 
