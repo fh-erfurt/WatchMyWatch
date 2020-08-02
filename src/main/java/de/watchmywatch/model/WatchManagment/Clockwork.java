@@ -36,7 +36,7 @@ public class Clockwork extends Watchpart implements Validatable
         this.diameter = diameter;
     }
 
-    protected Clockwork(){}
+    public Clockwork(){}
 
     public double getDiameter()
     {
