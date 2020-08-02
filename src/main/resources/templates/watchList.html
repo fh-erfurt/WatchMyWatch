@@ -30,6 +30,9 @@
                     <div class="singleWatch-casingName" th:utext="'Casing: '+${watch.casing.getName()}"></div>
                     <div class="singleWatch-clockworkName" th:utext="'Clockwork: '+${watch.clockwork.getName()}"></div>
                 </div>
+                <form action="#" th:action="@{'/addWatch/'+${watch.getId()}}" method="post">
+                    <button type="submit" class="btn btn-outline-danger">+</button>
+                </form>
 
             </div>
         </div>
