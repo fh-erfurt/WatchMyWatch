@@ -21,12 +21,12 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping(value="/users/{id}")
+    @GetMapping(path="/users/{id}")
     public @ResponseBody
-    Optional<User> getOneUser(@PathVariable Integer  userId) {
+    User getOneUser(@PathVariable Integer id) {
         // This returns a JSON or XML with the one user
 
-        return userRepository.findById(userId);
+        return userRepository.findById(id).get();
     }
 
     @PostMapping(path = "/users")
@@ -43,7 +43,7 @@ public class UserController {
     // PUT /api/users/:id updates the user with the id
     @PutMapping("/users/{id}")
     public @ResponseBody
-    User updateUser(@PathVariable Integer id, @RequestBody User newUser) {
+    User updateUser(@RequestParam Integer id, @RequestBody User newUser) {
         return userRepository.findById(id)
                 .map(user-> {
                     user.setAddress(newUser.getAddress());
