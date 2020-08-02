@@ -84,6 +84,11 @@ public class WebAppController {
         model.addAttribute("casings", casings);
         model.addAttribute("clockworks", clockworks);
 
+        model.addAttribute("newBracelet", new Bracelet());
+        model.addAttribute("newCasing", new Casing());
+        model.addAttribute("newClockwork", new Clockwork());
+
+        model.addAttribute("newWatch", new Watch());
         return "watchConfigurator";
     }
 
