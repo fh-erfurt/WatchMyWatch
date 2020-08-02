@@ -120,6 +120,7 @@ public class WebAppController {
             model.addAttribute("shoppingcart1", shoppingcart1);
             model.addAttribute("shippingFee", Order.SHIPPINGFEE);
             model.addAttribute("items", shoppingcart1.getItems());
+            model.addAttribute("removeWatchId", null);
         }
         else{
             return "redirect:/";

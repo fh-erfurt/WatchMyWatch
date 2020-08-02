@@ -76,5 +76,14 @@ public class ShoppingcartController {
         return "Saved";
     }
 
+    @PostMapping(path="/shoppingcarts/{id}/removeWatch/{watchId}") // Map ONLY POST Requests
+    public @ResponseBody String removeWatchFromShoppingcart (@PathVariable Integer id, @PathVariable Integer watchId) {
+
+        Optional<Watch> watch = watchRepository.findById(watchId);
+        Optional<Shoppingcart> shoppingcart = shoppingcartRepository.findById(id);
+        shoppingcart.get().removeWatch(watch.get());
+        shoppingcartRepository.save(shoppingcart.get());
+        return "Removed";
+    }
 
 }

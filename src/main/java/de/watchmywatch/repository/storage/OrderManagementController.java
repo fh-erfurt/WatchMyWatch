@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -32,6 +33,8 @@ public class OrderManagementController {
     public UserRepository userRepository;
     @Autowired
     public ShoppingcartRepository shoppingcartRepository;
+    @Autowired
+    public WatchRepository watchRepository;
 
     @PostMapping(path = "/newOrder")
     public String addNewOrder(@ModelAttribute("newPayment") Payment newPayment,
@@ -53,5 +56,16 @@ public class OrderManagementController {
         userRepository.save(user.get());
 
         return "redirect:/order";
+    }
+
+    @PostMapping(path = "/removeWatch/{id}")
+    public String addNewOrder(@PathVariable Integer id, Authentication authentication){
+        String userEmail = authentication.getName();
+        Optional<User> user = userRepository.findByEmail(userEmail);
+        Shoppingcart shoppingcart = user.get().getShoppingCart();
+        shoppingcart.removeWatch(watchRepository.findById(id).get());
+        shoppingcartRepository.save(shoppingcart);
+
+        return "redirect:/shoppingcart";
     }
 }

@@ -18,14 +18,14 @@
             <div class="list-group" th:each="watch : ${items}">
                 <a href="#" class="list-group-item list-group-item-action"
                    th:utext="${watch.getName()}+' '+${watch.getPriceWithFee()}"></a>
+                <form action="#" th:action="@{'/removeWatch/'+${watch.getId()}}" method="post">
+                    <button type="submit" class="btn btn-outline-danger">X</button>
+                </form>
             </div>
             <br>
             <div th:utext="'Total: '+${shoppingcart1.getTotal()}+'€ plus '+${shippingFee}+'€ shipping'"></div>
 
-            <a th:href="'/checkout'" class="btn btn-primary btn-lg btn-block">
-                Proceed to Checkout
-               <!-- <button type="button" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</button> -->
-            </a>
+            <a th:href="'/checkout'" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</a>
         </div>
     </div>
 
