@@ -6,6 +6,7 @@ import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.OrderManagment.*;
 import de.watchmywatch.model.WatchManagment.*;
 import de.watchmywatch.repository.storage.UserDetail.SecurityUserDetails;
+import de.watchmywatch.repository.storage.WatchDetails;
 import de.watchmywatch.repository.storage.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -63,13 +64,14 @@ public class WebAppController {
     }
 
     private static List<Watch> watches = new ArrayList<Watch>();
+
     @GetMapping("/watchList")
     public String watchList(Model model) {
         model.addAttribute("title", "Watch-List");
         model.addAttribute("watches", watches);
         watches.clear();
         Iterable<Watch> allWatches = watchRepository.findAll();
-        for (Watch watch: allWatches) {
+        for (Watch watch : allWatches) {
             watches.add(watch);
         }
 
@@ -91,10 +93,9 @@ public class WebAppController {
         model.addAttribute("newCasing", new Casing());
         model.addAttribute("newClockwork", new Clockwork());
 
-        model.addAttribute("newWatch", new Watch());
+        model.addAttribute("watchDetails", new WatchDetails(null, null, 0, 0, 0));
         return "watchConfigurator";
     }
-
 
 
     @GetMapping("/register")
@@ -106,7 +107,8 @@ public class WebAppController {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute("title", "Login");
         return "login";
     }
 
@@ -122,7 +124,7 @@ public class WebAppController {
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
 
-        if(user.isPresent()) {
+        if (user.isPresent()) {
             model.addAttribute("title", "Shoppingcart");
             Shoppingcart shoppingcart1 = user.get().getShoppingCart();
             shoppingcart1.calcTotal();      // TODO: Remove when DB is consistent/clear and filled by API's
@@ -130,8 +132,7 @@ public class WebAppController {
             model.addAttribute("shippingFee", Order.SHIPPINGFEE);
             model.addAttribute("items", shoppingcart1.getItems());
             model.addAttribute("removeWatchId", null);
-        }
-        else{
+        } else {
             return "redirect:/";
         }
         return "shoppingcart";
@@ -142,38 +143,33 @@ public class WebAppController {
         // TODO: getUserByAuthentication als Funktion auslagern
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
-        if(user.isPresent()) {
+        if (user.isPresent()) {
             model.addAttribute("title", "Checkout");
-            if(!user.get().getShoppingCart().getItems().isEmpty())
-            {
-                model.addAttribute("userId" , user.get().getId());
+            if (!user.get().getShoppingCart().getItems().isEmpty()) {
+                model.addAttribute("userId", user.get().getId());
                 Address address = user.get().getAddress();
-                model.addAttribute("address", address );
+                model.addAttribute("address", address);
 
                 Shoppingcart shoppingcart = user.get().getShoppingCart();
                 shoppingcart.calcTotal();      // TODO: Remove when DB is consistent/clear and filled by API's
-                model.addAttribute("total"  ,shoppingcart.getTotal() + Order.SHIPPINGFEE);
+                model.addAttribute("total", shoppingcart.getTotal() + Order.SHIPPINGFEE);
                 model.addAttribute("paymentMethods", new String[]{
-                        PaymentMethod.PAYPAL.toString() ,    PaymentMethod.CREDITCARD.toString() ,
-                        PaymentMethod.SEPA.toString()   ,    PaymentMethod.TRANSFER.toString()   });
+                        PaymentMethod.PAYPAL.toString(), PaymentMethod.CREDITCARD.toString(),
+                        PaymentMethod.SEPA.toString(), PaymentMethod.TRANSFER.toString()});
 
                 Payment newPayment = new Payment();
 //                String prefPaymentMethod = "";
-                if (user.get().getPaymentMethod() != null)
-                {
+                if (user.get().getPaymentMethod() != null) {
 //                    prefPaymentMethod = user.get().getPaymentMethod().toString();
                     newPayment.setPaymentMethod(user.get().getPaymentMethod());
                 }
 //                model.addAttribute("prefPaymentMethod", prefPaymentMethod);
                 model.addAttribute("newPayment", newPayment);
 
-            }
-            else
-            {
+            } else {
                 return "redirect:/";
             }
-        }
-        else{
+        } else {
             return "redirect:/";
         }
         return "checkout";
@@ -185,17 +181,18 @@ public class WebAppController {
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
         model.addAttribute("title", "Order");
-        if(!user.isPresent()) {
+        if (!user.isPresent()) {
             return "redirect:/";
         }
         return "order";
     }
+
     @GetMapping("/profile")
     public String profile(Authentication authentication, Model model) {
         model.addAttribute("title", "Your Profile");
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
-        if(user.isPresent()) {
+        if (user.isPresent()) {
             model.addAttribute("firstName", user.get().getFirstname());
             model.addAttribute("lastName", user.get().getLastname());
             model.addAttribute("email", user.get().getEmail());
@@ -204,8 +201,7 @@ public class WebAppController {
             model.addAttribute("zip", user.get().getAddress().getZip());
             model.addAttribute("state", user.get().getAddress().getState());
             model.addAttribute("city", user.get().getAddress().getCity());
-        }
-        else{
+        } else {
             return "redirect:/";
         }
         return "profile";

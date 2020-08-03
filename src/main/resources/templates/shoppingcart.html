@@ -4,37 +4,37 @@
     <th:block th:include="fragments/head :: head"></th:block>
 </head>
 <body>
-    <header th:replace="fragments/header :: header">
-    </header>
+<header th:replace="fragments/header :: header">
+</header>
 
-    <div class="container-xl">
-        <h1>Your Shoppingcart</h1>
-        <div>
-            <div th:if="${#lists.isEmpty(items)}">
-                <h1><span class="badge badge-secondary">Empty</span></h1>
+<div class="container-xl">
+    <h1 style="text-align: center">Your Shoppingcart</h1>
+    <div>
+        <div th:if="${#lists.isEmpty(items)}">
+            <h1><span class="badge badge-secondary">Empty</span></h1>
+        </div>
+        <div th:unless="${#lists.isEmpty(items)}">
+            <div class="list-group" th:each="watch : ${items}">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0" th:utext="${watch.getName()}"></h6>
+                        <small class="text-muted" th:utext="${watch.getPriceWithFee()}+'€'"></small>
+                    </div>
+                    <form action="#" th:action="@{'/removeWatch/'+${watch.getId()}}" method="post">
+                        <button class="text-muted btn btn-outline-danger" type="submit">X</button>
+                    </form>
+                </li>
             </div>
-            <div th:unless="${#lists.isEmpty(items)}">
-                <div class="list-group" th:each="watch : ${items}">
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 class="my-0" th:utext="${watch.getName()}"></h6>
-                            <small class="text-muted" th:utext="${watch.getPriceWithFee()}+'€'"></small>
-                        </div>
-                        <form action="#" th:action="@{'/removeWatch/'+${watch.getId()}}" method="post">
-                            <button class="text-muted btn btn-outline-danger" type="submit">X</button>
-                        </form>
-                    </li>
-                </div>
-                <div th:utext="'Total: '+${shoppingcart1.getTotal()}+'€ plus '+${shippingFee}+'€ shipping'"></div>
+            <div th:utext="'Total: '+${shoppingcart1.getTotal()}+'€ plus '+${shippingFee}+'€ shipping'"></div>
 
-                <hr>
-                <a th:href="'/checkout'" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</a>
-            </div>
+            <hr>
+            <a th:href="'/checkout'" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</a>
         </div>
     </div>
-    <footer th:replace="fragments/footer :: footer">
-    </footer>
+</div>
+<footer th:replace="fragments/footer :: footer">
+</footer>
 
-    <th:block th:include="fragments/javascript :: javascript"></th:block>
+<th:block th:include="fragments/javascript :: javascript"></th:block>
 </body>
 </html>

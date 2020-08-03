@@ -2,44 +2,153 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:include="fragments/head :: head"></th:block>
-    <link th:href="@{/css/watchList.css}" rel="stylesheet"/>
 </head>
 <body>
 
 <header th:replace="fragments/header :: header">
 </header>
 
-<div style="text-align: center">
+<div class="my-4" style="text-align: center;">
     <h1>Watch-List</h1>
 </div>
+<div th:if="${#lists.isEmpty(watches)}">
+    <h1><span class="label label-danger">No Watches found</span></h1>
+</div>
+<div class="row row-cols-1 row-cols-md-3 mx-5 text-center" th:unless="${#lists.isEmpty(watches)}">
+    <div class="col mb-5" th:each="watch : ${watches}">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title my-0 text-center" th:utext="${watch.getName()}"></h3>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title pricing-card-title" th:utext="${watch.getPriceWithFee()}+'€'"></h2>
+                <p class="card-text" th:utext="${watch.getParticularity()}"></p>
+            </div>
+            <div class="accordion list-group list-group-flush mb-3" th:id="'accordion'+${watch.getId()}">
+                <div class="card">
+                    <div class="card-header" th:id="'headingOne'+${watch.getId()}">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                    th:data-target="'#collapseOne'+${watch.getId()}" aria-expanded="false"
+                                    th:aria-controls="'collapseOne'+${watch.getId()}">
+                                Bracelet
+                            </button>
+                        </h2>
+                    </div>
+                    <div th:id="'collapseOne'+${watch.getId()}" class="collapse"
+                         th:aria-labelledby="'headingOne'+${watch.getId()}"
+                         th:data-parent="'#accordion'+${watch.getId()}">
+                        <div class="card-body">
+                            <p th:utext="'Name: '+${watch.bracelet.getName()}"></p>
+                            <p th:utext="'Material: '+${watch.bracelet.getMaterial()}"></p>
+                            <p th:utext="'Size: '+${watch.bracelet.getSize()}"></p>
+                            <p th:utext="'Manufacturer: '+${watch.bracelet.getManufacturer().getName()}"></p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="watches py-5 bg-dark-gray">
+                <div class="card">
+                    <div class="card-header" th:id="'headingTwo'+${watch.getId()}">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                    th:data-target="'#collapseTwo'+${watch.getId()}" aria-expanded="false"
+                                    th:aria-controls="'collapseTwo'+${watch.getId()}">
+                                Casing
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div th:id="'collapseTwo'+${watch.getId()}" class="collapse"
+                         th:aria-labelledby="'headingTwo'+${watch.getId()}"
+                         th:data-parent="'#accordion'+${watch.getId()}">
+                        <div class="card-body">
+                            <p th:utext="'Name: '+${watch.casing.getName()}"></p>
+                            <p th:utext="'Material: '+${watch.casing.getMaterial()}"></p>
+                            <p th:utext="'OuterDiameter: '+${watch.casing.getOuterDiameter()}"></p>
+                            <p th:utext="'Manufacturer: '+${watch.casing.getManufacturer().getName()}"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" th:id="'headingThree'+${watch.getId()}">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                    th:data-target="'#collapseThree'+${watch.getId()}" aria-expanded="false"
+                                    th:aria-controls="'collapseThree'+${watch.getId()}">
+                                Clockwork
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div th:id="'collapseThree'+${watch.getId()}" class="collapse"
+                         th:aria-labelledby="'headingThree'+${watch.getId()}"
+                         th:data-parent="'#accordion'+${watch.getId()}">
+                        <div class="card-body">
+                            <p th:utext="'Name: '+${watch.clockwork.getName()}"></p>
+                            <p th:utext="'Material: '+${watch.clockwork.getMaterial()}"></p>
+                            <p th:utext="'Diameter: '+${watch.clockwork.getDiameter()}"></p>
+                            <p th:utext="'Manufacturer: '+${watch.clockwork.getManufacturer().getName()}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form action="#" th:action="@{'/addWatch/'+${watch.getId()}}" method="post">
+                <button type="submit" class="btn btn-outline-primary mb-3">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--
+<div class="watches bg-dark-gray">
     <div class="container">
         <div th:if="${#lists.isEmpty(watches)}">
             <h1><span class="label label-danger">No Watches found</span></h1>
         </div>
-        <div class="allWatches card-deck text-center" th:unless="${#lists.isEmpty(watches)}">
-            <div class="singleWatch mb-4 card shadow-sm" th:each="watch : ${watches}">
-                <div class="card-header">
-                    <div class="singleWatch-name font-weight-normal" th:utext="${watch.getName()}"></div>
+        <div class="card-deck text-center" th:unless="${#lists.isEmpty(watches)}">
+            <div class="row row-cols-1 row-cols-md-2">
+                <div class="col mb-4">
+                    <div class="card mb-4 gray" th:each="watch : ${watches}">
+                        <div class="card-header">
+                            <h3 class="card-title my-0" th:utext="${watch.getName()}"></h3>
+                        </div>
+                        <div class="card-body m-0 p-0">
+                            <table class="table m-0 p-0 table-dark">
+                                <tbody>
+                                <tr>
+                                    <td>Particularity</td>
+                                    <td th:utext="${watch.getParticularity()}"></td>
+                                </tr>
+                                <tr>
+                                    <td>Price</td>
+                                    <td th:utext="${watch.getPriceWithFee()}"></td>
+                                </tr>
+                                <tr>
+                                    <td>Bracelet</td>
+                                    <td th:utext="${watch.bracelet.getName()}"></td>
+                                </tr>
+                                <tr>
+                                    <td>Casing</td>
+                                    <td th:utext="${watch.casing.getName()}"></td>
+                                </tr>
+                                <tr>
+                                    <td>Clockwork</td>
+                                    <td th:utext="${watch.clockwork.getName()}"></td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <form action="#" th:action="@{'/addWatch/'+${watch.getId()}}" method="post">
+                            <button type="submit" class="btn btn-outline-danger">Add to Cart</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="singleWatch-particularity"
-                         th:utext="'Particularity: '+${watch.getParticularity()}"></div>
-                    <div class="singleWatch-price" th:utext="'Price: '+${watch.getPriceWithFee()}"></div>
-                    <div class="singleWatch-braceletName" th:utext="'Bracelet: '+${watch.bracelet.getName()}"></div>
-                    <div class="singleWatch-casingName" th:utext="'Casing: '+${watch.casing.getName()}"></div>
-                    <div class="singleWatch-clockworkName"
-                         th:utext="'Clockwork: '+${watch.clockwork.getName()}"></div>
-                </div>
-                <form action="#" th:action="@{'/addWatch/'+${watch.getId()}}" method="post">
-                    <button type="submit" class="btn btn-outline-danger">Add to Cart</button>
-                </form>
             </div>
         </div>
     </div>
 </div>
-
+-->
 <footer th:replace="fragments/footer :: footer">
 </footer>
 
