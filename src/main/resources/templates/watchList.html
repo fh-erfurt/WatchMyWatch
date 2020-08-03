@@ -24,7 +24,7 @@
                 <h2 class="card-title pricing-card-title" th:utext="${watch.getPriceWithFee()}+'€'"></h2>
                 <p class="card-text" th:utext="${watch.getParticularity()}"></p>
             </div>
-            <div class="accordion list-group list-group-flush mb-3" id="accordionExample">
+            <div class="accordion list-group list-group-flush mb-3" th:id="'accordion'+${watch.getId()}">
                 <div class="card">
                     <div class="card-header" th:id="'headingOne'+${watch.getId()}">
                         <h2 class="mb-0">
@@ -36,7 +36,8 @@
                         </h2>
                     </div>
                     <div th:id="'collapseOne'+${watch.getId()}" class="collapse"
-                         th:aria-labelledby="'headingOne'+${watch.getId()}" data-parent="#accordionExample">
+                         th:aria-labelledby="'headingOne'+${watch.getId()}"
+                         th:data-parent="'#accordion'+${watch.getId()}">
                         <div class="card-body">
                             <p th:utext="'Name: '+${watch.bracelet.getName()}"></p>
                             <p th:utext="'Material: '+${watch.bracelet.getMaterial()}"></p>
@@ -58,7 +59,8 @@
                     </div>
 
                     <div th:id="'collapseTwo'+${watch.getId()}" class="collapse"
-                         th:aria-labelledby="'headingTwo'+${watch.getId()}" data-parent="#accordionExample">
+                         th:aria-labelledby="'headingTwo'+${watch.getId()}"
+                         th:data-parent="'#accordion'+${watch.getId()}">
                         <div class="card-body">
                             <p th:utext="'Name: '+${watch.casing.getName()}"></p>
                             <p th:utext="'Material: '+${watch.casing.getMaterial()}"></p>
@@ -80,7 +82,8 @@
                     </div>
 
                     <div th:id="'collapseThree'+${watch.getId()}" class="collapse"
-                         th:aria-labelledby="'headingThree'+${watch.getId()}" data-parent="#accordionExample">
+                         th:aria-labelledby="'headingThree'+${watch.getId()}"
+                         th:data-parent="'#accordion'+${watch.getId()}">
                         <div class="card-body">
                             <p th:utext="'Name: '+${watch.clockwork.getName()}"></p>
                             <p th:utext="'Material: '+${watch.clockwork.getMaterial()}"></p>
