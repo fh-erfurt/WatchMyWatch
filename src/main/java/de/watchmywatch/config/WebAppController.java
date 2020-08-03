@@ -6,6 +6,7 @@ import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.OrderManagment.*;
 import de.watchmywatch.model.WatchManagment.*;
 import de.watchmywatch.repository.storage.UserDetail.SecurityUserDetails;
+import de.watchmywatch.repository.storage.WatchDetails;
 import de.watchmywatch.repository.storage.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -91,7 +92,7 @@ public class WebAppController {
         model.addAttribute("newCasing", new Casing());
         model.addAttribute("newClockwork", new Clockwork());
 
-        model.addAttribute("newWatch", new Watch());
+        model.addAttribute("watchDetails", new WatchDetails());
         return "watchConfigurator";
     }
 

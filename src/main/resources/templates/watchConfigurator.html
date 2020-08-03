@@ -8,20 +8,21 @@
 <header th:replace="fragments/header :: header">
 </header>
 
-<form action="#" th:action="@{/newWatch}" method="post">
+<form action="#" th:action="@{/newWatch}" th:object="${watchDetails}" method="post">
     <div class="form-group">
         <label>Name
             <input type="text" class="form-control" placeholder="Name for the watch" name="newWatch"
-                   th:field="${newWatch.name}"/>
+                   th:field="*{name}"/>
         </label>
-        <span th:if="${#fields.hasErrors('newWatch.name')}" th:errors="*{newWatch.name}"></span>
+        <!--<span th:if="${#fields.hasErrors('newWatch.name')}" th:errors="*{name}"></span>-->
     </div>
     <div class="form-group">
         <label>Particularity
             <input type="text" class="form-control" placeholder="Particularity of the watch" name="newWatch"
-                   th:field="${newWatch.particularity}"/>
+                   th:field="*{particularity}"/>
         </label>
     </div>
+    <!--
     <div class="form-check">
         <div th:action="@{/newWatch}" th:object="${newBracelet}" method="post">
 
@@ -29,85 +30,84 @@
                 <option th:each="singleBracelet : ${bracelets}" th:value="${singleBracelet.getId()}" th:text="${singleBracelet.getId()}+' '+${singleBracelet.getName()}">
                 </option>
             </select>
+-->
 
-   <!--
-            <table>
-                <thead>
-                <tr>
-                    <th>Check</th>
-                    <th>BraceletID</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="singleBracelet : ${bracelets}">
-                    <td>
-                        <input type="radio" th:field="{id}" th:value="${singleBracelet.getId()}"
-                               th:name="'bracelet'+${singleBracelet.getId()}"/>
-                    </td>
-                    <td th:utext="${singleBracelet.getId()}">...</td>
-                </tr>
-                </tbody>
-            </table>
-            -->
-        </div>
-    </div>
-    <div class="form-check">
-        <div th:action="@{/newWatch}" th:object="${newCasing}" method="post">
+    <table>
+        <thead>
+        <tr>
+            <th>Check</th>
+            <th>BraceletID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="singleBracelet : ${bracelets}">
+            <td>
+                <input type="radio" th:field="*{braceletId}" th:value="${singleBracelet.getId()}"/>
+            </td>
+            <td th:utext="${singleBracelet.getId()}">...</td>
+        </tr>
+        </tbody>
+    </table>
+    <!--
+</div>
+</div>
+<div class="form-check">
+<div th:action="@{/newWatch}" th:object="${newCasing}" method="post">
 
-            <select th:field="${newCasing.id}">
-                <option th:each="singleCasing : ${casings}" th:value="${singleCasing.getId()}" th:text="${singleCasing.getId()}">
-                </option>
-            </select>
+    <select th:field="${newCasing.id}">
+        <option th:each="singleCasing : ${casings}" th:value="${singleCasing.getId()}" th:text="${singleCasing.getId()}">
+        </option>
+    </select>
+-->
 
-            <!--
-            <table>
-                <thead>
-                <tr>
-                    <th>Check</th>
-                    <th>CasingID</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="singleCasing : ${casings}">
-                    <td>
-                        <input type="radio" name="casingId" th:field="*{id}" th:value="${singleCasing.getId()}"/>
-                    </td>
-                    <td th:utext="${singleCasing.getId()}">...</td>
-                </tr>
-                </tbody>
-            </table>
-            -->
-        </div>
-    </div>
-    <div class="form-check">
-        <div th:action="@{/newWatch}" th:object="${newClockwork}" method="post">
+    <table>
+        <thead>
+        <tr>
+            <th>Check</th>
+            <th>CasingID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="singleCasing : ${casings}">
+            <td>
+                <input type="radio" th:field="*{casingId}" th:value="${singleCasing.getId()}"/>
+            </td>
+            <td th:utext="${singleCasing.getId()}">...</td>
+        </tr>
+        </tbody>
+    </table>
+    <!--
+   </div>
+</div>
+<div class="form-check">
+   <div th:action="@{/newWatch}" th:object="${newClockwork}" method="post">
 
-            <select th:field="${newClockwork.id}">
-                <option th:each="singleClockwork : ${clockworks}" th:value="${singleClockwork.getId()}" th:text="${singleClockwork.getId()}">
-                </option>
-            </select>
+       <select th:field="${newClockwork.id}">
+           <option th:each="singleClockwork : ${clockworks}" th:value="${singleClockwork.getId()}" th:text="${singleClockwork.getId()}">
+           </option>
+       </select>
+-->
 
-            <!--
-            <table>
-                <thead>
-                <tr>
-                    <th>Check</th>
-                    <th>ClockworkId</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="singleClockwork : ${clockworks}">
-                    <td>
-                        <input type="radio" name="clockworkId" th:field="*{id}"
-                               th:value="${singleClockwork.getId()}"/>
-                    </td>
-                    <td th:utext="${singleClockwork.getId()}">...</td>
-                </tr>
-                </tbody>
-            </table>
-            -->
-        </div>
-    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Check</th>
+            <th>ClockworkId</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="singleClockwork : ${clockworks}">
+            <td>
+                <input type="radio" th:field="*{clockworkId}" th:value="${singleClockwork.getId()}"/>
+            </td>
+            <td th:utext="${singleClockwork.getId()}">...</td>
+        </tr>
+        </tbody>
+    </table>
+    <!--
+</div>
+</div>
+-->
     <p><input type="submit" value="Submit"/></p>
 </form>
 <footer th:replace="fragments/footer :: footer">
