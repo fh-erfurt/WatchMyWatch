@@ -228,4 +228,18 @@ public class WebAppController {
         }
         return "updateUser";
     }
+    @GetMapping("/myOrders")
+    public String myOrders(Model model, Authentication authentication) {
+        model.addAttribute("title", "My Orders");
+        String userEmail = authentication.getName();
+        Optional<User> user = userRepository.findByEmail(userEmail);
+        List<Order> orders = new ArrayList<Order>();
+        if (user.isPresent()) {
+            orders = user.get().getOrders();
+            model.addAttribute("orders", orders);
+        } else {
+            return "redirect:/";
+        }
+        return "myOrders";
+    }
 }
