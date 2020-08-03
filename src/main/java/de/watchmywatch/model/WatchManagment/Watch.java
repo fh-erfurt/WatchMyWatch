@@ -99,7 +99,7 @@ public class Watch extends DatabaseEntity implements Validatable
         this.price = this.bracelet.getPrice() + this.casing.getPrice() + this.clockwork.getPrice();
     }
 
-    protected Watch(){}
+    public Watch(){}
 
     /**
      * checks the watchName for unacceptable characters/length/emptiness
