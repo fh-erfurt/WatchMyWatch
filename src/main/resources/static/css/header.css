@@ -1,0 +1,51 @@
+.container{
+width:100%;
+padding:0;
+}
+.navbar-inverse{
+margin:0;
+border-radius:0;
+}
+
+
+
+.navbar-brand, .navbar{
+font-family: 'Sacramento';
+font-size:28px;
+}
+
+.carousel-inner{
+height:750px;
+}
+
+img{
+width:100%;
+height:500px;
+}
+.carousel-caption{
+font-size:70px;
+font-weight:bold;
+top:50%;
+bottom:30%;
+}
+.background-title{
+background-color:rgba(0, 0, 0, 0.388);
+position:absolute;
+height:100%;
+width:100%;
+z-index: 1;
+}
+
+.title{
+text-align:center;
+position:relative;
+top:35%;
+left:20%;
+right:20%;
+width:60%;
+font-family: 'Red Rose';
+font-size:60px;
+z-index: 1;
+color:white;
+font-weight: bolder;
+}
