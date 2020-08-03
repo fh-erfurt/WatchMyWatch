@@ -72,15 +72,4 @@ public class WatchConfigController {
         }
         return "redirect:/watchConfigurator";
     }
-
-    @PostMapping(path = "/addWatch/{id}")
-    public String addWatchToShoppingCart(@PathVariable Integer id, Authentication authentication){
-        String userEmail = authentication.getName();
-        Optional<User> user = userRepository.findByEmail(userEmail);
-        Shoppingcart shoppingcart = user.get().getShoppingCart();
-        shoppingcart.addWatch(watchRepository.findById(id).get());
-        shoppingcartRepository.save(shoppingcart);
-
-        return "redirect:/index";
-    }
 }
