@@ -44,7 +44,7 @@ public class Bracelet extends Watchpart implements Validatable
         this.connection = connection;
     }
 
-    protected Bracelet(){}
+    public Bracelet(){}
 
     public double getSize()
     {

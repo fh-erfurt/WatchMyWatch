@@ -1,137 +1,121 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Watch-Configurator</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
-    <link th:href="@{/css/watchConfigurator.css}" rel="stylesheet"/>
 </head>
 <body>
-<p>Name: <input type="text"/></p>
-<p>Particularity: <input type="text"/></p>
-<h2>Parts</h2>
-<div id="accordion">
-    <div class="card">
-        <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
-                        aria-expanded="false" aria-controls="collapseOne">
-                    Bracelet
-                </button>
-            </h5>
-        </div>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-                <div class="col-md-8">
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>AmountAvailable</th>
-                            <th>Price</th>
-                            <th>Manufacturer</th>
-                            <th>Material</th>
-                            <th>Type</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="bracelet : ${bracelets}">
-                            <td th:utext="${bracelet.getName()}">...</td>
-                            <td th:utext="${bracelet.getAmountAvailable()}">...</td>
-                            <td th:utext="${bracelet.getPrice()}">...</td>
-                            <td th:utext="${bracelet.getManufacturer().getName()}">...</td>
-                            <td th:utext="${bracelet.getMaterial()}">...</td>
-                            <td th:utext="${bracelet.getConnection()}">...</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+
+<header th:replace="fragments/header :: header">
+</header>
+
+<form action="#" th:action="@{/newWatch}" method="post">
+    <div class="form-group">
+        <label>Name
+            <input type="text" class="form-control" placeholder="Name for the watch" name="newWatch"
+                   th:field="${newWatch.name}"/>
+        </label>
+        <span th:if="${#fields.hasErrors('newWatch.name')}" th:errors="*{newWatch.name}"></span>
+    </div>
+    <div class="form-group">
+        <label>Particularity
+            <input type="text" class="form-control" placeholder="Particularity of the watch" name="newWatch"
+                   th:field="${newWatch.particularity}"/>
+        </label>
+    </div>
+    <div class="form-check">
+        <div th:action="@{/newWatch}" th:object="${newBracelet}" method="post">
+
+            <select th:field="${newBracelet.id}">
+                <option th:each="singleBracelet : ${bracelets}" th:value="${singleBracelet.getId()}" th:text="${singleBracelet.getId()}+' '+${singleBracelet.getName()}">
+                </option>
+            </select>
+
+   <!--
+            <table>
+                <thead>
+                <tr>
+                    <th>Check</th>
+                    <th>BraceletID</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="singleBracelet : ${bracelets}">
+                    <td>
+                        <input type="radio" th:field="{id}" th:value="${singleBracelet.getId()}"
+                               th:name="'bracelet'+${singleBracelet.getId()}"/>
+                    </td>
+                    <td th:utext="${singleBracelet.getId()}">...</td>
+                </tr>
+                </tbody>
+            </table>
+            -->
         </div>
     </div>
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="false" aria-controls="collapseTwo">
-                    Casing
-                </button>
-            </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-                <div class="col-md-4">
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>AmountAvailable</th>
-                            <th>Price</th>
-                            <th>Manufacturer</th>
-                            <th>Material</th>
-                            <th>Type</th>
-                            <th>InnerDiameter</th>
-                            <th>OuterDiameter</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="casing : ${casings}">
-                            <td th:utext="${casing.getName()}">...</td>
-                            <td th:utext="${casing.getAmountAvailable()}">...</td>
-                            <td th:utext="${casing.getPrice()}">...</td>
-                            <td th:utext="${casing.getManufacturer().getName()}">...</td>
-                            <td th:utext="${casing.getMaterial()}">...</td>
-                            <td th:utext="${casing.getConnection()}">...</td>
-                            <td th:utext="${casing.getInnerDiameter()}">...</td>
-                            <td th:utext="${casing.getOuterDiameter()}">...</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <div class="form-check">
+        <div th:action="@{/newWatch}" th:object="${newCasing}" method="post">
+
+            <select th:field="${newCasing.id}">
+                <option th:each="singleCasing : ${casings}" th:value="${singleCasing.getId()}" th:text="${singleCasing.getId()}">
+                </option>
+            </select>
+
+            <!--
+            <table>
+                <thead>
+                <tr>
+                    <th>Check</th>
+                    <th>CasingID</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="singleCasing : ${casings}">
+                    <td>
+                        <input type="radio" name="casingId" th:field="*{id}" th:value="${singleCasing.getId()}"/>
+                    </td>
+                    <td th:utext="${singleCasing.getId()}">...</td>
+                </tr>
+                </tbody>
+            </table>
+            -->
         </div>
     </div>
-    <div class="card">
-        <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                        aria-expanded="false" aria-controls="collapseThree">
-                    Clockwork
-                </button>
-            </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-                <div class="col-md-4">
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>AmountAvailable</th>
-                            <th>Price</th>
-                            <th>Manufacturer</th>
-                            <th>Material</th>
-                            <th>Type</th>
-                            <th>Diameter</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="clockwork : ${clockworks}">
-                            <td th:utext="${clockwork.getName()}">...</td>
-                            <td th:utext="${clockwork.getAmountAvailable()}">...</td>
-                            <td th:utext="${clockwork.getPrice()}">...</td>
-                            <td th:utext="${clockwork.getManufacturer().getName()}">...</td>
-                            <td th:utext="${clockwork.getMaterial()}">...</td>
-                            <td th:utext="${clockwork.getDiameter()}">...</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <div class="form-check">
+        <div th:action="@{/newWatch}" th:object="${newClockwork}" method="post">
+
+            <select th:field="${newClockwork.id}">
+                <option th:each="singleClockwork : ${clockworks}" th:value="${singleClockwork.getId()}" th:text="${singleClockwork.getId()}">
+                </option>
+            </select>
+
+            <!--
+            <table>
+                <thead>
+                <tr>
+                    <th>Check</th>
+                    <th>ClockworkId</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="singleClockwork : ${clockworks}">
+                    <td>
+                        <input type="radio" name="clockworkId" th:field="*{id}"
+                               th:value="${singleClockwork.getId()}"/>
+                    </td>
+                    <td th:utext="${singleClockwork.getId()}">...</td>
+                </tr>
+                </tbody>
+            </table>
+            -->
         </div>
     </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+    <p><input type="submit" value="Submit"/></p>
+</form>
+<footer th:replace="fragments/footer :: footer">
+</footer>
+
+<th:block th:include="fragments/javascript :: javascript"></th:block>
+
 </body>
 </html>

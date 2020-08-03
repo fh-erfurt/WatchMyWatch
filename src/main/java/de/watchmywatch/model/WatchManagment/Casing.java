@@ -49,7 +49,7 @@ public class Casing extends Watchpart implements Validatable
         this.connection = connection;
     }
 
-    protected Casing(){}
+    public Casing(){}
 
     public double getOuterDiameter()
     {
