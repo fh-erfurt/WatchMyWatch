@@ -10,8 +10,8 @@
 <!---->
 <div class="container" style="max-width: 540px;">
     <form class="form-signin" th:action="@{/login}" method="post">
-        <!--    <img class="mb-4" src="/images/logo.ico" alt="" width="72" height="72"> TODO: Add Logo-->
         <h1 style="text-align: center">Please sign in</h1>
+        <img class="mb-4" src="images/WatchMyWatchLogo.png" alt="" width="130" height="130">
         <!--Errors-->
         <div th:if="${param.error}" class="alert alert-danger">
             Invalid Email and Password.
