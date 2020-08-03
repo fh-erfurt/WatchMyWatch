@@ -56,7 +56,7 @@ public class WatchConfigController {
         Watch newWatch = new Watch();
 
         newWatch.setName(watchDetails.getName());
-        newWatch.setName(watchDetails.getParticularity());
+        newWatch.setParticularity(watchDetails.getParticularity());
         newWatch.setBracelet(chosenBracelet);
         newWatch.setCasing(chosenCasing);
         newWatch.setClockwork(chosenClockwork);
