@@ -7,26 +7,31 @@
     <header th:replace="fragments/header :: header">
     </header>
 
-    <h1>Your Shoppingcart</h1>
-    <div>
-        <div th:if="${#lists.isEmpty(items)}">
-            <h1><span class="label label-danger">Empty</span></h1>
-        </div>
-        <div th:unless="${#lists.isEmpty(items)}">
-            <div class="list-group" th:each="watch : ${items}">
-                <a href="#" class="list-group-item list-group-item-action"
-                   th:utext="${watch.getName()}+' '+${watch.getPriceWithFee()}"></a>
-                <form action="#" th:action="@{'/removeWatch/'+${watch.getId()}}" method="post">
-                    <button type="submit" class="btn btn-outline-danger">X</button>
-                </form>
+    <div class="container-xl">
+        <h1>Your Shoppingcart</h1>
+        <div>
+            <div th:if="${#lists.isEmpty(items)}">
+                <h1><span class="badge badge-secondary">Empty</span></h1>
             </div>
-            <br>
-            <div th:utext="'Total: '+${shoppingcart1.getTotal()}+'€ plus '+${shippingFee}+'€ shipping'"></div>
+            <div th:unless="${#lists.isEmpty(items)}">
+                <div class="list-group" th:each="watch : ${items}">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0" th:utext="${watch.getName()}"></h6>
+                            <small class="text-muted" th:utext="${watch.getPriceWithFee()}+'€'"></small>
+                        </div>
+                        <form action="#" th:action="@{'/removeWatch/'+${watch.getId()}}" method="post">
+                            <button class="text-muted btn btn-outline-danger" type="submit">X</button>
+                        </form>
+                    </li>
+                </div>
+                <div th:utext="'Total: '+${shoppingcart1.getTotal()}+'€ plus '+${shippingFee}+'€ shipping'"></div>
 
-            <a th:href="'/checkout'" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</a>
+                <hr>
+                <a th:href="'/checkout'" class="btn btn-primary btn-lg btn-block">Proceed to Checkout</a>
+            </div>
         </div>
     </div>
-
     <footer th:replace="fragments/footer :: footer">
     </footer>
 

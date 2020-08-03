@@ -184,8 +184,8 @@ public class WebAppController {
         // TODO: getUserByAuthentication als Funktion auslagern
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
+        model.addAttribute("title", "Order");
         if(!user.isPresent()) {
-            model.addAttribute("title", "Ordered");
             return "redirect:/";
         }
         return "order";

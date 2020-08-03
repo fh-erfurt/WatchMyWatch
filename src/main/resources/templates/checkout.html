@@ -7,52 +7,59 @@
 <body>
     <header th:replace="fragments/header :: header">
     </header>
+    <div class="container-xl">
+        <h1>Checkout</h1>
+        <form action="#" th:action="@{/newOrder}" th:object="${newPayment}"method="post">
 
-    <h1>Checkout</h1>
-     <form action="#" th:action="@{/newOrder}" th:object="${newPayment}"method="post">
-        <!-- Price -->
-         </div>
-
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Total:</h5>
-                <h6 class="card-subtitle mb-2 text-muted" th:utext="${total}+'€'"></h6>
-            </div>
-        </div>
-
-        <!-- PaymentMethod -->
-        <!-- TODO: th:field nullifies the default checked -->
-        <div class="card">
-            <h5 class="card-title">Payment Method</h5>
-            <div th:each="method, i : ${paymentMethods}">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="paymentMethod"
-                           th:id="'payment'+${i.index}"
-                           th:value="${method}"
-                           th:field="*{paymentMethod}">
-                    <label class="form-check-label"
-                           th:for="'payment'+${i.index}"
-                           th:utext="${method}">
-                    </label>
+            <div class="card-deck mb-3 text-center">
+                <!-- Price -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Total:</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title" th:utext="${total}+'€'"></h1>
+                    </div>
+                </div>
+                <!-- PaymentMethod -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Payment Method</h4>
+                    </div>
+                    <div class="card-body">
+                        <div th:each="method, i : ${paymentMethods}">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" required
+                                       th:id="'payment'+${i.index}"
+                                       th:value="${method}"
+                                       th:field="*{paymentMethod}">
+                                <label class="form-check-label"
+                                       th:for="'payment'+${i.index}"
+                                       th:utext="${method}">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Address -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Shipping Address</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" th:utext="'Street: '+${address.getStreet()}"></p>
+                        <p class="card-text" th:utext="'City: '+${address.getCity()}"></p>
+                        <p class="card-text" th:utext="'ZIP: '+${address.getZip()}"></p>
+                        <p class="card-text" th:utext="'State: '+${address.getState()}"></p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Address -->
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Shipping Address</h5>
-                <p class="card-text" th:utext="'Street: '+${address.getStreet()}"></p>
-                <p class="card-text" th:utext="'City: '+${address.getCity()}"></p>
-                <p class="card-text" th:utext="'ZIP: '+${address.getZip()}"></p>
-                <p class="card-text" th:utext="'State: '+${address.getState()}"></p>
-            </div>
-        </div>
-
-        <!-- Submit -->
-         <p><input type="submit" class="btn btn-primary btn-lg" value="Buy Now" /></p>
-    </form>
-
+            <!-- Submit -->
+            <hr>
+            <p><input type="submit" class="btn btn-primary btn-lg btn-block" value="Buy Now" /></p>
+        </form>
+    </div>
     <footer th:replace="fragments/footer :: footer">
     </footer>
 
