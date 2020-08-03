@@ -1,9 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Order</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
+    <th:block th:include="fragments/head :: head"></th:block>
 </head>
 <body>
 <header th:replace="fragments/header :: header">

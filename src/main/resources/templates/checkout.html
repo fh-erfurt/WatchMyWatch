@@ -2,9 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Checkout</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
+    <th:block th:include="fragments/head :: head"></th:block>
 </head>
 <body>
     <header th:replace="fragments/header :: header">
@@ -23,7 +21,7 @@
         </div>
 
         <!-- PaymentMethod -->
-        <!-- TODO: field nullifies the default checked -->
+        <!-- TODO: th:field nullifies the default checked -->
         <div class="card">
             <h5 class="card-title">Payment Method</h5>
             <div th:each="method, i : ${paymentMethods}">
@@ -31,13 +29,11 @@
                     <input class="form-check-input" type="radio" name="paymentMethod"
                            th:id="'payment'+${i.index}"
                            th:value="${method}"
-                           th:checked="${prefPaymentMethod == method}"
                            th:field="*{paymentMethod}">
                     <label class="form-check-label"
                            th:for="'payment'+${i.index}"
                            th:utext="${method}">
                     </label>
-                    <p th:text="${prefPaymentMethod == method} ? 'Prefered' : ''"></p>
                 </div>
             </div>
         </div>
@@ -61,5 +57,6 @@
     </footer>
 
     <th:block th:include="fragments/javascript :: javascript"></th:block>
+
 </body>
 </html>

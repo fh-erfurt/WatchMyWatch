@@ -115,6 +115,7 @@ public class WebAppController {
         Optional<User> user = userRepository.findByEmail(userEmail);
 
         if(user.isPresent()) {
+            model.addAttribute("title", "Shoppingcart");
             Shoppingcart shoppingcart1 = user.get().getShoppingCart();
             shoppingcart1.calcTotal();      // TODO: Remove when DB is consistent/clear and filled by API's
             model.addAttribute("shoppingcart1", shoppingcart1);
@@ -134,6 +135,7 @@ public class WebAppController {
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
         if(user.isPresent()) {
+            model.addAttribute("title", "Checkout");
             if(!user.get().getShoppingCart().getItems().isEmpty())
             {
                 model.addAttribute("userId" , user.get().getId());
@@ -147,9 +149,15 @@ public class WebAppController {
                         PaymentMethod.PAYPAL.toString() ,    PaymentMethod.CREDITCARD.toString() ,
                         PaymentMethod.SEPA.toString()   ,    PaymentMethod.TRANSFER.toString()   });
 
-                String prefPaymentMethod = (user.get().getPaymentMethod() != null) ? user.get().getPaymentMethod().toString() : "";
-                model.addAttribute("prefPaymentMethod", prefPaymentMethod);
-                model.addAttribute("newPayment", new Payment());    // Todo:
+                Payment newPayment = new Payment();
+//                String prefPaymentMethod = "";
+                if (user.get().getPaymentMethod() != null)
+                {
+//                    prefPaymentMethod = user.get().getPaymentMethod().toString();
+                    newPayment.setPaymentMethod(user.get().getPaymentMethod());
+                }
+//                model.addAttribute("prefPaymentMethod", prefPaymentMethod);
+                model.addAttribute("newPayment", newPayment);
 
             }
             else
@@ -168,11 +176,8 @@ public class WebAppController {
         // TODO: getUserByAuthentication als Funktion auslagern
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
-        if(user.isPresent()) {
-            // TODO: Post Paymentmethod
-            // TODO: Create and Save Order to DB
-        }
-        else{
+        if(!user.isPresent()) {
+            model.addAttribute("title", "Ordered");
             return "redirect:/";
         }
         return "order";
