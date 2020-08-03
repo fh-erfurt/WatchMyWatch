@@ -51,6 +51,7 @@ public class WebAppController {
         model.addAttribute("datetime", new Date());
         model.addAttribute("username", "Tom");
         model.addAttribute("mode", appMode);
+        model.addAttribute("title", "Homepage");
 
         return "index";
     }

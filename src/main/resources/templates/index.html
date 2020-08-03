@@ -2,31 +2,21 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <!-- xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" -->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico"/>
-    <link href='https://fonts.googleapis.com/css?family=Red Rose' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Sacramento' rel='stylesheet'>
-    <title>Watch my Watch</title>
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
+    <th:block th:include="fragments/head :: head"></th:block>
+    <link th:href="@{/css/header.css}" rel="stylesheet"/>
 </head>
 <body>
-<link th:href="@{/css/header.css}" rel="stylesheet"/>
 <div class="container">
-
     <header th:replace="fragments/header :: header"></header>
+
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+
         <div class="background-title">
             <div class="title">WATCH MY WATCH</div>
             <div class="title">Collection</div>
@@ -34,7 +24,7 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item active">
+            <div class="carousel-item active">
                 <img src="images/rolex2.jpg" alt="Los Angeles">
 
             </div>
@@ -65,13 +55,12 @@
 
 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 
-<footer th:replace="fragments/footer :: footer">
-</footer>
+<footer th:replace="fragments/footer :: footer"></footer>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <th:block th:include="fragments/javascript :: javascript"></th:block>
-
+</div>
 </body>
 </html>
