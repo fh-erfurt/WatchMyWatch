@@ -34,20 +34,23 @@ public class UpdateUserController {
 
     @PostMapping(path = "/updateUser")
     public String updateUser(@Valid @ModelAttribute("updateUser") User updateUser, BindingResult updateUserBindingResult,
-                             @Valid @ModelAttribute("updateAddress")  Address updateAddress, BindingResult updateAddressBindingResult) {
-        updateUser.setSecurePassword("1234");
+                             @Valid @ModelAttribute("updateAddress")  Address updateAddress, BindingResult updateAddressBindingResult,
+                             Authentication authentication) {
+        Optional<User> optionalUser = userRepository.findByEmail(updateUser.getEmail());
+        User user = optionalUser.get();
+        updateUser.setDob(user.getDob());
+        updateUser.setSecurePassword(user.getSecurePassword());
         if ( updateUserBindingResult.hasErrors() || updateAddressBindingResult.hasErrors()) {
             return "/updateUser";
         }
 
-        Optional<User> optionalUser = userRepository.findByEmail(updateUser.getEmail());
 
         if(optionalUser.isPresent())
         {
             updateUserBindingResult.rejectValue("email", "error.newUser","An account already exists for this email.");
             return "/updateUser";
         }
-        User user = optionalUser.get();
+
         if(user.getAddress().getCity() == updateAddress.getCity()
                 && user.getAddress().getState() == updateAddress.getState()
                 && user.getAddress().getZip() == updateAddress.getZip()
