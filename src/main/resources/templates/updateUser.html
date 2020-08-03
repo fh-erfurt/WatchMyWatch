@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <th:block th:include="fragments/head :: head"></th:block>
+</head>
+<body>
+<header th:replace="fragments/header :: header">
+</header>
+<h1>Update User Details</h1>
+<form action="#" th:action="@{/updateUser}" th:object="${updateUser}" method="post">
+    <p>firstname: <input type="text" th:field="*{firstname}"/></p>
+    <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
+
+    <p>lastname: <input type="text" th:field="*{lastname}"/></p>
+    <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
+    <p>phone: <input type="text" th:field="*{phone}"/></p>
+    <!--<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>-->
+
+    <p>email: <input type="email" th:field="*{email}"/></p>
+    <!--<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>-->
+
+
+    <div th:action="@{/updateUser}" th:object="${updateAddress}" method="post">
+        <p>city: <input type="text" th:field="*{city}"/></p>
+        <!--<span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>-->
+
+        <p>state: <input type="text" th:field="*{state}"/></p>
+        <!--<span th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></span>-->
+
+        <p>street: <input type="text" th:field="*{street}"/></p>
+        <!--<span th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></span>-->
+
+        <p>zip: <input type="text" th:field="*{zip}"/></p>
+        <!--<span th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}"></span>-->
+    </div>
+
+    <p><input type="submit" value="Submit"/></p>
+</form>
+<footer th:replace="fragments/footer :: footer">
+</footer>
+
+<th:block th:include="fragments/javascript :: javascript"></th:block>
+</body>
+</html>

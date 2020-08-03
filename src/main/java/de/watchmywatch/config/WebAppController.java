@@ -192,6 +192,7 @@ public class WebAppController {
     }
     @GetMapping("/profile")
     public String profile(Authentication authentication, Model model) {
+        model.addAttribute("title", "Your Profile");
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
         if(user.isPresent()) {
@@ -208,5 +209,14 @@ public class WebAppController {
             return "redirect:/";
         }
         return "profile";
+    }
+
+    @GetMapping("/updateUser")
+    public String updateUser(Model model) {
+        model.addAttribute("title", "Update User");
+        model.addAttribute("updateAddress", new Address());
+        model.addAttribute("updateUser", new User());
+
+        return "updateUser";
     }
 }

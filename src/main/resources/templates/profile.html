@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Profile</title>
+    <th:block th:include="fragments/head :: head"></th:block>
 </head>
 <body>
+<header th:replace="fragments/header :: header">
+</header>
 <h1>My Profile</h1>
 <div>
-    <p th:text=" 'Firstname: '+ ${firstName}" />
+    <p th:text=" 'Firstname: '+ ${firstName}"/>
 </div>
 <div>
-    <p th:text=" 'Lastname: '+ ${lastName}" />
+    <p th:text=" 'Lastname: '+ ${lastName}"/>
 </div>
 <div>
-    <p th:text=" 'E-mail: '+ ${email}" />
+    <p th:text=" 'E-mail: '+ ${email}"/>
 </div>
 <div>
-    <p th:text=" 'Date of Birth: '+ ${dob}" />
+    <p th:text=" 'Date of Birth: '+ ${dob}"/>
 </div>
 
 
 <h2>Adresse</h2>
 
 <div>
-    <p th:text=" 'Street and Housnumber: '+ ${street}" />
+    <p th:text=" 'Street and Housnumber: '+ ${street}"/>
 </div>
 <div>
-    <p th:text=" 'ZIP: '+ ${zip}" />
+    <p th:text=" 'ZIP: '+ ${zip}"/>
 </div>
 <div>
-    <p th:text=" 'City: '+ ${city}" />
+    <p th:text=" 'City: '+ ${city}"/>
 </div>
 <div>
-    <p th:text=" 'State: '+ ${state}" />
+    <p th:text=" 'State: '+ ${state}"/>
 </div>
+<button class="btn btn-outline-danger my-2 my-sm-0 btm-sm"><a href="/updateUser">Update User Details</button>
+<footer th:replace="fragments/footer :: footer">
+</footer>
+
+<th:block th:include="fragments/javascript :: javascript"></th:block>
+</body>
 </html>
