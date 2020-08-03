@@ -1,14 +1,8 @@
 <header th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
 
-                    <!--<li>
-                        <form  th:action="@{/logout}"  method="POST">
-                            <button class="btn btn-outline-danger my-2 my-sm-0 btm-sm"  type="submit">Logout</button>
-                        </form>
-                    </li>-->
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-
+        <img class=" align-middle p-2 m-0" src="images/WatchMyWatchLogo.png" alt="" width="80" height="80">
         <a class="navbar-brand" href="/">Watch My Watch</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,9 +20,14 @@
                 </div>
 
 
-                <!--<li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
-                </li>-->
+                <div th:if="${#httpServletRequest.remoteUser}">
+                <li>
+                    <form  th:action="@{/logout}"  method="POST">
+                        <!--<a class="nav-link" href="/login">Logout <span class="sr-only">(current)</span></a>-->
+                        <button class="btn btn-outline-danger my-2 my-sm-0 btm-sm"  type="submit">Logout</button>
+                    </form>
+                </li>
+                </div>
 
 
                 <li class="nav-item">
@@ -49,6 +48,7 @@
                         <a class="dropdown-item" href="/profile">Profile</a>
                         <a class="dropdown-item" href="/shoppingcart">Shoppingcart</a>
                         <a class="dropdown-item" href="/myOrders">My Orders</a>
+                        <a class="dropdown-item" href="/register">Register</a>
                     </div>
                 </li>
 

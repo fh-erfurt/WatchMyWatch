@@ -19,13 +19,13 @@
     <p>phone: <input type="text" th:field="*{phone}"/></p>
     <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
 
-    <p>email: <input type="email" th:field="*{email}"/></p>
+  <input type="email" th:field="*{email}" hidden/>
     <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 
-    <input type="date" th:field="*{dob}" th:value="''" hidden/>
+    <input type="date" th:field="*{dob}"  hidden/>
     <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
 
-    <input type="password" th:field="*{securePassword}" th:value="'aaaaaaa'" hidden/>
+    <input type="text" th:field="*{securePassword}" th:value="${updateUser.setSecurePassword(updateUser.getSecurePassword())}" hidden/>
     <span th:if="${#fields.hasErrors('securePassword')}" th:errors="*{securePassword}"></span>
 
 
@@ -47,6 +47,9 @@
 </form>
 <footer th:replace="fragments/footer :: footer">
 </footer>
+<h3 class="card-title my-0 text-center" th:utext="${updateUser.getDob()}"></h3>
+<h3 class="card-title my-0 text-center" th:utext="${updateUser.getSecurePassword()}"></h3>
+
 
 <th:block th:include="fragments/javascript :: javascript"></th:block>
 </body>

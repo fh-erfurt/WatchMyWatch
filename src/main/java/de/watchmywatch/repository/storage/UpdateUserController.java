@@ -36,20 +36,21 @@ public class UpdateUserController {
     public String updateUser(@Valid @ModelAttribute("updateUser") User updateUser, BindingResult updateUserBindingResult,
                              @Valid @ModelAttribute("updateAddress")  Address updateAddress, BindingResult updateAddressBindingResult,
                              Authentication authentication) {
-        Optional<User> optionalUser = userRepository.findByEmail(updateUser.getEmail());
-        User user = optionalUser.get();
-        updateUser.setDob(user.getDob());
-        updateUser.setSecurePassword(user.getSecurePassword());
+
+
         if ( updateUserBindingResult.hasErrors() || updateAddressBindingResult.hasErrors()) {
             return "/updateUser";
         }
 
+        Optional<User> optionalUser = userRepository.findByEmail(updateUser.getEmail());
+        User user = optionalUser.get();
 
-        if(optionalUser.isPresent())
+
+       /* if(optionalUser.isPresent())
         {
             updateUserBindingResult.rejectValue("email", "error.newUser","An account already exists for this email.");
             return "/updateUser";
-        }
+        }*/
 
         if(user.getAddress().getCity() == updateAddress.getCity()
                 && user.getAddress().getState() == updateAddress.getState()
@@ -69,6 +70,9 @@ public class UpdateUserController {
         user.setLastname(updateUser.getLastname());
         user.setPhone(updateUser.getPhone());
         user.setAccountStatus( AccountStatus.USER);
+
+        userRepository.save(user);
+
 
         return "redirect:/index";
 

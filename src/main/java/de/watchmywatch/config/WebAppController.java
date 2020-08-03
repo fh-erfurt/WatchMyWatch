@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.Clock;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -211,9 +212,17 @@ public class WebAppController {
     public String updateUser(Model model, Authentication authentication) {
         model.addAttribute("title", "Update User");
         model.addAttribute("updateAddress", new Address());
-        model.addAttribute("updateUser", new User());
+
         String userEmail = authentication.getName();
         Optional<User> user = userRepository.findByEmail(userEmail);
+
+        User updateUser = new User();
+        updateUser.setDob(user.get().getDob());
+        updateUser.setSecurePassword(user.get().getSecurePassword());
+        updateUser.setEmail(user.get().getEmail());
+
+        model.addAttribute("updateUser", updateUser);
+
         if (user.isPresent()) {
             model.addAttribute("firstName", user.get().getFirstname());
             model.addAttribute("lastName", user.get().getLastname());
