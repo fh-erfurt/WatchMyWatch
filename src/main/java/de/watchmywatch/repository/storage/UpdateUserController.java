@@ -37,7 +37,7 @@ public class UpdateUserController {
                              @Valid @ModelAttribute("updateAddress")  Address updateAddress, BindingResult updateAddressBindingResult) {
         updateUser.setSecurePassword("1234");
         if ( updateUserBindingResult.hasErrors() || updateAddressBindingResult.hasErrors()) {
-            return "/index";
+            return "/updateUser";
         }
 
         Optional<User> optionalUser = userRepository.findByEmail(updateUser.getEmail());
