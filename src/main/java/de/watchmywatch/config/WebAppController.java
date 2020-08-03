@@ -5,7 +5,6 @@ import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.OrderManagment.*;
 import de.watchmywatch.model.WatchManagment.*;
-import de.watchmywatch.repository.storage.UserDetail.SecurityUserDetails;
 import de.watchmywatch.repository.storage.WatchDetails;
 import de.watchmywatch.repository.storage.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.time.Clock;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -56,12 +52,6 @@ public class WebAppController {
         model.addAttribute("title", "Homepage");
 
         return "index";
-    }
-
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
-        model.addAttribute("name", name);
-        return "greeting";
     }
 
     private static List<Watch> watches = new ArrayList<Watch>();

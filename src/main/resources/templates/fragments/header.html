@@ -12,19 +12,16 @@
             <ul class="nav justify-content-end">
 
 
-
                 <div th:if="!${#httpServletRequest.remoteUser}">
                     <li class="nav-item active">
                         <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
                     </li>
                 </div>
 
-
                 <div th:if="${#httpServletRequest.remoteUser}">
                 <li>
                     <form  th:action="@{/logout}"  method="POST">
-                        <!--<a class="nav-link" href="/login">Logout <span class="sr-only">(current)</span></a>-->
-                        <button class="btn btn-outline-danger my-2 my-sm-0 btm-sm"  type="submit">Logout</button>
+                        <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
                     </form>
                 </li>
                 </div>
