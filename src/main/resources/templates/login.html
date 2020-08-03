@@ -10,7 +10,7 @@
 <!---->
 <div class="container" style="max-width: 540px;">
     <form class="form-signin" th:action="@{/login}" method="post">
-        <h1 style="text-align: center">Please sign in</h1>
+        <h1 style="text-align: center">Sign in</h1>
         <img class="mb-4" src="images/WatchMyWatchLogo.png" alt="" width="130" height="130">
         <!--Errors-->
         <div th:if="${param.error}" class="alert alert-danger">
@@ -28,8 +28,12 @@
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password"
                required="">
         <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Sign In">Sign In</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Sign In">Sign in</button>
     </form>
+    <div style="text-align: center;">
+        <p style="margin-bottom: 0px;">or</p>
+        <p><a href="/register">Sign up</a></p>
+    </div>
 </div>
 
 <footer th:replace="fragments/footer :: footer">
