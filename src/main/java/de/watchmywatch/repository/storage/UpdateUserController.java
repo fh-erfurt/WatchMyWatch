@@ -46,11 +46,6 @@ public class UpdateUserController {
         User user = optionalUser.get();
 
 
-       /* if(optionalUser.isPresent())
-        {
-            updateUserBindingResult.rejectValue("email", "error.newUser","An account already exists for this email.");
-            return "/updateUser";
-        }*/
 
         if(user.getAddress().getCity() == updateAddress.getCity()
                 && user.getAddress().getState() == updateAddress.getState()
