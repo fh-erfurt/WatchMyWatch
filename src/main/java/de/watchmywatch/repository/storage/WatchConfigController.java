@@ -36,18 +36,33 @@ public class WatchConfigController {
 
 
     @PostMapping(path = "/newWatch")
-    public String addNewUser(@ModelAttribute("watchDetails") WatchDetails watchDetails) {
+    public String addNewUser(@ModelAttribute("watchDetails") WatchDetails watchDetails, BindingResult result) {
 
-        /*if (watchDetailsBindingResult.hasErrors()) {
+        if (result.hasErrors()) {
             return "/watchConfigurator";
+        }
+
+        if(watchDetails.getName() == ""){
+            result.rejectValue("name", "error.watchDetails", "No watch name given");
+            logger.warning("no watch name given");
+            return "redirect:/watchConfigurator";
+        }
+        if(watchDetails.getParticularity() == ""){
+            result.rejectValue("particularity", "error.watchDetails", "No particularity given");
+            logger.warning("no particularity given");
+            return "redirect:/watchConfigurator";
+        }
+        if(watchDetails.getBraceletId() == 0 || watchDetails.getCasingId() == 0 || watchDetails.getClockworkId() == 0){
+            logger.warning("one part was not picked");
+            return "redirect:/watchConfigurator";
         }
 
         Optional<Watch> watch = watchRepository.findByName(watchDetails.getName());
 
         if (watch.isPresent()) {
-            watchDetailsBindingResult.rejectValue("name", "error.newWatch", "A Watch with the same name already exists");
-            return "/watchConfigurator";
-        }*/
+            result.rejectValue("name", "error.watchDetails", "A Watch with the same name already exists");
+            return "redirect:/watchConfigurator";
+        }
 
         Bracelet chosenBracelet = braceletRepository.findById(watchDetails.getBraceletId()).get();
         Casing chosenCasing = casingRepository.findById(watchDetails.getCasingId()).get();
