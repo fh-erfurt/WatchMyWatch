@@ -2,20 +2,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>Login</title>
+    <th:block th:include="fragments/head :: head"></th:block>
 </head>
-<body>
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
+<body class="text-center">
+<header th:replace="fragments/header :: header">
+</header>
+<!---->
+<div class="container" style="max-width: 540px;">
+    <form class="form-signin" th:action="@{/login}" method="post">
+        <!--    <img class="mb-4" src="/images/logo.ico" alt="" width="72" height="72"> TODO: Add Logo-->
+        <h1 style="text-align: center">Please sign in</h1>
+        <!--Errors-->
+        <div th:if="${param.error}" class="alert alert-danger">
+            Invalid Email and Password.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success">
+            You have been logged out.
+        </div>
+        <!--Email-->
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Email address" required=""
+               autofocus="">
+        <!--Password-->
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password"
+               required="">
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Sign In">Sign In</button>
+    </form>
 </div>
 
-<form th:action="@{/login}" method="post">
-    <div><label> Email : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+<footer th:replace="fragments/footer :: footer">
+</footer>
+
+<th:block th:include="fragments/javascript :: javascript"></th:block>
 </body>
 </html>

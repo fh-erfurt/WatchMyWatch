@@ -106,7 +106,8 @@ public class WebAppController {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute("title", "Login");
         return "login";
     }
 
