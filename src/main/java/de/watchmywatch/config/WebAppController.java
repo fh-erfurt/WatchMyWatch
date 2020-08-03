@@ -64,6 +64,7 @@ public class WebAppController {
     private static List<Watch> watches = new ArrayList<Watch>();
     @GetMapping("/watchList")
     public String watchList(Model model) {
+        model.addAttribute("title", "Watch-List");
         model.addAttribute("watches", watches);
         watches.clear();
         Iterable<Watch> allWatches = watchRepository.findAll();
@@ -76,6 +77,7 @@ public class WebAppController {
 
     @GetMapping("/watchConfigurator")
     public String watchConfigurator(Model model) {
+        model.addAttribute("title", "Watch-Configurator");
         Iterable<Bracelet> bracelets = braceletRepository.findAll();
         Iterable<Casing> casings = casingRepository.findAll();
         Iterable<Clockwork> clockworks = clockworkRepository.findAll();
