@@ -208,11 +208,24 @@ public class WebAppController {
     }
 
     @GetMapping("/updateUser")
-    public String updateUser(Model model) {
+    public String updateUser(Model model, Authentication authentication) {
         model.addAttribute("title", "Update User");
         model.addAttribute("updateAddress", new Address());
         model.addAttribute("updateUser", new User());
-
+        String userEmail = authentication.getName();
+        Optional<User> user = userRepository.findByEmail(userEmail);
+        if (user.isPresent()) {
+            model.addAttribute("firstName", user.get().getFirstname());
+            model.addAttribute("lastName", user.get().getLastname());
+            model.addAttribute("email", user.get().getEmail());
+            model.addAttribute("dob", user.get().getDob());
+            model.addAttribute("street", user.get().getAddress().getStreet());
+            model.addAttribute("zip", user.get().getAddress().getZip());
+            model.addAttribute("state", user.get().getAddress().getState());
+            model.addAttribute("city", user.get().getAddress().getCity());
+        } else {
+            return "redirect:/";
+        }
         return "updateUser";
     }
 }

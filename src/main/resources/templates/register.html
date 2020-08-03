@@ -2,48 +2,66 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Register</title>
+    <th:block th:include="fragments/head :: head"></th:block>
 </head>
-<body>
-    <h1 >Form</h1>
+<header th:replace="fragments/header :: header">
+</header>
+<body class="text-center">
+<div class="container" style="max-width: 540px;">
+    <h1 style="text-align: center">Register</h1>
+    <img class="mb-4" src="images/WatchMyWatchLogo.png" alt="" width="130" height="130">
     <form action="#" th:action="@{/newUser}" th:object="${newUser}" method="post">
-            <p>firstname: <input type="text" th:field="*{firstname}" /></p>
+
+        <label for="inputFirstname" class="sr-only">Firstname</label>
+        <input id="inputFirstname" class="form-control" type="text" th:field="*{firstname}" placeholder="Firstname"/>
         <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
 
-            <p>lastname: <input type="text" th:field="*{lastname}" /></p>
+        <label for="inputLastname" class="sr-only">Lastname</label>
+        <input id="inputLastname" class="form-control" type="text" th:field="*{lastname}" placeholder="Lastname"/>
         <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
 
-            <p>phone: <input type="text" th:field="*{phone}" /></p>
+        <label for="inputPhone" class="sr-only">Phone</label>
+        <input id="inputPhone" class="form-control" type="text" th:field="*{phone}" placeholder="Phone"/>
         <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
 
-            <p>email: <input type="email" th:field="*{email}" /></p>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input id="inputEmail" class="form-control" type="email" th:field="*{email}" placeholder="Email"/>
         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 
-
-            <p>dob: <input type="date" th:field="*{dob}" /></p>
+        <label for="inputDOB" class="sr-only">Dob</label>
+        <input id="inputDOB" class="form-control" type="date" th:field="*{dob}" placeholder="Dob"/>
         <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
 
-            <p>password: <input type="password" th:field="*{securePassword}" /></p>
-            <span th:if="${#fields.hasErrors('securePassword')}" th:errors="*{securePassword}"></span>
-
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input id="inputPassword" class="form-control" type="password" th:field="*{securePassword}" placeholder="Password"/>
+        <span th:if="${#fields.hasErrors('securePassword')}" th:errors="*{securePassword}"></span>
 
 
         <div th:action="@{/newUser}" th:object="${newAddress}" method="post">
-            <p>city: <input type="text" th:field="*{city}" /></p>
+
+            <label for="inputCity" class="sr-only">City</label>
+            <input id="inputCity" class="form-control" type="text" th:field="*{city}" placeholder="City"/>
             <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
 
-            <p>state: <input type="text" th:field="*{state}" /></p>
+            <label for="inputState" class="sr-only">State</label>
+            <input id="inputState" class="form-control" type="text" th:field="*{state}" placeholder="State"/>
             <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></span>
 
-            <p>street: <input type="text" th:field="*{street}" /></p>
+            <label for="inputStreet" class="sr-only">Street and Housnumber</label>
+            <input id="inputStreet" class="form-control" type="text" th:field="*{street}"
+                   placeholder="Street and Housnumber"/>
             <span th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></span>
 
-            <p>zip: <input type="text" th:field="*{zip}" /></p>
+            <label for="inputZip" class="sr-only">ZIP</label>
+            <input id="inputZip" class="form-control" type="text" th:field="*{zip}" placeholder="ZIP"/>
             <span th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}"></span>
         </div>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Submit</button>
 
-        <p><input type="submit" value="Submit" /></p>
     </form>
+</div>
 </body>
 </html>

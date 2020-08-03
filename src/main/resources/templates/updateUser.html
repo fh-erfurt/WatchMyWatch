@@ -11,7 +11,7 @@
 <h1>Update User Details</h1>
 
 <form action="#" th:action="@{/updateUser}" th:object="${updateUser}" method="post">
-    <p>firstname: <input type="text" th:field="*{firstname}"/></p>
+    <p>firstname: <input type="text" th:field="*{firstname}" th:value="${firstName}"/></p>
     <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
 
     <p>lastname: <input type="text" th:field="*{lastname}"/></p>
