@@ -3,15 +3,18 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Person List</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}"/>
     <link th:href="@{/css/watchList.css}" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}"/>
 </head>
 <body>
 
 <header th:replace="fragments/header :: header">
 </header>
 
-<h1>Watch List</h1>
+<div style="text-align: center">
+    <h1>Watch-List</h1>
+</div>
+
 <div>
     <div th:if="${#lists.isEmpty(watches)}">
         <h1><span class="label label-danger">No Watches found</span></h1>
@@ -33,7 +36,6 @@
                 <form action="#" th:action="@{'/addWatch/'+${watch.getId()}}" method="post">
                     <button type="submit" class="btn btn-outline-danger">Add to Cart</button>
                 </form>
-
             </div>
         </div>
     </div>
