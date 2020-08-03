@@ -1,7 +1,5 @@
 
 
-
-
  .navbar{
 font-family: 'ZCOOL XiaoWei';
 font-size:28px;
@@ -25,7 +23,12 @@ color:white;}
 
 .navbar-brand{
 float:left;
-font-size:28px;}
+font-size:28px;
+}
+
+ .navbar-brand:hover{
+  color:grey !important;
+ }
 
 
 .carousel-inner{
