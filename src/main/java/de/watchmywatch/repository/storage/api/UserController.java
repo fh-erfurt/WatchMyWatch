@@ -60,7 +60,7 @@ public class UserController {
     @PutMapping(value = "/users/{id}", produces = "application/json")
     public @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    User updateUser(@RequestParam Integer id, @RequestBody User newUser) {
+    User updateUser(@PathVariable Integer id, @RequestBody User newUser) {
         return userRepository.findById(id)
                 .map(user -> {
                     user.setAddress(newUser.getAddress());
