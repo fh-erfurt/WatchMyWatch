@@ -47,7 +47,9 @@
                         <a class="dropdown-item" href="/profile">Profile</a>
                         <a class="dropdown-item" href="/shoppingcart">Shoppingcart</a>
                         <a class="dropdown-item" href="/myOrders">My Orders</a>
-                        <a class="dropdown-item" href="/register">Register</a>
+                            <div th:if="!${#httpServletRequest.remoteUser}">
+                            <a class="dropdown-item" href="/register">Register</a>
+                            </div>
                     </div>
                 </li>
 

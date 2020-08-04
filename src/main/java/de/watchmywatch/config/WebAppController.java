@@ -89,6 +89,7 @@ public class WebAppController {
 
     @GetMapping("/register")
     public String newUser(Model model) {
+
         model.addAttribute("newAddress", new Address());
         model.addAttribute("newUser", new User());
 
