@@ -2,10 +2,17 @@ package de.watchmywatch.repository.storage.api;
 
 import de.watchmywatch.model.AccountManagment.User;
 
+import de.watchmywatch.model.Helper.Address;
+import de.watchmywatch.model.OrderManagment.Order;
+import de.watchmywatch.model.OrderManagment.PaymentMethod;
+import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Controller
@@ -13,39 +20,50 @@ import java.util.Optional;
 public class UserController {
     @Autowired
     public UserRepository userRepository;
+    @Autowired
+    public PasswordEncoder passwordEncoder;
+    @Autowired
+    public AddressRepository addressRepository;
+    @Autowired
+    public ShoppingcartRepository shoppingcartRepository;
 
-    @GetMapping(path = "/users")
+    @GetMapping(path = "/users", produces = "application/json")
     public @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     Iterable<User> getAllUsers() {
-        // This returns a JSON or XML with the users
         return userRepository.findAll();
     }
 
-    @GetMapping(path="/users/{id}")
+    @GetMapping(value = "/users/{id}", produces = "application/json")
     public @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     User getOneUser(@PathVariable Integer id) {
-        // This returns a JSON or XML with the one user
-
         return userRepository.findById(id).get();
     }
 
-    @PostMapping(path = "/users")
+    @PostMapping(path = "/users", produces = "application/json")
     public @ResponseBody
-    String addUser(@RequestParam String firstname, @RequestParam String lastname, @RequestParam String email) {
-        //Address address = new Address("Lilo-Herrmann-Straße 2", "Erfurt", "Thüringen", "99086");
-        //User customer = new User(email, address, "01716181447", firstname, lastname, LocalDate.of(1998, 9, 23));
+    @ResponseStatus(HttpStatus.CREATED)
+    User addUser(/*@RequestParam LocalDate dob, @RequestParam String firstname, @RequestParam String lastname, @RequestParam String email,
+                 @RequestParam PaymentMethod paymentMethod, @RequestParam String phone, @RequestParam String password,
+                 @RequestParam Integer addressId, @RequestParam Integer billingAddressId*/ @RequestBody User user) {
 
-       // User user = new User(customer, "Salami", address, new Date(2020, Calendar.JANUARY, 26), PAYPAL, ACTIV, new Shoppingcart());
-        //userRepository.save(user);
-        return "banana";
+        user.setSecurePassword(passwordEncoder.encode(user.getSecurePassword()));
+        user.setAddress(addressRepository.save(user.getAddress()));
+        user.setBillingAddress(addressRepository.save(user.getBillingAddress()));
+        user.setShoppingCart(shoppingcartRepository.save(new Shoppingcart()));
+        user.setOrders(null);
+
+        return userRepository.save(user);
     }
 
     // PUT /api/users/:id updates the user with the id
-    @PutMapping("/users/{id}")
+    @PutMapping(value = "/users/{id}", produces = "application/json")
     public @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     User updateUser(@RequestParam Integer id, @RequestBody User newUser) {
         return userRepository.findById(id)
-                .map(user-> {
+                .map(user -> {
                     user.setAddress(newUser.getAddress());
                     user.setDob(newUser.getDob());
                     user.setEmail(newUser.getEmail());
@@ -61,11 +79,10 @@ public class UserController {
     }
 
     // DELETE /api/users/:id deletes the user with id
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping(value = "/users/{id}")
     public @ResponseBody
-    String deleteUser(@PathVariable int id) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void deleteUser(@PathVariable Integer id) {
         userRepository.deleteById(id);
-        return "Deleted";
     }
-
 }
