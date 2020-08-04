@@ -18,6 +18,7 @@ public class AddressController {
     // GET /api/addresses returns all addresses
     @GetMapping(path = "/addresses")
     public @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     Iterable<Address> getAllAddresses() {
         return addressRepository.findAll();
     }
@@ -25,6 +26,7 @@ public class AddressController {
     // GET /api/addresses/:id returns the address with the given id
     @GetMapping(value = "/addresses/{id}")
     public @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     Optional<Address> getOneAddress(@PathVariable Integer id) {
         return addressRepository.findById(id);
     }
