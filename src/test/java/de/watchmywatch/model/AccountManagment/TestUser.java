@@ -122,8 +122,8 @@ public class TestUser {
         // When
 
         // Then
-        assertFalse(user1.getOldestUnpaidOrder().isPaid());
-        assertEquals(date, user1.getOldestUnpaidOrder().getOrderDate());
+        assertFalse(user1.returnOldestUnpaidOrder().isPaid());
+        assertEquals(date, user1.returnOldestUnpaidOrder().getOrderDate());
     }
 
     @Test
@@ -140,7 +140,7 @@ public class TestUser {
         // When
 
         // Then
-        assertFalse(user1.getOldestUnpaidOrder().isPaid());
-        assertEquals(date, user1.getOldestUnpaidOrder().getOrderDate());
+        assertFalse(user1.returnOldestUnpaidOrder().isPaid());
+        assertEquals(date, user1.returnOldestUnpaidOrder().getOrderDate());
     }
 }

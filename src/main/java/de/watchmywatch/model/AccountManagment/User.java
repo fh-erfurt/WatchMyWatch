@@ -178,7 +178,8 @@ public class User extends DatabaseEntity {
      * @return Oldest unpaid Order of this account
      * @author Michael Hopp
      */
-    public Order getOldestUnpaidOrder() {
+
+    public Order returnOldestUnpaidOrder() {
         if (orders.isEmpty()) {
             return null;
         } else {

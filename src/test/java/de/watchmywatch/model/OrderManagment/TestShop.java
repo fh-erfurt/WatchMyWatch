@@ -95,7 +95,7 @@ public class TestShop {
         myOrder.getPayment().setPaymentMethod(PaymentMethod.PAYPAL);
         happyUser.addOrder(myOrder);
         // User Paid oldest unpaid Order
-        Order oldestUnpaidOrder = happyUser.getOldestUnpaidOrder();
+        Order oldestUnpaidOrder = happyUser.returnOldestUnpaidOrder();
         boolean success = oldestUnpaidOrder.pay();
 
         //Then
@@ -129,7 +129,7 @@ public class TestShop {
         myOrder.getPayment().setPaymentMethod(PaymentMethod.PAYPAL);
         newUser.addOrder(myOrder);
         // User Paid oldest unpaid Order
-        Order oldestUnpaidOrder = newUser.getOldestUnpaidOrder();
+        Order oldestUnpaidOrder = newUser.returnOldestUnpaidOrder();
         boolean success = oldestUnpaidOrder.pay();
 
         //Then
