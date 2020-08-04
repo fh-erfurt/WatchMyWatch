@@ -24,7 +24,7 @@ public class User extends DatabaseEntity {
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     @NotNull
-    @Size(min=3, max = 7, message = "Firstname must be 2-35 characters long.")
+    @Size(min=2, max = 35, message = "Firstname must be 2-35 characters long.")
     private String firstname;
 
     @NotNull

@@ -4,54 +4,63 @@
 <head>
     <th:block th:include="fragments/head :: head"></th:block>
 </head>
-<body>
 <header th:replace="fragments/header :: header"></header>
+<body class="text-center">
+<div class="container" style="max-width: 540px;">
+    <h1 style="text-align: center">Update User Details</h1>
+    <img class="mb-4" src="images/WatchMyWatchLogo.png" alt="" width="130" height="130">
+    <form action="#" th:action="@{/updateUser}" th:object="${updateUser}" method="post">
+
+        <label for="updateFirstname" class="sr-only">Firstname</label>
+        <input id="updateFirstname" class="form-control" type="text" th:field="*{firstname}" th:value="${firstName}"
+               placeholder="Firstname"/>
+        <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
+
+        <label for="updateLastname" class="sr-only">Lastname</label>
+        <input id="updateLastname" class="form-control" type="text" th:field="*{lastname}" placeholder="Lastname"/>
+        <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
+
+        <label for="updatePhone" class="sr-only">Phone</label>
+        <input id="updatePhone" class="form-control" type="text" th:field="*{phone}" placeholder="Phone"/>
+        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+
+        <input type="email" th:field="*{email}" hidden/>
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+        <input type="date" th:field="*{dob}" hidden/>
+        <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
+
+        <input type="text" th:field="*{securePassword}"
+               th:value="${updateUser.setSecurePassword(updateUser.getSecurePassword())}" hidden/>
+        <span th:if="${#fields.hasErrors('securePassword')}" th:errors="*{securePassword}"></span>
 
 
-<h1>Update User Details</h1>
+        <div th:action="@{/updateUser}" th:object="${updateAddress}" method="post">
 
-<form action="#" th:action="@{/updateUser}" th:object="${updateUser}" method="post">
-    <p>firstname: <input type="text" th:field="*{firstname}" th:value="${firstName}"/></p>
-    <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
+            <label for="updateCity" class="sr-only">City</label>
+            <input id="updateCity" class="form-control" type="text" th:field="*{city}" placeholder="City"/>
+            <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
 
-    <p>lastname: <input type="text" th:field="*{lastname}"/></p>
-    <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
-    <p>phone: <input type="text" th:field="*{phone}"/></p>
-    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+            <label for="updateState" class="sr-only">State</label>
+            <input id="updateState" class="form-control" type="text" th:field="*{state}" placeholder="State"/>
+            <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></span>
 
-  <input type="email" th:field="*{email}" hidden/>
-    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            <label for="updateStreet" class="sr-only">Street and Housnumber</label>
+            <input id="updateStreet" class="form-control" type="text" th:field="*{street}" placeholder="Street and Housnumber"/>
+            <span th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></span>
 
-    <input type="date" th:field="*{dob}"  hidden/>
-    <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
-
-    <input type="text" th:field="*{securePassword}" th:value="${updateUser.setSecurePassword(updateUser.getSecurePassword())}" hidden/>
-    <span th:if="${#fields.hasErrors('securePassword')}" th:errors="*{securePassword}"></span>
-
-
-    <div th:action="@{/updateUser}" th:object="${updateAddress}" method="post">
-        <p>city: <input type="text" th:field="*{city}"/></p>
-        <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
-
-        <p>state: <input type="text" th:field="*{state}"/></p>
-        <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></span>
-
-        <p>street: <input type="text" th:field="*{street}"/></p>
-        <span th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></span>
-
-        <p>zip: <input type="text" th:field="*{zip}"/></p>
-        <span th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}"></span>
-    </div>
-
-    <p><input type="submit" value="Submit"/></p>
-</form>
+            <label for="updateZip" class="sr-only">ZIP</label>
+            <input id="updateZip" class="form-control" type="text" th:field="*{zip}" placeholder="ZIP"/>
+            <span th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}"></span>
+        </div>
+        <br>
+        <p><input class="btn btn-lg btn-primary btn-block"  type="submit" value="Submit"/></p>
+    </form>
+    <footer th:replace="fragments/footer :: footer">
+    </footer>
 
 
-
-<footer th:replace="fragments/footer :: footer">
-</footer>
-
-
-<th:block th:include="fragments/javascript :: javascript"></th:block>
+    <th:block th:include="fragments/javascript :: javascript"></th:block>
+</div>
 </body>
 </html>
