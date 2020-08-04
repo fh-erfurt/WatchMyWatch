@@ -102,6 +102,8 @@ public class WebAppController {
         return "login";
     }
 
+
+
     @GetMapping(value = "/loginSuccessfull")
     public String currentUserName(Authentication authentication) {
         return "redirect:/";
