@@ -38,12 +38,11 @@ public class ManufacturerController {
     // POST /api/manufacturers creates a manufacturer
     @PostMapping("/manufacturers")
     public @ResponseBody
-    Manufacturer newManufacturer(@RequestParam String name, @RequestParam int addressId,@RequestParam String contactEmail, @RequestParam String contactPhone) {
+    Manufacturer newManufacturer(@RequestParam String name, @RequestParam int addressId, @RequestParam String contactEmail, @RequestParam String contactPhone) {
         Optional<Address> optionalAddress = addressRepository.findById(addressId);
         Address address = optionalAddress.get();
 
-
-        Manufacturer manufacturer = new Manufacturer(name,contactEmail,contactPhone ,address);
+        Manufacturer manufacturer = new Manufacturer(name, contactEmail, contactPhone, address);
 
         return manufacturerRepository.save(manufacturer);
     }
@@ -57,7 +56,9 @@ public class ManufacturerController {
                     manufacturer.setName(newManufacturer.getName());
                     manufacturer.setContactEmail(newManufacturer.getContactEmail());
                     manufacturer.setContactPhone(newManufacturer.getContactPhone());
-                    manufacturer.setAddress(newManufacturer.getAddress());
+
+                    Address newAddress = addressRepository.save(newManufacturer.getAddress());
+                    manufacturer.setAddress(newAddress);
                     return manufacturerRepository.save(manufacturer);
                 })
                 .orElseGet(() -> {
