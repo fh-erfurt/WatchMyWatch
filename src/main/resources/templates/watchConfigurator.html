@@ -17,14 +17,14 @@
             <label for="name">Name</label>
             <input id="name" type="text" class="form-control" placeholder="Name for the watch"
                    th:field="*{name}" required/>
-            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
         </div>
         <div class="mb-3">
             <label for="particularity">Particularity</label>
             <textarea type="text" id="particularity" class="form-control" placeholder="Particularity of the watch"
                       th:field="*{particularity}" required></textarea>
-            <span th:if="${#fields.hasErrors('particularity')}" th:errors="*{particularity}"></span>
         </div>
+
+        <span>Choose a part in all three categories</span><br><br>
 
         <div class="accordion mb-4" id="accordionExample">
             <div class="card">
@@ -152,7 +152,6 @@
 </div>
 <footer th:replace="fragments/footer :: footer">
 </footer>
-
 <th:block th:include="fragments/javascript :: javascript"></th:block>
 
 </body>

@@ -36,26 +36,21 @@ public class WatchConfigController {
 
 
     @PostMapping(path = "/newWatch")
-    public String addNewUser(@ModelAttribute("watchDetails") WatchDetails watchDetails, BindingResult result) {
+    public String addNewUser(@Valid @ModelAttribute("watchDetails") WatchDetails watchDetails, BindingResult result) {
 
         if (result.hasErrors()) {
+            if (watchDetails.getName() == "") {
+                logger.warning("no watch name given");
+            }
+            if (watchDetails.getParticularity() == "") {
+                logger.warning("no particularity given");
+            }
+            if (watchDetails.getBraceletId() == 0 || watchDetails.getCasingId() == 0 || watchDetails.getClockworkId() == 0) {
+                logger.warning("one part was not picked");
+            }
             return "/watchConfigurator";
         }
 
-        if(watchDetails.getName() == ""){
-            result.rejectValue("name", "error.watchDetails", "No watch name given");
-            logger.warning("no watch name given");
-            return "redirect:/watchConfigurator";
-        }
-        if(watchDetails.getParticularity() == ""){
-            result.rejectValue("particularity", "error.watchDetails", "No particularity given");
-            logger.warning("no particularity given");
-            return "redirect:/watchConfigurator";
-        }
-        if(watchDetails.getBraceletId() == 0 || watchDetails.getCasingId() == 0 || watchDetails.getClockworkId() == 0){
-            logger.warning("one part was not picked");
-            return "redirect:/watchConfigurator";
-        }
 
         Optional<Watch> watch = watchRepository.findByName(watchDetails.getName());
 
