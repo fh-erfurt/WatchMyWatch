@@ -6,6 +6,7 @@ import de.watchmywatch.model.OrderManagment.Order;
 import de.watchmywatch.model.OrderManagment.PaymentMethod;
 import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -24,7 +25,7 @@ public class User extends DatabaseEntity {
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     @NotNull
-    @Size(min=2, max = 35, message = "Firstname must be 2-35 characters long.")
+    @Size(min = 2, max = 35, message = "Firstname must be 2-35 characters long.")
     private String firstname;
 
     @NotNull
@@ -38,11 +39,11 @@ public class User extends DatabaseEntity {
     private String email;
 
     @NotNull
-    @Size(min = 3 , message = "Password must be 3-9 characters long.")
+    @Size(min = 3, message = "Password must be 3-9 characters long.")
     private String securePassword;
 
     @NotNull
-    @NotBlank( message = "Require")
+    @NotBlank(message = "Require")
     private String phone;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
@@ -50,18 +51,18 @@ public class User extends DatabaseEntity {
 
     @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
-  
+
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
 
-    @ManyToOne(cascade= CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Address billingAddress;
 
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
 
-    @OneToOne(cascade= CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Shoppingcart shoppingCart;
 
     @OneToMany(mappedBy = "user")
@@ -79,7 +80,7 @@ public class User extends DatabaseEntity {
      * @param shoppingCart   shoppingcart from the customer
      * @author Anton Bespalov
      */
-    public User(String firstname, String lastname, String email, String securePassword, String phone, Address address,  LocalDate dob,
+    public User(String firstname, String lastname, String email, String securePassword, String phone, Address address, LocalDate dob,
                 Address billingAddress, Shoppingcart shoppingCart) {
         this.firstname = firstname;
         this.lastname = lastname;
@@ -104,21 +105,17 @@ public class User extends DatabaseEntity {
      * @param passwordToHash password that should be hashed
      * @return hashed password
      */
-    public static String get_SHA_256_SecurePassword(String passwordToHash)
-    {
+    public static String get_SHA_256_SecurePassword(String passwordToHash) {
         String generatedPassword = null;
-        try
-        {
+        try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] bytes = md.digest(passwordToHash.getBytes());
             StringBuilder sb = new StringBuilder();
-            for (byte aByte : bytes)
-            {
+            for (byte aByte : bytes) {
                 sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
             }
             generatedPassword = sb.toString();
-        } catch (NoSuchAlgorithmException e)
-        {
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
 
@@ -131,9 +128,8 @@ public class User extends DatabaseEntity {
      * @param newPasswordToHash password that should be hashed
      *                          hashing the new password and replacing it
      */
-    public void setSecurePassword(String newPasswordToHash)
-    {
-        this.securePassword=newPasswordToHash;
+    public void setSecurePassword(String newPasswordToHash) {
+        this.securePassword = newPasswordToHash;
     }
 
     /**
@@ -142,8 +138,7 @@ public class User extends DatabaseEntity {
      * @param newPasswordToHash password that should be hashed
      *                          hashing the new password and replacing it
      */
-    public void changePassword(String newPasswordToHash)
-    {
+    public void changePassword(String newPasswordToHash) {
         this.securePassword = get_SHA_256_SecurePassword(newPasswordToHash);
     }
 
@@ -153,8 +148,7 @@ public class User extends DatabaseEntity {
      * @param order order that schould be added
      * @return true when the order was added
      */
-    public boolean addOrder(Order order)
-    {
+    public boolean addOrder(Order order) {
         orders.add(order);
         logger.info("Order was added.");
         return true;
@@ -166,15 +160,12 @@ public class User extends DatabaseEntity {
      * @param order order that schould be removed
      * @return true, when the order was removed / false, when the order was not found
      */
-    public boolean removeOrder(Order order)
-    {
-        if (orders.contains(order))
-        {
+    public boolean removeOrder(Order order) {
+        if (orders.contains(order)) {
             orders.remove(order);
             logger.info("Order was succesfull removed");
             return true;
-        } else
-        {
+        } else {
             logger.info("Order was not found or does not exist.");
             return false;
         }
@@ -187,12 +178,15 @@ public class User extends DatabaseEntity {
      * @return Oldest unpaid Order of this account
      * @author Michael Hopp
      */
-    public Order getOldestUnpaidOrder()
-    {
-        return orders.stream()
-                .filter(order -> !order.isPaid())  // Filter for unpaid Orders
-                .min(Comparator.comparing(Order::getOrderDate)) // select oldest
-                .get();
+    public Order getOldestUnpaidOrder() {
+        if (orders.isEmpty()) {
+            return null;
+        } else {
+            return orders.stream()
+                    .filter(order -> !order.isPaid())  // Filter for unpaid Orders
+                    .min(Comparator.comparing(Order::getOrderDate)) // select oldest
+                    .get();
+        }
     }
 
     public String getRolesForAuthority() {
