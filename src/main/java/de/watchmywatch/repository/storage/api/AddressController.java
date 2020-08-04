@@ -1,10 +1,9 @@
 package de.watchmywatch.repository.storage.api;
 
 import de.watchmywatch.model.Helper.Address;
-import de.watchmywatch.model.OrderManagment.Order;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -12,7 +11,6 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/api")
-
 public class AddressController {
     @Autowired
     public AddressRepository addressRepository;
@@ -32,19 +30,20 @@ public class AddressController {
     }
 
     // POST /api/addresses creates the address with the send json-body
-    @PostMapping(path = "/addresses")
+    @PostMapping(path = "/addresses", produces = "application/json")
     public @ResponseBody
-    String addNewAddress(@RequestBody Address address) {
+    @ResponseStatus(HttpStatus.CREATED)
+    Address addNewAddress(@RequestBody Address address) {
         address.setCreated(new Date());
         address.setModified(null);
-        addressRepository.save(address);
-        return "Saved";
+        return addressRepository.save(address);
     }
 
     // PUT /api/addresses/:id updates the address with the given id
-    @PutMapping("/addresses/{id}")
+    @PutMapping(value = "/addresses/{id}", produces = "application/json")
     public @ResponseBody
-    Address updateAddress(@PathVariable Integer id, @RequestBody Address newAddress) {
+    @ResponseStatus(HttpStatus.OK)
+    Address updateOneAddress(@RequestBody Address newAddress, @PathVariable Integer id) {
         return addressRepository.findById(id)
                 .map(address -> {
                     address.setCity(newAddress.getCity());
@@ -61,10 +60,10 @@ public class AddressController {
     }
 
     // DELETE /api/addresses/:id deletes the address with the given id
-    @DeleteMapping("/addresses/{id}")
+    @DeleteMapping(value = "/addresses/{id}")
     public @ResponseBody
-    String deleteAddress(@PathVariable int id) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void deleteAddress(@PathVariable Integer id) {
         addressRepository.deleteById(id);
-        return "Deleted";
     }
 }
