@@ -6,36 +6,37 @@
 <body class="text-center">
 <header th:replace="fragments/header :: header">
 </header>
-<h1>My Profile</h1>
-<div>
-    <p th:text=" 'Firstname: '+ ${firstName}"/>
-</div>
-<div>
-    <p th:text=" 'Lastname: '+ ${lastName}"/>
-</div>
-<div>
-    <p th:text=" 'E-mail: '+ ${email}"/>
-</div>
-<div>
-    <p th:text=" 'Date of Birth: '+ ${dob}"/>
-</div>
+<div class="container-xl">
+    <h1 style="text-align: center">Profile</h1>
 
-
-<h2>Address</h2>
-
-<div>
-    <p th:text=" 'Street and Housnumber: '+ ${street}"/>
+    <div class="card-deck mb-3 text-center">
+        <!-- Personal Info -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Personal Info</h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text" th:text=" 'Firstname: '+ ${firstName}"/>
+                <p class="card-text" th:text=" 'Lastname: '+ ${lastName}"/>
+                <p class="card-text" th:text=" 'E-mail: '+ ${email}"/>
+                <p class="card-text" th:text=" 'Date of Birth: '+ ${dob}"/>
+            </div>
+            <!-- Address -->
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Address</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text" th:text=" 'Street and Housnumber: '+ ${street}"/>
+                    <p class="card-text" th:text=" 'ZIP: '+ ${zip}"/>
+                    <p class="card-text" th:text=" 'City: '+ ${city}"/>
+                    <p class="card-text" th:text=" 'State: '+ ${state}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-primary" href="/updateUser">Update User Details</a>
 </div>
-<div>
-    <p th:text=" 'ZIP: '+ ${zip}"/>
-</div>
-<div>
-    <p th:text=" 'City: '+ ${city}"/>
-</div>
-<div>
-    <p th:text=" 'State: '+ ${state}"/>
-</div>
-<button class="btn btn-outline-danger my-2 my-sm-0 btm-sm"><a href="/updateUser">Update User Details</button>
 <footer th:replace="fragments/footer :: footer">
 </footer>
 
