@@ -10,8 +10,9 @@
 <div class="container-xl">
     <h1 style="text-align: center">Your Shoppingcart</h1>
     <div>
-        <div th:if="${#lists.isEmpty(items)}">
-            <h1><span class="badge badge-secondary">Empty</span></h1>
+        <div th:if="${#lists.isEmpty(items)}" style="text-align: center">
+            <h1><span class="badge badge-secondary" style="width:300px;">Empty</span></h1>
+            <a href="/watchList" class="btn btn-primary btn-lg" style="width:300px;">Browse Watches</a>
         </div>
         <div th:unless="${#lists.isEmpty(items)}">
             <div class="list-group" th:each="watch : ${items}">
