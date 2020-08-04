@@ -52,7 +52,6 @@ public class UserController {
         user.setAddress(addressRepository.save(user.getAddress()));
         user.setBillingAddress(addressRepository.save(user.getBillingAddress()));
         user.setShoppingCart(shoppingcartRepository.save(new Shoppingcart()));
-        user.setOrders(null);
 
         return userRepository.save(user);
     }
