@@ -8,8 +8,8 @@
 <body>
 <div class="container-xl">
     <h1 style="text-align: center">Your Orders</h1>
-    <div th:if="${#lists.isEmpty(orders)}">
-        <h1><span class="badge badge-secondary">Empty</span></h1>
+    <div th:if="${#lists.isEmpty(orders)}" style="text-align: center">
+        <h1><span class="badge badge-secondary" style="width:300px;">Empty</span></h1>
     </div>
     <div th:unless="${#lists.isEmpty(orders)}">
         <div class="list-group" th:each="order : ${orders}">

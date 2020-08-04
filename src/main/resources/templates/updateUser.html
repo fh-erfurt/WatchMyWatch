@@ -31,7 +31,7 @@
         <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
 
         <input type="text" th:field="*{securePassword}"
-               th:value="${updateUser.setSecurePassword(updateUser.getSecu rePassword())}" hidden/>
+               th:value="${updateUser.setSecurePassword(updateUser.getSecurePassword())}" hidden/>
         <span th:if="${#fields.hasErrors('securePassword')}" th:errors="*{securePassword}"></span>
 
 
