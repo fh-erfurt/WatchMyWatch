@@ -16,7 +16,7 @@ public class WatchMyWatchApplication {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("de.watchmywatch"))
                 .paths(PathSelectors.any())
                 .build();
     }
