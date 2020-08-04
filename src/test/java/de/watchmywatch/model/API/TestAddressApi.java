@@ -18,7 +18,7 @@ public class TestAddressApi {
 
     @Test
     public void whenRequestGetWithId_thenOK() {
-        given().port(8086).when().request("GET", "/api/addresses?id=1")
+        given().port(8086).when().request("GET", "/api/addresses/1")
                 .then().statusCode(200);
     }
 
