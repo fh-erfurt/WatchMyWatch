@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // The pages does not require login
                 .antMatchers("/","/login","/logout","/register","/newUser","/index", "/swagger-ui.html",
-                        "/v2/api-docs", "/swagger-resources", "/api/**").permitAll()
+                        "/v2/api-docs", "/swagger-resources/**", "/api/**").permitAll()
                 .antMatchers("/greeting").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
