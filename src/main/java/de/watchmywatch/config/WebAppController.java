@@ -15,10 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+
+import java.util.*;
 import java.util.logging.Logger;
 
 @Controller
@@ -224,6 +222,10 @@ public class WebAppController {
         List<Order> orders = new ArrayList<Order>();
         if (user.isPresent()) {
             orders = user.get().getOrders();
+            if(orders != null)
+            {
+                orders.sort(Comparator.comparing(Order::getOrderDate).reversed());
+            }
             model.addAttribute("orders", orders);
         } else {
             return "redirect:/";

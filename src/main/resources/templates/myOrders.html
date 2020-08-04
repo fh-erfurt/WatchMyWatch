@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <th:block th:include="fragments/head :: head"></th:block>
+</head>
+<header th:replace="fragments/header :: header"></header>
+<body>
+<div class="container-xl">
+    <h1 style="text-align: center">Your Orders</h1>
+    <div th:if="${#lists.isEmpty(orders)}">
+        <h1><span class="badge badge-secondary">Empty</span></h1>
+    </div>
+    <div th:unless="${#lists.isEmpty(orders)}">
+        <div class="list-group" th:each="order : ${orders}">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0"
+                        th:utext="'Order Date: ' + ${order.getOrderDate()}"></h6>
+                    <small class="text-muted" th:utext="'Shipping Address: ' + ${order.getAddress().getStreet()} +  ', ' +
+                    ${order.getAddress().getZip()} + ' ' + ${order.getAddress().getCity()} + ', ' + ${order.getAddress().getState()}"></small>
+                    <br>
+
+                    <small class="text-muted" th:utext="'Shipping Status: ' + ${order.getShippingStatus()}"></small>
+                    <br>
+                    <small class="text-muted" th:utext="'Order Status: ' + ${order.getOrderStatus()}"></small>
+                    <div th:if="${#lists.isEmpty(order.getShoppingcart().getItems())}">
+                        <h1><span class="badge badge-secondary">Empty</span></h1>
+                    </div>
+                    <div th:unless="${#lists.isEmpty(order.getShoppingcart().getItems())}">
+                        <div class="list-group" th:each="watch : ${order.getShoppingcart().getItems()}">
+                            <div style="border-top: 1px groove rgba(0,0,0,.125)">
+                                <h6 class="my-0" th:utext="${watch.getName()}"></h6>
+                                <small class="text-muted" th:utext="${watch.getPriceWithFee()}+'€'"></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h6 ><span class="my-0" th:utext="${order.getTotal()}+'€'"></span></h6>
+            </li>
+            <br>
+        </div>
+    </div>
+</div>
+<footer th:replace="fragments/footer :: footer"></footer>
+    <th:block th:include="fragments/javascript :: javascript"></th:block>
+</body>
+
+</html>

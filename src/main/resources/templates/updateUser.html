@@ -12,7 +12,7 @@
     <form action="#" th:action="@{/updateUser}" th:object="${updateUser}" method="post">
 
         <label for="updateFirstname" class="sr-only">Firstname</label>
-        <input id="updateFirstname" class="form-control" type="text" th:field="*{firstname}" th:value="${firstName}"
+        <input id="updateFirstname" class="form-control" type="text" th:field="*{firstname}"
                placeholder="Firstname"/>
         <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
 
@@ -31,7 +31,7 @@
         <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
 
         <input type="text" th:field="*{securePassword}"
-               th:value="${updateUser.setSecurePassword(updateUser.getSecurePassword())}" hidden/>
+               th:value="${updateUser.setSecurePassword(updateUser.getSecu rePassword())}" hidden/>
         <span th:if="${#fields.hasErrors('securePassword')}" th:errors="*{securePassword}"></span>
 
 
