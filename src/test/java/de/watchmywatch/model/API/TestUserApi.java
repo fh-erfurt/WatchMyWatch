@@ -27,7 +27,7 @@ public class TestUserApi {
     @Test
     public void whenPost_thenCreatedAndCorrect() {
         Address address = new Address("streetName", "cityName", "stateName", "zipName");
-        User user = new User("firstname", "lastname", "email", "password",
+        User user = new User("Tom", "lastname", "email2@mail.com", "password",
                 "12301230123", address, LocalDate.of(1998, 9, 23), address, new Shoppingcart());
         given().port(8086).contentType("application/json").body(user)
                 .when().post("/api/users")
@@ -42,23 +42,25 @@ public class TestUserApi {
     @Test
     public void whenPut_thenCorrect() {
         Address address = new Address("streetName", "cityName", "stateName", "zipName");
+        User user = new User("updatedFirstName", "updatedLastname", "updated@mail.com", "password",
+                "12738126738", address, LocalDate.of(1998, 9, 23), address, new Shoppingcart());
         given().port(8086)
                 .contentType("application/json")
-                .body(address)
+                .body(user)
                 .when()
-                .put("/api/users/10")
+                .put("/api/users/1")
                 .then()
                 .statusCode(200)
-                .body("street", equalTo(address.getStreet()))
-                .body("city", equalTo(address.getCity()))
-                .body("state", equalTo(address.getState()))
-                .body("zip", equalTo(address.getZip()));
+                .body("firstname", equalTo(user.getFirstname()))
+                .body("lastname", equalTo(user.getLastname()))
+                .body("email", equalTo(user.getEmail()))
+                .body("phone", equalTo(user.getPhone()));
     }
 
     @Test
     public void whenDelete_thenCorrect() {
         given().port(8086).contentType("application/json")
-                .when().delete("/api/users/13")
+                .when().delete("/api/users/36")
                 .then().statusCode(204);
     }
 }
