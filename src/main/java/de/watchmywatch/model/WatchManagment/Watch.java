@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,6 +29,7 @@ public class Watch extends DatabaseEntity implements Validatable
     private double price;
 
     @ApiModelProperty(notes = "The user given particularity of the watch.")
+    @Size(max = 2000, message = "particularity must be shorter than 2000 characters.")
     private String particularity;
 
     //parts in the following order: Bracelet, Casing, Clockwork (if adding manually)
