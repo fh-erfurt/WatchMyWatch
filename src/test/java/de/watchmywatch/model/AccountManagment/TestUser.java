@@ -10,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import static de.watchmywatch.model.AccountManagment.User.get_SHA_256_SecurePassword;
@@ -116,14 +115,14 @@ public class TestUser {
         Order order2 = new Order(address1, shoppingcart1);
         //LocalDateTime date = LocalDateTime.of(2000, Month.JANUARY, 1, 12, 0);
         Date date = new Date(20000102);
-        order2.setOrderDate(date);
+        order2.setOrdered(date);
         user1.addOrder(order1);
         user1.addOrder(order2);
         // When
 
         // Then
         assertFalse(user1.returnOldestUnpaidOrder().isPaid());
-        assertEquals(date, user1.returnOldestUnpaidOrder().getOrderDate());
+        assertEquals(date, user1.returnOldestUnpaidOrder().getOrdered());
     }
 
     @Test
@@ -132,7 +131,7 @@ public class TestUser {
         Order order12 = new Order(address1, shoppingcart1);
         //LocalDateTime date = LocalDateTime.of(2000, Month.JANUARY, 1, 12, 0);
         Date date = new Date(20000102);
-        order12.setOrderDate(date);
+        order12.setOrdered(date);
         Order order13 = order1;
         order13.getPayment().setDatePaid(new Date());
         user1.addOrder(order1);
@@ -141,6 +140,6 @@ public class TestUser {
 
         // Then
         assertFalse(user1.returnOldestUnpaidOrder().isPaid());
-        assertEquals(date, user1.returnOldestUnpaidOrder().getOrderDate());
+        assertEquals(date, user1.returnOldestUnpaidOrder().getOrdered());
     }
 }

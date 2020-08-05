@@ -2,14 +2,12 @@ package de.watchmywatch.model.OrderManagment;
 
 import de.watchmywatch.model.AccountManagment.User;
 import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
-import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.WatchManagment.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -91,7 +89,7 @@ public class TestOrder {
         //When
         order1.setShippingStatus(ShippingStatus.SENT);
         //Then
-        assertTrue(order1.getShipDate() != null);
+        assertTrue(order1.getShipped() != null);
     }
 
     @Test

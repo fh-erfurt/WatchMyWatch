@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.*;
 import java.util.logging.Logger;
@@ -227,7 +226,7 @@ public class WebAppController {
             orders = user.get().getOrders();
             if(orders != null)
             {
-                orders.sort(Comparator.comparing(Order::getOrderDate).reversed());
+                orders.sort(Comparator.comparing(Order::getOrdered).reversed());
             }
             model.addAttribute("orders", orders);
         } else {

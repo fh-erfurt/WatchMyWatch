@@ -13,28 +13,28 @@ import javax.persistence.*;
 
 /**
  * Class which represents an Order
+ *
  * @author Michael Hopp
  */
 
 
 @Entity//(name = "Order")
 //@javax.persistence.Table(name = "\"ORDER\"")
-@Table(name="\"Order\"")
-public class Order extends DatabaseEntity
-{
+@Table(name = "\"Order\"")
+public class Order extends DatabaseEntity {
     private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     @Transient
     public static final double SHIPPINGFEE = 5.90;     // Constant Shipping cost.
 
-    @Temporal( TemporalType.TIMESTAMP )
+    @Temporal(TemporalType.TIMESTAMP)
     private Date ordered;
 
-    @Temporal( TemporalType.TIMESTAMP )
+    @Temporal(TemporalType.TIMESTAMP)
     private Date shipped;
 
 
-    @OneToOne(cascade= CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Address shippingAddress;
 
     @Enumerated(EnumType.STRING)
@@ -45,20 +45,21 @@ public class Order extends DatabaseEntity
 
     private double total;
 
-    @OneToOne(cascade= CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Shoppingcart shoppingcart;
 
-    @OneToOne(cascade= CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Payment payment;
 
-    @ManyToOne(cascade= CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private User user;
 
 
     /**
      * Creates an Order Object without PaymentMethod.
-     * @param address       Address for shipping and billing.
-     * @param shoppingcart  List of watches, which shall be ordered
+     *
+     * @param address      Address for shipping and billing.
+     * @param shoppingcart List of watches, which shall be ordered
      * @author Michael Hopp
      */
     public Order(Address address, Shoppingcart shoppingcart) throws ShoppingcartEmptyException {
@@ -76,6 +77,7 @@ public class Order extends DatabaseEntity
 
     /**
      * Creates an Order Object with PaymentMethod.
+     *
      * @param address       Address for shipping and billing.
      * @param shoppingcart  List of watches, which shall be ordered
      * @param paymentMethod How the Order shall be paid.
@@ -96,9 +98,10 @@ public class Order extends DatabaseEntity
 
     /**
      * Creates an Order Object with User.
-     * @param address       Address for shipping and billing.
-     * @param shoppingcart  List of watches, which shall be ordered
-     * @param user          Owner.
+     *
+     * @param address      Address for shipping and billing.
+     * @param shoppingcart List of watches, which shall be ordered
+     * @param user         Owner.
      * @author Michael Hopp
      */
     public Order(Address address, Shoppingcart shoppingcart, User user) throws ShoppingcartEmptyException {
@@ -114,103 +117,104 @@ public class Order extends DatabaseEntity
         this.user = user;
         logger.info("New Order was created.");
     }
+
     /**
      * Constructor without Parameters for JPA.
+     *
      * @author Michael Hopp
      */
-    public Order(){}
+    public Order() {
+    }
 
 
     /**
      * Checks if the Shoppingcart contains any Items: If not - throws ShoppingcartEmptyException
+     *
      * @param shoppingcart Shoppingcart which will be checked
      * @author Michael Hopp
      */
     private void checkShoppingcartEmpty(Shoppingcart shoppingcart) throws ShoppingcartEmptyException {
-        if (shoppingcart.getItems().isEmpty())
-        {
+        if (shoppingcart.getItems().isEmpty()) {
             logger.warning("Shoppingcart in Order cannot be empty");
             throw new ShoppingcartEmptyException("Shoppingcart in Order cannot be empty");
         }
     }
 
-    public void setShoppingcart(Shoppingcart shoppingcart){
-        this.shoppingcart = shoppingcart;
-        this.calcTotal();
-}
-    public Date getOrderDate()
-    {
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Date getOrdered() {
         return this.ordered;
     }
 
-    public void setOrderDate(Date date)
-    {
+    public void setOrdered(Date date) {
         this.ordered = date;
         logger.info("OrderDate was set to " + date + ".");
     }
 
-    public Date getShipDate()
-    {
+    public Date getShipped() {
         return this.shipped;
     }
 
-    public void setShipDate(Date date)
-    {
-        this.shipped =date;
+    public void setShipped(Date date) {
+        this.shipped = date;
     }
 
-    public Address getAddress()
-    {
+    public Address getShippingAddress() {
         return this.shippingAddress;
     }
 
-    public void setAddress(Address newAddress)
-    {
+    public void setShippingAddress(Address newAddress) {
         this.shippingAddress = newAddress;
     }
 
-    public OrderStatus getOrderStatus()
-    {
+    public OrderStatus getOrderStatus() {
         return this.orderStatus;
     }
-    public void setOrderStatus(OrderStatus newOrderStatus)
-    {
+
+    public void setOrderStatus(OrderStatus newOrderStatus) {
         this.orderStatus = newOrderStatus;
     }
 
-    public ShippingStatus getShippingStatus()
-    {
+    public ShippingStatus getShippingStatus() {
         return this.shippingStatus;
     }
 
     /**
      * Sets the ShippingStatus of an Order and if newShippingStatus is SENT, sets shipping date to current time
+     *
      * @param newShippingStatus Desired new ShippingStatus
      * @author Michael Hopp
      */
-    public void setShippingStatus(ShippingStatus newShippingStatus)
-    {
+    public void setShippingStatus(ShippingStatus newShippingStatus) {
         this.shippingStatus = newShippingStatus;
         logger.info("ShippingStatus was set to " + newShippingStatus + ".");
-        if(newShippingStatus == ShippingStatus.SENT)
-        {
-            setShipDate(new Date());
+        if (newShippingStatus == ShippingStatus.SENT) {
+            setShipped(new Date());
         }
 
     }
 
-    public double getTotal()
-    {
+    public static double getSHIPPINGFEE() {
+        return SHIPPINGFEE;
+    }
+
+    public double getTotal() {
         calcTotal();
         return this.total;
     }
 
     /**
      * Calculates new total for Order including SHIPPINGFEE.
+     *
      * @author Michael Hopp
      */
-    public void calcTotal()
-    {
+    public void calcTotal() {
         this.total = this.shoppingcart.getTotal() + SHIPPINGFEE;
     }
 
@@ -218,46 +222,50 @@ public class Order extends DatabaseEntity
         this.total = total;
     }
 
-    public Shoppingcart getShoppingcart(){
-    return this.shoppingcart;
+    public Shoppingcart getShoppingcart() {
+        return this.shoppingcart;
     }
 
-    public Payment getPayment(){
-    return this.payment;
+    public void setShoppingcart(Shoppingcart shoppingcart) {
+        this.shoppingcart = shoppingcart;
+        this.calcTotal();
     }
 
-    public void setPayment(Payment payment)
-    {
-    this.payment = payment;
+    public Payment getPayment() {
+        return this.payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     /**
      * Checks whether or not this Order has a set datePaid in its Payment.
+     *
      * @return true if datePaid in this Payment is set, else false
      * @author Michael Hopp
      */
-    public boolean isPaid()
-    {
+    public boolean isPaid() {
         return this.payment.getDatePaid() != null;
     }
 
     // TODO: Apply Principle of Single Responsibilty to pay() ...
+
     /**
      * Pays given Order, sends it and thereby completes Order.
+     *
      * @return true if Order wasn't paid yet and could be paid, else false
      * @author Michael Hopp
      */
-    public boolean pay(){
+    public boolean pay() {
         boolean success = false;
-        if(!isPaid()) {
+        if (!isPaid()) {
             this.getPayment().setDatePaid(new Date());
             this.setShippingStatus(ShippingStatus.SENT);
             this.setOrderStatus(OrderStatus.COMPLETE);
             success = true;
             logger.info("Order was paid.");
-        }
-        else
-        {
+        } else {
             logger.info("Order is already paid...");
         }
         return success;

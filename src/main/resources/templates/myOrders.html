@@ -16,7 +16,7 @@
             <li class="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
                     <h6 class="my-0"
-                        th:utext="'Order Date: ' + ${order.getOrderDate()}"></h6>
+                        th:utext="'Order Date: ' + ${order.getOrdered()}"></h6>
                     <small class="text-muted" th:utext="'Shipping Address: ' + ${order.getAddress().getStreet()} +  ', ' +
                     ${order.getAddress().getZip()} + ' ' + ${order.getAddress().getCity()} + ', ' + ${order.getAddress().getState()}"></small>
                     <br>

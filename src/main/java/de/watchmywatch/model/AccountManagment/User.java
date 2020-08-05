@@ -185,7 +185,7 @@ public class User extends DatabaseEntity {
         } else {
             return orders.stream()
                     .filter(order -> !order.isPaid())  // Filter for unpaid Orders
-                    .min(Comparator.comparing(Order::getOrderDate)) // select oldest
+                    .min(Comparator.comparing(Order::getOrdered)) // select oldest
                     .get();
         }
     }

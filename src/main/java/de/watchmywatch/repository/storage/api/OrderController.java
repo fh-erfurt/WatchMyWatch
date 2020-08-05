@@ -16,7 +16,8 @@ public class OrderController {
 
     // GET /api/orders returns all orders
     @GetMapping(path="/orders")
-    public @ResponseBody Iterable<Order> getAllOrders() {
+    public @ResponseBody
+    Iterable<Order> getAllOrders() {
         // This returns a JSON or XML with the orders
         return orderRepository.findAll();
     }
@@ -33,10 +34,8 @@ public class OrderController {
     // POST /api/orders creates an Order in the database and returns "Saved"
     @PostMapping(path="/orders") // Map ONLY POST Requests
     public @ResponseBody
-    String addNewOrder (Order order) {
-        // @ResponseBody means the returned String is the response, not a view name
-        orderRepository.save(order);
-        return "Saved";
+    Order addNewOrder (@RequestBody Order order) {
+        return orderRepository.save(order);
     }
 
     // PUT /api/orders/:id updates the order with the id
@@ -45,9 +44,9 @@ public class OrderController {
     Order updateOrder(@PathVariable Integer id, @RequestBody Order newOrder) {
         return orderRepository.findById(id)
                 .map(order -> {
-                    order.setOrderDate(newOrder.getOrderDate());
-                    order.setShipDate(newOrder.getShipDate());
-                    order.setAddress(newOrder.getAddress());
+                    order.setOrdered(newOrder.getOrdered());
+                    order.setShipped(newOrder.getShipped());
+                    order.setShippingAddress(newOrder.getShippingAddress());
                     order.setOrderStatus(newOrder.getOrderStatus());
                     order.setShippingStatus(newOrder.getShippingStatus());
                     order.setShoppingcart(newOrder.getShoppingcart());
