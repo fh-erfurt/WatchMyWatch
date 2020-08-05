@@ -44,9 +44,7 @@ public class UserController {
     @PostMapping(path = "/users", produces = "application/json")
     public @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    User addUser(/*@RequestParam LocalDate dob, @RequestParam String firstname, @RequestParam String lastname, @RequestParam String email,
-                 @RequestParam PaymentMethod paymentMethod, @RequestParam String phone, @RequestParam String password,
-                 @RequestParam Integer addressId, @RequestParam Integer billingAddressId*/ @RequestBody User user) {
+    User addUser(@RequestBody User user) {
 
         user.setSecurePassword(passwordEncoder.encode(user.getSecurePassword()));
         user.setAddress(addressRepository.save(user.getAddress()));

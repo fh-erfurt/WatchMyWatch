@@ -190,7 +190,7 @@ public class User extends DatabaseEntity {
         }
     }
 
-    public String getRolesForAuthority() {
+    public String returnRolesForAuthority() {
         return "ROLE_" + accountStatus;
     }
 

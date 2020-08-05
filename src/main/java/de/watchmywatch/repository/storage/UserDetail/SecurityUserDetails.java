@@ -22,7 +22,7 @@ public class SecurityUserDetails implements UserDetails {
         this.id = user.getId();
         this.email = user.getEmail();
         this.password = user.getSecurePassword();
-        this.authorities = Arrays.stream(user.getRolesForAuthority().split(","))
+        this.authorities = Arrays.stream(user.returnRolesForAuthority().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }
