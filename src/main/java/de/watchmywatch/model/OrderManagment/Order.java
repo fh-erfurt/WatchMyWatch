@@ -139,14 +139,6 @@ public class Order extends DatabaseEntity {
             throw new ShoppingcartEmptyException("Shoppingcart in Order cannot be empty");
         }
     }
-/*
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }*/
 
     public Date getOrdered() {
         return this.ordered;
@@ -199,10 +191,6 @@ public class Order extends DatabaseEntity {
         }
 
     }
-/*
-    public static double getSHIPPINGFEE() {
-        return SHIPPINGFEE;
-    }*/
 
     public double getTotal() {
         calcTotal();
