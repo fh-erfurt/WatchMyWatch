@@ -233,7 +233,7 @@ public class Order extends DatabaseEntity {
      * @return true if datePaid in this Payment is set, else false
      * @author Michael Hopp
      */
-    public boolean isPaid() {
+    public boolean wasAlreadyPaid() {
         return this.payment.getDatePaid() != null;
     }
 
@@ -247,7 +247,7 @@ public class Order extends DatabaseEntity {
      */
     public boolean pay() {
         boolean success = false;
-        if (!isPaid()) {
+        if (!wasAlreadyPaid()) {
             this.getPayment().setDatePaid(new Date());
             this.setShippingStatus(ShippingStatus.SENT);
             this.setOrderStatus(OrderStatus.COMPLETE);

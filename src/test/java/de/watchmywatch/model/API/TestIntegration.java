@@ -4,23 +4,15 @@ import de.watchmywatch.model.AccountManagment.User;
 import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.OrderManagment.Order;
-import de.watchmywatch.model.OrderManagment.OrderStatus;
-import de.watchmywatch.model.OrderManagment.PaymentMethod;
 import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import de.watchmywatch.model.WatchManagment.*;
-import de.watchmywatch.repository.storage.api.UserRepository;
-import io.restassured.response.Response;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestIntegration {
 
@@ -177,96 +169,29 @@ public class TestIntegration {
         // User puts new Watch into his*her shoppingcart
         given().port(8086).contentType("application/json")
                 .when()
-                .post("/api/shoppingcarts/"+responseUser.getId()+"/addWatch/"+responseWatch.getId());
+                .post("/api/shoppingcarts/"+responseUser.getShoppingCart().getId()+"/addWatch/"+responseWatch.getId());
 
         // Refresh user
-        responseUser = given().port(8086).contentType("application/json")
+        User refreshedResponseUser = given().port(8086).contentType("application/json")
                 .when()
                 .get("/api/users/"+responseUser.getId())
                 .then()
                 .extract()
                 .response().getBody().as(User.class);
 
-        // User checks out
-        try {
-            order1 = new Order(responseAddress, responseUser.getShoppingCart(), responseUser);
-        } catch (ShoppingcartEmptyException e) {
-            e.printStackTrace();
-        }
-
-        Order responseOrder = given().port(8086).contentType("application/json")
-                .body(order1)
+        Order responseOrder = given().port(8086)
+                .param("addressId", responseAddress.getId())
+                .param("shoppingcartId", responseUser.getShoppingCart().getId())
                 .when()
                 .post("/api/orders")
                 .then()
                 .extract()
                 .response().getBody().as(Order.class);
 
-        assertEquals(false ,responseOrder.isPaid());
-        // User Paid oldest unpaid Order
-        //Order oldestUnpaidOrder = happyUser.returnOldestUnpaidOrder();
-        //boolean success = oldestUnpaidOrder.pay();
-
         given().port(8086).contentType("application/json")
-                .when().delete("/api/users/" + responseUser.getId());
+                .when().delete("/api/users/" + refreshedResponseUser.getId());
 
-        assertEquals(responseUser.getEmail(), user1.getEmail());
-
-
-
-
-        //Then
-        //assertTrue(success);
-        //assertEquals(OrderStatus.COMPLETE, oldestUnpaidOrder.getOrderStatus());
+        //The Order was created and was not paid for
+        assertFalse(responseOrder.wasAlreadyPaid());
     }
-
-/*
-    @Test
-    public void whenRequestGet_thenOK() {
-        given().port(8086)
-                .when().request("GET", "/api/addresses")
-                .then().statusCode(200);
-    }
-
-    @Test
-    public void whenRequestGetWithId_thenOK() {
-        given().port(8086).when().request("GET", "/api/addresses/1")
-                .then().statusCode(200);
-    }
-
-    @Test
-    public void whenPost_thenCreatedAndCorrect() {
-        Address address = new Address("streetName", "cityName", "stateName", "zipName");
-        given().port(8086).contentType("application/json").body(address)
-                .when().post("/api/addresses")
-                .then()
-                .statusCode(201)
-                .body("street", equalTo(address.getStreet()))
-                .body("city", equalTo(address.getCity()))
-                .body("state", equalTo(address.getState()))
-                .body("zip", equalTo(address.getZip()));
-    }
-
-    @Test
-    public void whenPut_thenCorrect() {
-        Address address = new Address("streetName", "cityName", "stateName", "zipName");
-        given().port(8086)
-                .contentType("application/json")
-                .body(address)
-                .when()
-                .put("/api/addresses/1")
-                .then()
-                .statusCode(200)
-                .body("street", equalTo(address.getStreet()))
-                .body("city", equalTo(address.getCity()))
-                .body("state", equalTo(address.getState()))
-                .body("zip", equalTo(address.getZip()));
-    }
-
-    @Test
-    public void whenDelete_thenCorrect() {
-        given().port(8086).contentType("application/json")
-                .when().delete("/api/addresses/10")
-                .then().statusCode(204);
-    }*/
 }

@@ -107,7 +107,7 @@ public class TestOrder {
         //When
         order1.getPayment().setDatePaid(new Date());
         //Then
-        assertTrue(order1.isPaid());
+        assertTrue(order1.wasAlreadyPaid());
     }
 
 }
