@@ -20,7 +20,7 @@ public class WatchValidator implements Validator
         {
             Watch watch = (Watch) validatable;
 
-            if (watch.getPriceWithoutFee() <= 0)
+            if (watch.returnPriceWithoutFee() <= 0)
             {
                 logger.warning("price cant be lower/equal 0");
                 return false;

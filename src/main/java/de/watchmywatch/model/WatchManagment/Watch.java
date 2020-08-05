@@ -149,7 +149,7 @@ public class Watch extends DatabaseEntity implements Validatable
      * @return returns the calculated price with our fees
      * @author Tom Käppler
      */
-    public double getPriceWithFee()
+    public double returnPriceWithFee()
     {
         if (this.price < 2000.00)
         {
@@ -165,7 +165,7 @@ public class Watch extends DatabaseEntity implements Validatable
      * @return returns the price without fees
      * @author Tom Käppler
      */
-    public double getPriceWithoutFee()
+    public double returnPriceWithoutFee()
     {
         return this.price;
     }

@@ -1,10 +1,8 @@
 package de.watchmywatch.model.WatchManagment;
 
 import de.watchmywatch.model.AccountManagment.User;
-import de.watchmywatch.model.Exceptions.ShoppingcartEmptyException;
 import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.Helper.Address;
-import de.watchmywatch.model.OrderManagment.Order;
 import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -96,7 +94,7 @@ public class TestWatch {
         //Given
         //When
         //Then
-        assertEquals(165.00, watch1.getPriceWithFee());
+        assertEquals(165.00, watch1.returnPriceWithFee());
     }
 
     @Test
@@ -104,6 +102,6 @@ public class TestWatch {
         //Given
         //When
         //Then
-        assertEquals(2300.0, watch2.getPriceWithFee());
+        assertEquals(2300.0, watch2.returnPriceWithFee());
     }
 }

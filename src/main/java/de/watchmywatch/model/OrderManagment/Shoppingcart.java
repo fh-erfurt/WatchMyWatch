@@ -56,7 +56,7 @@ public class Shoppingcart extends DatabaseEntity
         {
             for (Watch temp : this.items)
             {
-                result += temp.getPriceWithFee();
+                result += temp.returnPriceWithFee();
             }
         }
         this.total = result;
@@ -74,7 +74,7 @@ public class Shoppingcart extends DatabaseEntity
         if (watch != null && watch.validate())
         {
             items.add(watch);
-            this.total+=watch.getPriceWithFee();
+            this.total+=watch.returnPriceWithFee();
             result = true;
             logger.info("Added Watch to Shoppingcart.");
         }
@@ -97,7 +97,7 @@ public class Shoppingcart extends DatabaseEntity
         if (watch != null)
         {
             items.remove(watch);
-            this.total -= watch.getPriceWithFee();
+            this.total -= watch.returnPriceWithFee();
             result = true;
             logger.info("Removed Watch from Shoppingcart.");
         }
@@ -122,7 +122,7 @@ public class Shoppingcart extends DatabaseEntity
             while(items.contains(watch))
             {
                 items.remove(watch);
-                this.total -= watch.getPriceWithFee();
+                this.total -= watch.returnPriceWithFee();
                 result +=1;
             }
             logger.info(result + " Occurance(s) of Watch was/were removed from Shoppingcart.");

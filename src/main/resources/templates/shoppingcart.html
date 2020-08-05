@@ -19,7 +19,7 @@
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0" th:utext="${watch.getName()}"></h6>
-                        <small class="text-muted" th:utext="${watch.getPriceWithFee()}+'€'"></small>
+                        <small class="text-muted" th:utext="${watch.returnPriceWithFee()}+'€'"></small>
                     </div>
                     <form action="#" th:action="@{'/removeWatch/'+${watch.getId()}}" method="post">
                         <button class="text-muted btn btn-outline-danger" type="submit">X</button>

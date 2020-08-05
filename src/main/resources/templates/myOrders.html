@@ -31,7 +31,7 @@
                         <div class="list-group" th:each="watch : ${order.getShoppingcart().getItems()}">
                             <div style="border-top: 1px groove rgba(0,0,0,.125)">
                                 <h6 class="my-0" th:utext="${watch.getName()}"></h6>
-                                <small class="text-muted" th:utext=" 'Watch Price: ' + ${watch.getPriceWithFee()}+'€'"></small>
+                                <small class="text-muted" th:utext=" 'Watch Price: ' + ${watch.returnPriceWithFee()}+'€'"></small>
                             </div>
                         </div>
                         <div style="border-top: 1px groove rgba(0,0,0,.125)">
