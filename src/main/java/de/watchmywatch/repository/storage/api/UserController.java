@@ -2,18 +2,12 @@ package de.watchmywatch.repository.storage.api;
 
 import de.watchmywatch.model.AccountManagment.User;
 
-import de.watchmywatch.model.Helper.Address;
-import de.watchmywatch.model.OrderManagment.Order;
-import de.watchmywatch.model.OrderManagment.PaymentMethod;
 import de.watchmywatch.model.OrderManagment.Shoppingcart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
-import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/api")

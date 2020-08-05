@@ -4,13 +4,14 @@ import de.watchmywatch.model.Helper.Address;
 import de.watchmywatch.model.WatchManagment.Manufacturer;
 import de.watchmywatch.repository.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@Controller // This means that this class is a Controller
-@RequestMapping(path = "/api") // This means URL's start with /api
+@Controller
+@RequestMapping(path = "/api")
 public class ManufacturerController {
 
     @Autowired
@@ -23,6 +24,7 @@ public class ManufacturerController {
     // GET /api/manufacturers returns all manufacturers
     @GetMapping("/manufacturers")
     public @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     Iterable<Manufacturer> getAllManufacturers() {
         return manufacturerRepository.findAll();
     }
@@ -30,6 +32,7 @@ public class ManufacturerController {
     // GET /api/manufacturers/:id returns manufacturer with id
     @GetMapping("/manufacturers/{id}")
     public @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     Manufacturer getOneManufacturer(@PathVariable Integer id) {
         return manufacturerRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("manufacturer", id));
@@ -38,6 +41,7 @@ public class ManufacturerController {
     // POST /api/manufacturers creates a manufacturer
     @PostMapping("/manufacturers")
     public @ResponseBody
+    @ResponseStatus(HttpStatus.CREATED)
     Manufacturer newManufacturer(@RequestParam String name, @RequestParam int addressId, @RequestParam String contactEmail, @RequestParam String contactPhone) {
         Optional<Address> optionalAddress = addressRepository.findById(addressId);
         Address address = optionalAddress.get();
@@ -50,6 +54,7 @@ public class ManufacturerController {
     // PUT /api/manufacturers updates a manufacturer with id
     @PutMapping("/manufacturers/{id}")
     public @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     Manufacturer updateManufacturer(@PathVariable Integer id, @RequestBody Manufacturer newManufacturer) {
         return manufacturerRepository.findById(id)
                 .map(manufacturer -> {
@@ -70,8 +75,8 @@ public class ManufacturerController {
     // DELETE /api/manufacturers/:id deletes the manufacturer with id
     @DeleteMapping("/manufacturers/{id}")
     public @ResponseBody
-    String deleteManufacturer(@PathVariable int id) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void deleteManufacturer(@PathVariable int id) {
         manufacturerRepository.deleteById(id);
-        return "Deleted";
     }
 }
