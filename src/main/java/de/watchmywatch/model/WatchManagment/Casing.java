@@ -82,7 +82,7 @@ public class Casing extends Watchpart implements Validatable
         return connection;
     }
 
-    public void setConnection(String casingConnection)
+    public void setConnection(ConnectionType connection)
     {
         this.connection = connection;
     }
