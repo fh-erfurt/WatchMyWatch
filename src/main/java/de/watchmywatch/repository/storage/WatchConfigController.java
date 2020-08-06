@@ -1,5 +1,6 @@
 package de.watchmywatch.repository.storage;
 
+import de.watchmywatch.model.Exceptions.WatchNameNotValidException;
 import de.watchmywatch.model.WatchManagment.Bracelet;
 import de.watchmywatch.model.WatchManagment.Casing;
 import de.watchmywatch.model.WatchManagment.Clockwork;
@@ -51,8 +52,31 @@ public class WatchConfigController {
             return "/watchConfigurator";
         }
 
-
         Optional<Watch> watch = watchRepository.findByName(watchDetails.getName());
+
+        if (watchDetails.getBraceletId() == 0) {
+            result.rejectValue("braceletId", "error.watchDetails", "No bracelet chosen. You have to reload the page. Sadly 😅");
+            return "/watchConfigurator";
+        }
+        if (watchDetails.getCasingId() == 0) {
+            result.rejectValue("casingId", "error.watchDetails", "No casing chosen. You have to reload the page. Sadly 😅");
+            return "/watchConfigurator";
+        }
+        if (watchDetails.getClockworkId() == 0) {
+            result.rejectValue("clockworkId", "error.watchDetails", "No clockwork chosen. You have to reload the page. Sadly 😅");
+            return "/watchConfigurator";
+        }
+
+        try {
+            Watch functionWatch = new Watch();
+            if (!functionWatch.checkWatchName(watchDetails.getName())) {
+                result.rejectValue("name", "error.watchDetails", "The Watch name is not valid: At least 2 characters, No whitespace at start or end");
+                return "/watchConfigurator";
+            }
+        } catch (WatchNameNotValidException e) {
+            e.printStackTrace();
+        }
+
 
         if (watch.isPresent()) {
             result.rejectValue("name", "error.watchDetails", "A Watch with the same name already exists");
@@ -77,6 +101,6 @@ public class WatchConfigController {
             logger.warning("Watch was not valid");
             return "redirect:/index";
         }
-        return "redirect:/watchConfigurator";
+        return "redirect:/watchList";
     }
 }

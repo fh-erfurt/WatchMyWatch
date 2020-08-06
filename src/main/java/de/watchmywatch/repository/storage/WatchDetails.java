@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 
 public class WatchDetails {
     @NotNull
-    @Size(min = 1, max = 32, message = "Firstname must be 1 - 32 characters long.")
+    @Size(min = 1, max = 32, message = "Watch name cant be empty and has to be between 1 and 32 characters")
     private String name;
     @NotBlank(message = "Please enter a particularity")
     private String particularity;
