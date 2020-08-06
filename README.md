@@ -1,6 +1,68 @@
 # JavaProject [![Build Status](https://github.com/fh-erfurt/WatchMyWatch/workflows/WatchMyWatch/badge.svg)](https://github.com/fh-erfurt/WatchMyWatch/actions) ![License](http://img.shields.io/:license-mit-blue.svg) ![CodeFactor](https://img.shields.io/badge/JAVA-1.8-orange)
 Von [Anton Bespalov](https://github.com/kanton1998), [Michael Hopp](https://github.com/Maffotter), [Tom Käppler](https://github.com/TKSpectro), [Bilal Alnaani](https://github.com/bilal0710)
 
+#Java 2
+
+## Wichtige Links
+
+[Heroku Release](https://watchmywatch2.herokuapp.com/)
+
+[SwaggerUI Heroku](https://watchmywatch2.herokuapp.com/swagger-ui.html)
+
+## Installation
+
+* XAMPP MySql/MariaDB starten
+* Lokal die Datenbank "watchmywatch" erstellen (utf8_general_ci)
+* WatchMyWatchApplication starten
+
+### Neues Klassendiagramm
+
+## Umfang
+
+Java 1 +
+* Webseite (Spring + Thymeleaf + Bootstrap)
+* Datenbank (MySql)
+* API-Schnittstellen
+* API-Schnittstellen (rest-assured)
+* API-Dokumentation (Swagger + SwaggerUI)
+* Heroku Live Release
+
+#### Arbeits-/Aufgabenteilung
+- **Anton Bespalov:**
+  - Account (Webseite + API)
+  - ApiTest
+
+- **Michael Hopp:**
+  - Bestellung (Webseite + API)
+  - ApiTest
+  
+- **Tom Käppler:**
+  - Uhren (Webseite + API)
+  - ApiTest
+  
+- **Bilal Alnaani:**
+  - Spring implementierung
+  - Login/Register (Webseite)
+  - ApiTest
+  
+### Verwendete Technologie
+    - IntelliJ Java 11
+    - JUnit5.4, Maven, JavaDoc, Spring, MySql, Swagger, Thymeleaf, Bootstrap, rest-assured
+    - Versionskontrollsystem: Git
+    - Github Desktop als Brücke zwischen Versionskontrolle und Entwicklungsumgebung.
+    - Kommunikation: WhatsApp und Discord
+
+### Lessons Learned
+- Wöchentliche Verständigung dringend aufrechthalten, sonst langsamerer Gesamt-Fortschritt und höherer Aufwand, um aktuellen Stand zu formulieren.
+- Verbindung von Java-Klassen zu Datenbank muss durchdacht sein
+- Spring Einsatz macht einige Dinge einfacher andere um einiges schwieriger
+- Allgemein Fragen stellen und bei Schwierigkeiten aktiv Hilfe suchen: Lieber einmal mehr Fragen als einmal zu wenig.
+- Einsatz von Frameworks wie Bootstrap machen das Leben einfacher
+- Frameworks während des Projekts nur im Muss-Fall updaten 
+- Aufgabenverteilung klappt sehr gut mit GitHub-Projects
+
+
+# Java 1
 ## HowTo
 Öffnen Sie die pom.xml in IntelliJ
 
