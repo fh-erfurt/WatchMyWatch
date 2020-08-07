@@ -17,6 +17,8 @@ Von [Anton Bespalov](https://github.com/kanton1998), [Michael Hopp](https://gith
 
 ### Neues Klassendiagramm
 
+![classDiagramm](classDiagrammNew.png?raw=true)
+
 ## Umfang
 
 Java 1 +
