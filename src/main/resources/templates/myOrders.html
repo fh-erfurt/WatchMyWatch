@@ -17,8 +17,8 @@
                 <div>
                     <h6 class="my-0"
                         th:utext="'Order Date: ' + ${order.getOrdered()}"></h6>
-                    <small class="text-muted" th:utext="'Shipping Address: ' + ${order.getAddress().getStreet()} +  ', ' +
-                    ${order.getAddress().getZip()} + ' ' + ${order.getAddress().getCity()} + ', ' + ${order.getAddress().getState()}"></small>
+                    <small class="text-muted" th:utext="'Shipping Address: ' + ${order.getShippingAddress().getStreet()} +  ', ' +
+                    ${order.getShippingAddress().getZip()} + ' ' + ${order.getShippingAddress().getCity()} + ', ' + ${order.getShippingAddress().getState()}"></small>
                     <br>
 
                     <small class="text-muted" th:utext="'Shipping Status: ' + ${order.getShippingStatus()}"></small>
