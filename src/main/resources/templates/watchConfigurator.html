@@ -17,6 +17,7 @@
             <label for="name">Name</label>
             <input id="name" type="text" class="form-control" placeholder="Name for the watch"
                    th:field="*{name}" required/>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
         </div>
         <div class="mb-3">
             <label for="particularity">Particularity</label>
@@ -25,6 +26,19 @@
         </div>
 
         <span>Choose a part in all three categories</span><br><br>
+
+        <div th:if="${#fields.hasErrors('braceletId')}" th:errors="*{braceletId}" class="alert alert-danger"
+             role="alert">
+        </div>
+        <div th:if="${#fields.hasErrors('casingId')}" th:errors="*{casingId}" class="alert alert-danger" role="alert">
+        </div>
+        <div th:if="${#fields.hasErrors('clockworkId')}" th:errors="*{clockworkId}" class="alert alert-danger"
+             role="alert">
+        </div>
+
+        <span></span>
+        <span></span>
+        <span></span>
 
         <div class="accordion mb-4" id="accordionExample">
             <div class="card">
